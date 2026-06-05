@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>讀 1900 本書之後，真正值錢的不是書單 | Dan Martell 影片摘要</title>
+  <meta name="description" content="以深度雜誌專題方式整理 Dan Martell 影片 I read 1900 Books, these 4 will make you rich。">
+  <style>
+    :root {
+      --ink: #181716;
+      --muted: #625f58;
+      --paper: #f4eee3;
+      --ivory: #fffdf7;
+      --charcoal: #242424;
+      --moss: #53604e;
+      --wine: #8f3f35;
+      --amber: #c1853d;
+      --blue: #4e667a;
+      --line: rgba(24, 23, 22, 0.16);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Serif TC", "Source Han Serif TC", "Songti TC", Georgia, serif;
+      line-height: 1.78;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      align-items: end;
+      color: #fff7e8;
+      background:
+        linear-gradient(90deg, rgba(24, 23, 22, 0.88), rgba(24, 23, 22, 0.64) 44%, rgba(24, 23, 22, 0.12) 76%),
+        url("Dan_Martell_1900_books_hero_editorial.png");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      display: none;
+      position: absolute;
+      right: 6vw;
+      bottom: 7vh;
+      width: min(40vw, 520px);
+      height: min(44vw, 560px);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+        linear-gradient(180deg, #d7c3a5 0 17%, #6b4f3b 17% 34%, #efe4cf 34% 51%, #3d493d 51% 68%, #b77b3a 68% 85%, #242424 85% 100%);
+      border-radius: 6px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+      transform: rotate(-4deg);
+      opacity: 0.92;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 96px 0 64px;
+    }
+
+    .kicker {
+      margin: 0 0 22px;
+      font: 850 0.76rem/1.3 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #f2b465;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 7.1rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+      text-shadow: 0 20px 60px rgba(0, 0, 0, 0.44);
+    }
+
+    .dek {
+      max-width: 760px;
+      margin: 30px 0 0;
+      font-size: clamp(1.08rem, 2vw, 1.42rem);
+      line-height: 1.72;
+      color: #f7ead5;
+      text-shadow: 0 10px 32px rgba(0, 0, 0, 0.42);
+    }
+
+    .film-strip {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 24px 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      border-bottom: 1px solid var(--line);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      color: var(--muted);
+    }
+
+    .film-strip strong {
+      color: var(--ink);
+    }
+
+    main {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .lead {
+      padding: 74px 0 68px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.74fr) minmax(280px, 0.36fr);
+      gap: 56px;
+      align-items: start;
+    }
+
+    .label {
+      margin: 0 0 14px;
+      font: 850 0.75rem/1.3 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--wine);
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      font-size: clamp(2rem, 4vw, 3.9rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 20px;
+      font-size: 1.04rem;
+    }
+
+    .standfirst {
+      font-size: clamp(1.22rem, 2.2vw, 1.66rem);
+      line-height: 1.58;
+      color: #312f2c;
+    }
+
+    .reading-card {
+      padding: 28px;
+      background: var(--ivory);
+      border-top: 8px solid var(--moss);
+      box-shadow: 0 26px 70px rgba(36, 36, 36, 0.12);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .reading-card p {
+      color: #4f524b;
+      font-size: 0.96rem;
+      line-height: 1.72;
+    }
+
+    .books {
+      margin: 0 calc(50% - 50vw);
+      padding: 76px max(20px, calc(50vw - var(--max) / 2));
+      background: #1f201e;
+      color: #f7f0e4;
+    }
+
+    .books-head {
+      display: grid;
+      grid-template-columns: 0.52fr 0.48fr;
+      gap: 52px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .books .label {
+      color: #f2b465;
+    }
+
+    .books h2 {
+      color: #fff7e8;
+    }
+
+    .books p {
+      color: #d8ded4;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .books-visual {
+      margin: 34px 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .books-visual img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 28px 78px rgba(0, 0, 0, 0.28);
+    }
+
+    .books-visual figcaption {
+      margin: 0;
+      color: #cfd6cc;
+      font: 0.9rem/1.65 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .book {
+      min-height: 360px;
+      padding: 26px;
+      background: #292b27;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .book span {
+      color: #f2b465;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .book p {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.68;
+      color: #d8ded4;
+    }
+
+    .method {
+      padding: 76px 0 64px;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+      counter-reset: method;
+    }
+
+    .method-card {
+      counter-increment: method;
+      min-height: 270px;
+      padding: 26px;
+      border-radius: 8px;
+      background: #e7dcc8;
+      border: 1px solid rgba(24, 23, 22, 0.12);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .method-card::before {
+      content: counter(method, decimal-leading-zero);
+      display: block;
+      margin-bottom: 34px;
+      color: var(--wine);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .method-card p {
+      color: #5c5549;
+      font-size: 0.96rem;
+      line-height: 1.68;
+      margin-bottom: 0;
+    }
+
+    .mirror {
+      margin: 0 calc(50% - 50vw);
+      padding: 76px max(20px, calc(50vw - var(--max) / 2));
+      background: #fffdf7;
+    }
+
+    .mirror-grid {
+      display: grid;
+      grid-template-columns: 0.42fr 0.58fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .quadrants {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .quad {
+      min-height: 230px;
+      padding: 24px;
+      background: #f1e9dc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quad b {
+      color: var(--wine);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .quad p {
+      color: #5d5a52;
+      font: 0.94rem/1.68 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      margin: 0;
+    }
+
+    .general {
+      padding: 72px 0 64px;
+      display: grid;
+      grid-template-columns: 0.42fr 0.58fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      padding: 20px 0 20px 62px;
+      border-top: 1px solid var(--line);
+      position: relative;
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--charcoal);
+      color: #fff7e8;
+      font-weight: 900;
+    }
+
+    .steps p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.68;
+    }
+
+    .source {
+      margin: 0 calc(50% - 50vw);
+      padding: 48px max(20px, calc(50vw - var(--max) / 2));
+      background: #181716;
+      color: #f2ecdf;
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .source img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .source h2 {
+      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+      color: #fff7e8;
+    }
+
+    .source ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .source li {
+      margin: 0 0 8px;
+      color: #d9dfd2;
+    }
+
+    .source a {
+      color: #f2b465;
+    }
+
+    .caption {
+      margin: 12px 0 0;
+      color: rgba(217, 223, 210, 0.76);
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 980px) {
+      .books-head,
+      .books-visual,
+      .mirror-grid,
+      .general {
+        grid-template-columns: 1fr;
+      }
+
+      .book-grid,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .film-strip,
+      .lead,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero::after {
+        opacity: 0.25;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-inner,
+      .film-strip,
+      main {
+        width: min(100% - 28px, var(--max));
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 2.05rem;
+      }
+
+      .reading-card,
+      .book,
+      .method-card,
+      .quad {
+        padding: 22px;
+      }
+
+      .quadrants {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      .hero,
+      .books,
+      .mirror,
+      .source {
+        background: #fff;
+        color: #111;
+      }
+
+      h1,
+      .dek {
+        text-shadow: none;
+        color: #111;
+      }
+
+      .book,
+      .method-card,
+      .quad,
+      .reading-card {
+        background: #fff;
+        color: #111;
+        border: 1px solid #aaa;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Books / Wealth / Applied Reading</p>
+      <h1>讀 1900 本書之後，真正值錢的不是書單</h1>
+      <p class="dek">Dan Martell 這支影片表面上列出四本「會讓你變富」的書，真正的主題卻是閱讀方式的轉向：別再收藏知識，開始把一本書變成當下問題的工具。</p>
+    </div>
+  </header>
+
+  <aside class="film-strip" aria-label="影片資訊">
+    <div><strong>原始影片：</strong><a href="https://www.youtube.com/watch?v=-T4OMgeLWTY&t=235s" target="_blank" rel="noreferrer noopener">I read 1900 Books, these 4 will make you rich</a></div>
+    <div><strong>頻道：</strong>Dan Martell</div>
+  </aside>
+
+  <main>
+    <section class="lead" aria-labelledby="opening-title">
+      <article>
+        <p class="label">Opening</p>
+        <h2 id="opening-title">不是讀更多，而是更準地讀。</h2>
+        <p class="standfirst">影片開場先拆掉一個常見迷思：讀書本身不會自動變成收入、能力或人生改變。Martell 把閱讀分成兩種，一種是「just in case」的收藏式閱讀，另一種是「just in time」的問題式閱讀。</p>
+        <p>他的標準很直接：一本書值不值得讀，要看它能不能解決你現在面前的問題。比起讀完十本又忘掉，從一本書抓出一個想法、立刻應用，再能教給別人，才是真正被轉化過的知識。</p>
+        <p>因此，這四本書在影片中不是成功人士的書架裝飾，而是四個不同關卡的工具：找瓶頸、砍雜訊、重塑身份、放下對結果的執著。</p>
+      </article>
+      <aside class="reading-card">
+        <h3>讀書不是進度，是介入</h3>
+        <p>這支影片最值得一般讀者帶走的，不是照單全收四本書，而是先問：我此刻真正卡住的是什麼？只有問題夠清楚，書才會從資訊變成槓桿。</p>
+      </aside>
+    </section>
+
+    <section class="books" aria-labelledby="books-title">
+      <div class="books-head">
+        <article>
+          <p class="label">The Four Tools</p>
+          <h2 id="books-title">四本書，其實是四個人生與事業的控制面板。</h2>
+        </article>
+        <p>影片的書單從外部系統一路走向內在狀態：先問事業哪裡堵住，再問時間被什麼吃掉，接著問自己相信自己是誰，最後問能不能專注於輸入而放下結果。</p>
+      </div>
+      <figure class="books-visual">
+        <img src="Dan_Martell_1900_books_four_tools_editorial.png" alt="以四個抽象桌面區塊呈現瓶頸、專注、身份與表現狀態的編輯圖像">
+        <figcaption>AI-generated editorial image。這張圖用抽象桌面構圖呈現四本書對應的四種問題，不是影片截圖，也不是實際書封。</figcaption>
+      </figure>
+      <div class="book-grid">
+        <article class="book">
+          <div><span>01 / The Goal</span><h3>先找瓶頸</h3></div>
+          <p>這本書提供的是「限制理論」：任何系統都有一個最窄的地方。與其同時優化所有環節，不如把資源集中在真正限制產出的那一點。</p>
+        </article>
+        <article class="book">
+          <div><span>02 / The Effective Executive</span><h3>砍掉雜訊</h3></div>
+          <p>彼得・杜拉克的核心不是忙碌，而是有效。Martell 強調追蹤時間、砍掉低槓桿活動，並把真正重要的大石頭放進日曆。</p>
+        </article>
+        <article class="book">
+          <div><span>03 / Feeling is the Secret</span><h3>先活成那個人</h3></div>
+          <p>影片把這本書放在信念與身份層。重點不是空想，而是語言、感覺與自我認同會改變你如何行動、如何要求、如何承擔。</p>
+        </article>
+        <article class="book">
+          <div><span>04 / Inner Excellence</span><h3>放下結果</h3></div>
+          <p>最後一本書把焦點從追逐成果轉到表現狀態。高成就者不是更緊抓結果，而是更能投入過程、穩住狀態、接受不可控。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <p class="label">Reading Method</p>
+      <h2 id="method-title">把一本書讀成工具，需要三個動作。</h2>
+      <p>Martell 在影片中不鼓勵無限消費內容。他反覆強調「study」而不是「read」：學到、做出來、再教出去。這讓書不再是被動吸收，而是進入現實問題的回路。</p>
+      <div class="method-grid">
+        <article class="method-card">
+          <h3>Learn</h3>
+          <p>不是整本書平均用力，而是抓住此刻能解決問題的一個概念。</p>
+        </article>
+        <article class="method-card">
+          <h3>Do</h3>
+          <p>把概念立刻放進當下的工作、時間、信念或表現狀態，不讓它停在筆記裡。</p>
+        </article>
+        <article class="method-card">
+          <h3>Teach</h3>
+          <p>能教給別人，代表你已經把概念從句子變成自己的判斷。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mirror" aria-labelledby="mirror-title">
+      <div class="mirror-grid">
+        <article>
+          <p class="label">The Inner Turn</p>
+          <h2 id="mirror-title">外部的瓶頸，最後會通向內部的瓶頸。</h2>
+          <p>這份書單有趣之處，是它不是單純的商業效率書單。前兩本處理公司與時間，後兩本處理身份與表現。Martell 的暗線是：你可以找到瓶頸、砍掉雜訊，但如果仍用舊身份行動，或把自我價值綁死在結果上，改變還是會卡住。</p>
+        </article>
+        <div class="quadrants">
+          <article class="quad"><b>Bottleneck</b><h3>哪裡最堵？</h3><p>把金錢、產品、客戶或想法的流動畫出來，找出堆積的位置。</p></article>
+          <article class="quad"><b>Focus</b><h3>什麼該刪？</h3><p>真正的槓桿常來自拒絕。不是增加更多任務，而是移除讓你分散的任務。</p></article>
+          <article class="quad"><b>Identity</b><h3>你相信自己是誰？</h3><p>語言會牽動行動。從「我想成為」轉成「我正在成為」。</p></article>
+          <article class="quad"><b>Performance</b><h3>你能放手嗎？</h3><p>專注於準備、狀態、投入與感恩，把結果放回不可完全控制的位置。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="general" aria-labelledby="general-title">
+      <article>
+        <p class="label">For Regular Readers</p>
+        <h2 id="general-title">如果你不是創業者，這四本書仍然能用。</h2>
+        <p>影片語氣偏商業與財富，但對一般人而言，它更像一套生活檢查法。你不必經營公司，也能問自己：我的時間哪裡漏掉？我的生活哪裡堵住？我是否一直在讀讓自己感覺有進步、卻沒有真正行動的內容？</p>
+      </article>
+      <ol class="steps">
+        <li>
+          <h3>用一本書解一個問題</h3>
+          <p>不要把四本書同時塞進待讀清單。先選最貼近當下卡點的一本。</p>
+        </li>
+        <li>
+          <h3>把時間攤開看</h3>
+          <p>如果你總說沒時間，先追蹤一週。有效的改變通常從誠實看見時間流向開始。</p>
+        </li>
+        <li>
+          <h3>先做 5% 的高槓桿事</h3>
+          <p>每天問一件事：今天唯一真正重要、能推動結果的是什麼？先做那件。</p>
+        </li>
+        <li>
+          <h3>評估輸入，不只評估結果</h3>
+          <p>結果會受時機與他人影響，但準備、練習、出現、投入，是你每天能控制的部分。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="source" aria-labelledby="source-title">
+      <div class="source-grid">
+        <div>
+          <a href="https://www.youtube.com/watch?v=-T4OMgeLWTY&t=235s" target="_blank" rel="noreferrer noopener" aria-label="前往 YouTube 原始影片">
+            <img src="https://i.ytimg.com/vi/-T4OMgeLWTY/hqdefault.jpg" alt="YouTube 原始影片縮圖">
+          </a>
+          <p class="caption">原始縮圖連回 YouTube。本頁另使用兩張 AI-generated editorial images。</p>
+        </div>
+        <article>
+          <p class="label">Source Notes</p>
+          <h2 id="source-title">這篇文章根據什麼製作</h2>
+          <ul>
+            <li>本摘要依 YouTube 英文自動字幕製作，已取得 595 段字幕片段。</li>
+            <li>內容以完整影片脈絡整理，並由編輯角度重構為一頁式雜誌專題。</li>
+            <li>原始影片：<a href="https://www.youtube.com/watch?v=-T4OMgeLWTY&t=235s" target="_blank" rel="noreferrer noopener">I read 1900 Books, these 4 will make you rich</a>。</li>
+            <li>本頁使用 AI-generated editorial images 作為雜誌式視覺隱喻；它們不是影片截圖、實際書封或收益證明。</li>
+            <li>本頁為閱讀與商業觀點摘要，不是財務、投資或創業保證建議。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
