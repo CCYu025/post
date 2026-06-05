@@ -1,0 +1,15 @@
+# Playwright MCP test artifacts
+.playwright-mcp/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
