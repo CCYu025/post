@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情報日報 — 2026-06-04</title>
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --surface: #16161a;
+    --surface2: #1e1e24;
+    --gold: #c9a84c;
+    --gold-light: #e2c47e;
+    --text: #e8e8ec;
+    --text-muted: #8a8a9a;
+    --text-dim: #5a5a6e;
+    --accent-blue: #4f9ef0;
+    --accent-green: #4ec994;
+    --accent-amber: #f0a84f;
+    --accent-red: #e05a5a;
+    --border: #2a2a34;
+    --tag-new: #1a3a2a;
+    --tag-new-text: #4ec994;
+    --tag-dev: #1a2a3a;
+    --tag-dev-text: #4f9ef0;
+    --tag-angle: #2a1a3a;
+    --tag-angle-text: #a07ce0;
+    --tag-warn: #3a2a10;
+    --tag-warn-text: #f0a84f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', 'Noto Serif TC', serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: linear-gradient(180deg, #0a0a0c 0%, #111116 100%);
+    border-bottom: 2px solid var(--gold);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+  .masthead::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    margin: 1.2rem auto 0;
+  }
+  .masthead-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .masthead-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+  }
+  .masthead-title span {
+    color: var(--gold-light);
+  }
+  .masthead-subtitle {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.1em;
+  }
+  .masthead-date {
+    margin-top: 1rem;
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    padding: 0.4rem 1.2rem;
+    font-size: 0.78rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.8rem 0 1.4rem;
+  }
+  .section-header h2 {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .section-count {
+    font-size: 0.7rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.2rem;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+  .card:hover {
+    border-color: #3a3a4a;
+    transform: translateY(-1px);
+  }
+  .card.developing::before { background: var(--accent-blue); }
+  .card.new_angle::before { background: #a07ce0; }
+
+  /* CARD META ROW */
+  .card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .tag {
+    font-size: 0.63rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+  }
+  .tag-new    { background: var(--tag-new);   color: var(--tag-new-text); }
+  .tag-dev    { background: var(--tag-dev);   color: var(--tag-dev-text); }
+  .tag-angle  { background: var(--tag-angle); color: var(--tag-angle-text); }
+  .tag-warn   { background: var(--tag-warn);  color: var(--tag-warn-text); }
+
+  .card-source-link {
+    font-size: 0.7rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .card-source-link:hover { color: var(--gold-light); }
+
+  .card-time {
+    font-size: 0.67rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--text-dim);
+    margin-left: auto;
+  }
+
+  /* CARD CONTENT */
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #f0f0f4;
+    margin-bottom: 0.7rem;
+  }
+  .card-summary {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .card-delta {
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: rgba(79, 158, 240, 0.07);
+    border-left: 2px solid var(--accent-blue);
+    font-size: 0.82rem;
+    color: #7ab8f5;
+    line-height: 1.55;
+  }
+  .card-delta strong {
+    color: var(--accent-blue);
+    font-weight: 700;
+  }
+
+  /* ── FEATURED / LEAD CARD ── */
+  .card-lead {
+    grid-column: 1 / -1;
+  }
+  .card-lead .card-title {
+    font-size: 1.35rem;
+  }
+  .card-lead .card-summary {
+    font-size: 0.95rem;
+    max-width: 760px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+  .footer span { color: var(--gold); }
+
+  /* ── TRACKING SECTION ── */
+  .tracking-section .card::before {
+    background: var(--accent-blue);
+    opacity: 0.8;
+  }
+  .tracking-section .card {
+    border-color: #1e2a3a;
+    background: #12161e;
+  }
+
+  @media (max-width: 700px) {
+    .masthead-title { font-size: 2rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-eyebrow">AI 情報精選</div>
+  <div class="masthead-title">THE AI <span>BRIEF</span></div>
+  <div class="masthead-subtitle">全球 AI 動態 · 每日精選</div>
+  <div class="masthead-date">2026年6月4日 星期四</div>
+</header>
+
+<div class="container">
+
+  <!-- ══════════════════════════ 今日精選 ══════════════════════════ -->
+  <div class="section-header">
+    <h2>今日精選</h2>
+    <div class="section-line"></div>
+    <div class="section-count">6 則</div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- 1. Trump AI EO ── LEAD -->
+    <div class="card card-lead">
+      <div class="card-meta">
+        <span class="tag tag-new">全新報導</span>
+        <span class="tag" style="background:#1a1e2e;color:#7a9ef0;font-size:0.62rem;letter-spacing:0.1em;padding:0.2rem 0.55rem;border-radius:2px;">政策</span>
+        <a href="https://www.cnbc.com/2026/06/02/trump-executive-order-ai.html" target="_blank" class="card-source-link">CNBC</a>
+        <span class="card-time">2026-06-02</span>
+      </div>
+      <div class="card-title">Trump 簽署 AI 行政命令：前沿模型須自願提前 30 天送政府審查，AI 網路安全票據交換所同步成立</div>
+      <div class="card-summary">
+        延宕多月的美國聯邦 AI 安全框架於 6 月 2 日落地。命令明確禁止建立任何強制授權或政府許可前置審查制度，改以自願協作模式讓業者決定是否在發布前 30 天提交「covered frontier model」供政府評估網路風險。同步成立的 AI Cybersecurity Clearinghouse 將由財政部、NSA、CISA 聯合運作，自願彙整漏洞掃描、驗證與補丁發布。分析人士指出，雖屬自願框架，但政府採購與合規要求可能實質成為隱性強制。
+      </div>
+    </div>
+
+    <!-- 2. Anthropic Cyber Threat Report -->
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-new">全新報導</span>
+        <span class="tag" style="background:#2a1a1a;color:#e07a7a;font-size:0.62rem;letter-spacing:0.1em;padding:0.2rem 0.55rem;border-radius:2px;">資安</span>
+        <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack" target="_blank" class="card-source-link">Anthropic</a>
+        <span class="card-time">2026-06-03</span>
+      </div>
+      <div class="card-title">Anthropic 首份年度 AI 網路威脅報告：惡意行為者使用 AI 發動攻擊比例一年從 33% 暴增至 56%</div>
+      <div class="card-summary">
+        涵蓋 2025 年 3 月至 2026 年 3 月的分析共追蹤 832 個封禁帳號、13,873 筆惡意操作，完整對映 MITRE ATT&CK 框架下的 482 種獨特技術。惡意軟體開發為最大宗用途（約 67%），偵察與社會工程次之。報告呼籲業界建立跨廠商共享的 AI 威脅情報標準，並指出 AI 最大的進攻價值在於將攻擊規模化——每秒數千次請求已超越人類駭客物理極限。
+      </div>
+    </div>
+
+    <!-- 3. Microsoft MAI Family ── new_angle -->
+    <div class="card new_angle">
+      <div class="card-meta">
+        <span class="tag tag-angle">新切角</span>
+        <span class="tag" style="background:#1a1e2e;color:#7a9ef0;font-size:0.62rem;letter-spacing:0.1em;padding:0.2rem 0.55rem;border-radius:2px;">Build 2026 接續</span>
+        <a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html" target="_blank" class="card-source-link">CNBC</a>
+        <span class="card-time">2026-06-02</span>
+      </div>
+      <div class="card-title">Build 2026：微軟發布 7 款 MAI 自研模型，MAI-Thinking-1 首度不採用 OpenAI 訓練資料</div>
+      <div class="card-summary">
+        前兩天的 Build 報導聚焦 Project Polaris 與 Aion；本則切角是 Microsoft 的 AI 模型主權戰略。MAI-Thinking-1（35B active / ~1T total MoE，256K context）以自有授權語料訓練，AIME 2026 達 94.5%，SWE-Bench Pro 媲美 Claude Opus 4.6；MAI-Code-1-Flash（5B）全面整合 GitHub Copilot；另有 MAI-Image-2.5、MAI-Voice-2、MAI-Transcribe-1.5 組成完整多模態矩陣。七款模型同步在 Microsoft Foundry 上架，標誌 Microsoft 正式啟動自研模型路線。
+      </div>
+    </div>
+
+    <!-- 4. NVIDIA RTX Spark -->
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-new">全新報導</span>
+        <span class="tag" style="background:#1a2e1a;color:#6ec46e;font-size:0.62rem;letter-spacing:0.1em;padding:0.2rem 0.55rem;border-radius:2px;">硬體</span>
+        <a href="https://www.bloomberg.com/news/articles/2026-06-01/nvidia-enters-windows-laptop-market-taking-on-intel-and-amd" target="_blank" class="card-source-link">Bloomberg</a>
+        <span class="card-time">2026-06-01</span>
+      </div>
+      <div class="card-title">NVIDIA RTX Spark Superchip 殺入 PC 市場：首款 CPU＋Blackwell GPU 整合晶片挑戰 Intel 與 AMD</div>
+      <div class="card-summary">
+        在 Computex 2026 上，Jensen Huang 宣布攜手 MediaTek 推出 RTX Spark Superchip——20 核 CPU 搭配 6,144 核 Blackwell GPU，共享記憶體架構可在筆電本地執行大型 AI 模型。首批機型來自 Dell 與 Lenovo，採用 Windows on Arm。消息公布後 Intel、AMD、Qualcomm 股價應聲下跌，市場解讀為 NVIDIA 意圖掌控 AI PC 完整技術棧的明確訊號。
+      </div>
+    </div>
+
+    <!-- 5. Anthropic Claude Partner Network -->
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-new">全新報導</span>
+        <span class="tag" style="background:#1a1e2e;color:#7a9ef0;font-size:0.62rem;letter-spacing:0.1em;padding:0.2rem 0.55rem;border-radius:2px;">企業</span>
+        <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" class="card-source-link">Anthropic</a>
+        <span class="card-time">2026-06-03</span>
+      </div>
+      <div class="card-title">Anthropic 以 $1 億啟動 Claude Partner Network 服務軌道，Accenture／Cognizant／Deloitte／KPMG 合計逾百萬員工完成 Claude 培訓</div>
+      <div class="card-summary">
+        三層認證體系（Select → Preferred → Global Premier）與公開 Partner Hub 同步上線。截至 6/3，逾四萬家企業申請加入、超過一萬名顧問取得 Claude 認證。最高層 Global Premier 要求 1,000 名認證從業者、100 個客戶跨三區域部署。Accenture（3 萬人培訓）、Cognizant（35 萬人）、Deloitte（47 萬人）、KPMG（27.6 萬人）已成最大規模部署案例。
+      </div>
+    </div>
+
+    <!-- 6. xAI Composer 2.5 ── ⚠ 未交叉驗證 -->
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-new">全新報導</span>
+        <span class="tag tag-warn">⚠ 未交叉驗證</span>
+        <a href="https://www.basenor.com/blogs/news/xai-launches-grok-composer-2-5-inside-grok-build" target="_blank" class="card-source-link">Basenor</a>
+        <span class="card-time">2026-06-01</span>
+      </div>
+      <div class="card-title">xAI 推出 Grok Composer 2.5 編程 Agent 及 Custom Voices：以 Kimi K2.5 為基礎，25 倍合成任務量強化長流程指令遵循</div>
+      <div class="card-summary">
+        Grok Build 內建的 Composer 2.5 以 Moonshot Kimi K2.5 開源檢查點為基礎訓練，專注 Agentic 編程、JSON 與 Tool Use 場景。同步發布的 Custom Voices 功能只需一分鐘音訊即可複製聲音，生產就緒時間不到兩分鐘；BYO MCP 支援連接自定義 Model Context Protocol 服務，打通企業內部知識庫與專有 API。
+      </div>
+    </div>
+
+  </div><!-- /cards-grid -->
+
+
+  <!-- ══════════════════════════ 持續追蹤 ══════════════════════════ -->
+  <div class="section-header tracking-section">
+    <h2>持續追蹤</h2>
+    <div class="section-line" style="background:linear-gradient(90deg, var(--accent-blue), transparent);"></div>
+    <div class="section-count">1 則</div>
+  </div>
+
+  <div class="cards-grid tracking-section">
+
+    <!-- 7. NVIDIA Nemotron 3 Ultra DEVELOPING -->
+    <div class="card developing">
+      <div class="card-meta">
+        <span class="tag tag-dev">🔄 接續報導</span>
+        <span class="tag" style="background:#1a2e1a;color:#6ec46e;font-size:0.62rem;letter-spacing:0.1em;padding:0.2rem 0.55rem;border-radius:2px;">開源模型</span>
+        <a href="https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models" target="_blank" class="card-source-link">NVIDIA Newsroom</a>
+        <span class="card-time">2026-06-04（今日）</span>
+      </div>
+      <div class="card-title">NVIDIA Nemotron 3 Ultra 550B 今日正式在 Hugging Face 開放下載，NIM Microservices 同步上線</div>
+      <div class="card-summary">
+        美國目前最強開放權重模型 Nemotron 3 Ultra（550B 參數，55B active MoE，Artificial Analysis Intelligence Index 第 48 名）於今日正式可在 Hugging Face、ModelScope 與 OpenRouter 下載使用。
+      </div>
+      <div class="card-delta">
+        <strong>今日增量</strong>｜相較 6/3 發布公告，今日新增：完整模型權重公開下載、訓練食譜與大量訓練資料同步公布、NVIDIA NIM microservices 在 build.nvidia.com 正式提供 API 接入，約快於同規模競品 30% 的推論成本也經第三方初步確認。
+      </div>
+    </div>
+
+  </div><!-- /tracking cards-grid -->
+
+</div><!-- /container -->
+
+<footer class="footer">
+  <p>THE AI BRIEF · 2026-06-04 · 共 7 則 ·
+    <span>6</span> 則新報導 ·
+    <span>1</span> 則持續追蹤 ·
+    new_angle <span>1</span> 則 ·
+    由 AI 情報助理自動生成
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情報精選 — 2026 年 6 月 3 日</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f14;
+    --surface: #141720;
+    --surface2: #1a1e2a;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.2);
+    --text: #e8e4d8;
+    --text-dim: #9a9585;
+    --text-muted: #5a5750;
+    --accent: #4a7fe8;
+    --accent-dim: rgba(74,127,232,0.15);
+    --develop: #3ea8a8;
+    --develop-dim: rgba(62,168,168,0.12);
+    --red: #e85a5a;
+  }
+
+  html { font-size: 16px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: linear-gradient(180deg, #060810 0%, #0d0f14 100%);
+    border-bottom: 1px solid var(--gold);
+    padding: 2.5rem 2rem 1.8rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .masthead-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .masthead-title {
+    font-family: 'Playfair Display', 'Noto Serif TC', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+  .masthead-title span { color: var(--gold); }
+  .masthead-date {
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+  }
+  .masthead-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1rem auto 0;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  /* Section headers */
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gold-dim);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  /* ── HERO CARD ── */
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-top: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle at bottom right, rgba(201,168,76,0.05), transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', 'Noto Serif TC', serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .hero-lead {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 1.4rem;
+  }
+
+  /* ── GRID ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-2px);
+  }
+  .card-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.45;
+  }
+  .card-lead {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  /* ── DEVELOPING SECTION ── */
+  .developing-section {
+    background: var(--develop-dim);
+    border: 1px solid rgba(62,168,168,0.25);
+    border-left: 3px solid var(--develop);
+    border-radius: 4px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2rem;
+  }
+  .developing-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(62,168,168,0.2);
+    padding-bottom: 0.8rem;
+  }
+  .developing-icon {
+    font-size: 1.1rem;
+  }
+  .developing-section-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--develop);
+    font-weight: 700;
+  }
+  .dev-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 3px;
+    padding: 1.3rem;
+  }
+  .dev-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(62,168,168,0.15);
+    color: var(--develop);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+  .dev-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+  .dev-delta {
+    background: rgba(62,168,168,0.08);
+    border-left: 2px solid var(--develop);
+    padding: 0.6rem 0.9rem;
+    font-size: 0.82rem;
+    color: var(--develop);
+    margin-bottom: 0.7rem;
+    border-radius: 0 2px 2px 0;
+  }
+  .dev-lead {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
+  /* ── SOURCE LINE ── */
+  .source-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    margin-top: auto;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .source-line a {
+    color: var(--accent);
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+  .source-line a:hover { opacity: 1; text-decoration: underline; }
+  .source-sep { color: var(--text-muted); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+  }
+  .tag-gold {
+    background: var(--gold-dim);
+    color: var(--gold-light);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  footer span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-eyebrow">Daily Intelligence Briefing</div>
+  <h1 class="masthead-title">AI <span>情報精選</span></h1>
+  <div class="masthead-date">2026 年 6 月 3 日（星期三）&nbsp;·&nbsp; 6 則精選報導</div>
+  <div class="masthead-divider"></div>
+</header>
+
+<main class="container">
+
+  <!-- ── 頭條 ── -->
+  <div class="section-label">頭條</div>
+
+  <article class="hero-card">
+    <div class="hero-badge">頭條</div>
+    <h2 class="hero-title">Anthropic 秘密提交 IPO 申請，最快 10 月掛牌，估值近兆美元</h2>
+    <p class="hero-lead">
+      Claude 開發商 Anthropic 於 6 月 1 日向美國 SEC 保密提交 Form S-1 草稿，有望在競爭對手 OpenAI 之前率先成為首家公開上市的前沿 AI 實驗室。此前剛完成 $650 億 Series H 融資，估值達 $9,650 億；5 月年化營收約 $470 億。「這讓我們保有在 SEC 完成審查後上市的選項，」Anthropic 聲明表示，最終仍取決於市況。
+    </p>
+    <div class="source-line">
+      <span>來源：</span>
+      <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/" target="_blank">TechCrunch</a>
+      <span class="source-sep">·</span>
+      <a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank">CNBC</a>
+      <span class="source-sep">·</span>
+      <a href="https://www.washingtonpost.com/technology/2026/06/01/anthropic-maker-claude-files-with-sec-go-public-an-ipo/" target="_blank">The Washington Post</a>
+      <span class="source-sep">·</span>
+      <a href="https://www.npr.org/2026/06/01/nx-s1-5843199/anthropic-ipo-filing-ai-large" target="_blank">NPR</a>
+      <span class="source-sep">·</span>
+      <span>2026-06-01</span>
+    </div>
+  </article>
+
+  <!-- ── 重要新聞 ── -->
+  <div class="section-label">重要新聞</div>
+
+  <div class="card-grid">
+
+    <!-- Card 2: Alphabet $80B -->
+    <article class="card">
+      <div><span class="tag tag-gold">資本市場</span></div>
+      <h3 class="card-title">Alphabet 史上最大股票募資 $800 億，Berkshire Hathaway 以 $100 億押注 Google AI</h3>
+      <p class="card-lead">
+        Google 母公司 Alphabet 宣布以發行股票方式籌資 $800 億美元，為 AI 基礎設施擴建提供彈藥。Warren Buffett 旗下 Berkshire Hathaway 以私募方式認購 $100 億，分別以 Class A（$351.81/股）及 Class C（$348.20/股）買入。Alphabet 預計 2026 年資本支出達 $1,800–1,900 億，2027 年將再顯著提升。
+      </p>
+      <div class="source-line">
+        <span>來源：</span>
+        <a href="https://www.cnbc.com/2026/06/01/alphabet-to-raise-80-billion-from-stock-sales-to-fund-ai-buildout.html" target="_blank">CNBC</a>
+        <span class="source-sep">·</span>
+        <a href="https://www.aljazeera.com/economy/2026/6/2/google-parent-alphabet-to-sell-80bn-in-stock-to-fund-ai-plans" target="_blank">Al Jazeera</a>
+        <span class="source-sep">·</span>
+        <a href="https://seekingalpha.com/news/4599490-alphabet-raises-80b-for-ai-investments-including-10b-from-berkshire-hathaway" target="_blank">Seeking Alpha</a>
+        <span class="source-sep">·</span>
+        <span>2026-06-01</span>
+      </div>
+    </article>
+
+    <!-- Card 3: Project Glasswing / ENISA -->
+    <article class="card">
+      <div><span class="tag">AI 外交</span></div>
+      <h3 class="card-title">Anthropic 擴大 Project Glasswing 至 150 機構，Claude Mythos 首度進入 EU 網路防禦體系</h3>
+      <p class="card-lead">
+        Anthropic 宣布 Project Glasswing 擴展至 15 個國家逾 150 個關鍵基礎設施機構，EU 網路安全局 ENISA 成為首個加入的 EU 機構，終結數週跨大西洋 AI 外交僵局。其他新成員涵蓋 Samsung、SK Hynix、SK Telecom 及 NATO。Claude Mythos 具備在數週內掃描出數千個零日漏洞的能力，Anthropic 視之為「資安領域最強模型」。
+      </p>
+      <div class="source-line">
+        <span>來源：</span>
+        <a href="https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/" target="_blank">TechCrunch</a>
+        <span class="source-sep">·</span>
+        <a href="https://www.bloomberg.com/news/articles/2026-06-01/anthropic-to-give-eu-s-cybersecurity-agency-access-to-mythos" target="_blank">Bloomberg</a>
+        <span class="source-sep">·</span>
+        <a href="https://www.darkreading.com/cyber-risk/anthropic-mythos-ai-eu-enisa" target="_blank">Dark Reading</a>
+        <span class="source-sep">·</span>
+        <span>2026-06-02</span>
+      </div>
+    </article>
+
+    <!-- Card 4: NVIDIA Nemotron 3 Ultra -->
+    <article class="card">
+      <div><span class="tag">模型發布</span></div>
+      <h3 class="card-title">NVIDIA Nemotron 3 Ultra 550B 開源發布，角逐全美最強開放權重 AI 模型</h3>
+      <p class="card-lead">
+        NVIDIA 於 Computex 2026 發布 550B 參數（55B active MoE 架構）的 Nemotron 3 Ultra，宣稱為目前美國最強開放權重 AI 模型，6 月 4 日起在 Hugging Face、ModelScope、OpenRouter 及 NVIDIA NIM 開放下載與 API 存取。同系列另有 Nano 與 Super 版本，並新增 Nemotron Safety 套件與 Nemotron PII 偵測模型。
+      </p>
+      <div class="source-line">
+        <span>來源：</span>
+        <a href="https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models" target="_blank">NVIDIA Newsroom</a>
+        <span class="source-sep">·</span>
+        <a href="https://artificialanalysis.ai/articles/nvidia-nemotron-3-ultra-launch-announced" target="_blank">Artificial Analysis</a>
+        <span class="source-sep">·</span>
+        <a href="https://cryptobriefing.com/nvidia-nemotron-3-ultra-computex-2026/" target="_blank">CryptoBriefing</a>
+        <span class="source-sep">·</span>
+        <span>2026-06-01</span>
+      </div>
+    </article>
+
+    <!-- Card 5: OpenAI + AWS Bedrock -->
+    <article class="card">
+      <div><span class="tag">平台整合</span></div>
+      <h3 class="card-title">OpenAI GPT-5.5、GPT-5.4 及 Codex 在 Amazon Bedrock 正式商用</h3>
+      <p class="card-lead">
+        繼 4 月有限預覽後，OpenAI 旗艦模型與程式碼 Agent Codex 於 Amazon Bedrock 正式 GA，逾 400 萬名開發者可透過 AWS 原生 IAM、VPC 隔離及加密等安全框架使用，計費計入 AWS 承諾額度。定價與 OpenAI 直接定價一致，支援 Codex App、CLI、VS Code / JetBrains / Xcode IDE 整合。
+      </p>
+      <div class="source-line">
+        <span>來源：</span>
+        <a href="https://aws.amazon.com/blogs/aws/get-started-with-openai-gpt-5-5-gpt-5-4-models-and-codex-on-amazon-bedrock/" target="_blank">AWS Blog</a>
+        <span class="source-sep">·</span>
+        <a href="https://www.aboutamazon.com/news/aws/bedrock-openai-models" target="_blank">Amazon</a>
+        <span class="source-sep">·</span>
+        <a href="https://openai.com/index/openai-on-aws/" target="_blank">OpenAI</a>
+        <span class="source-sep">·</span>
+        <span>2026-06-02</span>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ── 持續追蹤 ── -->
+  <div class="developing-section">
+    <div class="developing-header">
+      <span class="developing-icon">🔄</span>
+      <span class="developing-section-title">持續追蹤</span>
+    </div>
+
+    <div class="dev-card">
+      <div class="dev-badge">🔄 接續報導</div>
+      <h3 class="dev-title">Build 2026 Day 2：Aion 1.0 計畫模型內建 Windows，GitHub Copilot 升格 Debug / Profiling Agent</h3>
+      <div class="dev-delta">
+        <strong>Day 2 增量（相較 Day 1 Project Polaris / Windows Agent Framework）：</strong>
+        發布 14B 參數本地推理模型 Aion 1.0 Plan，隨 Windows 11 內建免雲端；GitHub Copilot Debug Agent 可利用執行期行為自動定位 Bug 並建立迴歸測試覆蓋；Microsoft Majorana 2 量子晶片、Azure HorizonDB 公開預覽同步宣布。
+      </div>
+      <p class="dev-lead">
+        Aion 1.0 Plan 為 32K context、工具呼叫能力的 Agent 推理模型，搭載 Copilot+ PC NPU 執行，讓 Windows 應用可在本機協調子 Agent 工作流而無需上傳資料至雲端。GitHub Copilot 的 Debug / Profiling Agents 預計於 6 月起向 Enterprise 帳戶推出，展示會上可見其根據執行期 log 自動鎖定效能瓶頸。
+      </p>
+      <div class="source-line" style="border-top:1px solid rgba(62,168,168,0.15);margin-top:0.8rem;padding-top:0.6rem;">
+        <span>來源：</span>
+        <a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/" target="_blank">Windows Dev Blog</a>
+        <span class="source-sep">·</span>
+        <a href="https://thewincentral.com/microsoft-aion-1-ai-models-expanded-windows-ai-apis-build-2026/" target="_blank">WinCentral</a>
+        <span class="source-sep">·</span>
+        <a href="https://devblogs.microsoft.com/visualstudio/whats-coming-next-in-visual-studio-our-microsoft-build-2026-announcements/" target="_blank">Visual Studio Blog</a>
+        <span class="source-sep">·</span>
+        <span>2026-06-03</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>AI 情報精選</span> &nbsp;·&nbsp; 2026-06-03 &nbsp;·&nbsp; 自動生成 · 僅供參考
+</footer>
+
+</body>
+</html>

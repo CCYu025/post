@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情報日刊 — 2026 年 6 月 1 日</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:16px;scroll-behavior:smooth}
+  body{font-family:'Georgia','Times New Roman',serif;background:#f5f3ee;color:#1a1a1a;line-height:1.65}
+  .masthead{background:#0f1923;color:#fff;border-bottom:4px solid #c8a84b}
+  .masthead-inner{max-width:1100px;margin:0 auto;padding:28px 24px 20px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .masthead-title{font-size:2.4rem;font-weight:700;letter-spacing:.04em;line-height:1.1}
+  .masthead-title span{color:#c8a84b}
+  .masthead-meta{text-align:right;font-size:.8rem;color:#aab;font-family:sans-serif;letter-spacing:.06em;text-transform:uppercase}
+  .masthead-meta .date-label{font-size:1.05rem;color:#e8e4d8;font-style:italic;letter-spacing:0;text-transform:none}
+  .ticker{background:#c8a84b;color:#0f1923;font-family:sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 24px;display:flex;align-items:center;gap:16px}
+  .ticker-label{background:#0f1923;color:#c8a84b;padding:2px 8px;font-size:.7rem;white-space:nowrap}
+  .page{max-width:1100px;margin:0 auto;padding:32px 24px 64px}
+  .section-label{font-family:sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8a84b;border-top:3px solid #c8a84b;padding-top:8px;margin-bottom:18px;margin-top:40px}
+  .hero{background:#0f1923;color:#fff;border-radius:4px;overflow:hidden;display:grid;grid-template-columns:1fr 300px;min-height:270px}
+  @media(max-width:760px){.hero{grid-template-columns:1fr}}
+  .hero-body{padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+  .hero-kicker{font-family:sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8a84b;margin-bottom:12px}
+  .hero-headline{font-size:1.85rem;font-weight:700;line-height:1.25;margin-bottom:16px;color:#fff}
+  .hero-lede{font-size:.98rem;color:#c0ccd8;line-height:1.7;flex:1;margin-bottom:24px}
+  .hero-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .hero-sidebar{background:#1a2d3d;padding:28px 24px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid #2a3d52}
+  .hero-sidebar .stat-label{font-family:sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a9ab8;margin-bottom:3px;margin-top:16px}
+  .hero-sidebar .stat-label:first-child{margin-top:0}
+  .hero-sidebar .stat-val{font-size:1.55rem;font-weight:700;color:#c8a84b;line-height:1.1}
+  .hero-sidebar .stat-desc{font-size:.76rem;color:#7a9ab8;font-family:sans-serif}
+  .source-chip{font-family:sans-serif;font-size:.72rem;color:#7a9ab8;text-decoration:none;border:1px solid #2a3d52;border-radius:2px;padding:3px 8px;transition:background .15s}
+  .source-chip:hover{background:#1a2d3d;color:#c8a84b}
+  .source-chip.light{color:#5a6a7a;border-color:#c0b8a8}
+  .source-chip.light:hover{background:#ede9e1;color:#0f1923}
+  .pub-time{font-family:sans-serif;font-size:.7rem;color:#9a8e78}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:680px){.grid-2{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:4px;padding:24px;border-top:3px solid transparent;border-left:1px solid #e0dbd2;border-right:1px solid #e0dbd2;border-bottom:1px solid #e0dbd2;display:flex;flex-direction:column;gap:10px}
+  .card.accent-blue{border-top-color:#2e6da8}
+  .card.accent-amber{border-top-color:#c8a84b}
+  .card.accent-teal{border-top-color:#2e8c8a}
+  .card.accent-purple{border-top-color:#6b4fa0}
+  .card-kicker{font-family:sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9a8e78}
+  .card-headline{font-size:1.1rem;font-weight:700;line-height:1.35;color:#0f1923}
+  .card-lede{font-size:.875rem;color:#3a3a3a;line-height:1.65;flex:1}
+  .card-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px}
+  .badge{display:inline-flex;align-items:center;gap:4px;font-family:sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.05em;padding:3px 8px;border-radius:2px}
+  .badge-warning{background:#fff8e0;color:#7d5a00;border:1px solid #e6c652}
+  .badge-today{background:#e8f0fb;color:#1e3c7c;border:1px solid #7e9edb}
+  .developing-section{background:#fffbf0;border:1px solid #e6c652;border-left:5px solid #c8a84b;border-radius:4px;padding:22px 26px}
+  .developing-empty{font-family:sans-serif;font-size:.85rem;color:#9a8070;font-style:italic}
+  .card-policy{background:#fff;border-radius:4px;border:1px solid #e0dbd2;border-top:3px solid #b03a2e;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+  @media(max-width:680px){.card-policy{grid-template-columns:1fr}}
+  .card-policy-col{padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+  .card-policy-col+.card-policy-col{border-left:1px solid #e0dbd2}
+  @media(max-width:680px){.card-policy-col+.card-policy-col{border-left:none;border-top:1px solid #e0dbd2}}
+  .obs-card{background:#f2f2f0;border-radius:4px;padding:22px 26px;border-left:5px solid #8a8a8a;border-top:1px solid #d8d4cc;border-right:1px solid #d8d4cc;border-bottom:1px solid #d8d4cc;display:flex;flex-direction:column;gap:10px}
+  .page-footer{max-width:1100px;margin:0 auto;padding:16px 24px 40px;border-top:1px solid #c8c0b0;font-family:sans-serif;font-size:.72rem;color:#9a8e78;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  a{color:inherit}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="masthead-title">AI 情報日刊 <span>·</span> Intelligence Daily</div>
+    </div>
+    <div class="masthead-meta">
+      <div>每日 AI 精選 · Vol.1, No.1</div>
+      <div class="date-label">2026 年 6 月 1 日，星期一</div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="ticker-label">本期概覽</span>
+    收錄 8 則 &nbsp;·&nbsp; 全數為全新報導 &nbsp;·&nbsp; 1 則待獨立驗證 &nbsp;·&nbsp; 0 則接續報導
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="section-label">封面故事 · Cover Story</div>
+  <div class="hero">
+    <div class="hero-body">
+      <div>
+        <div class="hero-kicker">募資 · 估值里程碑</div>
+        <h1 class="hero-headline">Anthropic 估值破 $9,650 億，首度超越 OpenAI，史上最大 AI 私募完成</h1>
+        <p class="hero-lede">Claude 的開發商 Anthropic 完成 $650 億 Series H 融資，估值達 $9,650 億，一舉超越 OpenAI 成為全球最高市值 AI 新創，距 $1 兆關卡僅一步之遙。本輪由 Altimeter Capital、Sequoia Capital 領投，Amazon、Micron、Samsung、SK hynix 等戰略夥伴同步參與。Anthropic 5 月年化營收已突破 $470 億，IPO 進程被普遍認為進入倒數。本輪距今年 2 月上一輪估值（$3,800 億）僅三個月，增幅達 154%。</p>
+      </div>
+      <div class="hero-footer">
+        <a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" target="_blank" class="source-chip">TechCrunch</a>
+        <a href="https://www.bloomberg.com/news/articles/2026-05-28/anthropic-raises-at-965-billion-valuation-eclipsing-openai" target="_blank" class="source-chip">Bloomberg</a>
+        <a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html" target="_blank" class="source-chip">CNBC</a>
+        <a href="https://www.anthropic.com/news/series-h" target="_blank" class="source-chip">Anthropic 官方</a>
+        <span class="pub-time" style="color:#6a8aa8;margin-left:4px">May 28, 2026</span>
+      </div>
+    </div>
+    <div class="hero-sidebar">
+      <div class="stat-label">本輪募資金額</div>
+      <div class="stat-val">$650 億</div>
+      <div class="stat-desc">Series H</div>
+      <div class="stat-label">投後估值</div>
+      <div class="stat-val">$9,650 億</div>
+      <div class="stat-desc">接近 $1 兆美元</div>
+      <div class="stat-label">年化營收（5 月）</div>
+      <div class="stat-val">$470 億</div>
+      <div class="stat-desc">ARR run-rate</div>
+      <div class="stat-label">三個月估值增幅</div>
+      <div class="stat-val">+154%</div>
+      <div class="stat-desc">vs. Feb 2026 $3,800 億</div>
+    </div>
+  </div>
+
+  <div class="section-label">科技前沿 · Tech Frontier</div>
+  <div class="grid-2">
+    <div class="card accent-blue">
+      <div class="card-kicker">重大產品發布 · 明日登場</div>
+      <h2 class="card-headline">Microsoft Build 2026 明日開幕：Windows 轉型為 AI Agent 作業系統</h2>
+      <p class="card-lede">Microsoft Build 2026 將於 6 月 2 日在舊金山 Fort Mason Center 開幕，Satya Nadella 主題演講方向明確：「AI 不只是回答提示，而是執行工作。」預計宣布全新 Windows Agent Framework APIs、GitHub Copilot 自主代理模式、Azure AI Foundry 正式 GA，以及 MAI-Image 2.5、MAI-Voice 2、MAI-Transcribe 1.5 新一代模型。面向開發者的 Foundry Local 已支援 Windows、macOS Apple Silicon 與 Linux x64 離線 AI 推論，顯示 Microsoft 全面押注 on-device agent 生態。</p>
+      <div class="card-footer">
+        <span class="badge badge-today">📅 明日直播</span>
+        <a href="https://news.microsoft.com/build-2026/" target="_blank" class="source-chip light">Microsoft 官方</a>
+        <a href="https://www.notebookcheck.net/Microsoft-Build-2026-What-to-expect-from-the-June-2-keynote.1311546.0.html" target="_blank" class="source-chip light">NotebookCheck</a>
+        <span class="pub-time">Jun 1, 2026</span>
+      </div>
+    </div>
+    <div class="card accent-teal">
+      <div class="card-kicker">企業 AI 落地 · 今日發布</div>
+      <h2 class="card-headline">NVIDIA 攜手 ServiceNow 發布企業桌機自主 Agent「Project Arc」</h2>
+      <p class="card-lede">在 ServiceNow Knowledge 2026 大會今日，NVIDIA 與 ServiceNow 正式宣布 Project Arc——可在企業員工桌機自主完成複雜多步驟工作流程的 Desktop Agent。Agent 運行於 NVIDIA OpenShell 沙盒環境，所有操作受 policy 管控且全程可稽核；ServiceNow AI Control Tower 同步治理代理行為、紀錄執行指令與 API 呼叫。NVIDIA AI-Q Blueprint 亦同步開放，協助企業 AI Specialists 進行深度研究與跨業務決策支援。</p>
+      <div class="card-footer">
+        <span class="badge badge-today">🔴 今日發布</span>
+        <a href="https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/" target="_blank" class="source-chip light">NVIDIA Blog</a>
+        <a href="https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-extends-agentic-AI-governance-from-desktops-to-data-centers-with-NVIDIA/default.aspx" target="_blank" class="source-chip light">ServiceNow</a>
+        <a href="https://www.globenewswire.com/news-release/2026/06/01/3303984/0/en/enterprise-software-leaders-build-ai-agents-with-nvidia.html" target="_blank" class="source-chip light">GlobeNewswire</a>
+        <span class="pub-time">Jun 1, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">模型與應用 · Models &amp; Applications</div>
+  <div class="grid-2">
+    <div class="card accent-purple">
+      <div class="card-kicker">生命科學 · 國家安全</div>
+      <h2 class="card-headline">OpenAI 推出 Rosalind Biodefense，將 GPT-Rosalind 嵌入全球生物防禦體系</h2>
+      <p class="card-lede">OpenAI 於 5 月 29 日宣布 Rosalind Biodefense 計畫，以生命科學專用推理模型 GPT-Rosalind 為核心，向全球學術、非營利、政府及盟國免費開放申請。首批夥伴包含 Lawrence Livermore 國家實驗室、Johns Hopkins APL 及疫苗倡議機構 CEPI——CEPI 正將其應用於剛果民主共和國 Bundibugyo 伊波拉疫情的百日疫苗開發任務。OpenAI 已向白宮及多個聯邦機構進行簡報，是 AI 模型首度深度嵌入美國生物防禦基礎設施的案例。</p>
+      <div class="card-footer">
+        <a href="https://www.axios.com/2026/05/29/openai-biodefense-program" target="_blank" class="source-chip light">Axios</a>
+        <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/" target="_blank" class="source-chip light">OpenAI 官方</a>
+        <a href="https://seekingalpha.com/news/4598464-openai-unveils-rosalind-biodefense-program-for-biodefense-pandemic-preparedness" target="_blank" class="source-chip light">Seeking Alpha</a>
+        <span class="pub-time">May 29, 2026</span>
+      </div>
+    </div>
+    <div class="card accent-amber">
+      <div class="card-kicker">募資 · AI Coding Agent</div>
+      <h2 class="card-headline">Cognition 以 $260 億估值完成 $10 億募資，AI 代理已自主撰寫自家九成程式碼</h2>
+      <p class="card-lede">打造 AI 工程師 Devin 的 Cognition AI 完成 $10 億新輪融資，投後估值 $260 億，由 Lux Capital、General Catalyst 與 8VC 共同領投。距上輪（2025 年 9 月，$102 億）僅八個月，估值翻逾 2.5 倍。企業端 Devin 使用量已連續六個月月增 50%，年化營收達 $4.92 億，且 89% 的程式碼已由 Devin 自主完成——既是最具說服力的產品展示，也印證了 AI coding agent 從實驗走向核心業務的轉折。</p>
+      <div class="card-footer">
+        <a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank" class="source-chip light">TechCrunch</a>
+        <a href="https://www.bloomberg.com/news/articles/2026-05-27/ai-coding-startup-cognition-raises-1-billion-at-26-billion-value" target="_blank" class="source-chip light">Bloomberg</a>
+        <a href="https://thenextweb.com/news/cognition-just-raised-1-billion-at-a-26-billion-valuation-and-90-of-its-own-code-is-written-by-its-ai" target="_blank" class="source-chip light">The Next Web</a>
+        <span class="pub-time">May 27, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">持續追蹤 · Developing Stories</div>
+  <div class="developing-section">
+    <div class="developing-empty">本期為首次執行，暫無接續報導。後續版次將在此追蹤持續發展中的事件，以 🔄 接續報導 標記呈現。</div>
+  </div>
+
+  <div class="section-label">政策與社會 · Policy &amp; Society</div>
+  <div class="card-policy">
+    <div class="card-policy-col">
+      <div class="card-kicker">AI 監管 · 美國</div>
+      <h2 class="card-headline">Colorado AI Act 遭大幅修訂並凍結執行，美國 AI 立法格局再生變數</h2>
+      <p class="card-lede">原定 6 月 30 日上路的 Colorado AI Act 已被根本性改寫：州長 Polis 於 5 月 14 日簽署 SB 189，拿掉對高風險 AI 的盡職調查義務與影響評估要求，改採較窄的透明度披露框架，並將生效日延至 2027 年 1 月。聯邦法院亦於 4 月 27 日應 xAI 申請頒發暫緩執行令。此案被視為警示：全美最具企圖心的州級 AI 法在業界與法院雙重壓力下近乎瓦解。</p>
+      <div class="card-footer">
+        <a href="https://natlawreview.com/article/major-developments-put-colorados-ai-law-ice-ahead-implementation" target="_blank" class="source-chip light">National Law Review</a>
+        <a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/colorado-ai-act-amended-and-effective-date-delayed" target="_blank" class="source-chip light">Hunton</a>
+        <a href="https://www.lawandtheworkplace.com/2026/05/major-developments-put-colorados-ai-law-on-ice-ahead-of-implementation/" target="_blank" class="source-chip light">Law &amp; the Workplace</a>
+        <span class="pub-time">May 2026</span>
+      </div>
+    </div>
+    <div class="card-policy-col">
+      <div class="card-kicker">勞動力 · AI 自動化</div>
+      <h2 class="card-headline">AI 驅動裁員潮：Q1 科技業近八萬人失業，近半指向自動化；Gartner 警告效益不如預期</h2>
+      <p class="card-lede">2026 年 Q1 科技業共 78,557 名員工遭裁員，其中 47.9% 被明確歸因於 AI 自動化取代人力需求。然而 Gartner 5 月研究報告踩煞車：多數企業以 AI 為由裁員後，未能獲得預期的財務回報，部分個案甚至出現「AI 洗白（AI washing）」——借 AI 名義行成本削減之實，但技術部署實際尚未成熟。報告提醒：AI 自動化的實際生產力效益，落差遠大於企業對外宣稱。</p>
+      <div class="card-footer">
+        <a href="https://www.tomshardware.com/tech-industry/tech-industry-lays-off-nearly-80-000-employees-in-the-first-quarter-of-2026-almost-50-percent-of-affected-positions-cut-due-to-ai" target="_blank" class="source-chip light">Tom's Hardware</a>
+        <a href="https://fortune.com/2026/05/11/ai-automation-layoffs-gartner-study-roi/" target="_blank" class="source-chip light">Fortune</a>
+        <a href="https://thehill.com/policy/technology/5870898-ai-job-cuts-analysis-trump-admin/" target="_blank" class="source-chip light">The Hill</a>
+        <span class="pub-time">Q1–May 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">技術觀察 · Tech Watch</div>
+  <div class="obs-card">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <div class="card-kicker" style="color:#6b5a00">架構創新 · 存疑聲明</div>
+      <span class="badge badge-warning">⚠ 未交叉驗證</span>
+    </div>
+    <h2 class="card-headline" style="font-size:1.05rem">Subquadratic 聲稱 SubQ 模型效率提升千倍，研究界要求獨立 benchmark 驗證</h2>
+    <p class="card-lede" style="font-size:.875rem">邁阿密新創 Subquadratic 宣稱旗下 SubQ-1M Preview 採用完全 subquadratic 架構，在 12M token 長上下文下將 attention 計算量降低近千倍，並完成 $2,900 萬種子輪融資（估值 $5 億）。VentureBeat 報導中，AI 研究社群反應兩極——部分人認為「subquadratic attention 本身是有意義的技術進步」，另有學者將其與 2024 年 Magic.dev 的未驗證千倍效率聲稱相提並論。目前無第三方獨立 benchmark 可供查驗，本刊標記待驗證。</p>
+    <div class="card-footer">
+      <a href="https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof" target="_blank" class="source-chip light">VentureBeat</a>
+      <a href="https://subq.ai/introducing-subq" target="_blank" class="source-chip light">SubQ 官方</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <div>AI 情報日刊 · Intelligence Daily &nbsp;|&nbsp; 2026-06-01 &nbsp;|&nbsp; Vol.1, No.1</div>
+  <div>本刊由 AI 自動整理，事實以原始來源為準。⚠ 標記表示聲稱尚待第三方獨立驗證。</div>
+</footer>
+
+</body>
+</html>

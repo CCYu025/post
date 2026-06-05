@@ -1,0 +1,49 @@
+{
+  "news": [
+    {
+      "date": "2026-06-05",
+      "path": "news/2026-06-05/2026-06-05.html",
+      "title": "2026-06-05 AI 新聞精選"
+    },
+    {
+      "date": "2026-06-04",
+      "path": "news/2026-06-04/2026-06-04.html",
+      "title": "AI 情報日報 — 2026-06-04"
+    },
+    {
+      "date": "2026-06-03",
+      "path": "news/2026-06-03/2026-06-03.html",
+      "title": "AI 情報精選 — 2026 年 6 月 3 日"
+    },
+    {
+      "date": "2026-06-02",
+      "path": "news/2026-06-02/2026-06-02.html",
+      "title": "AI 情報精選｜2026 年 6 月 2 日"
+    },
+    {
+      "date": "2026-06-01",
+      "path": "news/2026-06-01/2026-06-01.html",
+      "title": "AI 情報日刊 — 2026 年 6 月 1 日"
+    }
+  ],
+  "summary": [
+    {
+      "date": "2026-06-05",
+      "path": "summary/20260605_Dan_Martell_AI_money_changed_magazine_brief/Dan_Martell_AI_money_changed_magazine_brief.html",
+      "title": "AI 不是副業工具，是一套新公司的營運骨架 | Dan Martell 影片摘要",
+      "hero": "summary/20260605_Dan_Martell_AI_money_changed_magazine_brief/Dan_Martell_AI_money_hero_editorial.png"
+    },
+    {
+      "date": "2026-06-04",
+      "path": "summary/20260604_Sandeep_Swadia_Claude_better_magazine_brief/Sandeep_Swadia_Claude_better_magazine_brief.html",
+      "title": "把 Claude 從聊天框，變成你的私人工作室 | 一頁式雜誌摘要",
+      "hero": "summary/20260604_Sandeep_Swadia_Claude_better_magazine_brief/Claude_better_hero_editorial.png"
+    },
+    {
+      "date": "2026-06-04",
+      "path": "summary/20260604_Mel_Robbins_James_Clear_habits_magazine_brief/Mel_Robbins_James_Clear_habits_magazine_brief.html",
+      "title": "30 天不是改變人生，是重新設計一天 | James Clear 習慣科學專題",
+      "hero": "summary/20260604_Mel_Robbins_James_Clear_habits_magazine_brief/Mel_Robbins_James_Clear_habits_hero_editorial.png"
+    }
+  ]
+}

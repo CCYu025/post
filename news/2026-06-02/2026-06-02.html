@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情報精選｜2026 年 6 月 2 日</title>
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --dark-bg: #0e0f13;
+    --card-bg: #16181f;
+    --card-border: #252830;
+    --text-primary: #e8e9ed;
+    --text-secondary: #9ba0ae;
+    --text-muted: #5e6370;
+    --accent-blue: #4a9eff;
+    --accent-green: #3ecf8e;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+    --developing-bg: rgba(201, 168, 76, 0.08);
+    --developing-border: rgba(201, 168, 76, 0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    font-family: 'Georgia', 'Noto Serif TC', serif;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: linear-gradient(180deg, #060709 0%, #0e0f13 100%);
+    border-bottom: 1px solid var(--gold);
+    padding: 2rem 0 1.5rem;
+    text-align: center;
+  }
+  .masthead-eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .masthead-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .masthead-title span {
+    color: var(--gold);
+  }
+  .masthead-sub {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.1em;
+  }
+  .masthead-date {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.3rem 1rem;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-family: 'Courier New', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 2.5rem 0 1.5rem;
+  }
+  .gold-divider::before,
+  .gold-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .gold-divider span {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  /* ── LEAD STORY ── */
+  .lead-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-top: 3px solid var(--gold);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .lead-badge {
+    position: absolute;
+    top: -1px;
+    right: 2rem;
+    background: var(--gold);
+    color: #000;
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    padding: 0.2rem 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* ── GRID ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ── BASE CARD ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* ── DEVELOPING CARD ── */
+  .card.developing {
+    background: var(--developing-bg);
+    border-color: var(--developing-border);
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ── BADGES ── */
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+  .badge-new { background: rgba(74, 158, 255, 0.15); color: var(--accent-blue); border: 1px solid rgba(74, 158, 255, 0.3); }
+  .badge-developing { background: rgba(201, 168, 76, 0.2); color: var(--gold-light); border: 1px solid var(--developing-border); }
+  .badge-new-angle { background: rgba(62, 207, 142, 0.15); color: var(--accent-green); border: 1px solid rgba(62, 207, 142, 0.3); }
+  .badge-warning { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+  /* ── CARD CONTENT ── */
+  .card-category {
+    font-family: 'Courier New', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+  .lead-card .card-title {
+    font-size: 1.4rem;
+  }
+  .card-summary {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+  .lead-card .card-summary {
+    font-size: 0.95rem;
+  }
+  .delta-note {
+    background: rgba(201, 168, 76, 0.1);
+    border-left: 2px solid var(--gold);
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--card-border);
+    padding-top: 0.75rem;
+    margin-top: auto;
+  }
+  .card-source {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+  .card-source a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .card-source a:hover { text-decoration: underline; }
+  .card-time {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+  }
+
+  /* ── DEVELOPING SECTION ── */
+  .developing-section {
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.05) 0%, rgba(14, 15, 19, 0) 100%);
+    border: 1px solid var(--developing-border);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .developing-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .developing-icon {
+    font-size: 1.2rem;
+    animation: spin 3s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .developing-title {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    border-top: 1px solid var(--gold);
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .stat-item {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    border-right: 1px solid var(--card-border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Courier New', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat-item { min-width: 50%; }
+    .lead-card { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-eyebrow">AI Intelligence Briefing</div>
+  <h1 class="masthead-title">AI <span>情報精選</span></h1>
+  <div class="masthead-sub">每日精選 · 編輯嚴審 · 交叉查核</div>
+  <div class="masthead-date">2026 年 6 月 2 日，星期二</div>
+</header>
+
+<div class="container">
+
+  <!-- STATS BAR -->
+  <div style="margin-top: 2rem;">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">本日收錄</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">持續追蹤</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5</div>
+        <div class="stat-label">全新話題</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">交叉查核</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD STORY -->
+  <div class="gold-divider"><span>頭條</span></div>
+  <div class="section-label">今日焦點</div>
+
+  <div class="lead-card">
+    <div class="lead-badge">頭條</div>
+    <div class="badge-row">
+      <span class="badge badge-developing">🔄 接續報導</span>
+      <span class="badge badge-new">Microsoft Build 2026</span>
+    </div>
+    <div class="card-category">開發者大會 · AI 平台轉型</div>
+    <h2 class="card-title">Build 2026 開幕：Microsoft 發布自研 Coding 模型 Project Polaris，宣告 GitHub Copilot 脫離 OpenAI 依賴</h2>
+    <div class="delta-note">
+      📌 接續報導 — 昨日預告大會開幕，今日重大增量：Project Polaris 正式揭露、Windows 轉型 Agent 平台確認，開發者生態格局巨變。
+    </div>
+    <p class="card-summary">
+      Microsoft Build 2026 於舊金山 Fort Mason 正式開幕。Satya Nadella 主題演講中宣告 Windows 不再只為人類用戶服務，AI Agent 成為作業系統的第一等公民。最受矚目的是 Project Polaris——Microsoft 自研的 Mixture-of-Experts（MoE）架構 AI Coding 模型，計畫於 2026 年 8 月起取代 GPT-4 Turbo，成為 GitHub Copilot 所有訂閱者的預設模型。Polaris 在 HumanEval 及 MBPP 基準超越 GPT-4 Turbo，對 Rust、Haskell 等低資源語言有顯著提升，並在 Anthropic Maia AI 加速器上運行以降低推理延遲。Pro 方案用戶可取得最高 100,000 行的多檔案上下文，並自動生成測試案例。此舉意味著 Microsoft 已將模型、推理基礎設施與開發者體驗完整掌控於一體。
+    </p>
+    <div class="card-footer">
+      <span class="card-source">
+        來源：
+        <a href="https://chatforest.com/builders-log/microsoft-build-2026-recap-windows-agent-platform-project-polaris-copilot-workspace/" target="_blank">ChatForest</a>、
+        <a href="https://windowsnews.ai/article/build-2026-microsofts-platform-shift-to-ai-agents-copilot-and-azure-ai-foundry-takes-center-stage-in.420960" target="_blank">Windows News</a>、
+        <a href="https://aiweekly.co/alerts/microsoft-targets-claude-code-with-project-polaris" target="_blank">AI Weekly</a>
+      </span>
+      <span class="card-time">2026-06-02 | Build 2026 Day 1</span>
+    </div>
+  </div>
+
+  <!-- DEVELOPING SECTION -->
+  <div class="gold-divider"><span>持續追蹤</span></div>
+
+  <div class="developing-section">
+    <div class="developing-header">
+      <span class="developing-icon">🔄</span>
+      <span class="developing-title">持續追蹤中的故事</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Card: NVIDIA GTC Taipei new_angle -->
+      <div class="card developing">
+        <div class="badge-row">
+          <span class="badge badge-new-angle">🔀 新切角</span>
+          <span class="badge badge-developing">接續報導</span>
+        </div>
+        <div class="card-category">AI 硬體 · 基礎設施</div>
+        <h3 class="card-title">Jensen Huang 確認 Vera Rubin 秋季量產，DGX Station 將兆參數 AI 搬上企業桌機</h3>
+        <div class="delta-note">
+          📌 新切角 — 昨日聚焦 NVIDIA × ServiceNow Project Arc；今日重點轉向 Vera Rubin 路線圖里程碑及 DGX Station for Windows 新品。
+        </div>
+        <p class="card-summary">
+          NVIDIA GTC Taipei at Computex 持續進行中，Jensen Huang 在主題演講中確認次世代 AI 基礎設施平台 Vera Rubin 將於 2026 年秋季進入全面量產，與 Blackwell 相比每兆次運算的 Token 成本降低最多 10 倍。同日，NVIDIA 亦宣布 DGX Station for Windows——一款可在企業桌機本地執行最多 1,000 億（兆）參數模型、並即時連接 Windows 應用程式的 AI 超級電腦，標誌著「Always-on AI Agent」正式進入辦公室物理空間。Huang 另透露下半年還有「尚未公告的全新產品線」。
+        </p>
+        <div class="card-footer">
+          <span class="card-source">
+            來源：
+            <a href="https://blogs.nvidia.com/blog/nvidia-gtc-taipei-computex-2026-news/" target="_blank">NVIDIA Blog</a>、
+            <a href="https://www.euronews.com/next/2026/06/01/nvidia-ceo-jensen-huang-unveils-new-era-of-pc-for-ai-age-5-key-takeaways-from-gtc" target="_blank">Euronews</a>、
+            <a href="https://www.globenewswire.com/news-release/2026/06/01/3303986/0/en/NVIDIA-DGX-Station-for-Windows-Puts-a-Trillion-Parameter-AI-Supercomputer-on-Every-Enterprise-Desk.html" target="_blank">GlobeNewsWire</a>
+          </span>
+          <span class="card-time">2026-06-01～02 | GTC Taipei</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NEW STORIES GRID -->
+  <div class="gold-divider"><span>全新話題</span></div>
+  <div class="section-label">今日新增報導</div>
+
+  <div class="cards-grid">
+
+    <!-- Card 3: Agent 365 -->
+    <div class="card">
+      <div class="badge-row">
+        <span class="badge badge-new">全新</span>
+        <span class="badge badge-new">企業治理</span>
+      </div>
+      <div class="card-category">企業 AI · 多雲管理</div>
+      <h3 class="card-title">Microsoft Agent 365 在 Build 2026 展示跨 AWS / Google Cloud 的 AI Agent 統一治理能力</h3>
+      <p class="card-summary">
+        Microsoft 在 Build 2026 上展示 Agent 365 的多雲擴展能力：IT 團隊現可透過單一控制台自動發現並治理橫跨 AWS Bedrock 及 Google Cloud 的 AI Agent，實現跨平台 Agent 生命週期管理。6 月起進入公開預覽的 Defender Context Mapping 將繪製 Agent、裝置、Model Context Protocol（MCP）伺服器與雲端資源間的風險關聯圖。分析師 Futurum 將其定性為「把企業 Shadow AI 轉化為受治理資產類別」的關鍵一步。
+      </p>
+      <div class="card-footer">
+        <span class="card-source">
+          來源：
+          <a href="https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/" target="_blank">Microsoft Security Blog</a>、
+          <a href="https://futurumgroup.com/insights/microsoft-agent-365-turns-shadow-ai-into-a-governed-asset-class/" target="_blank">Futurum</a>
+        </span>
+        <span class="card-time">2026-06-02 | Build 2026</span>
+      </div>
+    </div>
+
+    <!-- Card 4: Claude Opus 4.8 -->
+    <div class="card">
+      <div class="badge-row">
+        <span class="badge badge-new">全新</span>
+        <span class="badge badge-new">模型發布</span>
+      </div>
+      <div class="card-category">AI 模型 · Agentic 工作流程</div>
+      <h3 class="card-title">Claude Opus 4.8 Dynamic Workflows：單次工作階段可並行數百子 Agent，AI 軟體工程進入規模化新階段</h3>
+      <p class="card-summary">
+        Anthropic 於 5 月 28 日發布 Claude Opus 4.8，距上一版 4.7 僅 41 天。最受關注的是 Dynamic Workflows 研究預覽功能——Claude Code 工作階段中可自動規劃任務並並行執行數百個子 Agent，大幅擴展可承接工作的邊界。模型在 SWE-bench Verified 達 88.6%，誠實性（減少無根據斷言）也顯著提升。定價不變，但新增 2.5 倍速的 Fast Mode。Effort Control 讓使用者可調節回應深度以節省用量配額。
+      </p>
+      <div class="card-footer">
+        <span class="card-source">
+          來源：
+          <a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank">Anthropic</a>、
+          <a href="https://www.macrumors.com/2026/05/28/anthropic-claude-opus-4-8/" target="_blank">MacRumors</a>、
+          <a href="https://www.technology.org/2026/05/29/anthropic-claude-opus-4-8-dynamic-workflows/" target="_blank">Technology.org</a>
+        </span>
+        <span class="card-time">2026-05-28 發布</span>
+      </div>
+    </div>
+
+    <!-- Card 5: Q1 2026 VC Record -->
+    <div class="card">
+      <div class="badge-row">
+        <span class="badge badge-new">全新</span>
+        <span class="badge badge-new">市場趨勢</span>
+      </div>
+      <div class="card-category">創投市場 · 宏觀分析</div>
+      <h3 class="card-title">Q1 2026 全球創投融資衝破 $3,000 億歷史紀錄，AI 獨占八成；OpenAI、Anthropic 四大 Mega-Round 即吞 $1,880 億</h3>
+      <p class="card-summary">
+        Crunchbase 數據顯示，2026 年 Q1 全球新創融資達 $3,000 億，年增逾 150%，改寫歷史紀錄。其中 AI 獨占 $2,420 億（80%），而史上規模最大的五筆創投輪中有四筆在本季落地——OpenAI（$1,220 億）、Anthropic（$300 億）、xAI（$200 億）及 Waymo（$160 億）合計吸走全球 65% 的創投資金。分析師指出市場正從「模型層」轉移至「應用與 Agent 基礎設施層」，自主 Agent 新創是下一波熱點。
+      </p>
+      <div class="card-footer">
+        <span class="card-source">
+          來源：
+          <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase</a>、
+          <a href="https://theaiinsider.tech/2026/05/27/ai-funding-in-2026-where-venture-capital-is-going/" target="_blank">The AI Insider</a>
+        </span>
+        <span class="card-time">2026 Q1 數據</span>
+      </div>
+    </div>
+
+    <!-- Card 6: GPT-5.5-Cyber -->
+    <div class="card">
+      <div class="badge-row">
+        <span class="badge badge-new">全新</span>
+        <span class="badge badge-new">AI 安全</span>
+      </div>
+      <div class="card-category">資安 · AI 模型</div>
+      <h3 class="card-title">OpenAI GPT-5.5-Cyber 上線：限量開放給關鍵基礎設施防禦者，6 月起啟用進階帳號安全機制</h3>
+      <p class="card-summary">
+        OpenAI 以 GPT-5.5-Cyber 為基礎推出 Trusted Access for Cyber 計畫，向負責保護關鍵基礎設施的合格防禦者提供許可權最高的 AI 模型。此版本在網路安全任務上的能力高於標準 GPT-5.5，可協助威脅偵測、漏洞分析與事件回應。自 2026 年 6 月 1 日起，所有 Trusted Access 成員需啟用 Advanced Account Security。OpenAI 同步對外合作夥伴說明，此為第一個由官方劃定「高風險允許使用案例」並配套嚴格身分驗證的商業 AI 模型計畫。
+      </p>
+      <div class="card-footer">
+        <span class="card-source">
+          來源：
+          <a href="https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/" target="_blank">OpenAI</a>、
+          <a href="https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/" target="_blank">TechCrunch</a>
+        </span>
+        <span class="card-time">2026-06-01 生效</span>
+      </div>
+    </div>
+
+    <!-- Card 7: Gemini 3.5 Flash -->
+    <div class="card">
+      <div class="badge-row">
+        <span class="badge badge-new">全新</span>
+        <span class="badge badge-new">模型競爭</span>
+      </div>
+      <div class="card-category">AI 模型 · Google</div>
+      <h3 class="card-title">Gemini 3.5 Flash 首次超越同廠 Pro 級模型，Gemini 3.5 Pro 六月登場將再改寫效能基準</h3>
+      <p class="card-summary">
+        Google 於 Google I/O 2026（5 月 19 日）發布 Gemini 3.5 Flash，是 Flash 等級模型首次在 Coding 與 Agentic 基準超越 Pro 等級模型（Gemini 3.1 Pro），Terminal-Bench 2.1 達 76.2%，輸出速度為同等模型 4 倍，售價僅 $1.50 / $9.00 每百萬 Token。Google 表示 Gemini 3.5 Pro 目前在內部已大量使用，六月內將正式發布，屆時效能基準預計再提升，加速 AI 模型「等級通膨」趨勢——Flash 即是昨日的 Pro。
+      </p>
+      <div class="card-footer">
+        <span class="card-source">
+          來源：
+          <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank">Google Blog</a>、
+          <a href="https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/" target="_blank">TechCrunch</a>、
+          <a href="https://datanorth.ai/news/google-releases-gemini-3-5-flash" target="_blank">DataNorth AI</a>
+        </span>
+        <span class="card-time">2026-05-19 發布 | 六月 Pro 版預期</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <div style="margin-bottom: 0.5rem;">
+      AI 情報精選 · 2026-06-02 · 自動生成，每則均經 ≥2 獨立來源交叉查核
+    </div>
+    <div>
+      本日收錄 7 則 · 持續追蹤 2 則（developing 1 / new_angle 1）· 全新 5 則
+    </div>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>
