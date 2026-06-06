@@ -37,6 +37,10 @@
 
       /* Motion — Expo Out (iOS/Framer premium feel) */
       --ease: cubic-bezier(.16,1,.3,1);
+
+      /* Future theme fallback accent colours */
+      --t-alt1: #7b9eb8;
+      --t-alt2: #b87b9e;
     }
 
     /* ── Reset ───────────────────────────────────────────────── */
@@ -269,7 +273,7 @@
     /* ── Shared hero label system ────────────────────────────── */
     .h-tag {
       font-family: var(--fm);
-      font-size: .58rem;
+      font-size: .72rem;
       letter-spacing: .32em;
       text-transform: uppercase;
       display: flex;
@@ -417,7 +421,7 @@
     }
     .archive-label {
       font-family: var(--fm);
-      font-size: .56rem;
+      font-size: .78rem;
       letter-spacing: .34em;
       text-transform: uppercase;
       color: rgba(237,237,239,.22);
@@ -482,7 +486,7 @@
 
     .card-tag {
       font-family: var(--fm);
-      font-size: .54rem;
+      font-size: .68rem;
       letter-spacing: .3em;
       text-transform: uppercase;
       margin-bottom: .7rem;
@@ -492,7 +496,7 @@
 
     .card-date {
       font-family: var(--fm);
-      font-size: .65rem;
+      font-size: .76rem;
       letter-spacing: .12em;
       margin-bottom: .5rem;
     }
@@ -502,7 +506,7 @@
     .card-title {
       font-family: var(--fs);
       font-weight: 700;
-      font-size: 1.02rem;
+      font-size: 1.15rem;
       line-height: 1.48;
     }
     .card--news    .card-title { color: var(--n-text); }
@@ -530,6 +534,308 @@
     .card--news    .card-arrow { color: var(--n-gold); }
     .card--summary .card-arrow { color: var(--s-green); }
     .card:hover .card-arrow { opacity: 1; transform: translate(0,0); }
+
+    /* Alt-theme card tags (3rd+ themes) */
+    .card-tag--alt1 { color: var(--t-alt1); }
+    .card-tag--alt2 { color: var(--t-alt2); }
+
+    /* ── Archive More Button ─────────────────────────────────── */
+    .archive-more {
+      max-width: 1320px;
+      margin: 2.25rem auto 0;
+      display: flex;
+      justify-content: center;
+      padding: 0 2rem;
+    }
+    .archive-more-btn {
+      font-family: var(--fm);
+      font-size: .72rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(237,237,239,.32);
+      background: none;
+      border: 1px solid rgba(200,168,75,.14);
+      padding: .75rem 2.4rem;
+      transition:
+        color .22s var(--ease),
+        border-color .22s var(--ease),
+        background .22s var(--ease);
+    }
+    .archive-more-btn:hover {
+      color: var(--n-gold);
+      border-color: rgba(200,168,75,.42);
+      background: rgba(200,168,75,.04);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       HAMBURGER BUTTON
+       ════════════════════════════════════════════════════════════ */
+    .hamburger {
+      position: fixed;
+      top: 1.1rem;
+      right: 1.25rem;
+      z-index: 800;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(3,3,4,.82);
+      border: 1px solid rgba(200,168,75,.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .38rem;
+      transition: border-color .22s var(--ease), background .22s var(--ease);
+    }
+    .hamburger:hover { border-color: rgba(200,168,75,.45); }
+    .hamburger[aria-expanded="true"] {
+      border-color: var(--n-gold);
+      z-index: 840;
+    }
+    .ham-bar {
+      display: block;
+      width: 1.1rem;
+      height: 1px;
+      background: var(--n-gold);
+      transition: transform .28s var(--ease), opacity .2s var(--ease);
+      transform-origin: center;
+    }
+    .hamburger[aria-expanded="true"] .ham-bar:nth-child(1) {
+      transform: translateY(.39rem) rotate(45deg);
+    }
+    .hamburger[aria-expanded="true"] .ham-bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger[aria-expanded="true"] .ham-bar:nth-child(3) {
+      transform: translateY(-.39rem) rotate(-45deg);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       LIBRARY OVERLAY
+       ════════════════════════════════════════════════════════════ */
+    .library {
+      position: fixed;
+      inset: 0;
+      z-index: 850;
+      background: #050508;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(20px) scale(.99);
+      pointer-events: none;
+      transition:
+        opacity .38s var(--ease),
+        transform .38s var(--ease);
+    }
+    .library.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    /* Header bar */
+    .lib-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: .95rem 1.5rem;
+      border-bottom: 1px solid var(--n-border);
+      flex-shrink: 0;
+    }
+    .lib-title {
+      font-family: var(--fd);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--n-text);
+      flex-shrink: 0;
+      letter-spacing: .02em;
+    }
+    .lib-search-wrap { flex: 1; }
+    .lib-search {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(200,168,75,.12);
+      color: var(--n-text);
+      font-family: var(--fm);
+      font-size: .76rem;
+      letter-spacing: .05em;
+      padding: .48rem 1rem;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+      transition: border-color .2s var(--ease);
+    }
+    .lib-search:focus { border-color: rgba(200,168,75,.38); }
+    .lib-search::placeholder { color: rgba(237,237,239,.2); }
+    .lib-search::-webkit-search-decoration,
+    .lib-search::-webkit-search-cancel-button { display: none; }
+
+    .lib-close {
+      background: none;
+      border: 1px solid rgba(200,168,75,.22);
+      color: var(--n-gold);
+      width: 2.35rem;
+      height: 2.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--fm);
+      font-size: .8rem;
+      flex-shrink: 0;
+      transition: background .2s var(--ease), color .2s var(--ease);
+    }
+    .lib-close:hover { background: var(--n-gold); color: var(--n-bg); }
+
+    /* Scrollable body */
+    .lib-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.75rem 2rem 5rem;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(200,168,75,.2) transparent;
+    }
+    .lib-body::-webkit-scrollbar { width: 4px; }
+    .lib-body::-webkit-scrollbar-track { background: transparent; }
+    .lib-body::-webkit-scrollbar-thumb { background: rgba(200,168,75,.2); border-radius: 2px; }
+
+    /* Year-month group */
+    .lib-group { margin-bottom: 2.25rem; }
+    .lib-group[style*="display: none"] { display: none !important; }
+
+    .lib-group-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: baseline;
+      gap: .65rem;
+      padding: .5rem 0 .6rem;
+      border-bottom: 1px solid var(--n-border);
+      margin-bottom: .5rem;
+      cursor: pointer;
+      transition: opacity .18s;
+    }
+    .lib-group-toggle:hover { opacity: .72; }
+
+    .lib-group-yr {
+      font-family: var(--fd);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--n-text);
+    }
+    .lib-group-mo {
+      font-family: var(--fd);
+      font-size: .9rem;
+      color: rgba(237,237,239,.45);
+    }
+    .lib-group-count {
+      font-family: var(--fm);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      color: rgba(200,168,75,.45);
+      margin-left: .25rem;
+    }
+    .lib-toggle-icon {
+      font-size: .65rem;
+      color: rgba(200,168,75,.5);
+      margin-left: auto;
+      transition: transform .28s var(--ease);
+      display: inline-block;
+    }
+    .lib-group-toggle[aria-expanded="false"] .lib-toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    /* Collapsible list */
+    .lib-list {
+      list-style: none;
+      display: grid;
+      grid-template-rows: 1fr;
+      overflow: hidden;
+      transition: grid-template-rows .32s var(--ease);
+    }
+    .lib-list.collapsed { grid-template-rows: 0fr; }
+    .lib-list > * { min-height: 0; }
+
+    /* Article item */
+    .lib-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      gap: .3rem .9rem;
+      padding: .62rem .4rem;
+      border-bottom: 1px solid rgba(200,168,75,.04);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background .16s var(--ease);
+    }
+    .lib-item:hover { background: rgba(200,168,75,.05); }
+
+    .lib-item-meta {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      padding-top: .12rem;
+    }
+    .lib-item-tag {
+      font-family: var(--fm);
+      font-size: .58rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .lib-item-tag--news    { color: var(--n-gold); }
+    .lib-item-tag--summary { color: var(--s-sage); }
+    .lib-item-tag--alt1    { color: var(--t-alt1); }
+    .lib-item-tag--alt2    { color: var(--t-alt2); }
+
+    .lib-item-date {
+      font-family: var(--fm);
+      font-size: .6rem;
+      letter-spacing: .07em;
+      color: rgba(237,237,239,.25);
+      white-space: nowrap;
+    }
+
+    .lib-item-title {
+      font-family: var(--fs);
+      font-size: .94rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: rgba(237,237,239,.82);
+      transition: color .16s var(--ease);
+    }
+    .lib-item:hover .lib-item-title { color: var(--n-text); }
+
+    .lib-item-title mark {
+      background: rgba(200,168,75,.22);
+      color: var(--n-gold);
+      border-radius: 1px;
+    }
+
+    .lib-empty {
+      font-family: var(--fm);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      color: rgba(237,237,239,.18);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 680px) {
+      .lib-header { padding: .85rem 1rem; gap: .75rem; }
+      .lib-title  { font-size: .88rem; }
+      .lib-body   { padding: 1.25rem 1rem 4rem; }
+      .lib-item   { grid-template-columns: 1fr; gap: .25rem; }
+      .lib-item-meta { flex-wrap: wrap; }
+    }
 
     /* ════════════════════════════════════════════════════════════
        READER OVERLAY
@@ -700,6 +1006,11 @@
   </div>
   <section class="archive" aria-label="往期文章列表">
     <div class="archive-grid" id="archiveGrid"></div>
+    <div class="archive-more">
+      <button class="archive-more-btn" id="archiveMoreBtn" aria-label="開啟文章庫，瀏覽全部往期文章">
+        查看全部往期 &rarr;
+      </button>
+    </div>
   </section>
 
   <!-- ── Footer ────────────────────────────────────────────── -->
@@ -708,6 +1019,44 @@
     <a href="https://github.com/features/actions" target="_blank" rel="noopener">GitHub Actions</a>
     自動更新
   </footer>
+
+  <!-- ── Hamburger Button ──────────────────────────────────── -->
+  <button
+    class="hamburger"
+    id="hamburger"
+    aria-label="開啟文章庫"
+    aria-expanded="false"
+    aria-controls="library"
+  >
+    <span class="ham-bar"></span>
+    <span class="ham-bar"></span>
+    <span class="ham-bar"></span>
+  </button>
+
+  <!-- ── Library Overlay ───────────────────────────────────── -->
+  <div
+    class="library"
+    id="library"
+    role="dialog"
+    aria-modal="true"
+    aria-label="文章庫"
+  >
+    <div class="lib-header">
+      <span class="lib-title">文章庫</span>
+      <div class="lib-search-wrap">
+        <input
+          class="lib-search"
+          id="libSearch"
+          type="search"
+          placeholder="搜尋標題…"
+          aria-label="搜尋文章"
+          autocomplete="off"
+        >
+      </div>
+      <button class="lib-close" id="libClose" aria-label="關閉文章庫（Esc）">✕</button>
+    </div>
+    <div class="lib-body" id="libBody"></div>
+  </div>
 
   <!-- ── Reader Overlay ─────────────────────────────────────── -->
   <div
@@ -746,6 +1095,12 @@
         : { main: t.slice(0, i).trim(), sub: t.slice(i + 1).trim() };
     }
 
+    /* ── Body scroll lock (shared by Reader + Library) ──────── */
+    function setBodyLock() {
+      const anyOpen = [$('reader'), $('library')].some(el => el && el.classList.contains('open'));
+      document.body.style.overflow = anyOpen ? 'hidden' : '';
+    }
+
     /* ── Reader ─────────────────────────────────────────────── */
     const reader = $('reader'), frame = $('readerFrame');
 
@@ -753,18 +1108,200 @@
       $('readerLabel').textContent = label || '知識刊';
       frame.src = path;
       reader.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      setBodyLock();
       requestAnimationFrame(() => $('readerClose').focus());
     }
 
     function closeReader() {
       reader.classList.remove('open');
-      document.body.style.overflow = '';
       setTimeout(() => { frame.src = 'about:blank'; }, 520);
+      setBodyLock();
     }
 
     $('readerClose').addEventListener('click', closeReader);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReader(); });
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      if ($('reader').classList.contains('open')) closeReader();
+      else if ($('library') && $('library').classList.contains('open')) closeLibrary();
+    });
+
+    /* ── Library Overlay ─────────────────────────────────────── */
+    let _libraryRendered = false;
+    let _searchTimer = null;
+    let _libraryItems = [];
+
+    const MONTH_NAMES = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+
+    function buildLibraryData(mf) {
+      return Object.entries(mf)
+        .flatMap(([key, arr], idx) => arr.map(item => ({ ...item, _key: key, _idx: idx })))
+        .sort((a, b) => b.date.localeCompare(a.date));
+    }
+
+    function groupByYearMonth(items) {
+      const map = new Map();
+      items.forEach(item => {
+        const ym = item.date.slice(0, 7); // "YYYY-MM"
+        if (!map.has(ym)) map.set(ym, []);
+        map.get(ym).push(item);
+      });
+      return map;
+    }
+
+    function libTagCls(key) {
+      if (key === 'news') return 'lib-item-tag--news';
+      if (key === 'summary') return 'lib-item-tag--summary';
+      return 'lib-item-tag--alt1';
+    }
+
+    function libTagLabel(key, idx) {
+      return getThemeMeta(key, idx).label || key;
+    }
+
+    function highlight(text, query) {
+      if (!query) return text;
+      const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function renderLibrary() {
+      if (!manifest) return;
+      _libraryItems = buildLibraryData(manifest);
+      const grouped = groupByYearMonth(_libraryItems);
+      const body = $('libBody');
+      body.innerHTML = '';
+      const frag = document.createDocumentFragment();
+      let first = true;
+      grouped.forEach((items, ym) => {
+        const [yr, mo] = ym.split('-');
+        const moName = MONTH_NAMES[parseInt(mo, 10) - 1];
+        const groupId = `lg-${ym}`;
+        const isOpen = first;
+        first = false;
+
+        const sec = document.createElement('section');
+        sec.className = 'lib-group';
+        sec.dataset.group = ym;
+
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'lib-group-toggle';
+        toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggleBtn.setAttribute('aria-controls', groupId);
+        toggleBtn.innerHTML = `
+          <span class="lib-group-yr">${yr}</span>
+          <span class="lib-group-mo">${moName}</span>
+          <span class="lib-group-count">${items.length}</span>
+          <span class="lib-toggle-icon" aria-hidden="true">&#9662;</span>
+        `;
+        toggleBtn.addEventListener('click', () => toggleLibGroup(toggleBtn));
+
+        const ul = document.createElement('ul');
+        ul.className = 'lib-list' + (isOpen ? '' : ' collapsed');
+        ul.id = groupId;
+        ul.setAttribute('role', 'list');
+
+        items.forEach(item => {
+          const { main } = splitTitle(item.title);
+          const li = document.createElement('li');
+          li.className = 'lib-item';
+          li.setAttribute('tabindex', '0');
+          li.dataset.title = main.toLowerCase();
+          li.dataset.rawTitle = main;
+          li.innerHTML = `
+            <span class="lib-item-meta">
+              <span class="lib-item-tag ${libTagCls(item._key)}">${libTagLabel(item._key, item._idx)}</span>
+              <span class="lib-item-date">${fmtDate(item.date)}</span>
+            </span>
+            <span class="lib-item-title">${main}</span>
+          `;
+          const go = () => openReader(item.path, main);
+          li.addEventListener('click', go);
+          li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+          ul.appendChild(li);
+        });
+
+        sec.appendChild(toggleBtn);
+        sec.appendChild(ul);
+        frag.appendChild(sec);
+      });
+
+      if (!frag.childNodes.length) {
+        body.innerHTML = '<p class="lib-empty">暫無文章</p>';
+      } else {
+        body.appendChild(frag);
+      }
+      _libraryRendered = true;
+    }
+
+    function toggleLibGroup(btn) {
+      const listId = btn.getAttribute('aria-controls');
+      const list = document.getElementById(listId);
+      if (!list) return;
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+      list.classList.toggle('collapsed', isExpanded);
+    }
+
+    function filterLibrary(query) {
+      const q = query.toLowerCase().trim();
+      const groups = $('libBody').querySelectorAll('.lib-group');
+      let anyVisible = false;
+
+      groups.forEach(group => {
+        const items = group.querySelectorAll('.lib-item');
+        let groupVisible = false;
+        items.forEach(li => {
+          const matches = !q || li.dataset.title.includes(q);
+          li.style.display = matches ? '' : 'none';
+          const titleEl = li.querySelector('.lib-item-title');
+          if (titleEl) {
+            const raw = li.dataset.rawTitle || titleEl.textContent;
+            titleEl.innerHTML = matches && q ? highlight(raw, query) : raw;
+          }
+          if (matches) groupVisible = true;
+        });
+        group.style.display = groupVisible ? '' : 'none';
+        if (groupVisible) {
+          anyVisible = true;
+          if (q) {
+            const toggle = group.querySelector('.lib-group-toggle');
+            const list = group.querySelector('.lib-list');
+            if (toggle && list) {
+              toggle.setAttribute('aria-expanded', 'true');
+              list.classList.remove('collapsed');
+            }
+          }
+        }
+      });
+
+      let emptyEl = $('libBody').querySelector('.lib-empty');
+      if (!anyVisible) {
+        if (!emptyEl) {
+          emptyEl = document.createElement('p');
+          emptyEl.className = 'lib-empty';
+          $('libBody').appendChild(emptyEl);
+        }
+        emptyEl.textContent = `找不到「${query}」相關文章`;
+        emptyEl.style.display = '';
+      } else if (emptyEl) {
+        emptyEl.style.display = 'none';
+      }
+    }
+
+    function openLibrary() {
+      if (!_libraryRendered) renderLibrary();
+      $('library').classList.add('open');
+      setBodyLock();
+      $('hamburger').setAttribute('aria-expanded', 'true');
+      requestAnimationFrame(() => $('libSearch').focus());
+    }
+
+    function closeLibrary() {
+      $('library').classList.remove('open');
+      $('hamburger').setAttribute('aria-expanded', 'false');
+      setBodyLock();
+      $('hamburger').focus();
+    }
 
     /* ── Hero: News ──────────────────────────────────────────── */
     function renderHeroNews(item) {
@@ -830,16 +1367,33 @@
       });
     }, { threshold: 0.06 });
 
+    /* ── Theme metadata (extensible for future themes) ──────── */
+    const ARCHIVE_LIMIT = 8;
+
+    const THEME_META = {
+      news:    { label: 'AI 情報',   cardCls: 'card--news',    tagCls: '' },
+      summary: { label: '深度摘要',  cardCls: 'card--summary', tagCls: '' },
+    };
+    const THEME_FALLBACK = [
+      { label: '', cardCls: 'card--news', tagCls: 'card-tag--alt1' },
+      { label: '', cardCls: 'card--news', tagCls: 'card-tag--alt2' },
+    ];
+
+    function getThemeMeta(key, idx) {
+      if (THEME_META[key]) return THEME_META[key];
+      const fb = THEME_FALLBACK[idx % THEME_FALLBACK.length];
+      return { label: key, cardCls: fb.cardCls, tagCls: fb.tagCls };
+    }
+
     /* ── Archive ─────────────────────────────────────────────── */
-    function renderArchive(news, summary) {
+    function renderArchive(mf) {
       const grid = $('archiveGrid');
-      const na = news.slice(1), sa = summary.slice(1);
-      const items = [];
-      const max = Math.max(na.length, sa.length);
-      for (let i = 0; i < max; i++) {
-        if (sa[i]) items.push({ ...sa[i], type: 'summary' });
-        if (na[i]) items.push({ ...na[i], type: 'news' });
-      }
+      const entries = Object.entries(mf);
+
+      // Build flat list, skip each theme's [0] (shown in hero), sort newest-first
+      const items = entries.flatMap(([key, arr], idx) =>
+        arr.slice(1).map(item => ({ ...item, _key: key, _idx: idx }))
+      ).sort((a, b) => b.date.localeCompare(a.date)).slice(0, ARCHIVE_LIMIT);
 
       if (!items.length) {
         grid.innerHTML = '<p style="grid-column:1/-1;padding:3rem;font-family:var(--fm);font-size:.72rem;opacity:.28;letter-spacing:.1em;">暫無往期文章</p>';
@@ -849,19 +1403,21 @@
       const frag = document.createDocumentFragment();
       items.forEach(item => {
         const { main, sub } = splitTitle(item.title);
+        const meta = getThemeMeta(item._key, item._idx);
         const card = document.createElement('article');
-        card.className = `card card--${item.type}`;
+        card.className = `card ${meta.cardCls}`;
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
         card.setAttribute('aria-label', `開啟：${main}`);
 
-        const thumb = item.type === 'summary' && item.hero
+        const thumb = meta.cardCls === 'card--summary' && item.hero
           ? `<img class="card-thumb" src="${item.hero}" alt="" role="presentation" loading="lazy">`
           : '';
+        const tagCls = meta.tagCls ? ` ${meta.tagCls}` : '';
 
         card.innerHTML = `
           ${thumb}
-          <div class="card-tag">${item.type === 'news' ? 'AI 情報' : '深度摘要'}</div>
+          <div class="card-tag${tagCls}">${meta.label}</div>
           <div class="card-date">${fmtDate(item.date)}</div>
           <h3 class="card-title">${main}${sub ? `<span class="card-sub">${sub}</span>` : ''}</h3>
           <span class="card-arrow" aria-hidden="true">&rarr;</span>
@@ -885,11 +1441,13 @@
         `${n.getFullYear()}·${String(n.getMonth()+1).padStart(2,'0')}·${String(n.getDate()).padStart(2,'0')}`;
     }
 
+    /* ── Module-level manifest (shared with Library) ────────── */
+    let manifest = null;
+
     /* ── Init ────────────────────────────────────────────────── */
     async function init() {
       setDate();
 
-      let manifest;
       try {
         const res = await fetch('manifest.json');
         if (!res.ok) throw new Error(res.status);
@@ -904,10 +1462,20 @@
         return;
       }
 
-      const { news = [], summary = [] } = manifest;
+      const news = manifest.news ?? [];
+      const summary = manifest.summary ?? [];
       renderHeroNews(news[0]);
       renderHeroSummary(summary[0]);
-      renderArchive(news, summary);
+      renderArchive(manifest);
+
+      // Library trigger bindings
+      $('hamburger').addEventListener('click', openLibrary);
+      $('libClose').addEventListener('click', closeLibrary);
+      $('archiveMoreBtn').addEventListener('click', openLibrary);
+      $('libSearch').addEventListener('input', e => {
+        clearTimeout(_searchTimer);
+        _searchTimer = setTimeout(() => filterLibrary(e.target.value), 120);
+      });
     }
 
     init();
