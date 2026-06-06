@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 專案概述
 
-**知識刊** — 部署於 GitHub Pages 的單頁雜誌式首頁，聚合兩個定期更新的內容主題：
+**知識刊** — 部署於 GitHub Pages 的單頁雜誌式首頁，聚合多個定期更新的內容主題（目前兩個，架構支援擴充）：
 - `news/` — 每日 AI 情報日刊
 - `summary/` — 長篇主題深度摘要
 
@@ -59,9 +59,32 @@ python -m http.server 8765
 ### index.html 設計系統
 
 - **字型三層架構**：`Playfair Display`（大標題）、`Libre Bodoni`（卡片標題）、`JetBrains Mono`（所有標籤/日期/按鈕）
-- **色彩系統**：左欄 news 暗色 `--n-*` token；右欄 summary 暖色 `--s-*` token
+- **色彩系統**：左欄 news 暗色 `--n-*` token；右欄 summary 暖色 `--s-*` token；第三個以後的主題使用 `--t-alt1`、`--t-alt2` 備用色
 - **動畫 easing**：`cubic-bezier(.16,1,.3,1)`（Expo Out）貫穿全站
 - **閱讀器**：點擊卡片觸發 `.reader` overlay，以 `<iframe>` 嵌入 HTML 全螢幕顯示
+- **文章庫**：右上角漢堡鍵觸發 `.library` 全螢幕 overlay，含年月分組折疊 + 即時搜尋
+
+### 多主題擴充架構
+
+`index.html` 的 JS 以 `Object.entries(manifest)` 動態迭代所有主題 key，新增主題只需：
+1. 在 `build_manifest.py` 加入新主題的掃描邏輯
+2. manifest.json 多一個 key（如 `"review": [...]`）
+3. 前端 Archive 與 Library 自動顯示新主題，無需改 JS
+
+主題對應的 JS 設定在 `THEME_META` 常數（`index.html` 的 script 區塊頂部）：
+```js
+const THEME_META = {
+  news:    { label: 'AI 情報',  cardCls: 'card--news',    tagCls: '' },
+  summary: { label: '深度摘要', cardCls: 'card--summary', tagCls: '' },
+  // 新增主題在此定義，否則自動 fallback 至 --t-alt1/2
+};
+```
+
+### Archive 顯示規則
+
+- 主頁 Archive 最多顯示 8 篇（`ARCHIVE_LIMIT = 8`），按日期新到舊排序
+- 各主題的最新一篇（`[0]`）顯示於 Hero 區，**不重複出現**在 Archive
+- 「查看全部往期 →」按鈕開啟文章庫 overlay
 
 ## 新增內容的正確步驟
 
