@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>把人生目的，從遠方拉回今天 | Jay Shetty</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4eadb;
+      --paper-deep: #e4d2ba;
+      --ink: #241f1a;
+      --muted: #6f665b;
+      --moss: #526a55;
+      --clay: #a85f3d;
+      --ochre: #c28b3f;
+      --night: #181713;
+      --line: rgba(36, 31, 26, 0.18);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", "Songti TC", serif;
+      line-height: 1.78;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(36, 31, 26, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 31, 26, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px;
+      mix-blend-mode: multiply;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: minmax(320px, 0.8fr) minmax(420px, 1.2fr);
+      background: var(--night);
+      color: #fff7e7;
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      padding: clamp(34px, 5vw, 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 92vh;
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+    }
+
+    .hero-kicker,
+    .section-kicker,
+    .source-label {
+      margin: 0 0 16px;
+      font: 800 0.72rem/1.3 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker {
+      color: #d9a65b;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(3.3rem, 8.4vw, 8rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-dek {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: #eadbc5;
+      font-size: clamp(1.08rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .watch-link {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 247, 231, 0.42);
+      border-radius: 999px;
+      color: #fff7e7;
+      font: 800 0.9rem/1 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      text-decoration: none;
+    }
+
+    .watch-link::after {
+      content: "↗";
+      font-size: 1rem;
+    }
+
+    .meta {
+      margin-top: 56px;
+      display: grid;
+      gap: 12px;
+      color: #d5c7b4;
+      font: 0.92rem/1.55 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      overflow-wrap: anywhere;
+    }
+
+    .meta strong {
+      color: #fff7e7;
+    }
+
+    .hero-image {
+      min-height: 92vh;
+      background:
+        linear-gradient(90deg, rgba(24, 23, 19, 0.72), rgba(24, 23, 19, 0.12) 38%, rgba(24, 23, 19, 0.04)),
+        url("Jay_Shetty_purpose_hero_editorial.png") center / cover no-repeat;
+    }
+
+    main {
+      position: relative;
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .opening {
+      display: grid;
+      grid-template-columns: minmax(0, 0.68fr) minmax(280px, 0.32fr);
+      gap: clamp(32px, 6vw, 76px);
+      padding: 86px 0 74px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-kicker {
+      color: var(--clay);
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(2rem, 4.8vw, 4.8rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.22rem, 2vw, 1.65rem);
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 20px;
+      font-size: 1.04rem;
+      overflow-wrap: anywhere;
+    }
+
+    .standfirst {
+      font-size: clamp(1.28rem, 2.2vw, 1.72rem);
+      line-height: 1.62;
+      color: #342e27;
+    }
+
+    .margin-note {
+      border-left: 6px solid var(--moss);
+      padding: 22px 0 22px 24px;
+      color: var(--muted);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .margin-note b {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .thesis {
+      margin: 0 calc(50% - 50vw);
+      padding: 78px max(20px, calc(50vw - var(--max) / 2));
+      background: #fff9ef;
+    }
+
+    .thesis-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.36fr) minmax(0, 0.64fr);
+      gap: clamp(32px, 6vw, 74px);
+      align-items: start;
+    }
+
+    .large-number {
+      font: 900 clamp(5rem, 12vw, 12rem)/0.82 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      color: var(--moss);
+      letter-spacing: 0;
+    }
+
+    .thesis-list {
+      display: grid;
+      gap: 26px;
+      margin-top: 8px;
+    }
+
+    .thesis-item {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .thesis-item span {
+      color: var(--clay);
+      font: 900 0.82rem/1.3 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .thesis-item p {
+      color: #4e473f;
+    }
+
+    .purpose {
+      display: grid;
+      grid-template-columns: 0.55fr 0.45fr;
+      gap: clamp(30px, 6vw, 72px);
+      padding: 84px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+
+    .equation {
+      display: grid;
+      gap: 12px;
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .equation-row {
+      padding: 24px;
+      background: rgba(255, 249, 239, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .equation-row strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--moss);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .map {
+      margin: 0 calc(50% - 50vw);
+      padding: 80px max(20px, calc(50vw - var(--max) / 2));
+      color: #f6ecdc;
+      background: #22241f;
+    }
+
+    .map-head {
+      display: grid;
+      grid-template-columns: 0.46fr 0.54fr;
+      gap: clamp(28px, 5vw, 64px);
+      margin-bottom: 36px;
+      align-items: end;
+    }
+
+    .map .section-kicker {
+      color: #d9a65b;
+    }
+
+    .map h2 {
+      color: #fff7e7;
+    }
+
+    .map p {
+      color: #d8d0c2;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 247, 231, 0.22);
+      border: 1px solid rgba(255, 247, 231, 0.22);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .journey article {
+      min-height: 310px;
+      padding: 24px;
+      background: #2d302a;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .journey span {
+      color: #d9a65b;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+
+    .states {
+      display: grid;
+      grid-template-columns: minmax(0, 0.58fr) minmax(280px, 0.42fr);
+      gap: clamp(30px, 5vw, 58px);
+      padding: 86px 0;
+      align-items: start;
+    }
+
+    .states figure {
+      margin: 0;
+    }
+
+    .states img {
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 30px 90px rgba(36, 31, 26, 0.18);
+    }
+
+    figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font: 0.86rem/1.6 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .state-list {
+      display: grid;
+      gap: 1px;
+      margin-top: 26px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .state-list div {
+      padding: 20px;
+      background: #f7efe1;
+    }
+
+    .state-list b {
+      color: var(--clay);
+    }
+
+    .relationships {
+      margin: 0 calc(50% - 50vw);
+      padding: 80px max(20px, calc(50vw - var(--max) / 2));
+      background: #fffaf0;
+    }
+
+    .relation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .relation-grid article {
+      padding-top: 22px;
+      border-top: 6px solid var(--moss);
+    }
+
+    .relation-grid p {
+      color: #504940;
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      font-size: 0.98rem;
+    }
+
+    .field-guide {
+      padding: 84px 0 74px;
+      display: grid;
+      grid-template-columns: 0.42fr 0.58fr;
+      gap: clamp(34px, 6vw, 76px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guide-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: guide;
+      display: grid;
+      gap: 20px;
+    }
+
+    .guide-steps li {
+      counter-increment: guide;
+      position: relative;
+      padding: 22px 0 22px 62px;
+      border-top: 1px solid var(--line);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .guide-steps li::before {
+      content: counter(guide);
+      position: absolute;
+      top: 22px;
+      left: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--night);
+      color: #fff7e7;
+      font-weight: 900;
+    }
+
+    .guide-steps p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .source {
+      margin: 0 calc(50% - 50vw);
+      padding: 52px max(20px, calc(50vw - var(--max) / 2));
+      background: var(--night);
+      color: #efe5d6;
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .source img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 247, 231, 0.2);
+    }
+
+    .source h2 {
+      font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+      color: #fff7e7;
+    }
+
+    .source ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .source li {
+      margin-bottom: 8px;
+      color: #d7cebf;
+      overflow-wrap: anywhere;
+    }
+
+    .source a {
+      color: #d9a65b;
+    }
+
+    .thumb-caption {
+      margin: 12px 0 0;
+      color: rgba(239, 229, 214, 0.78);
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .opening,
+      .thesis-grid,
+      .purpose,
+      .map-head,
+      .states,
+      .field-guide,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: auto;
+      }
+
+      .hero-image {
+        min-height: 38vh;
+      }
+
+      .journey,
+      .relation-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      main {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .hero h1 {
+        font-size: 2.48rem;
+        line-height: 1.08;
+      }
+
+      .hero-copy {
+        width: 100%;
+        max-width: 100vw;
+        padding: 30px 18px 38px;
+        overflow: hidden;
+      }
+
+      .hero-copy > div,
+      .hero-dek,
+      .meta {
+        max-width: min(330px, calc(100vw - 52px));
+      }
+
+      .hero-dek {
+        font-size: 0.96rem;
+        line-height: 1.75;
+        word-break: break-all;
+      }
+
+      .meta {
+        font-size: 0.84rem;
+        word-break: break-all;
+      }
+
+      .meta div {
+        overflow-wrap: anywhere;
+        word-break: break-all;
+      }
+
+      .journey,
+      .relation-grid,
+      .thesis-item {
+        grid-template-columns: 1fr;
+      }
+
+      .journey article {
+        min-height: 240px;
+      }
+
+      .large-number {
+        font-size: 5.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      body,
+      .thesis,
+      .relationships {
+        background: #fff;
+        color: #111;
+      }
+
+      body::before,
+      .hero-image {
+        display: none;
+      }
+
+      .hero,
+      .map,
+      .source {
+        background: #fff;
+        color: #111;
+      }
+
+      .hero {
+        min-height: auto;
+        display: block;
+      }
+
+      .hero-copy {
+        min-height: auto;
+        padding: 30px 0;
+      }
+
+      .hero h1,
+      .hero-dek,
+      .map h2,
+      .source h2,
+      .source li,
+      .map p {
+        color: #111;
+      }
+
+      .watch-link {
+        color: #111;
+        border-color: #111;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-copy">
+      <div>
+        <p class="hero-kicker">Purpose / Change / Relationships</p>
+        <h1>把人生目的，<br>從遠方拉回今天</h1>
+        <p class="hero-dek">Jay Shetty 沒有把「目的」講成宏大的使命宣言。他把它拆成更小、更誠實的動作：鬆開舊身份、從眼前處境收集線索、把熱情用在他人身上，並學會接收那些早已在身邊的愛。</p>
+        <a class="watch-link" href="https://www.youtube.com/watch?v=MOVQponoBmI" target="_blank" rel="noreferrer noopener">觀看原始影片</a>
+      </div>
+      <div class="meta">
+        <div><strong>原始影片</strong> Jay Shetty on purpose and building the life you want</div>
+        <div><strong>頻道</strong> Mel Robbins</div>
+        <div><strong>素材狀態</strong> 已使用官方頁面 transcript 與 YouTube metadata</div>
+      </div>
+    </div>
+    <div class="hero-image" role="img" aria-label="AI-generated editorial image：晨光中的桌面、紙片、植物與打開的書，象徵重新整理人生方向"></div>
+  </header>
+
+  <main>
+    <section class="opening" aria-labelledby="opening-title">
+      <article>
+        <p class="section-kicker">Opening Essay</p>
+        <h2 id="opening-title">這不是「我該成為誰」的問題，而是「我還抓著誰」的問題。</h2>
+        <p class="standfirst">影片一開始最有力量的轉折，是 Shetty 把「卡住」重新命名：很多時候，我們不是沒有路，而是在哀悼一個已經離開的人生版本。</p>
+        <p>這個說法把目的感從遠方拉回日常。人常以為必須先看見完整藍圖，才有資格行動；Shetty 的回答相反：你不需要知道整個未來，只需要知道什麼已經不再適合你，並且停止用舊身份要求新生活。</p>
+        <p>對一般讀者而言，這支影片的價值不在於給你一張「人生使命表」，而在於提供一套看待轉折的語言。離職、分手、空巢、想創作卻怕被熟人看見，這些表面不同的困境，在影片裡都被收束成同一件事：你正在學習容納一個新的自己。</p>
+      </article>
+      <aside class="margin-note">
+        <b>Core Tension</b>
+        <p>目的不是突然出現的巨大答案。它更像一種整理能力：辨認你還抓著什麼、你正在收集什麼、你能把什麼給出去。</p>
+      </aside>
+    </section>
+
+    <section class="thesis" aria-labelledby="thesis-title">
+      <div class="thesis-grid">
+        <div>
+          <p class="section-kicker">The Argument</p>
+          <div class="large-number">05</div>
+          <h2 id="thesis-title">改變不是聽完就做，而是經過五個層次。</h2>
+        </div>
+        <div class="thesis-list">
+          <article class="thesis-item">
+            <span>Learn</span>
+            <div>
+              <h3>先讓一個觀念進來。</h3>
+              <p>聽見新想法只是入口。Shetty 把學習放在第一步，但他也提醒：很多人停在這裡，所以知道很多，生活卻沒有真的轉向。</p>
+            </div>
+          </article>
+          <article class="thesis-item">
+            <span>Experiment</span>
+            <div>
+              <h3>把觀念拿去試，而不是拿去評分。</h3>
+              <p>第一次嘗試不順，不代表方法無效。反思不是坐著想清楚，而是在行動後調整 1% 或 2%。</p>
+            </div>
+          </article>
+          <article class="thesis-item">
+            <span>Perform</span>
+            <div>
+              <h3>當新行為開始自然，才算進入身體。</h3>
+              <p>觀念從腦中移到生活裡，會變成醒來時的心態、對話時的反應、面對壓力時更自然的選擇。</p>
+            </div>
+          </article>
+          <article class="thesis-item">
+            <span>Struggle</span>
+            <div>
+              <h3>困難不是失敗，而是升級前的摩擦。</h3>
+              <p>影片裡的關鍵不是消除掙扎，而是不要把掙扎誤認成「我不適合」。那往往是新身份正在成形的地方。</p>
+            </div>
+          </article>
+          <article class="thesis-item">
+            <span>Thrive</span>
+            <div>
+              <h3>最後不是變完美，而是能活在更清楚的節奏裡。</h3>
+              <p>真正的進展，是你開始知道下一步，而不是要求自己掌握整張人生地圖。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="purpose" aria-labelledby="purpose-title">
+      <article>
+        <p class="section-kicker">Purpose, Redefined</p>
+        <h2 id="purpose-title">目的不是職稱，也不是規模；它是熱情開始服務別人的那一刻。</h2>
+        <p>Shetty 對「目的」的定義很平實：熱情讓你有能量，目的則是你把這股能量用來改善他人的生活。這讓目的不再只屬於創業者、作家、慈善家或社會名人，也不必等到你「做大」才成立。</p>
+        <p>一個喜歡攝影的人，替他人保存情感與記憶；一個擅長照顧的人，讓空間變得更安全；一個會傾聽的人，在朋友最糟的時候看見他仍值得被愛。這些都不是宏大口號，但都已經有目的的形狀。</p>
+      </article>
+      <div class="equation" aria-label="目的公式">
+        <div class="equation-row">
+          <strong>Passion</strong>
+          讓你感到有生命力、好奇、興奮，甚至願意反覆研究的事。
+        </div>
+        <div class="equation-row">
+          <strong>Service</strong>
+          把那件事轉向他人，讓它成為照亮、支持、整理或陪伴別人的能力。
+        </div>
+        <div class="equation-row">
+          <strong>Purpose</strong>
+          不是「我被世界看見」，而是「我用自己自然有能量的部分，讓某個人過得更好」。
+        </div>
+      </div>
+    </section>
+
+    <section class="map" aria-labelledby="map-title">
+      <div class="map-head">
+        <article>
+          <p class="section-kicker">Narrative Map</p>
+          <h2 id="map-title">Shetty 把人生轉向，講成一條收集線索的路。</h2>
+        </article>
+        <p>他沒有鼓勵人立刻跳進未知，而是提醒：即使你討厭現在的位置，也可以從那裡收集未來會用上的技能。目的不是憑空找到的，而是長年收集故事、經驗、能力與想法後，某一天開始連起來。</p>
+      </div>
+      <div class="journey">
+        <article>
+          <div><span>Identity</span><h3>允許自己不只是一個標籤</h3></div>
+          <p>老師也可以是創作者，護士也可以做 podcast，母親也可以經營新事業。限制你的常常不是能力，而是熟人世界對你舊身份的認可。</p>
+        </article>
+        <article>
+          <div><span>Launchpad</span><h3>把不喜歡的地方變成起飛點</h3></div>
+          <p>如果每天八九小時都在抗拒工作，等於把可學習的時間交出去。更有用的問法是：我能從這裡帶走什麼能力？</p>
+        </article>
+        <article>
+          <div><span>Mirror</span><h3>把嫉妒改寫成學習</h3></div>
+          <p>Mel Robbins 在對談裡承認，她真正羨慕的不是財富符號，而是 Shetty 把學習、連結與目的做成服務他人的事業。嫉妒在這裡變成方向感。</p>
+        </article>
+        <article>
+          <div><span>Practice</span><h3>找三個看見你的人</h3></div>
+          <p>Shetty 建議詢問三位真正了解你的人：我曾經幫你解決什麼？你在我身上看見什麼能力？他們看見的，往往是你低估的天賦。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="states" aria-labelledby="states-title">
+      <figure>
+        <img src="Jay_Shetty_purpose_four_states_editorial.png" alt="AI-generated editorial image：以四個抽象區塊呈現學校、醫院、電影與山的隱喻">
+        <figcaption>AI-generated editorial image。圖像以抽象物件呈現 Shetty 對人生狀態的四個隱喻，非影片截圖。</figcaption>
+      </figure>
+      <article>
+        <p class="section-kicker">The Final Lens</p>
+        <h2 id="states-title">當你說自己卡住，先判斷人生現在像哪一種場景。</h2>
+        <p>影片最後，Shetty 給出最適合一般讀者帶走的框架：人生此刻可能像學校、醫院、電影或山。這不是性格測驗，而是一個讓人停止混亂、開始提問的切入點。</p>
+        <div class="state-list">
+          <div><b>School</b>：如果同樣的問題反覆出現，先問自己「我需要學會什麼？」</div>
+          <div><b>Hospital</b>：如果痛苦重到無法前進，先問「我需要療癒什麼？」</div>
+          <div><b>Movie</b>：如果人生正在展開美好片段，先問「我是否真正經驗它？」</div>
+          <div><b>Mountain</b>：如果你已經在路上，先問「我需要練哪個技能，才能爬得更穩？」</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="relationships" aria-labelledby="relationships-title">
+      <p class="section-kicker">The Relationship Turn</p>
+      <h2 id="relationships-title">目的感不是只靠個人意志，也靠你如何理解愛與人。</h2>
+      <p class="standfirst">後半段對談從目的轉入關係，這不是偏題。對 Shetty 而言，一個人能不能活得有方向，取決於他是否能看見別人的好意、承認自己的被支持，也願意在沒有回報保證時先給出愛。</p>
+      <div class="relation-grid">
+        <article>
+          <h3>先問意圖，再判斷行為。</h3>
+          <p>人常用自己的意圖原諒自己，卻用別人的行為定罪對方。Shetty 的建議是把這套標準翻轉：在親近關係裡，困難對話應該讓彼此更靠近，而不是更遠。</p>
+        </article>
+        <article>
+          <h3>感恩有時要從「失去版本」開始。</h3>
+          <p>當生活艱難，直接要求自己感恩可能很粗糙。Shetty 提供的練習是反問：如果沒有這個人、這個身體部位、這段關係、這個機會，我的生活會少掉什麼？</p>
+        </article>
+        <article>
+          <h3>不要只接收你指定格式的愛。</h3>
+          <p>如果你只承認一種愛的表達，就會錯過伴侶、家人與朋友正在給你的其他形式。成熟的愛不是要求對方完全照你的格式，而是學會辨認那些穩定、細小、沒有交易感的照顧。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="field-guide" aria-labelledby="guide-title">
+      <article>
+        <p class="section-kicker">Field Guide</p>
+        <h2 id="guide-title">讀完這篇，不必立刻重寫人生；先做幾個更小的動作。</h2>
+        <p>這場對談的反直覺之處，是它一直把宏大的主題縮小。目的縮小成服務，改變縮小成實驗，愛縮小成一則不求回報的訊息，人生方向縮小成下一步。</p>
+      </article>
+      <ol class="guide-steps">
+        <li>
+          <h3>寫下你正在抓住的舊身份。</h3>
+          <p>它可能是前任、前工作、孩子還在家的生活、熟人眼中的你，或某個你已經不想再扮演的角色。</p>
+        </li>
+        <li>
+          <h3>從現在的位置收集三個技能。</h3>
+          <p>就算你討厭眼前環境，也問自己：我能帶走哪三件未來用得上的能力、故事或人際理解？</p>
+        </li>
+        <li>
+          <h3>問三個人，他們在你身上看見什麼。</h3>
+          <p>不要問泛泛的優點。問他們：「你遇到什麼問題時會想到我？」這比自我盤點更容易看到盲點。</p>
+        </li>
+        <li>
+          <h3>把一件讓你有能量的事，給到某個人。</h3>
+          <p>做飯、整理、教學、拍照、傾聽、寫字、陪伴都可以。目的感不是先被找到，而是在服務中被證明。</p>
+        </li>
+        <li>
+          <h3>今天傳一則不要求回覆的訊息。</h3>
+          <p>如果你想到某個人，就告訴他。不要等需要幫忙、不要等節日，也不要把對方的回應當成分數。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="source" aria-labelledby="source-title">
+      <div class="source-grid">
+        <div>
+          <a href="https://www.youtube.com/watch?v=MOVQponoBmI" target="_blank" rel="noreferrer noopener" aria-label="前往 YouTube 原始影片">
+            <img src="https://i.ytimg.com/vi/MOVQponoBmI/hqdefault.jpg" alt="YouTube 原始影片縮圖">
+          </a>
+          <p class="thumb-caption">原始縮圖連回 YouTube。本頁另使用兩張 AI-generated editorial images。</p>
+        </div>
+        <article>
+          <p class="source-label">Source Notes</p>
+          <h2 id="source-title">這篇文章根據什麼製作</h2>
+          <ul>
+            <li>本頁根據 Mel Robbins 官方頁面 transcript、YouTube oEmbed metadata 與原始 YouTube 影片資訊整理。</li>
+            <li>官方 transcript 抽取後約 108KB，包含 168 個說話段落；本文以完整對談脈絡重構，不是逐字翻譯。</li>
+            <li>原始影片：<a href="https://www.youtube.com/watch?v=MOVQponoBmI" target="_blank" rel="noreferrer noopener">A Process for Finding Purpose: Do THIS to Build the Life You Want | Jay Shetty</a>。</li>
+            <li>官方 transcript 頁面：<a href="https://www.melrobbins.com/episode/episode-282/" target="_blank" rel="noreferrer noopener">The Path to Purpose and a Better Life - Mel Robbins</a>。</li>
+            <li>本頁 AI-generated editorial images 為雜誌式視覺隱喻，不是影片截圖、講者肖像或官方宣傳素材。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
