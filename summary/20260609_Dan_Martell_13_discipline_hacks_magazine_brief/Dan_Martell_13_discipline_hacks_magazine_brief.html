@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自律不是硬撐，是把選項重新設計 | Dan Martell</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #171a1d;
+      --paper: #f1eadf;
+      --panel: #fffaf0;
+      --muted: #6c6861;
+      --line: rgba(23, 26, 29, 0.16);
+      --blue: #2e5966;
+      --amber: #bd7b2f;
+      --green: #61704e;
+      --night: #111315;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Serif TC", "Songti TC", Georgia, serif;
+      line-height: 1.76;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(23, 26, 29, 0.05) 1px, transparent 1px);
+      background-size: 100% 28px;
+      opacity: 0.38;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .hero {
+      min-height: 94vh;
+      color: #fff7e8;
+      background:
+        linear-gradient(90deg, rgba(17, 19, 21, 0.94), rgba(17, 19, 21, 0.74) 38%, rgba(17, 19, 21, 0.12) 78%),
+        url("Dan_Martell_discipline_hero_editorial.png") center / cover no-repeat;
+      display: grid;
+      align-items: end;
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 82px 0 58px;
+    }
+
+    .kicker,
+    .section-label,
+    .source-label {
+      margin: 0 0 16px;
+      font: 850 0.74rem/1.3 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .kicker { color: #d9a052; }
+
+    h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(3.2rem, 7.4vw, 7.2rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .dek {
+      max-width: 720px;
+      margin: 30px 0 0;
+      color: #eadfce;
+      font-size: clamp(1.08rem, 2vw, 1.42rem);
+      line-height: 1.72;
+    }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 247, 232, 0.42);
+      border-radius: 999px;
+      color: #fff7e8;
+      text-decoration: none;
+      font: 850 0.9rem/1 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .watch::after { content: "↗"; }
+
+    .film-meta {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 22px 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      font: 0.92rem/1.55 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      color: var(--muted);
+    }
+
+    .film-meta strong { color: var(--ink); }
+
+    main {
+      position: relative;
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .opening {
+      padding: 76px 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.68fr) minmax(280px, 0.32fr);
+      gap: clamp(34px, 6vw, 72px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label { color: var(--blue); }
+
+    h2 {
+      margin: 0 0 24px;
+      font-size: clamp(2.1rem, 4.5vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.22rem, 2vw, 1.62rem);
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 20px;
+      font-size: 1.04rem;
+      overflow-wrap: anywhere;
+    }
+
+    .standfirst {
+      color: #2c2b28;
+      font-size: clamp(1.22rem, 2.2vw, 1.66rem);
+      line-height: 1.62;
+    }
+
+    .side-note {
+      padding: 26px;
+      background: var(--panel);
+      border-top: 8px solid var(--amber);
+      box-shadow: 0 24px 70px rgba(23, 26, 29, 0.1);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .side-note b {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .operating-system {
+      margin: 0 calc(50% - 50vw);
+      padding: 78px max(20px, calc(50vw - var(--max) / 2));
+      background: #182024;
+      color: #f4ecd9;
+    }
+
+    .os-head {
+      display: grid;
+      grid-template-columns: 0.42fr 0.58fr;
+      gap: clamp(30px, 6vw, 70px);
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .operating-system .section-label { color: #d9a052; }
+    .operating-system p { color: #d8d2c5; }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(244, 236, 217, 0.2);
+      border: 1px solid rgba(244, 236, 217, 0.2);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .system-grid article {
+      min-height: 300px;
+      padding: 24px;
+      background: #232c30;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .system-grid span {
+      color: #d9a052;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+
+    .system-grid p {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.68;
+    }
+
+    .hacks {
+      padding: 82px 0 74px;
+      display: grid;
+      grid-template-columns: 0.34fr 0.66fr;
+      gap: clamp(32px, 6vw, 76px);
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hack-list {
+      display: grid;
+      gap: 18px;
+      counter-reset: hack;
+    }
+
+    .hack {
+      counter-increment: hack;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .hack::before {
+      content: counter(hack, decimal-leading-zero);
+      color: var(--amber);
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+    }
+
+    .hack p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.68;
+    }
+
+    .visual-break {
+      margin: 0 calc(50% - 50vw);
+      padding: 70px max(20px, calc(50vw - var(--max) / 2));
+      background: #fffaf0;
+    }
+
+    .visual-break figure {
+      margin: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 0.68fr) minmax(260px, 0.32fr);
+      gap: clamp(24px, 4vw, 46px);
+      align-items: end;
+    }
+
+    .visual-break img {
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 28px 90px rgba(23, 26, 29, 0.16);
+    }
+
+    figcaption {
+      color: var(--muted);
+      font: 0.9rem/1.65 "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .field {
+      padding: 82px 0;
+      display: grid;
+      grid-template-columns: 0.44fr 0.56fr;
+      gap: clamp(30px, 6vw, 72px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .field-cards {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .field-cards article {
+      background: #f8f0e2;
+      padding: 22px;
+    }
+
+    .field-cards b {
+      color: var(--blue);
+    }
+
+    .closing {
+      padding: 78px 0 72px;
+      text-align: center;
+    }
+
+    .closing p {
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #3f3d38;
+      font-size: clamp(1.1rem, 2vw, 1.36rem);
+    }
+
+    .source {
+      margin: 0 calc(50% - 50vw);
+      padding: 50px max(20px, calc(50vw - var(--max) / 2));
+      background: var(--night);
+      color: #efe5d4;
+      font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .source img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(239, 229, 212, 0.2);
+    }
+
+    .source h2 {
+      color: #fff7e8;
+      font-size: clamp(1.5rem, 2.5vw, 2.3rem);
+    }
+
+    .source ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .source li {
+      margin-bottom: 8px;
+      color: #d8d1c3;
+      overflow-wrap: anywhere;
+    }
+
+    .source a { color: #d9a052; }
+
+    .thumb-caption {
+      margin: 12px 0 0;
+      color: rgba(239, 229, 212, 0.75);
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 980px) {
+      .film-meta,
+      .opening,
+      .os-head,
+      .hacks,
+      .visual-break figure,
+      .field,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .system-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-inner,
+      .film-meta,
+      main {
+        width: min(100% - 30px, var(--max));
+      }
+
+      .hero {
+        min-height: 86vh;
+        background-position: 58% center;
+      }
+
+      .hero-inner {
+        max-width: min(300px, calc(100vw - 52px));
+        padding: 58px 0 44px;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 2.16rem;
+        line-height: 1.08;
+      }
+
+      .dek {
+        font-size: 0.98rem;
+        word-break: break-all;
+      }
+
+      .kicker {
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+        word-break: break-all;
+      }
+
+      .system-grid,
+      .hack {
+        grid-template-columns: 1fr;
+      }
+
+      .system-grid article {
+        min-height: 230px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      body,
+      .visual-break,
+      .source {
+        background: #fff;
+        color: #111;
+      }
+
+      body::before { display: none; }
+
+      .hero,
+      .operating-system {
+        background: #fff !important;
+        color: #111;
+        min-height: auto;
+      }
+
+      .hero-inner { padding: 30px 0; }
+      .dek,
+      .operating-system p,
+      .source li,
+      .source h2 { color: #111; }
+      .watch { color: #111; border-color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Discipline / System Design</p>
+      <h1>自律不是硬撐，<br>是把選項<br>重新設計</h1>
+      <p class="dek">Dan Martell 這支影片表面上是 13 個免費自律技巧，真正的主張卻更尖銳：多數人缺的不是意志力，而是一套能讓正確行動變容易、錯誤選擇變困難的生活系統。</p>
+      <a class="watch" href="https://www.youtube.com/watch?v=6elnsE7T_Ws&t=36s" target="_blank" rel="noreferrer noopener">觀看原始影片</a>
+    </div>
+  </header>
+
+  <aside class="film-meta" aria-label="影片資訊">
+    <div><strong>原始影片：</strong><a href="https://www.youtube.com/watch?v=6elnsE7T_Ws&t=36s" target="_blank" rel="noreferrer noopener">13 Hacks to be 99.9% More Disciplined That Cost Nothing</a></div>
+    <div><strong>頻道：</strong>Dan Martell</div>
+  </aside>
+
+  <main>
+    <section class="opening" aria-labelledby="opening-title">
+      <article>
+        <p class="section-label">Opening Essay</p>
+        <h2 id="opening-title">自律的反面，不是懶惰；是每天被太多低品質選項包圍。</h2>
+        <p class="standfirst">Martell 的自律觀很不浪漫。他不把自律描寫成每天早上靠熱血起床，而是把它拆成睡眠、清單、環境、承諾、朋友圈與目標視覺化的組合。</p>
+        <p>這支影片值得看的地方，不在於「13」這個數字，而在於它一再重複同一個底層邏輯：如果你讓自己每天都要重新抵抗通知、零食、短影音、無序工作與容易任務，那你其實是在把人生交給摩擦成本。</p>
+        <p>Martell 的答案是反過來設計：不要早上和鬧鐘搏鬥，先晚上準時睡；不要在家裡抵抗垃圾食物，先讓它不要出現在家裡；不要每天重新選衣服、選任務、選優先順序，先把低價值決策刪掉。</p>
+      </article>
+      <aside class="side-note">
+        <b>Reader Takeaway</b>
+        <p>這不是「變成更嚴格的人」的指南，而是「讓自己少靠意志力」的指南。真正的自律，是把環境改到你不用每天跟自己談判。</p>
+      </aside>
+    </section>
+
+    <section class="operating-system" aria-labelledby="os-title">
+      <div class="os-head">
+        <article>
+          <p class="section-label">Core Thesis</p>
+          <h2 id="os-title">13 個 hack，其實分成四種作業系統。</h2>
+        </article>
+        <p>影片的技巧可以分成四組：管理能量、管理注意力、管理行動、管理社會壓力。它們共同解決的不是「我今天有沒有動力」，而是「我是否把明天的自己放進一個更容易成功的結構」。</p>
+      </div>
+      <div class="system-grid">
+        <article>
+          <div><span>Energy</span><h3>先保護醒來的狀態</h3></div>
+          <p>取消晨間鬧鐘，不是叫人盲目早起，而是逼自己重視就寢時間。睡眠被設計好，早晨才不是第一場失敗。</p>
+        </article>
+        <article>
+          <div><span>Attention</span><h3>把刺激源換成學習源</h3></div>
+          <p>電視、通知、演算法都在決定你想要什麼。Martell 的做法是把螢幕、推播與 feed 變成可管理的輸入，而不是任它餵養你。</p>
+        </article>
+        <article>
+          <div><span>Execution</span><h3>用清單和排序清空大腦</h3></div>
+          <p>他把 checklist 當作買回時間的工具。大腦不是拿來記雜事，而是拿來處理真正大的問題。</p>
+        </article>
+        <article>
+          <div><span>Pressure</span><h3>讓外部承諾替你上鎖</h3></div>
+          <p>承諾給尊敬的人、讓失敗有代價、接近有紀律的人。這些都不是雞血，而是把社會壓力轉成行動軌道。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="hacks" aria-labelledby="hacks-title">
+      <article>
+        <p class="section-label">The 13 Levers</p>
+        <h2 id="hacks-title">如果硬要列成清單，它其實是這 13 個槓桿。</h2>
+        <p>以下不是逐字翻譯，而是依影片脈絡重寫後的版本。每一點都指向同一件事：降低正確行為的阻力，提高錯誤行為的成本。</p>
+      </article>
+      <div class="hack-list">
+        <article class="hack"><div><h3>取消晨間鬧鐘，改設睡覺鬧鐘。</h3><p>不要把第一個選擇設計成 snooze。真正要管理的是晚上何時關機。</p></div></article>
+        <article class="hack"><div><h3>把電視升級成圖書館。</h3><p>資訊環境會塑造欲望。Martell 把買書視為對心智的無上限投資。</p></div></article>
+        <article class="hack"><div><h3>關掉所有通知。</h3><p>通知不是提醒，是別人的優先順序進入你的大腦。</p></div></article>
+        <article class="hack"><div><h3>駭進自己的演算法。</h3><p>主動 mute、not interested、follow 更接近目標的人，讓 feed 變成訓練場，而不是分心工廠。</p></div></article>
+        <article class="hack"><div><h3>掌握你的清單。</h3><p>任何會重複做的事都寫下來。清單不是瑣碎行政，而是釋放認知容量。</p></div></article>
+        <article class="hack"><div><h3>堆疊習慣，而不是一次重做人生。</h3><p>把新行為接在既有行為旁邊，直到它從任務變成身份。</p></div></article>
+        <article class="hack"><div><h3>向你尊敬的人承諾。</h3><p>人常常會為別人做得比為自己多。承諾讓行動不再只靠心情。</p></div></article>
+        <article class="hack"><div><h3>清空你的 pantry。</h3><p>環境會打敗意志力。不要每天屠龍，先不要把龍養在家裡。</p></div></article>
+        <article class="hack"><div><h3>讓失敗變痛。</h3><p>放上金錢、面子或公開承諾的 stakes，讓不做事的成本變得真實。</p></div></article>
+        <article class="hack"><div><h3>從最大的骨牌開始。</h3><p>早上先處理最難、最重要的工作，而不是靠小任務製造假性進展。</p></div></article>
+        <article class="hack"><div><h3>刪除無用決策。</h3><p>固定衣服、餐食、訓練與週節奏，把意志力留給真正重要的選擇。</p></div></article>
+        <article class="hack"><div><h3>找有紀律的朋友。</h3><p>你不只是五個朋友的平均，也是五個影響源的平均。書、podcast、教練也能成為影響源。</p></div></article>
+        <article class="hack"><div><h3>每天看見你的目標。</h3><p>Martell 每天多次檢查目標，確定日曆與銀行帳戶真的朝著那裡移動。</p></div></article>
+      </div>
+    </section>
+
+    <section class="visual-break" aria-labelledby="visual-title">
+      <figure>
+        <img src="Dan_Martell_discipline_system_editorial.png" alt="AI-generated editorial image：以桌面物件呈現清單、習慣、環境、朋友圈與目標系統">
+        <figcaption>
+          <p class="section-label">System View</p>
+          <h2 id="visual-title">自律像一張桌面：每個物件都在提示下一個行動。</h2>
+          <p>AI-generated editorial image。這張圖用抽象桌面系統呈現影片中的自律槓桿，不是影片截圖、實際工具畫面或官方素材。</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="field" aria-labelledby="field-title">
+      <article>
+        <p class="section-label">Why It Matters</p>
+        <h2 id="field-title">這支影片最有用的地方，是把自律從人格問題改成設計問題。</h2>
+        <p>如果自律只是人格特質，那沒有自律的人只能自責。但如果自律是設計問題，任何人都能從移除一個 app、整理一個 pantry、寫下一份 checklist、設定一個公開承諾開始。</p>
+      </article>
+      <div class="field-cards">
+        <article><h3>先問環境</h3><p><b>不是：</b>我為什麼忍不住？<br><b>而是：</b>我為什麼讓誘惑這麼容易出現？</p></article>
+        <article><h3>再問排序</h3><p><b>不是：</b>我今天做了很多事嗎？<br><b>而是：</b>我是否先推倒最大的骨牌？</p></article>
+        <article><h3>最後問身份</h3><p><b>不是：</b>我要不要去運動？<br><b>而是：</b>我是那種每天會流汗的人嗎？</p></article>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="section-label">Closing Thought</p>
+      <h2 id="closing-title">自律不是把生活變窄，而是把人生的能量集中。</h2>
+      <p>Martell 的方法有一種創業者式的強硬，但對一般人而言，最值得帶走的是更溫和也更實用的一層：你可以不靠每天重新振作，而是替未來的自己安排更少分心、更少談判、更少低品質選項的生活。</p>
+    </section>
+
+    <section class="source" aria-labelledby="source-title">
+      <div class="source-grid">
+        <div>
+          <a href="https://www.youtube.com/watch?v=6elnsE7T_Ws&t=36s" target="_blank" rel="noreferrer noopener" aria-label="前往 YouTube 原始影片">
+            <img src="https://i.ytimg.com/vi/6elnsE7T_Ws/hqdefault.jpg" alt="YouTube 原始影片縮圖">
+          </a>
+          <p class="thumb-caption">原始縮圖連回 YouTube。本頁另使用兩張 AI-generated editorial images。</p>
+        </div>
+        <article>
+          <p class="source-label">Source Notes</p>
+          <h2 id="source-title">這篇文章根據什麼製作</h2>
+          <ul>
+            <li>本頁根據 YTScribe transcript 頁、YouTube oEmbed metadata 與原始影片資訊整理。</li>
+            <li>Transcript 抽取後為 110 段、約 26.9K 字元；本文依完整 transcript 脈絡重構，不是逐字翻譯。</li>
+            <li>原始影片：<a href="https://www.youtube.com/watch?v=6elnsE7T_Ws&t=36s" target="_blank" rel="noreferrer noopener">13 Hacks to be 99.9% More Disciplined That Cost Nothing</a>。</li>
+            <li>本頁 AI-generated editorial images 為雜誌式視覺隱喻，不是影片截圖、Dan Martell 肖像、實際產品畫面或官方素材。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

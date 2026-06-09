@@ -1,0 +1,168 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-09 AI 新聞精選</title>
+  <style>
+    :root {
+      --ink: #0a0d12;
+      --graphite: #111821;
+      --panel: #172230;
+      --panel-soft: #1f2c3a;
+      --paper: #f2eadc;
+      --muted: #aab6c4;
+      --teal: #54d7ca;
+      --amber: #f4b44d;
+      --crimson: #ef4f61;
+      --line: rgba(244, 180, 77, .3);
+      --white-line: rgba(242, 234, 220, .14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 20% 5%, rgba(84, 215, 202, .18), transparent 32rem),
+        linear-gradient(180deg, #080b10 0%, #101821 46%, #0b0f15 100%);
+      font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration-color: rgba(244,180,77,.75); text-underline-offset: 3px; }
+    .page { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 58px; }
+    .hero {
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      border: 1px solid var(--line);
+      background: var(--graphite);
+      overflow: hidden;
+    }
+    .hero-copy { padding: 34px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; position: relative; }
+    .hero-copy::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 23px, rgba(242,234,220,.045) 24px); pointer-events: none; }
+    .hero-copy > * { position: relative; z-index: 1; }
+    .datebar { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .88rem; }
+    .edition { color: var(--amber); font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.7rem, 5.5vw, 5.4rem); line-height: .98; font-weight: 500; letter-spacing: 0; }
+    .deck { color: #d7e1ed; max-width: 40rem; font-size: 1.06rem; }
+    .hero-visual { position: relative; min-height: 560px; }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,24,33,.55), transparent 30%, rgba(10,13,18,.15)); pointer-events: none; }
+    .brief { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-top: 0; background: rgba(244,180,77,.07); }
+    .brief div { padding: 14px 16px; border-right: 1px solid var(--line); min-height: 82px; }
+    .brief div:last-child { border-right: 0; }
+    .brief b { display: block; color: var(--amber); font-size: .76rem; letter-spacing: .1em; margin-bottom: 5px; }
+    .brief span { color: #dae4ef; font-weight: 800; }
+    .section-head { display: flex; align-items: center; gap: 14px; margin: 36px 0 16px; }
+    .section-head h2 { margin: 0; color: var(--amber); font-size: 1rem; letter-spacing: .18em; text-transform: uppercase; }
+    .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--amber), transparent); }
+    .layout { display: grid; grid-template-columns: 1.12fr .88fr; gap: 16px; align-items: start; }
+    .stack { display: grid; gap: 16px; }
+    article { border: 1px solid var(--white-line); background: linear-gradient(180deg, rgba(31,44,58,.94), rgba(23,34,48,.96)); padding: 20px; display: grid; gap: 13px; min-height: 260px; position: relative; overflow: hidden; }
+    article::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(var(--teal), var(--amber)); }
+    .lead { min-height: 420px; padding: 26px; }
+    .rank { color: var(--amber); font: 700 2.2rem/1 Georgia, "Times New Roman", serif; }
+    .badge { display: inline-flex; width: fit-content; padding: 5px 9px; border: 1px solid var(--white-line); color: var(--teal); font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .badge.track { color: var(--amber); }
+    .badge.alert { color: var(--crimson); }
+    h3 { margin: 0; font-size: 1.28rem; line-height: 1.35; letter-spacing: 0; color: #fff7e8; }
+    .lead h3 { font-size: clamp(1.75rem, 3.5vw, 2.55rem); line-height: 1.16; }
+    p { margin: 0; color: #cbd7e5; }
+    .sources { border-top: 1px solid var(--white-line); padding-top: 10px; display: grid; gap: 5px; color: var(--muted); font-size: .86rem; }
+    .sources b { color: var(--paper); }
+    .source-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+    time { color: #8795a7; }
+    .tracking-note { padding: 15px 17px; border: 1px solid rgba(84,215,202,.32); background: rgba(84,215,202,.08); color: #d8f6f3; margin-bottom: 16px; }
+    footer { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
+    @media (max-width: 900px) { .hero, .layout { grid-template-columns: 1fr; } .hero-visual { min-height: 330px; } .brief { grid-template-columns: repeat(2, 1fr); } .brief div:nth-child(2) { border-right: 0; } .brief div:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+    @media (max-width: 560px) { .page { width: min(100% - 20px, 1180px); padding-top: 12px; } .hero-copy { padding: 22px; } .brief { grid-template-columns: 1fr; } .brief div { border-right: 0; border-bottom: 1px solid var(--line); } .brief div:last-child { border-bottom: 0; } article { padding: 17px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="datebar"><span>2026-06-09 · Tuesday</span><span class="edition">AI Briefing</span></div>
+        <div>
+          <h1>AI 入口戰回到手機，底層戰場轉向算力與風險</h1>
+          <p class="deck">Apple 把 Siri AI 與 Apple Intelligence 推回第一排；Google 則用 SpaceX/xAI 的 GPU 算力補足雲端供給。另一端，LLM Agent 真實攻擊與 EU AI Act 簡化，提醒今天的 AI 新聞已經不是單純模型競賽。</p>
+        </div>
+      </div>
+      <div class="hero-visual"><img src="2026-06-09-hero.png" alt="AI 入口、算力、資安與政策新聞主視覺"></div>
+    </header>
+
+    <section class="brief" aria-label="summary">
+      <div><b>保留新聞</b><span>6 則，全部交叉查核</span></div>
+      <div><b>主線</b><span>Apple 把 AI 入口推回手機</span></div>
+      <div><b>持續追蹤</b><span>2 則接續報導</span></div>
+      <div><b>新角度</b><span>算力租賃與自研模型</span></div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Lead Story</h2><div class="rule"></div></div>
+      <div class="layout">
+        <article class="lead">
+          <div class="rank">01</div>
+          <div class="badge">NEW · 消費端入口</div>
+          <h3>Apple 在 WWDC26 推出 Siri AI：手機入口戰重新開打</h3>
+          <p>Apple 宣布下一代 Apple Intelligence 與 Siri AI，將更多跨 App 任務、個人脈絡理解與本地處理能力整合進 iPhone、iPad 與 Mac。這則新聞的分量不在單一功能，而在 Apple 把 AI 重新包裝成作業系統層的日常入口，對 ChatGPT、Gemini 與各家 Agent 形成新的分發壓力。</p>
+          <div class="sources">
+            <div class="source-row"><b>來源：</b><a href="https://www.apple.com/ca/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/" target="_blank" rel="noopener">Apple Newsroom</a><span>·</span><a href="https://www.reddit.com/r/planhub/comments/1u0lrhv/wwdc26_was_really_about_ai/" target="_blank" rel="noopener">PlanHub 討論整理</a></div>
+            <div class="source-row"><b>發布時間：</b><time>2026-06-08 / WWDC26</time></div>
+          </div>
+        </article>
+
+        <div class="stack">
+          <article>
+            <div class="rank">02</div>
+            <div class="badge">NEW ANGLE · 算力</div>
+            <h3>Google 傳每月 9.2 億美元租用 SpaceX/xAI GPU，AI 雲端供給改走外包路線</h3>
+            <p>Google Cloud 被報導向 SpaceX/xAI 租用大規模 NVIDIA GPU 算力，金額達每月 9.2 億美元。若屬實，這代表雲端巨頭在 AI 算力高峰期不只自建資料中心，也會用外部 GPU 叢集作為供給緩衝。</p>
+            <div class="sources"><div class="source-row"><b>來源：</b><a href="https://techcrunch.com/2026/06/08/google-is-paying-spacex-920m-a-month-to-rent-nvidias-and-may-boost-xais-valuation-to-1-75t/" target="_blank" rel="noopener">TechCrunch</a><span>·</span><a href="https://finance.yahoo.com/markets/stocks/articles/june-8-could-mark-beginning-130000277.html" target="_blank" rel="noopener">Yahoo Finance</a></div><div class="source-row"><b>發布時間：</b><time>2026-06-08</time></div></div>
+          </article>
+          <article>
+            <div class="rank">03</div>
+            <div class="badge alert">NEW · 資安</div>
+            <h3>LLM Agent 真實入侵案例曝光：從漏洞到資料庫橫移不到一小時</h3>
+            <p>Sysdig 披露攻擊者用 LLM Agent 自動串接 marimo 漏洞、AWS Secrets Manager、SSH 憑證與內部 Postgres 資料庫。這是 Agentic AI 從生產力工具轉為攻擊自動化工具的明確警訊。</p>
+            <div class="sources"><div class="source-row"><b>來源：</b><a href="https://www.sysdig.com/blog/ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-an-internal-database-in-4-pivots" target="_blank" rel="noopener">Sysdig</a><span>·</span><a href="https://thehackernews.com/2026/05/attackers-use-llm-agent-for-post.html" target="_blank" rel="noopener">The Hacker News</a></div><div class="source-row"><b>發布時間：</b><time>2026-05-30 / 本日延伸收錄</time></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Platform And Policy</h2><div class="rule"></div></div>
+      <div class="layout">
+        <div class="stack">
+          <article>
+            <div class="rank">04</div>
+            <div class="badge track">🔄 接續報導 · NEW ANGLE</div>
+            <h3>Microsoft 七款 MAI 模型齊發，自研路線開始壓低 OpenAI 依賴</h3>
+            <p>Microsoft 在 Build 2026 後續脈絡中推出 MAI-Thinking-1、MAI-Code-1-Flash 等自研模型。相對前幾天的 Build 消息，今天的重點是 Microsoft 把模型供應鏈風險納入產品策略，而非只把 OpenAI 模型包進 Copilot。</p>
+            <div class="sources"><div class="source-row"><b>來源：</b><a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html" target="_blank" rel="noopener">CNBC</a><span>·</span><a href="https://www.neowin.net/news/microsoft-unveils-mai-thinking-1-reasoning-and-mai-code-1-coding-models/" target="_blank" rel="noopener">Neowin</a></div><div class="source-row"><b>發布時間：</b><time>2026-06-02 / 接續追蹤</time></div></div>
+          </article>
+          <article>
+            <div class="rank">05</div>
+            <div class="badge">NEW · 經濟研究</div>
+            <h3>OpenAI 啟動 Economic Research Exchange，AI 對勞動市場的證據戰升級</h3>
+            <p>OpenAI 推出 Economic Research Exchange，邀集研究者用更完整的資料與方法追蹤 AI 對工作、薪資與生產力的影響。這反映 AI 公司正在把「是否取代工作」從公關論戰推向可量化研究框架。</p>
+            <div class="sources"><div class="source-row"><b>來源：</b><a href="https://openai.com/index/economic-research-exchange/" target="_blank" rel="noopener">OpenAI</a><span>·</span><a href="https://www.artificialintelligence-news.com/" target="_blank" rel="noopener">AI News</a></div><div class="source-row"><b>發布時間：</b><time>2026-06-09</time></div></div>
+          </article>
+        </div>
+        <article>
+          <div class="rank">06</div>
+          <div class="badge track">🔄 接續報導 · 法規</div>
+          <h3>EU AI Act 簡化談判升溫，企業合規焦點轉向「能否按時落地」</h3>
+          <p>歐盟 AI Act 進入執行細節與簡化討論，政策焦點從立法宣示轉向合規成本、實作期限與執法一致性。相對前幾日各國 AI 安全政策，這則的增量在於歐盟開始處理制度落地的摩擦。</p>
+          <div class="sources"><div class="source-row"><b>來源：</b><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">European Commission</a><span>·</span><a href="https://www.europarl.europa.eu/news/en/press-room/20230609IPR96212/artificial-intelligence-act-meps-adopt-landmark-law" target="_blank" rel="noopener">European Parliament</a></div><div class="source-row"><b>發布時間：</b><time>2026-06-09 追蹤</time></div></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>本頁彙整 2026-06-09 全球 AI 重要新聞；每則至少兩個來源交叉查核。產品名、公司名與人名保留英文。</p>
+    </footer>
+  </main>
+</body>
+</html>

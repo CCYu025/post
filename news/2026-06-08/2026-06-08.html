@@ -3,110 +3,634 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 新聞精選 | 2026-06-08</title>
+<title>2026-06-08 AI 新聞精選</title>
 <style>
-:root { --bg: #07111a; --panel: rgba(10, 18, 28, 0.78); --panel-strong: rgba(10, 18, 28, 0.92); --text: #eff5f8; --muted: #9fb3c3; --line: rgba(255,255,255,0.12); --accent: #ff7a18; --accent-2: #4bd4c8; --accent-3: #ffd166; }
+:root {
+  --ink: #161512;
+  --paper: #efe4d2;
+  --paper-soft: #f8f1e7;
+  --smoke: #6f665e;
+  --line: rgba(22, 21, 18, 0.22);
+  --shadow: 0 30px 60px rgba(22, 21, 18, 0.16);
+  --red: #bc4d2e;
+  --blue: #1954a4;
+  --gold: #ae8a29;
+}
 * { box-sizing: border-box; }
-body { margin: 0; color: var(--text); background: radial-gradient(circle at top left, rgba(255,122,24,0.18), transparent 34%), radial-gradient(circle at 85% 18%, rgba(75,212,200,0.18), transparent 28%), linear-gradient(180deg, #061019 0%, #091522 42%, #07111a 100%); font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; }
-.page { max-width: 1200px; margin: 0 auto; padding: 28px 18px 64px; }
-.hero { position: relative; overflow: hidden; border: 1px solid var(--line); background: var(--panel-strong); border-radius: 28px; min-height: 420px; display: grid; grid-template-columns: 1.15fr 0.85fr; }
-.hero-copy { padding: 34px 34px 38px; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; }
-.kicker { letter-spacing: .18em; text-transform: uppercase; font-size: 12px; color: var(--accent-3); }
-.hero h1 { margin: 0; font-size: clamp(38px, 6vw, 72px); line-height: 0.96; max-width: 8ch; }
-.hero p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 56ch; }
-.hero-meta { display: flex; gap: 18px; flex-wrap: wrap; color: #d9e4ec; font-size: 14px; }
-.hero-art { min-height: 320px; background: url('2026-06-08-hero.png') center/cover no-repeat; }
-.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 26px; }
-.strip-card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
-.strip-card strong { display: block; font-size: 28px; margin-bottom: 4px; }
-.strip-card span { color: var(--muted); font-size: 14px; }
-.group { margin-top: 32px; }
-.group-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 14px; }
-.group h2 { margin: 0; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-3); }
-.story-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-.story-card { grid-column: span 6; background: var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 22px; backdrop-filter: blur(10px); }
-.story-card.new_angle { background: linear-gradient(180deg, rgba(14,24,36,.88), rgba(9,18,28,.86)); }
-.story-card.developing { border-color: rgba(255,122,24,.35); }
-.story-top { display: flex; flex-direction: column; gap: 10px; }
-.story-badge { display: inline-flex; align-self: flex-start; padding: 6px 10px; border-radius: 999px; background: rgba(255,122,24,.14); color: #ffd3b1; font-size: 12px; }
-.story-badge.subtle { background: rgba(75,212,200,.12); color: #b8f0ea; }
-.story-card h3 { margin: 0; font-size: 28px; line-height: 1.15; }
-.intro { margin: 14px 0 0; color: #f4f7fa; font-size: 16px; line-height: 1.65; }
-.summary { margin: 12px 0 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
-.sources { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
-.sources li { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.08); font-size: 13px; }
-.sources a { color: #fff; text-decoration: none; }
-.sources a:hover { text-decoration: underline; }
-.sources span { color: var(--muted); white-space: nowrap; }
-.footer { margin-top: 34px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
-@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-copy { padding: 26px 22px 18px; } .hero-art { min-height: 240px; } .strip { grid-template-columns: 1fr; } .story-card { grid-column: 1 / -1; } .story-card h3 { font-size: 24px; } }
+html { background: #d9cfbf; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Georgia", "Noto Serif TC", "PMingLiU", serif;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 34%),
+    linear-gradient(90deg, rgba(25,84,164,0.05), transparent 28%, rgba(188,77,46,0.05) 76%, transparent),
+    #d9cfbf;
+}
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.page {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 16px 18px 56px;
+}
+.sheet {
+  background: var(--paper);
+  border: 1.5px solid rgba(22,21,18,0.34);
+  box-shadow: var(--shadow);
+}
+.topline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 18px 10px;
+  border-bottom: 1.5px solid var(--ink);
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.topline .center { text-align: center; }
+.topline .right { text-align: right; }
+.brand {
+  padding: 16px 18px 10px;
+  display: grid;
+  grid-template-columns: 1.12fr .88fr;
+  gap: 20px;
+  align-items: end;
+}
+.logo-wrap {
+  padding-right: 18px;
+  border-right: 1px solid var(--line);
+}
+.logo-note {
+  margin: 0 0 8px;
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.logo {
+  margin: 0;
+  font-size: clamp(62px, 8vw, 118px);
+  line-height: .86;
+  letter-spacing: -0.08em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.brand-summary {
+  display: grid;
+  gap: 12px;
+  align-content: end;
+}
+.brand-summary .bar {
+  height: 12px;
+  background: linear-gradient(90deg, var(--red), var(--gold), var(--blue));
+  border: 1px solid rgba(22,21,18,0.2);
+}
+.brand-summary p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #584f47;
+}
+.cover {
+  display: grid;
+  grid-template-columns: 1.16fr .84fr;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+}
+.cover-story {
+  padding: 18px 18px 20px;
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr;
+  gap: 12px;
+}
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 9px;
+  border: 1px solid var(--ink);
+  background: rgba(188,77,46,0.1);
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.cover-story h1 {
+  margin: 0;
+  max-width: 7ch;
+  font-size: clamp(68px, 10vw, 126px);
+  line-height: .84;
+  letter-spacing: -0.08em;
+  font-weight: 900;
+}
+.lead-line {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 24px;
+  line-height: 1.44;
+}
+.cover-story .deck {
+  max-width: 56ch;
+  font-size: 15px;
+  line-height: 1.82;
+  color: #574d45;
+}
+.cover-lines {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin-top: 4px;
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+}
+.cover-lines div {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.cover-lines b {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.cover-lines span {
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+.cover-art {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  border-left: 1.5px solid var(--ink);
+}
+.cover-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cover-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(248,241,231,0) 56%, rgba(248,241,231,0.2) 100%),
+    linear-gradient(135deg, rgba(248,241,231,0) 0%, rgba(248,241,231,0) 42%, rgba(248,241,231,0.88) 100%);
+  pointer-events: none;
+}
+.vertical-tag {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 86px;
+  height: 100%;
+  padding: 18px 0;
+  border-left: 1px solid rgba(22,21,18,0.2);
+  background: rgba(248,241,231,0.75);
+  display: grid;
+  justify-items: center;
+}
+.vertical-tag span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1.5px solid var(--ink);
+}
+.summary-strip article {
+  padding: 12px 14px;
+  border-right: 1px solid var(--line);
+}
+.summary-strip article:last-child { border-right: 0; }
+.summary-strip b {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.summary-strip p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1.45fr .85fr;
+}
+.main {
+  padding: 18px;
+  border-right: 1.5px solid var(--ink);
+}
+.side {
+  padding: 18px;
+  background: rgba(248,241,231,0.85);
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: end;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+}
+.section-head strong {
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.section-head span {
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.lead {
+  display: grid;
+  grid-template-columns: .72fr 1.28fr;
+  border: 1.5px solid var(--ink);
+  background: var(--paper-soft);
+}
+.lead-panel {
+  background: var(--ink);
+  color: var(--paper-soft);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+.lead-panel .mini {
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #d6ccbf;
+}
+.lead-panel p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.lead-copy {
+  padding: 18px 20px;
+  display: grid;
+  gap: 12px;
+}
+.marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+}
+.mark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid var(--ink);
+  background: #fff8ee;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.mark.red { background: rgba(188,77,46,0.12); }
+.mark.blue { background: rgba(25,84,164,0.1); }
+.lead-copy h2 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.lead-copy p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.82;
+}
+.lead-copy .note {
+  font-size: 14px;
+  color: var(--smoke);
+}
+.sources {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+.sources-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.sources-row time { color: var(--smoke); }
+.duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.block {
+  border-top: 3px solid var(--ink);
+  padding-top: 12px;
+}
+.block h3 {
+  margin: 0 0 10px;
+  font-size: 29px;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+.block p {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.78;
+}
+.tagline {
+  display: inline-flex;
+  padding: 4px 8px;
+  margin-bottom: 10px;
+  border: 1px solid var(--ink);
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.tagline.red { background: rgba(188,77,46,0.12); }
+.tagline.blue { background: rgba(25,84,164,0.1); }
+.rail {
+  border: 1.5px solid var(--ink);
+  background: rgba(255,255,255,0.3);
+  padding: 14px;
+  margin-bottom: 16px;
+}
+.rail .mini {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Arial Narrow", "Noto Sans TC", sans-serif;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.rail h4 {
+  margin: 0 0 10px;
+  font-size: 25px;
+  line-height: 1.12;
+}
+.rail p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.72;
+}
+.brief {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.brief-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.brief-item:last-child { border-bottom: 0; }
+.brief-item strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+  line-height: 1.45;
+}
+.brief-item p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--smoke);
+}
+.footer {
+  padding: 14px 18px 20px;
+  border-top: 1.5px solid var(--ink);
+  font-size: 12px;
+  line-height: 1.72;
+  color: var(--smoke);
+}
+@media (max-width: 980px) {
+  .brand,
+  .cover,
+  .grid,
+  .duo,
+  .summary-strip {
+    grid-template-columns: 1fr;
+  }
+  .logo-wrap {
+    border-right: 0;
+    padding-right: 0;
+  }
+  .cover-art {
+    min-height: 380px;
+    border-left: 0;
+    border-top: 1.5px solid var(--ink);
+  }
+  .vertical-tag {
+    width: auto;
+    height: auto;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    top: auto;
+    padding: 8px 10px;
+  }
+  .vertical-tag span { writing-mode: horizontal-tb; }
+  .main {
+    border-right: 0;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .lead {
+    grid-template-columns: 1fr;
+  }
+  .summary-strip article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-strip article:last-child { border-bottom: 0; }
+}
 </style>
 </head>
 <body>
   <main class="page">
-    <header class="hero">
-      <div class="hero-copy">
-        <div class="kicker">Daily AI Brief</div>
-        <h1>AI 新聞精選</h1>
-        <p>從產品入口、企業代理到 IPO 與公共持股，過去 24 小時的 AI 訊號顯示，競爭焦點正從模型能力擴大到分發、治理與誰能分享這波超額報酬。</p>
-        <div class="hero-meta"><span>2026-06-08</span><span>共 6 則重點</span><span>全球 AI 焦點</span></div>
+    <article class="sheet">
+      <div class="topline">
+        <div>Monday / June 8 / 2026</div>
+        <div class="center">AI Review</div>
+        <div class="right">Asia/Taipei</div>
       </div>
-      <div class="hero-art" aria-hidden="true"></div>
-    </header>
-    <section class="strip">
-      <div class="strip-card"><strong>2</strong><span>資本與治理主線</span></div>
-      <div class="strip-card"><strong>1</strong><span>持續追蹤議題</span></div>
-      <div class="strip-card"><strong>2</strong><span>產品安全與平台轉向</span></div>
-    </section>
-<section class="group">
-<div class="group-head"><h2>產品前線</h2></div>
-<div class="story-grid">
-<article class="story-card new"><div class="story-top"><h3>ChatGPT 正朝「超級入口」改版，OpenAI 把 Codex 與 AI agents 收進同一個主畫面</h3></div><p class="intro">OpenAI 把原本分散的聊天、寫程式與代理能力，往單一入口重新整合，顯示消費端流量正被重新包裝成企業轉換漏斗。</p><p class="summary">Reuters 引述 Financial Times 指出，OpenAI 正準備對 ChatGPT 進行迄今最大幅度改版，讓它成為整合 coding tools 與 AI agents 的 superapp，以拉高企業營收與上市前的成長敘事。TechCrunch 補充，產品目標是把免費聊天流量導向像 Codex 這類可付費能力，核心方向是把 ChatGPT 做成跨工作與個人場景的 personal agent 入口。</p><ul class="sources"><li><a href="https://www.investing.com/news/stock-market-news/openai-plans-chatgpt-superapp-overhaul-ahead-of-listing-ft-reports-4729645" target="_blank" rel="noreferrer">Reuters via Investing.com</a><span>2026-06-07</span></li>
-<li><a href="https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app/" target="_blank" rel="noreferrer">TechCrunch</a><span>2026-06-07</span></li>
-<li><a href="https://openai.com/index/accelerating-the-next-phase-ai/" target="_blank" rel="noreferrer">OpenAI</a><span>2026-03-31</span></li>
-</ul></article>
-</div>
-</section>
-<section class="group">
-<div class="group-head"><h2>企業戰場</h2></div>
-<div class="story-grid">
-<article class="story-card new"><div class="story-top"><h3>Meta 把 Business Agent 從聊天機器人推向營運代理，直接搶企業客服與交易流程</h3></div><p class="intro">Meta 不再只賣流量入口，而是把 WhatsApp、Messenger、Instagram 上的商務互動，往可執行的 AI 營運層延伸。</p><p class="summary">Reuters 指出，Meta 新推出的 Business Agent 不只是回答問題，而是朝完成付款、預約與下單等實際行動前進。Meta 官方則表示，超過一百萬家企業已在 WhatsApp 與 Messenger 使用相關能力，現在再擴大推出 Business Agent Platform，讓企業能自訂並大規模部署代理。</p><ul class="sources"><li><a href="https://about.fb.com/news/2026/06/meta-business-agent/" target="_blank" rel="noreferrer">Meta</a><span>2026-06-03</span></li>
-<li><a href="https://www.investing.com/news/stock-market-news/meta-launches-enterprisefocused-ai-business-agent-to-automate-daily-operations-4724559" target="_blank" rel="noreferrer">Reuters via Investing.com</a><span>2026-06-03</span></li>
-</ul></article>
-</div>
-</section>
-<section class="group">
-<div class="group-head"><h2>資本與治理</h2></div>
-<div class="story-grid">
-<article class="story-card new"><div class="story-top"><h3>Anthropic 搶先把 IPO 選項放上桌，AI 巨頭的上市賽跑正式開打</h3></div><p class="intro">在資本市場還沒看到完整招股書之前，Anthropic 先把最重要的訊號送出去了：它要保留最快進場的主動權。</p><p class="summary">Anthropic 6 月 1 日正式確認，已向美國 SEC confidentially 提交 Form S-1 草案，為潛在 IPO 預作準備。TechCrunch 指出，這讓 Anthropic 在 OpenAI 與 SpaceX/xAI 之前率先卡位，也把 AI 產業的估值、營收成色與算力支出壓力，提前搬進公開市場檢驗。</p><ul class="sources"><li><a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noreferrer">Anthropic</a><span>2026-06-01</span></li>
-<li><a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/" target="_blank" rel="noreferrer">TechCrunch</a><span>2026-06-01</span></li>
-<li><a href="https://www.investing.com/news/stock-market-news/ai-giant-anthropic-confidentially-files-for-us-ipo-4719850" target="_blank" rel="noreferrer">Reuters via Investing.com</a><span>2026-06-01</span></li>
-</ul></article>
-<article class="story-card new_angle"><div class="story-top"><span class="story-badge subtle">新切角</span><h3>從監管走向分潤？華府開始討論讓公眾直接持有 AI 巨頭的一部分</h3></div><p class="intro">AI 治理的爭點正在從「要不要管」轉向「誰能分享超額報酬」，而這會改寫政府與模型公司的關係。</p><p class="summary">Washington Post 與 AP 都指出，川普團隊與 Sam Altman 等人正在討論讓美國公眾透過政府基金或持股機制分享 AI 公司成長紅利。TechCrunch 進一步整理，白宮目前談的是與 AI 公司達成某種讓 public share upside 的結構。這不只是監管議題，也是在替 AI 時代的財富分配模型試水溫。</p><ul class="sources"><li><a href="https://www.washingtonpost.com/politics/2026/06/05/tech-leaders-will-discuss-government-stakes-top-ai-firms-trump-says/" target="_blank" rel="noreferrer">Washington Post</a><span>2026-06-05</span></li>
-<li><a href="https://apnews.com/article/sam-altman-ai-bernie-sanders-trump-public-ownership-772224f9cd138eb79d3ef3336858a5d5" target="_blank" rel="noreferrer">AP News</a><span>2026-06-06</span></li>
-<li><a href="https://techcrunch.com/2026/06/06/the-trump-administration-might-take-an-equity-stake-in-openai/" target="_blank" rel="noreferrer">TechCrunch</a><span>2026-06-06</span></li>
-</ul></article>
-</div>
-</section>
-<section class="group">
-<div class="group-head"><h2>政策溫度</h2></div>
-<div class="story-grid">
-<article class="story-card developing"><div class="story-top"><span class="story-badge">🔄 接續報導</span><h3>持續追蹤：Sam Altman 反對模型上線前核准制，OpenAI 把戰線拉回「測試而非許可」</h3></div><p class="intro">白宮開始要求更前置的安全審視後，OpenAI 的最新動作不是退回完全放任，而是改主張擴大測試、避免預審許可。</p><p class="summary">Reuters 報導，Sam Altman 本週在華府將反對要求新模型公開前先取得政府批准的提案。OpenAI 同日發布 public policy agenda，主張更強的測試、事件通報與國際協調機制，但避免把 frontier model 發布變成正式許可制。這條線延續了 6 月 5 日索引中的聯邦 AI 安全藍圖主題，屬於接續報導。</p><ul class="sources"><li><a href="https://www.investing.com/news/economy-news/openais-altman-to-urge-us-lawmakers-not-to-require-ai-model-approvals-4724935" target="_blank" rel="noreferrer">Reuters via Investing.com</a><span>2026-06-03</span></li>
-<li><a href="https://openai.com/index/public-policy-agenda/" target="_blank" rel="noreferrer">OpenAI</a><span>2026-06-03</span></li>
-</ul></article>
-</div>
-</section>
-<section class="group">
-<div class="group-head"><h2>安全與風險</h2></div>
-<div class="story-grid">
-<article class="story-card new_angle"><div class="story-top"><span class="story-badge subtle">新切角</span><h3>OpenAI 上線 Lockdown Mode，把最容易被 prompt injection 利用的外部能力先鎖起來</h3></div><p class="intro">當 AI agents 愈來愈常碰網頁、檔案與外部服務，安全設計也開始從「能做更多」轉向「必要時能先少做一點」。</p><p class="summary">OpenAI Help Center 說明，Lockdown Mode 旨在大幅降低 prompt injection 導致的資料外洩風險，會限制 web browsing、deep research、agent mode、下載檔案等網路相關能力。TechCrunch 將它定位為對敏感資料工作流程的加固措施，反映 agent 化產品從能力競賽走向可控部署。</p><ul class="sources"><li><a href="https://help.openai.com/en/articles/20001061-lockdown-mode" target="_blank" rel="noreferrer">OpenAI Help Center</a><span>2026-06-06</span></li>
-<li><a href="https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/" target="_blank" rel="noreferrer">TechCrunch</a><span>2026-06-06</span></li>
-<li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noreferrer">OpenAI Help Center Release Notes</a><span>2026-06-04</span></li>
-</ul></article>
-</div>
-</section>
 
-    <footer class="footer">來源連結與發布日期列於各則卡片底部。英文產品名、公司名與人名依原文保留。</footer>
+      <section class="brand">
+        <div class="logo-wrap">
+          <p class="logo-note">Daily intelligence on platforms, capital, and policy</p>
+          <h1 class="logo">AI Brief</h1>
+        </div>
+        <div class="brand-summary">
+          <div class="bar"></div>
+          <p>今天的六則焦點集中在一件事：AI 的價值鏈正在被重新切分。平台要入口，企業要流程，資本市場要敘事，華府則開始問，這波紅利究竟該由誰持有。</p>
+        </div>
+      </section>
+
+      <section class="cover">
+        <div class="cover-story">
+          <div class="eyebrow">June 08 Cover</div>
+          <h1>入口比模型更值錢</h1>
+          <p class="lead-line">OpenAI 把 ChatGPT 推向 superapp，Anthropic 先卡 IPO，Meta 則讓 Business Agent 直接碰營運流程。AI 的下一場戰爭，已經不是能力展示，而是誰掌握入口、訂價與分潤。</p>
+          <p class="deck">這是一個典型的封面日。多條新聞雖來自不同公司與機構，但都指向同一個核心問題：AI 的權力不再只由模型參數決定，而是由分發權、代理執行權與資本市場敘事共同構成。這份版面因此以單一封面敘事收束，而不是平均排成六張獨立卡片。</p>
+          <div class="cover-lines">
+            <div><b>Capital</b><span>Anthropic 搶先把 IPO 選項放上桌</span></div>
+            <div><b>Enterprise</b><span>Meta 把 Business Agent 推進交易流程</span></div>
+            <div><b>Policy</b><span>Sam Altman 把爭點拉回測試而非許可</span></div>
+            <div><b>Ownership</b><span>華府開始討論 AI 公共持股</span></div>
+          </div>
+        </div>
+        <div class="cover-art">
+          <img src="2026-06-08-hero.png" alt="AI 封面主視覺">
+          <div class="vertical-tag"><span>Superapps / Statecraft / Public Upside</span></div>
+        </div>
+      </section>
+
+      <section class="summary-strip">
+        <article>
+          <b>Stories Kept</b>
+          <p>6 則保留重點，集中在入口、企業代理、IPO 與治理。</p>
+        </article>
+        <article>
+          <b>Developing</b>
+          <p>OpenAI 與華府的安全辯論，仍在持續往前推進。</p>
+        </article>
+        <article>
+          <b>New Angle</b>
+          <p>公共持股與 Lockdown Mode 把權力與風險問題前置化。</p>
+        </article>
+        <article>
+          <b>Mood</b>
+          <p>今天更像一份財經科技特刊，而不是產品發布清單。</p>
+        </article>
+      </section>
+
+      <section class="grid">
+        <div class="main">
+          <div class="section-head">
+            <strong>Lead Report</strong>
+            <span>Platforms & Distribution</span>
+          </div>
+
+          <article class="lead">
+            <div class="lead-panel">
+              <div>
+                <div class="mini">Why This Leads</div>
+                <p>今天最能統攝所有訊號的，不是單一融資或單一政策，而是 OpenAI 想把聊天、寫程式與代理能力收進同一個入口。</p>
+              </div>
+              <div>
+                <div class="mini">Story Status</div>
+                <p>New</p>
+              </div>
+            </div>
+            <div class="lead-copy">
+              <div class="marks">
+                <span class="mark red">Cover Story</span>
+                <span class="mark">OpenAI</span>
+                <span class="mark blue">Distribution</span>
+              </div>
+              <h2>ChatGPT 正朝「超級入口」改版，OpenAI 把 Codex 與 AI agents 收進同一個主畫面</h2>
+              <p>OpenAI 把原本分散的聊天、寫程式與代理能力，往單一入口重新整合，顯示消費端流量正被重新包裝成企業轉換漏斗。</p>
+              <p>Reuters 引述 Financial Times 指出，OpenAI 正準備對 ChatGPT 進行迄今最大幅度改版，讓它成為整合 coding tools 與 AI agents 的 superapp，以拉高企業營收與上市前的成長敘事。TechCrunch 補充，產品目標是把免費聊天流量導向像 Codex 這類可付費能力，核心方向是把 ChatGPT 做成跨工作與個人場景的 personal agent 入口。</p>
+              <p class="note">如果這一步成立，今天其他故事就都能被重新理解：Anthropic 在搶估值位置，Meta 在搶企業執行層，華府則在決定入口權是否應伴隨公共約束與公共回報。</p>
+              <div class="sources">
+                <div class="sources-row"><strong>Reuters via Investing.com</strong><time>2026-06-07</time><a href="https://www.investing.com/news/stock-market-news/openai-plans-chatgpt-superapp-overhaul-ahead-of-listing-ft-reports-4729645" target="_blank" rel="noreferrer">Source</a></div>
+                <div class="sources-row"><strong>TechCrunch</strong><time>2026-06-07</time><a href="https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app/" target="_blank" rel="noreferrer">Source</a></div>
+                <div class="sources-row"><strong>OpenAI</strong><time>2026-03-31</time><a href="https://openai.com/index/accelerating-the-next-phase-ai/" target="_blank" rel="noreferrer">Source</a></div>
+              </div>
+            </div>
+          </article>
+
+          <div class="duo">
+            <article class="block">
+              <span class="tagline">Capital</span>
+              <h3>Anthropic 搶先把 IPO 選項放上桌，AI 巨頭的上市賽跑正式開打</h3>
+              <p>Anthropic 6 月 1 日正式確認，已向美國 SEC confidentially 提交 Form S-1 草案，為潛在 IPO 預作準備。TechCrunch 指出，這讓 Anthropic 在 OpenAI 與 SpaceX/xAI 之前率先卡位，也把 AI 產業的估值、營收成色與算力支出壓力，提前搬進公開市場檢驗。</p>
+              <div class="sources">
+                <div class="sources-row"><strong>Anthropic</strong><time>2026-06-01</time><a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noreferrer">Source</a></div>
+                <div class="sources-row"><strong>TechCrunch</strong><time>2026-06-01</time><a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/" target="_blank" rel="noreferrer">Source</a></div>
+                <div class="sources-row"><strong>Reuters via Investing.com</strong><time>2026-06-01</time><a href="https://www.investing.com/news/stock-market-news/ai-giant-anthropic-confidentially-files-for-us-ipo-4719850" target="_blank" rel="noreferrer">Source</a></div>
+              </div>
+            </article>
+
+            <article class="block">
+              <span class="tagline red">Enterprise</span>
+              <h3>Meta 把 Business Agent 從聊天機器人推向營運代理，直接搶企業客服與交易流程</h3>
+              <p>Reuters 指出，Meta 新推出的 Business Agent 不只是回答問題，而是朝完成付款、預約與下單等實際行動前進。Meta 官方則表示，超過一百萬家企業已在 WhatsApp 與 Messenger 使用相關能力，現在再擴大推出 Business Agent Platform，讓企業能自訂並大規模部署代理。</p>
+              <div class="sources">
+                <div class="sources-row"><strong>Meta</strong><time>2026-06-03</time><a href="https://about.fb.com/news/2026/06/meta-business-agent/" target="_blank" rel="noreferrer">Source</a></div>
+                <div class="sources-row"><strong>Reuters via Investing.com</strong><time>2026-06-03</time><a href="https://www.investing.com/news/stock-market-news/meta-launches-enterprisefocused-ai-business-agent-to-automate-daily-operations-4724559" target="_blank" rel="noreferrer">Source</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="side">
+          <div class="section-head">
+            <strong>Watchlist</strong>
+            <span>Policy, Risk, Ownership</span>
+          </div>
+
+          <article class="rail">
+            <span class="mini">Developing / Washington</span>
+            <h4>持續追蹤：Sam Altman 反對模型上線前核准制，OpenAI 把戰線拉回「測試而非許可」</h4>
+            <p>Reuters 報導，Sam Altman 本週在華府將反對要求新模型公開前先取得政府批准的提案。OpenAI 同日發布 public policy agenda，主張更強的測試、事件通報與國際協調機制，但避免把 frontier model 發布變成正式許可制。</p>
+            <div class="sources">
+              <div class="sources-row"><strong>Reuters via Investing.com</strong><time>2026-06-03</time><a href="https://www.investing.com/news/economy-news/openais-altman-to-urge-us-lawmakers-not-to-require-ai-model-approvals-4724935" target="_blank" rel="noreferrer">Source</a></div>
+              <div class="sources-row"><strong>OpenAI</strong><time>2026-06-03</time><a href="https://openai.com/index/public-policy-agenda/" target="_blank" rel="noreferrer">Source</a></div>
+            </div>
+          </article>
+
+          <article class="rail">
+            <span class="mini">New Angle / Public Upside</span>
+            <h4>從監管走向分潤？華府開始討論讓公眾直接持有 AI 巨頭的一部分</h4>
+            <p>Washington Post 與 AP 都指出，川普團隊與 Sam Altman 等人正在討論讓美國公眾透過政府基金或持股機制分享 AI 公司成長紅利。TechCrunch 進一步整理，白宮目前談的是與 AI 公司達成某種讓 public share upside 的結構。</p>
+            <div class="sources">
+              <div class="sources-row"><strong>Washington Post</strong><time>2026-06-05</time><a href="https://www.washingtonpost.com/politics/2026/06/05/tech-leaders-will-discuss-government-stakes-top-ai-firms-trump-says/" target="_blank" rel="noreferrer">Source</a></div>
+              <div class="sources-row"><strong>AP News</strong><time>2026-06-06</time><a href="https://apnews.com/article/sam-altman-ai-bernie-sanders-trump-public-ownership-772224f9cd138eb79d3ef3336858a5d5" target="_blank" rel="noreferrer">Source</a></div>
+              <div class="sources-row"><strong>TechCrunch</strong><time>2026-06-06</time><a href="https://techcrunch.com/2026/06/06/the-trump-administration-might-take-an-equity-stake-in-openai/" target="_blank" rel="noreferrer">Source</a></div>
+            </div>
+          </article>
+
+          <section class="brief">
+            <div class="brief-item">
+              <strong>OpenAI 上線 Lockdown Mode，把最容易被 prompt injection 利用的外部能力先鎖起來</strong>
+              <p>OpenAI Help Center 說明，Lockdown Mode 旨在大幅降低 prompt injection 導致的資料外洩風險，會限制 web browsing、deep research、agent mode、下載檔案等網路相關能力。TechCrunch 將它定位為對敏感資料場景的加固措施。</p>
+            </div>
+            <div class="brief-item">
+              <strong>來源與發布時間列於各則段落底部</strong>
+              <p>英文產品名、公司名與人名依原文保留；持續追蹤與新切角均以新聞語言呈現，不做內部說明。</p>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <footer class="footer">來源連結與發布日期列於各則段落底部。英文產品名、公司名與人名依原文保留。</footer>
+    </article>
   </main>
 </body>
 </html>
