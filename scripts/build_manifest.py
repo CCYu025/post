@@ -47,7 +47,7 @@ def scan_news(limit: int = 10) -> list[dict]:
         results.append({
             "date": folder.name,
             "path": html.relative_to(BASE).as_posix(),
-            "title": extract_title(html),
+            "title": f"AI 情報日刊 — {folder.name}",
         })
     return results
 
