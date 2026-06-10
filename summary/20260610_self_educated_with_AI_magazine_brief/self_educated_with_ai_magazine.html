@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>危險地自學：AI 時代的閱讀不是捷徑，而是判斷力訓練</title>
+  <style>
+    :root {
+      --ink: #1d1a16;
+      --muted: #6b6258;
+      --paper: #f4efe6;
+      --paper-2: #ebe1d2;
+      --line: #d7c6ad;
+      --forest: #183a35;
+      --moss: #60735d;
+      --gold: #b18438;
+      --night: #101a1d;
+      --white: #fffaf1;
+      --serif: Georgia, "Times New Roman", "Noto Serif TC", "Songti TC", serif;
+      --sans: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.78;
+    }
+    a { color: inherit; }
+    .page { overflow: hidden; }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      background: #111;
+      color: var(--white);
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: .88;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8, 15, 17, .92) 0%, rgba(8, 15, 17, .68) 40%, rgba(8, 15, 17, .12) 78%),
+        linear-gradient(0deg, rgba(8, 15, 17, .7), transparent 45%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 86px 0 58px;
+    }
+    .kicker {
+      width: fit-content;
+      border-top: 1px solid rgba(255, 250, 241, .7);
+      padding-top: 10px;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255, 250, 241, .8);
+    }
+    h1 {
+      max-width: 820px;
+      margin: 22px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(42px, 8vw, 104px);
+      line-height: .98;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .dek {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255, 250, 241, .86);
+      font-size: clamp(18px, 2.1vw, 25px);
+      line-height: 1.62;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 32px;
+      color: rgba(255, 250, 241, .74);
+      font-size: 14px;
+    }
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 26px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 250, 241, .42);
+      border-radius: 999px;
+      color: var(--white);
+      text-decoration: none;
+      background: rgba(255, 250, 241, .08);
+      backdrop-filter: blur(8px);
+    }
+    .watch svg { width: 17px; height: 17px; flex: none; }
+
+    main {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 64px 0 84px;
+    }
+    .lead-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(260px, .55fr);
+      gap: 44px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 54px;
+    }
+    .lead {
+      font-family: var(--serif);
+      font-size: clamp(25px, 3vw, 41px);
+      line-height: 1.32;
+      margin: 0;
+    }
+    .side-note {
+      border-left: 4px solid var(--gold);
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .side-note strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .chapter {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 48px;
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .chapter-label {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      color: var(--moss);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    h2 {
+      margin: 0 0 24px;
+      font-family: var(--serif);
+      font-size: clamp(31px, 4vw, 58px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 20px; font-size: 18px; }
+    .drop p:first-child::first-letter {
+      float: left;
+      font-family: var(--serif);
+      font-size: 86px;
+      line-height: .74;
+      padding: 12px 10px 0 0;
+      color: var(--forest);
+    }
+    .myths {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin: 34px 0 8px;
+    }
+    .myth {
+      min-height: 250px;
+      padding: 23px;
+      background: rgba(255, 250, 241, .58);
+      border: 1px solid var(--line);
+    }
+    .myth b {
+      display: block;
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.15;
+    }
+    .myth span { color: var(--muted); font-size: 15px; }
+
+    .feature-split {
+      display: grid;
+      grid-template-columns: minmax(280px, .72fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      margin: 22px 0 36px;
+    }
+    .feature-split figure {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+    }
+    .feature-split img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .actor {
+      counter-reset: actor;
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .move {
+      counter-increment: actor;
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 22px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .move .letter {
+      font-family: var(--serif);
+      font-size: 50px;
+      line-height: 1;
+      color: var(--gold);
+    }
+    .move h3 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 27px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+    .move p { margin: 0; color: #433c34; font-size: 16px; }
+
+    .quote-band {
+      margin: 62px calc(50% - 50vw);
+      padding: 72px max(28px, calc((100vw - 1180px) / 2));
+      background: var(--forest);
+      color: var(--white);
+    }
+    blockquote {
+      margin: 0;
+      max-width: 1000px;
+      font-family: var(--serif);
+      font-size: clamp(31px, 5vw, 68px);
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+    .quote-band p {
+      max-width: 680px;
+      margin: 24px 0 0;
+      color: rgba(255, 250, 241, .76);
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(250px, .44fr);
+      gap: 42px;
+      padding-top: 8px;
+    }
+    .rule-list {
+      border-top: 3px solid var(--ink);
+      padding-top: 18px;
+    }
+    .rule-list div {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .rule-list b {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 21px;
+    }
+    .source {
+      margin-top: 52px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .source h2 {
+      font-family: var(--sans);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .source p { font-size: 14px; margin-bottom: 8px; }
+
+    @media (max-width: 860px) {
+      .hero { min-height: 84vh; }
+      .hero-inner { width: min(100% - 28px, 680px); padding-bottom: 40px; }
+      h1 { font-size: clamp(38px, 13vw, 66px); }
+      .lead-grid, .chapter, .feature-split, .closing {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+      .chapter-label { position: static; }
+      .myths { grid-template-columns: 1fr; }
+      .move { grid-template-columns: 58px 1fr; gap: 14px; }
+      .move .letter { font-size: 38px; }
+      p { font-size: 17px; }
+    }
+
+    @media (max-width: 520px) {
+      main { width: min(100% - 26px, 520px); padding-top: 42px; }
+      .hero::after {
+        background:
+          linear-gradient(90deg, rgba(8, 15, 17, .94), rgba(8, 15, 17, .42)),
+          linear-gradient(0deg, rgba(8, 15, 17, .82), transparent 55%);
+      }
+      .hero img { object-position: 58% center; }
+      .kicker { font-size: 11px; }
+      .dek { font-size: 17px; }
+      .chapter { padding: 44px 0; }
+      .myth { min-height: auto; }
+      blockquote { font-size: 31px; }
+      .quote-band { padding-top: 52px; padding-bottom: 52px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      .hero { min-height: auto; color: #111; background: #fff; }
+      .hero img, .hero::after { display: none; }
+      .hero-inner { padding: 30px 0; }
+      .watch { border-color: #111; color: #111; }
+      .chapter-label { position: static; }
+      .quote-band { background: #fff; color: #111; border-block: 1px solid #111; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <img src="hero_self_educated_ai.png" alt="夜晚書桌前，一位讀者在書本與 AI 介面之間思考">
+      <div class="hero-inner">
+        <div class="kicker">Magazine Brief / AI & Self-Education</div>
+        <h1>危險地自學</h1>
+        <p class="dek">AI 讓摘要變得廉價，卻也讓真正的閱讀變得更稀有。Sandeep Swadia 提出的不是更快讀完一本書，而是把閱讀變成一套能改變判斷、記憶與行動的系統。</p>
+        <div class="meta">
+          <span>影片：How To Become Dangerously Self-Educated (with AI)</span>
+          <span>作者：Sandeep Swadia | theMITmonk</span>
+          <span>發布：2026.06.03</span>
+        </div>
+        <a class="watch" href="https://www.youtube.com/watch?v=VeU6gScy92s" target="_blank" rel="noreferrer noopener" aria-label="在 YouTube 開啟原始影片">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 8.6v6.8L15.5 12 10 8.6Zm12 3.4c0 1.4-.1 2.8-.3 4.2-.2 1.1-1.1 2-2.2 2.2-1.9.3-7.5.3-7.5.3s-5.6 0-7.5-.3c-1.1-.2-2-1.1-2.2-2.2C2.1 14.8 2 13.4 2 12s.1-2.8.3-4.2c.2-1.1 1.1-2 2.2-2.2C6.4 5.3 12 5.3 12 5.3s5.6 0 7.5.3c1.1.2 2 1.1 2.2 2.2.2 1.4.3 2.8.3 4.2Z"/></svg>
+          觀看原始影片
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="lead-grid" aria-label="導讀">
+        <p class="lead">這支影片最尖銳的地方，不是鼓勵人用 AI 讀更多，而是提醒我們：當所有人都拿得到同一份摘要，真正的差距會回到一件老派的事：你是否能把知識變成自己的判斷。</p>
+        <aside class="side-note">
+          <strong>文章主題</strong>
+          這不是一份「讀書技巧」清單，而是一篇關於 AI 時代自學能力的專題。影片把閱讀重新定義為一種主動姿態：帶著問題進入文本，壓縮核心，挑戰假設，重新說出，最後改變行為。
+        </aside>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter-label">The Problem</div>
+        <div class="drop">
+          <h2>讀完，不等於被改變</h2>
+          <p>Swadia 一開始問的是一個很不舒服的問題：你最近讀完的幾本書，有多少真的改變了你的思考、決策、溝通或成功方式？多數人的答案其實很沉默。書讀完了，筆記也有了，但生活裡沒有新的反射動作，會議裡沒有新的判斷，困境裡也沒有新的工具。</p>
+          <p>他的批判不是針對閱讀速度，而是針對閱讀姿態。多數人像觀光客一樣進入一本書，拍下幾句漂亮的話，帶走一些可展示的標記，卻沒有真正帶著任務去尋找結構。於是閱讀變成消費，而不是建造。</p>
+          <div class="myths">
+            <div class="myth">
+              <b>學習風格的標籤</b>
+              <span>「我是視覺型」「我只能靠聽」這類自我描述很容易變成天花板。影片指出，偏好的學習形式並不等於更好的保留效果。</span>
+            </div>
+            <div class="myth">
+              <b>流暢感的錯覺</b>
+              <span>一段文字解釋得很清楚，並不代表你真的懂。真正的理解，要等你離開文本、自己重建邏輯時才會露出破口。</span>
+            </div>
+            <div class="myth">
+              <b>AI 摘要的誘惑</b>
+              <span>AI 能立刻給你重點，卻不能替你與觀念搏鬥。摘要提供熟悉感，但熟悉感不是能力。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter-label">The Framework</div>
+        <div>
+          <h2>ACTOR：把讀者放回場景中央</h2>
+          <div class="feature-split">
+            <figure>
+              <img src="knowledge_tree_actor.png" alt="一本打開的書長出由紙張、線條與光點構成的知識樹">
+              <figcaption>AI-generated editorial image。知識不是葉片的蒐集，而是能被你抓住的結構。</figcaption>
+            </figure>
+            <div>
+              <p>影片把核心方法命名為 ACTOR。這個字很準確：讀者不是坐在書外看作者表演，而是進入情節，讓自己成為正在形成判斷的人。AI 可以出現在每一步，但它的角色是陪練、框架師、反方與行動助理，不是代讀者完成理解。</p>
+              <p>這裡的關鍵轉折是：自學不是資訊管理，而是立場生成。當 AI 讓所有人都能取得相似的摘要，稀缺的反而是你能提出什麼問題、辨認什麼結構、拒絕什麼觀點，以及把哪一個想法改寫成日常行動。</p>
+            </div>
+          </div>
+
+          <div class="actor" aria-label="ACTOR 方法">
+            <article class="move">
+              <div class="letter">A</div>
+              <div>
+                <h3>Aim：帶著任務進入一本書</h3>
+                <p>不要只是問「這本書在說什麼」，先問「我為什麼需要它」。一句任務聲明會改變你看見的東西：同一本書，可以是領導指南、金錢觀訓練，也可以是一場關於關係的自我檢查。AI 在這裡適合幫你生成要帶進書裡的三個問題。</p>
+              </div>
+            </article>
+            <article class="move">
+              <div class="letter">C</div>
+              <div>
+                <h3>Compress：找到樹幹，不要只收藏葉子</h3>
+                <p>好句子、截圖、畫線都像葉子；真正能留在腦中的，是撐起整本書的中心思想。壓縮不是簡化，而是找出讓細節有意義的結構。AI 可以用來檢查你的理解：我認為核心是 X，我漏看了什麼？</p>
+              </div>
+            </article>
+            <article class="move">
+              <div class="letter">T</div>
+              <div>
+                <h3>Test：把不同意當成入口</h3>
+                <p>閱讀若只拿來確認自己本來就相信的事，只會讓既有信念更硬。影片鼓勵讀者在不舒服之處停下來：是作者有漏洞，還是我的自尊被碰到了？AI 在這一步最適合扮演反方，提出失效場景與隱藏假設。</p>
+              </div>
+            </article>
+            <article class="move">
+              <div class="letter">O</div>
+              <div>
+                <h3>Own：離開文本，用自己的話重建</h3>
+                <p>反覆閱讀會帶來熟悉感，但真正的內化來自回想、改寫與教學。把概念接到一場會議、一個錯誤、一段關係或一個公司案例上，記憶才有地方安放。AI 可以聽你解釋，再指出哪裡還不夠清楚。</p>
+              </div>
+            </article>
+            <article class="move">
+              <div class="letter">R</div>
+              <div>
+                <h3>Run：讓書改變一個行動</h3>
+                <p>一本溝通書應該改變一次對話；一本金錢書應該改變一個決策；一本領導書應該改變你帶團隊的方式。最後一步不是寫心得，而是把一個觀念轉成規則、檢核表、實驗或下一次會議中的行為。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-band" aria-label="專題引言">
+        <blockquote>AI 時代的優勢，不再是誰更快拿到重點，而是誰能把重點變成自己的眼光。</blockquote>
+        <p>當工具替所有人生成同樣漂亮的筆記，人的差異會變得更赤裸：判斷、品味、立場，以及願不願意把理解付諸行動。</p>
+      </section>
+
+      <section class="chapter">
+        <div class="chapter-label">Why It Matters</div>
+        <div>
+          <h2>真正危險的自學者，不是知道很多，而是能被知識改寫</h2>
+          <p>影片結尾把閱讀拉回領導力。Swadia 說，深度閱讀最後會讓你更會讀人：讀懂房間的氣氛、沉默的重量、對方沒有說出口的假設。這一點讓整支影片跳脫「效率工具」的層次，進入一個更長期的問題：AI 能不能讓人更快，但人能不能因此變得更深？</p>
+          <p>答案取決於使用方式。若 AI 只是代替你摘要，它會降低摩擦，也可能降低成長。若 AI 被放進 ACTOR 的每一步，它會逼你把目的說清楚、把結構壓出來、把反方想完、把概念講回來，最後把一句話變成一個行動。</p>
+        </div>
+      </section>
+
+      <section class="closing" aria-label="讀者行動">
+        <div>
+          <h2>下一本書，不要急著讀完</h2>
+          <p>這支影片給一般讀者的提醒很直接：閱讀不是讓你擁有更多資訊，而是訓練你在資訊過剩時仍能形成自己的判斷。下一次打開一本書、長文、研究報告或公司文件之前，先不要問 AI「幫我摘要」。先問自己：我需要這份內容改變我哪一個決定？</p>
+        </div>
+        <div class="rule-list">
+          <div><b>01</b><span>先寫一句任務聲明，再開始閱讀。</span></div>
+          <div><b>02</b><span>讀完後用三句話壓縮中心思想。</span></div>
+          <div><b>03</b><span>請 AI 找出你的盲點，而不是只稱讚你的筆記。</span></div>
+          <div><b>04</b><span>把一個概念改成一個本週可執行的動作。</span></div>
+        </div>
+      </section>
+
+      <section class="source" aria-label="來源說明">
+        <h2>Source Notes</h2>
+        <p>原始影片：<a href="https://www.youtube.com/watch?v=VeU6gScy92s" target="_blank" rel="noreferrer noopener">How To Become Dangerously Self-Educated (with AI)</a>，Sandeep Swadia | theMITmonk，YouTube。</p>
+        <p>內容依 2026-06-10 取得的 YouTube 自動英文字幕與影片頁 metadata 整理；自動字幕可能存在少量辨識誤差。</p>
+        <p>視覺素材為本摘要製作用 AI 生成之 editorial images，已隨 HTML 一併放入交付資料夾。</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

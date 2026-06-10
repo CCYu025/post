@@ -1,6 +1,11 @@
 {
   "news": [
     {
+      "date": "2026-06-10",
+      "path": "news/2026-06-10/2026-06-10.html",
+      "title": "AI 情報日刊 — 2026-06-10"
+    },
+    {
       "date": "2026-06-09",
       "path": "news/2026-06-09/2026-06-09.html",
       "title": "AI 情報日刊 — 2026-06-09"
@@ -37,6 +42,12 @@
     }
   ],
   "summary": [
+    {
+      "date": "2026-06-10",
+      "path": "summary/20260610_self_educated_with_AI_magazine_brief/self_educated_with_ai_magazine.html",
+      "title": "危險地自學：AI 時代的閱讀不是捷徑，而是判斷力訓練",
+      "hero": "summary/20260610_self_educated_with_AI_magazine_brief/hero_self_educated_ai.png"
+    },
     {
       "date": "2026-06-09",
       "path": "summary/20260609_Dan_Martell_13_discipline_hacks_magazine_brief/Dan_Martell_13_discipline_hacks_magazine_brief.html",
