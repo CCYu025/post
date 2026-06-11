@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>從 Vibe Coding 到 Agentic Engineering：Karpathy 給 AI 軟體工程師的下一個分水嶺</title>
+  <style>
+    :root {
+      --ink: #171a1c;
+      --muted: #667075;
+      --paper: #f3f1eb;
+      --paper-2: #e4ded2;
+      --line: #cbc5b8;
+      --charcoal: #11181b;
+      --cyan: #33b9d6;
+      --green: #47b66a;
+      --amber: #c08a3e;
+      --white: #f8f4eb;
+      --serif: Georgia, "Times New Roman", "Noto Serif TC", "Songti TC", serif;
+      --sans: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      --mono: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.76;
+    }
+    a { color: inherit; }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--charcoal);
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: .88;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(10, 17, 19, .94) 0%, rgba(10, 17, 19, .72) 38%, rgba(10, 17, 19, .18) 78%),
+        linear-gradient(0deg, rgba(10, 17, 19, .68), transparent 50%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 84px 0 54px;
+    }
+    .kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(248, 244, 235, .76);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border-left: 3px solid var(--green);
+      padding-left: 12px;
+    }
+    h1 {
+      max-width: 850px;
+      margin: 22px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(40px, 7.8vw, 102px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+    .dek {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(18px, 2vw, 24px);
+      color: rgba(248, 244, 235, .86);
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 30px;
+      font-size: 14px;
+      color: rgba(248, 244, 235, .72);
+    }
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
+      padding: 10px 14px;
+      border: 1px solid rgba(248, 244, 235, .42);
+      border-radius: 999px;
+      background: rgba(248, 244, 235, .08);
+      color: var(--white);
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+    }
+    .watch svg { width: 17px; height: 17px; flex: none; }
+
+    main {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 62px 0 88px;
+    }
+    .opening {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(260px, .52fr);
+      gap: 48px;
+      align-items: start;
+      padding-bottom: 54px;
+      border-bottom: 1px solid var(--line);
+    }
+    .lead {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(25px, 3vw, 42px);
+      line-height: 1.32;
+    }
+    .brief {
+      padding-top: 8px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .brief strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 46px;
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .chapter-label {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .chapter-label::before {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 3px;
+      margin-bottom: 13px;
+      background: var(--cyan);
+    }
+    h2 {
+      margin: 0 0 22px;
+      font-family: var(--serif);
+      font-size: clamp(30px, 4.1vw, 60px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 20px; font-size: 18px; }
+    .drop p:first-child::first-letter {
+      float: left;
+      padding: 12px 10px 0 0;
+      font-family: var(--serif);
+      font-size: 84px;
+      line-height: .74;
+      color: var(--amber);
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .signal {
+      border-top: 3px solid var(--ink);
+      padding: 18px 18px 20px;
+      background: rgba(255, 255, 255, .38);
+      min-height: 245px;
+    }
+    .signal b {
+      display: block;
+      margin-bottom: 10px;
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1.18;
+    }
+    .signal span {
+      display: block;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .image-split {
+      display: grid;
+      grid-template-columns: minmax(270px, .68fr) minmax(0, 1fr);
+      gap: 38px;
+      align-items: center;
+      margin: 22px 0 38px;
+    }
+    figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      overflow: hidden;
+    }
+    figure img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px 28px;
+      margin-top: 26px;
+    }
+    .principle {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .num {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--green);
+    }
+    .principle h3 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.18;
+    }
+    .principle p {
+      margin: 0;
+      color: #3d4548;
+      font-size: 16px;
+    }
+
+    .quote-band {
+      margin: 62px calc(50% - 50vw);
+      padding: 74px max(28px, calc((100vw - 1180px) / 2));
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    blockquote {
+      max-width: 1020px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(31px, 4.9vw, 66px);
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+    .quote-band p {
+      max-width: 720px;
+      margin-top: 24px;
+      color: rgba(248, 244, 235, .74);
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 3px solid var(--ink);
+      margin-top: 28px;
+    }
+    .matrix div {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .matrix div:nth-child(odd) {
+      border-right: 1px solid var(--line);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+    .matrix div:nth-child(even) { font-size: 16px; }
+
+    .source {
+      margin-top: 54px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .source h2 {
+      margin-bottom: 12px;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .source p { margin-bottom: 8px; font-size: 14px; }
+
+    @media (max-width: 880px) {
+      .hero { min-height: 86vh; }
+      .hero-inner { width: min(100% - 28px, 680px); padding-bottom: 40px; }
+      h1 { font-size: clamp(38px, 12.5vw, 66px); }
+      .opening, .chapter, .image-split {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+      .chapter-label { position: static; }
+      .signal-grid, .principles, .matrix { grid-template-columns: 1fr; }
+      .matrix div:nth-child(odd) { border-right: 0; }
+    }
+
+    @media (max-width: 540px) {
+      main { width: min(100% - 26px, 520px); padding-top: 44px; }
+      .hero img { object-position: 62% center; }
+      .hero::after {
+        background:
+          linear-gradient(90deg, rgba(10, 17, 19, .96), rgba(10, 17, 19, .46)),
+          linear-gradient(0deg, rgba(10, 17, 19, .82), transparent 55%);
+      }
+      .chapter { padding: 44px 0; }
+      .signal { min-height: auto; }
+      p { font-size: 17px; }
+      blockquote { font-size: 31px; }
+      .quote-band { padding-top: 52px; padding-bottom: 52px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      .hero { min-height: auto; background: #fff; color: #111; }
+      .hero img, .hero::after { display: none; }
+      .hero-inner { padding: 30px 0; }
+      .watch { color: #111; border-color: #111; }
+      .chapter-label { position: static; }
+      .quote-band { background: #fff; color: #111; border-block: 1px solid #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero_agentic_engineering_cockpit.png" alt="工程師在多個 AI agent、測試與部署儀表板前監督系統">
+    <div class="hero-inner">
+      <div class="kicker">AI Engineering / Sequoia Capital Interview</div>
+      <h1>從 Vibe Coding 到 Agentic Engineering</h1>
+      <p class="dek">Andrej Karpathy 在這場訪談裡把 AI coding 的興奮感拉回工程現場：agent 已經能讓速度暴增，但真正的分水嶺，是誰能在速度之上維持品質、驗證、架構與理解。</p>
+      <div class="meta">
+        <span>Andrej Karpathy w/ Stephanie Zhan</span>
+        <span>Sequoia Capital</span>
+        <span>讀者：AI 相關軟體工程師</span>
+      </div>
+      <a class="watch" href="https://www.youtube.com/watch?v=96jN2OCOfLs" target="_blank" rel="noreferrer noopener" aria-label="在 YouTube 開啟原始影片">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 8.6v6.8L15.5 12 10 8.6Zm12 3.4c0 1.4-.1 2.8-.3 4.2-.2 1.1-1.1 2-2.2 2.2-1.9.3-7.5.3-7.5.3s-5.6 0-7.5-.3c-1.1-.2-2-1.1-2.2-2.2C2.1 14.8 2 13.4 2 12s.1-2.8.3-4.2c.2-1.1 1.1-2 2.2-2.2C6.4 5.3 12 5.3 12 5.3s5.6 0 7.5.3c1.1.2 2 1.1 2.2 2.2.2 1.4.3 2.8.3 4.2Z"/></svg>
+        觀看原始影片
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="opening" aria-label="導讀">
+      <p class="lead">Karpathy 的關鍵訊息不是「工程師要學會提示詞」，而是更根本：LLM 正在變成一種新電腦，而軟體工程師的工作，正在從寫每一行指令，移向設計可被 agent 執行、驗證與修正的系統條件。</p>
+      <aside class="brief">
+        <strong>For AI Software Engineers</strong>
+        這場談話可以讀成一份工程路線圖：vibe coding 讓所有人的軟體產能底線上升；agentic engineering 則決定專業團隊能否把 agent 的速度轉成可維護、可驗證、可部署的軟體。
+      </aside>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">01 / Shock Point</div>
+      <div class="drop">
+        <h2>當 Karpathy 說自己「落後」時，他不是在談焦慮，而是在標記相變</h2>
+        <p>訪談從一個反直覺的坦白開始：Karpathy 說自己從未像現在這樣感覺落後於程式設計。這句話不是謙虛，也不是恐慌，而是對工具轉折點的描述。他回憶某個時間點後，模型輸出的程式碼片段開始「直接可用」，需要修正的次數快速下降，信任感於是上升，side project 也像失控一樣增加。</p>
+        <p>這是許多工程師熟悉的感覺：去年你還把 AI coding 當成 ChatGPT 式輔助，今年它突然變成可以連續推進工作的 agentic workflow。差別不在單次補全，而在它能否在上下文、工具、檔案、錯誤與迭代之間維持一段 coherent loop。</p>
+        <div class="signal-grid">
+          <div class="signal">
+            <b>速度不是唯一變數</b>
+            <span>vibe coding 的震撼來自輸出變快，但專業工程的問題是：你是否還能控制品質、權限、資料流、測試與部署後果。</span>
+          </div>
+          <div class="signal">
+            <b>agent 不是 autocomplete</b>
+            <span>它開始像一個可接受任務、觀察環境、嘗試修復、重新執行的工作單位。這要求工程師設計任務，而不只是寫提示詞。</span>
+          </div>
+          <div class="signal">
+            <b>新的落後感</b>
+            <span>落後不再是忘了某個 API，而是還用舊的軟體生產假設看待新工具，把本可消失的 app、script 或流程繼續做大。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">02 / Software 3.0</div>
+      <div>
+        <h2>Software 3.0 的真正含義：prompt 是程式，context 是控制面</h2>
+        <div class="image-split">
+          <figure>
+            <img src="neural_host_tool_coprocessors.png" alt="神經網路核心連接多個工具、感測器與驗證模組的概念圖">
+            <figcaption>AI-generated editorial image。Karpathy 描述的未來：神經網路成為主流程，傳統工具像協處理器一樣被調用。</figcaption>
+          </figure>
+          <div>
+            <p>Karpathy 延續他對 software 1.0、2.0、3.0 的分法：1.0 是明確規則與程式碼；2.0 是資料集、目標函數與神經網路權重；3.0 則把 LLM 視為可程式化的電腦，工程師透過 prompt 與 context window 操作這台新的解譯器。</p>
+            <p>他用安裝工具與 MenuGen 的例子說明這件事。舊世界會寫越來越複雜的 bash script 來適配不同平台；新世界則可能只需要一段給 agent 的操作說明，讓 agent 觀察環境、執行、debug。更激進的是，有些 app 在 software 3.0 裡根本不該存在，因為影像、文字與 UI 的重組可以直接由模型完成。</p>
+          </div>
+        </div>
+        <p>對 AI SWE 而言，這不是「程式碼不重要」；而是程式碼的邊界正在改變。工程師要重新判斷哪些部分應該是 deterministic software，哪些部分應該交給 neural computation，哪些部分必須用測試與沙盒把模型的自由度收回來。</p>
+      </div>
+    </section>
+
+    <section class="quote-band" aria-label="核心引言">
+      <blockquote>Vibe coding 提高所有人的下限；agentic engineering 決定專業團隊的上限。</blockquote>
+      <p>Karpathy 的分野很清楚：vibe coding 讓任何人都能做出東西；agentic engineering 則是在不犧牲安全、設計與維護性的前提下，協調一群強大但尖刺狀、會犯錯、帶隨機性的 agent。</p>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">03 / Engineering Discipline</div>
+      <div>
+        <h2>Agentic engineering 是一門品質控制學</h2>
+        <p>Karpathy 把 agentic engineering 說成一種工程紀律，而不是一套酷炫工具清單。它的核心不是「讓 agent 寫更多碼」，而是設計一個流程，讓 agent 在可監督、可驗證、可回滾的範圍內工作。這也是為什麼他強調，vibe coding 不能成為引入漏洞的藉口；軟體責任仍在工程師身上。</p>
+        <div class="principles">
+          <article class="principle">
+            <div class="num">01</div>
+            <div>
+              <h3>Spec 比 prompt 更重要</h3>
+              <p>工程師要主導需求、資料模型、身份邊界、權限與失敗模式。agent 可以填細節，但不應替你決定系統的基本不變量。</p>
+            </div>
+          </article>
+          <article class="principle">
+            <div class="num">02</div>
+            <div>
+              <h3>驗證決定自動化速度</h3>
+              <p>LLM 在數學、程式碼與可獎勵的任務上進步最快，因為 frontier labs 可以對這些領域做大規模 RL。你的產品若有明確 verifier，就更容易被 agent 化。</p>
+            </div>
+          </article>
+          <article class="principle">
+            <div class="num">03</div>
+            <div>
+              <h3>人仍要負責 taste 與 architecture</h3>
+              <p>模型可能交出能跑但臃腫、重複、抽象脆弱的 code。工程師要看見記憶體、資料一致性、身份對應與部署成本這些模型容易忽略的結構。</p>
+            </div>
+          </article>
+          <article class="principle">
+            <div class="num">04</div>
+            <div>
+              <h3>招聘也要改</h3>
+              <p>若要找 AI-native engineer，傳統 puzzle 不足以測試能力。更合理的評估是給大型專案，看候選人如何用 agent 建構、加固、部署並抵抗攻擊。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">04 / Jagged Intelligence</div>
+      <div>
+        <h2>最危險的錯覺，是把 jagged intelligence 當成線性能力</h2>
+        <p>Karpathy 反覆談到模型能力的鋸齒狀分布：它可以重構大型 codebase、找零日漏洞，卻可能在日常常識題上做出荒謬判斷。這不是小瑕疵，而是部署策略的核心事實。LLM 不是均勻變聰明的工程師，它是被資料分布、RL 獎勵與 labs 關注方向塑形的能力地形。</p>
+        <p>這對產品團隊有直接含義：不能只問模型「平均表現」如何，而要知道你的任務落在哪些 circuit 裡。若你的任務屬於 labs 已密集訓練且可驗證的區域，agent 會飛；若落在分布外，你可能需要自己的資料、fine-tuning、eval harness 或更保守的人機協作。</p>
+        <div class="matrix" aria-label="工程判斷矩陣">
+          <div>Highly verifiable</div>
+          <div>程式碼、數學、測試可判定的轉換、靜態分析、安全掃描、可重放的 workflow。</div>
+          <div>Harder to verify</div>
+          <div>產品 taste、抽象簡潔性、組織語境、使用者信任、長期維護成本。</div>
+          <div>Agent-ready surface</div>
+          <div>有清楚 spec、可觀察狀態、可執行工具、沙盒、rollback、eval、log。</div>
+          <div>Human-critical surface</div>
+          <div>資料邊界、身份模型、權限、架構取捨、風險定義、什麼值得做。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">05 / Agent-Native World</div>
+      <div>
+        <h2>下一個基礎設施問題：不是給人看的文件，而是給 agent 操作的世界</h2>
+        <p>Karpathy 對現有開發環境的不滿很具體：文件仍主要寫給人，雲端服務仍要求人進 dashboard、點選設定、配置 DNS、串接多個服務。agentic future 需要的是 agent-native infrastructure：服務、文件、權限與部署流程都要能被 agent 理解、調用、驗證。</p>
+        <p>這會改變開發者平台的競爭焦點。未來的好工具不只是 UI 好用，而是提供清楚的 machine-legible surface：有哪些 sensors 可以讀取世界狀態？有哪些 actuators 可以安全行動？哪些操作有權限邊界？哪些結果能被 verifier 判斷？</p>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">06 / What Remains</div>
+      <div>
+        <h2>理解不能外包</h2>
+        <p>訪談最後回到教育與學習。Karpathy 提到一句讓他反覆思考的話：你可以外包思考，但不能外包理解。這句話也許是整場訪談對工程師最直接的提醒。當 agent 能處理更多細節，人類更像 director，但 director 若不理解系統，就無法提出正確任務，也無法判斷結果是否值得信任。</p>
+        <p>所以 AI SWE 的深度學習沒有過時，只是焦點變了。你不必記住每個 API 的 `axis` 或 `dim`，但你仍要理解 tensor view、資料複製、身份模型、可靠性邊界、測試策略與架構後果。細節可以交給 agent；理解仍是你指揮 agent 的唯一根基。</p>
+      </div>
+    </section>
+
+    <section class="source" aria-label="來源說明">
+      <h2>Source Notes</h2>
+      <p>原始影片：<a href="https://www.youtube.com/watch?v=96jN2OCOfLs" target="_blank" rel="noreferrer noopener">Andrej Karpathy: From Vibe Coding to Agentic Engineering w/ Stephanie Zhan</a>，Sequoia Capital，YouTube。</p>
+      <p>內容依 2026-06-11 取得的 YouTube 英文字幕與 oEmbed metadata 整理；字幕檔已保留於交付資料夾，可能存在少量自動字幕辨識誤差。</p>
+      <p>視覺素材為本摘要製作用 AI 生成之 editorial images，已隨 HTML 一併放入交付資料夾。</p>
+    </section>
+  </main>
+</body>
+</html>

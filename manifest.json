@@ -1,6 +1,11 @@
 {
   "news": [
     {
+      "date": "2026-06-11",
+      "path": "news/2026-06-11/2026-06-11.html",
+      "title": "AI 情報日刊 — 2026-06-11"
+    },
+    {
       "date": "2026-06-10",
       "path": "news/2026-06-10/2026-06-10.html",
       "title": "AI 情報日刊 — 2026-06-10"
@@ -42,6 +47,12 @@
     }
   ],
   "summary": [
+    {
+      "date": "2026-06-11",
+      "path": "summary/20260611_karpathy_vibe_coding_agentic_engineering/karpathy_agentic_engineering_magazine.html",
+      "title": "從 Vibe Coding 到 Agentic Engineering：Karpathy 給 AI 軟體工程師的下一個分水嶺",
+      "hero": "summary/20260611_karpathy_vibe_coding_agentic_engineering/hero_agentic_engineering_cockpit.png"
+    },
     {
       "date": "2026-06-10",
       "path": "summary/20260610_self_educated_with_AI_magazine_brief/self_educated_with_ai_magazine.html",
