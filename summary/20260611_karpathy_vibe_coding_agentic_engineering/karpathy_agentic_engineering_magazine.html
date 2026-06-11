@@ -22,7 +22,11 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     body {
       margin: 0;
       background: var(--paper);
@@ -78,14 +82,14 @@
       max-width: 850px;
       margin: 22px 0 20px;
       font-family: var(--serif);
-      font-size: clamp(40px, 7.8vw, 102px);
+      font-size: 92px;
       line-height: .98;
       letter-spacing: 0;
     }
     .dek {
       max-width: 720px;
       margin: 0;
-      font-size: clamp(18px, 2vw, 24px);
+      font-size: 23px;
       color: rgba(248, 244, 235, .86);
     }
     .meta {
@@ -127,7 +131,7 @@
     .lead {
       margin: 0;
       font-family: var(--serif);
-      font-size: clamp(25px, 3vw, 42px);
+      font-size: 39px;
       line-height: 1.32;
     }
     .brief {
@@ -173,7 +177,7 @@
     h2 {
       margin: 0 0 22px;
       font-family: var(--serif);
-      font-size: clamp(30px, 4.1vw, 60px);
+      font-size: 56px;
       line-height: 1.08;
       letter-spacing: 0;
     }
@@ -277,7 +281,7 @@
       max-width: 1020px;
       margin: 0;
       font-family: var(--serif);
-      font-size: clamp(31px, 4.9vw, 66px);
+      font-size: 62px;
       line-height: 1.14;
       letter-spacing: 0;
     }
@@ -324,7 +328,11 @@
     @media (max-width: 880px) {
       .hero { min-height: 86vh; }
       .hero-inner { width: min(100% - 28px, 680px); padding-bottom: 40px; }
-      h1 { font-size: clamp(38px, 12.5vw, 66px); }
+      h1 { font-size: 48px; }
+      .dek { font-size: 18px; }
+      .lead { font-size: 29px; }
+      h2 { font-size: 39px; }
+      blockquote { font-size: 36px; }
       .opening, .chapter, .image-split {
         grid-template-columns: 1fr;
         gap: 26px;
@@ -345,8 +353,26 @@
       .chapter { padding: 44px 0; }
       .signal { min-height: auto; }
       p { font-size: 17px; }
+      h1 { font-size: 40px; }
+      .dek { font-size: 17px; }
+      .lead { font-size: 25px; }
+      h2 { font-size: 32px; }
       blockquote { font-size: 31px; }
       .quote-band { padding-top: 52px; padding-bottom: 52px; }
+    }
+
+    @media (orientation: landscape) and (max-height: 540px) {
+      .hero { min-height: 100svh; }
+      .hero-inner {
+        width: min(100% - 28px, 680px);
+        padding: 34px 0 28px;
+      }
+      h1 { font-size: 40px; }
+      .dek { font-size: 17px; }
+      .lead { font-size: 25px; }
+      h2 { font-size: 32px; }
+      blockquote { font-size: 31px; }
+      p { font-size: 17px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
