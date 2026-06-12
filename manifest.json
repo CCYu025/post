@@ -1,6 +1,11 @@
 {
   "news": [
     {
+      "date": "2026-06-12",
+      "path": "news/2026-06-12/2026-06-12.html",
+      "title": "AI 情報日刊 — 2026-06-12"
+    },
+    {
       "date": "2026-06-11",
       "path": "news/2026-06-11/2026-06-11.html",
       "title": "AI 情報日刊 — 2026-06-11"
@@ -47,6 +52,12 @@
     }
   ],
   "summary": [
+    {
+      "date": "2026-06-12",
+      "path": "summary/20260612_mel_robbins_mindset_reset/mel_robbins_mindset_reset_magazine.html",
+      "title": "心態重設：把心理習慣重新交回自己手上",
+      "hero": "summary/20260612_mel_robbins_mindset_reset/hero_mindset_reset_morning.png"
+    },
     {
       "date": "2026-06-11",
       "path": "summary/20260611_karpathy_vibe_coding_agentic_engineering/karpathy_agentic_engineering_magazine.html",

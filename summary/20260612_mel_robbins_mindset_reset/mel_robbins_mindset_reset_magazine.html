@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>心態重設：把心理習慣重新交回自己手上</title>
+  <style>
+    :root {
+      --ink: #251f1a;
+      --muted: #71685e;
+      --paper: #f4eee3;
+      --paper-2: #e7dccb;
+      --rose: #bf756f;
+      --rose-soft: #e7b8ad;
+      --olive: #62775a;
+      --amber: #b8813c;
+      --line: #d4c5b2;
+      --cream: #fff8ed;
+      --shadow: rgba(51, 39, 29, .18);
+      --serif: Georgia, "Times New Roman", "Noto Serif TC", "Songti TC", serif;
+      --sans: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.78;
+    }
+    a { color: inherit; }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      color: var(--cream);
+      overflow: hidden;
+      background: #1f1b17;
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: .86;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(31, 27, 23, .88) 0%, rgba(31, 27, 23, .58) 42%, rgba(31, 27, 23, .10) 78%),
+        linear-gradient(0deg, rgba(31, 27, 23, .72), transparent 50%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1140px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 82px 0 52px;
+    }
+    .kicker {
+      width: fit-content;
+      border-top: 2px solid var(--rose-soft);
+      padding-top: 10px;
+      color: rgba(255, 248, 237, .78);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 780px;
+      margin: 22px 0 20px;
+      font-family: var(--serif);
+      font-size: 88px;
+      line-height: .98;
+      letter-spacing: 0;
+    }
+    .dek {
+      max-width: 690px;
+      margin: 0;
+      color: rgba(255, 248, 237, .86);
+      font-size: 22px;
+      line-height: 1.62;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 30px;
+      color: rgba(255, 248, 237, .74);
+      font-size: 14px;
+    }
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 248, 237, .44);
+      border-radius: 999px;
+      background: rgba(255, 248, 237, .08);
+      color: var(--cream);
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+    }
+    .watch svg { width: 17px; height: 17px; flex: none; }
+
+    main {
+      width: min(1140px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 62px 0 86px;
+    }
+    .opening {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(250px, .50fr);
+      gap: 46px;
+      align-items: start;
+      padding-bottom: 54px;
+      border-bottom: 1px solid var(--line);
+    }
+    .lead {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 38px;
+      line-height: 1.34;
+    }
+    .brief {
+      padding-left: 18px;
+      border-left: 4px solid var(--rose);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .brief strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 44px;
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .chapter-label {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .chapter-label::before {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 3px;
+      margin-bottom: 13px;
+      background: var(--olive);
+    }
+    h2 {
+      margin: 0 0 23px;
+      font-family: var(--serif);
+      font-size: 52px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 20px; font-size: 18px; }
+    .drop p:first-child::first-letter {
+      float: left;
+      padding: 12px 10px 0 0;
+      font-family: var(--serif);
+      font-size: 82px;
+      line-height: .74;
+      color: var(--rose);
+    }
+
+    .lens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .lens {
+      min-height: 240px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 248, 237, .55);
+      box-shadow: 0 18px 42px var(--shadow);
+    }
+    .lens b {
+      display: block;
+      margin-bottom: 11px;
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.16;
+    }
+    .lens span { color: var(--muted); font-size: 15px; }
+
+    .image-split {
+      display: grid;
+      grid-template-columns: minmax(280px, .70fr) minmax(0, 1fr);
+      gap: 38px;
+      align-items: center;
+      margin: 24px 0 36px;
+    }
+    figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      overflow: hidden;
+    }
+    figure img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .practice {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px 30px;
+      margin-top: 28px;
+    }
+    .practice article {
+      border-top: 3px solid var(--ink);
+      padding-top: 18px;
+    }
+    .practice h3 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 27px;
+      line-height: 1.17;
+    }
+    .practice p {
+      margin: 0;
+      color: #50473f;
+      font-size: 16px;
+    }
+
+    .quote-band {
+      margin: 62px calc(50% - 50vw);
+      padding: 74px max(28px, calc((100vw - 1140px) / 2));
+      background: #2e2a22;
+      color: var(--cream);
+    }
+    blockquote {
+      max-width: 980px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 58px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    .quote-band p {
+      max-width: 680px;
+      margin-top: 24px;
+      color: rgba(255, 248, 237, .76);
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(250px, .44fr);
+      gap: 42px;
+    }
+    .ritual {
+      border-top: 3px solid var(--olive);
+      padding-top: 16px;
+    }
+    .ritual div {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .ritual b {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 21px;
+    }
+
+    .source {
+      margin-top: 54px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .source h2 {
+      margin-bottom: 12px;
+      font-family: var(--sans);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--ink);
+    }
+    .source p { margin-bottom: 8px; font-size: 14px; }
+
+    @media (max-width: 880px) {
+      .hero { min-height: 86vh; }
+      .hero-inner { width: min(100% - 28px, 680px); padding-bottom: 40px; }
+      h1 { font-size: 48px; }
+      .dek { font-size: 18px; }
+      .lead { font-size: 29px; }
+      h2 { font-size: 39px; }
+      blockquote { font-size: 36px; }
+      .opening, .chapter, .image-split, .closing {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+      .chapter-label { position: static; }
+      .lens-grid, .practice { grid-template-columns: 1fr; }
+      .lens { min-height: auto; }
+    }
+
+    @media (max-width: 540px) {
+      main { width: min(100% - 26px, 520px); padding-top: 42px; }
+      .hero img { object-position: 58% center; }
+      .hero::after {
+        background:
+          linear-gradient(90deg, rgba(31, 27, 23, .94), rgba(31, 27, 23, .44)),
+          linear-gradient(0deg, rgba(31, 27, 23, .82), transparent 55%);
+      }
+      .chapter { padding: 44px 0; }
+      h1 { font-size: 40px; }
+      .dek { font-size: 17px; }
+      .lead { font-size: 25px; }
+      h2 { font-size: 32px; }
+      p { font-size: 17px; }
+      blockquote { font-size: 31px; }
+      .quote-band { padding-top: 52px; padding-bottom: 52px; }
+    }
+
+    @media (orientation: landscape) and (max-height: 540px) {
+      .hero { min-height: 100svh; }
+      .hero-inner {
+        width: min(100% - 28px, 680px);
+        padding: 34px 0 28px;
+      }
+      h1 { font-size: 40px; }
+      .dek { font-size: 17px; }
+      .lead { font-size: 25px; }
+      h2 { font-size: 32px; }
+      p { font-size: 17px; }
+      blockquote { font-size: 31px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      .hero { min-height: auto; color: #111; background: #fff; }
+      .hero img, .hero::after { display: none; }
+      .hero-inner { padding: 30px 0; }
+      .watch { color: #111; border-color: #111; }
+      .chapter-label { position: static; }
+      .quote-band { background: #fff; color: #111; border-block: 1px solid #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero_mindset_reset_morning.png" alt="晨光中一位讀者在窗邊書寫，桌上有深色與玫瑰色眼鏡">
+    <div class="hero-inner">
+      <div class="kicker">Magazine Brief / Mindset & Mental Habits</div>
+      <h1>心態重設</h1>
+      <p class="dek">Mel Robbins 把「心態」從一句勵志口號，拉回到日常心理習慣：你看世界的濾鏡、你反覆抓住的念頭、以及你能不能在行動前，先讓大腦替你看見一點可能。</p>
+      <div class="meta">
+        <span>影片：Mindset Reset</span>
+        <span>頻道：Mel Robbins</span>
+        <span>讀者：一般大眾</span>
+      </div>
+      <a class="watch" href="https://www.youtube.com/watch?v=ufQEqi4LUZ4" target="_blank" rel="noreferrer noopener" aria-label="在 YouTube 開啟原始影片">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 8.6v6.8L15.5 12 10 8.6Zm12 3.4c0 1.4-.1 2.8-.3 4.2-.2 1.1-1.1 2-2.2 2.2-1.9.3-7.5.3-7.5.3s-5.6 0-7.5-.3c-1.1-.2-2-1.1-2.2-2.2C2.1 14.8 2 13.4 2 12s.1-2.8.3-4.2c.2-1.1 1.1-2 2.2-2.2C6.4 5.3 12 5.3 12 5.3s5.6 0 7.5.3c1.1.2 2 1.1 2.2 2.2.2 1.4.3 2.8.3 4.2Z"/></svg>
+        觀看原始影片
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="opening" aria-label="導讀">
+      <p class="lead">這集真正有用的地方，不是叫你把糟糕的事想成好事，而是教你辨認：很多時候，困住你的不是現實本身，而是大腦每天自動套上的濾鏡。</p>
+      <aside class="brief">
+        <strong>一個重要區分</strong>
+        這不是 toxic positivity。Mel Robbins 多次提醒，正向心態不會讓帳單消失，也不能抹去偏見、戰爭、貧困或心理健康問題。它能做的是：讓你在面對現實時，重新拿回反應與行動的能力。
+      </aside>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">The Lens</div>
+      <div class="drop">
+        <h2>你的心態像一副眼鏡，戴久了就忘了它在臉上</h2>
+        <p>Mel 用一個很生活化的比喻定義 mindset：它像一副太陽眼鏡。你的信念與意見，就是鏡片的顏色。悲觀的人不是每天故意要掃興，而是透過一副深色鏡片看世界；有 can-do attitude 的人也不是沒有問題，而是更容易在同一個現場看見可能性。</p>
+        <p>這個比喻重要，因為它把「改變心態」從抽象道德要求，變成一個可以操作的問題：我現在戴的是什麼顏色的鏡片？它讓我忽略了什麼？它讓我採取或放棄了哪些行動？</p>
+        <div class="lens-grid">
+          <div class="lens">
+            <b>心態會決定注意力</b>
+            <span>你相信什麼，大腦就更容易幫你蒐集什麼證據。若你一直想「我不行」，你會更容易看見不行的理由。</span>
+          </div>
+          <div class="lens">
+            <b>注意力會影響情緒</b>
+            <span>同一個早晨、同一段關係、同一份工作，透過不同濾鏡會變成完全不同的心理天氣。</span>
+          </div>
+          <div class="lens">
+            <b>情緒會帶動行動</b>
+            <span>心態真正重要，是因為它會決定你會不會投履歷、重新出門、伸展身體、開口求助或再試一次。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">The Filter</div>
+      <div>
+        <h2>大腦不是你的敵人，它只是一直在幫你找你說重要的東西</h2>
+        <div class="image-split">
+          <figure>
+            <img src="attention_filter_mindset_reset.png" alt="頭部輪廓中有一道濾網，把混亂碎片轉為光線、花朵與愛心形狀">
+            <figcaption>AI-generated editorial image。影片用大腦過濾器說明：當你指定注意力，大腦會開始替你尋找證據。</figcaption>
+          </figure>
+          <div>
+            <p>這集的核心工具來自 Mel 對 RAS 的通俗化說明。她把它說成大腦裡的「過濾器」：世界資訊太多，大腦必須決定什麼進入意識。問題是，如果你每天餵給它的都是失敗、羞恥、比較與危險，它就會忠實地幫你找到更多相同證據。</p>
+            <p>所以 mindset reset 的第一步，不是壓抑負面念頭，而是重新指定注意力。你要讓大腦體驗到：它可以被訓練，它可以在同一個世界裡，開始放進別的訊號。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band" aria-label="核心引言">
+      <blockquote>心態重設不是否認現實，而是把行動前的第一個念頭，從「我不行」換成「也許我可以試試」。</blockquote>
+      <p>這個差別很小，卻足以改變一個人是否打開帳單、投出履歷、走進聚會，或在失望後重新開始。</p>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">The Reset</div>
+      <div>
+        <h2>兩個練習：找一顆心，換一句話</h2>
+        <p>Mel 的方法刻意設計得非常日常。第一個練習是「找愛心」：在咖啡泡沫、地上的影子、葉子、石頭、衣服圖案裡找心形。聽起來像遊戲，但重點不是愛心，而是讓你親身經驗到：當你告訴大腦某件事重要，它真的會開始幫你找。</p>
+        <p>第二個練習是 thought substitution。當腦中出現「如果失敗怎麼辦」「如果被拒絕怎麼辦」，把它換成「如果成功了呢」「如果這次有幫助呢」。她沒有保證事情一定會成功，而是用另一個同樣未知、但更能促成行動的問題，替換掉讓人退縮的預設問題。</p>
+        <div class="practice">
+          <article>
+            <h3>找愛心</h3>
+            <p>每天刻意找一個心形。看見後停一下、拍照、撿起來或只是多看幾秒，等於在獎勵大腦：謝謝你，這就是我要你注意的方向。</p>
+          </article>
+          <article>
+            <h3>換問題</h3>
+            <p>把「如果不行呢」換成「如果可行呢」。這不是盲目樂觀，而是在同樣不確定的未來裡，選擇一個更可能讓你起身行動的提問。</p>
+          </article>
+          <article>
+            <h3>找勝利</h3>
+            <p>若你習慣掃描自己哪裡不夠好，就改成每天找一個小勝利。大腦需要新證據，才會慢慢相信新的敘事。</p>
+          </article>
+          <article>
+            <h3>靠近滋養你的人</h3>
+            <p>她提醒，心態不只和念頭有關，也和你反覆靠近的人與環境有關。少追逐讓你覺得自己很糟的地方，多待在讓你回到自己的關係裡。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-label">The Trap</div>
+      <div>
+        <h2>最頑固的心理習慣，常常不是你的聲音</h2>
+        <p>影片後半段談到一個普遍念頭：「我不夠好」。Mel 認為它常來自早期家庭經驗、成長中的比較、青春期尋找歸屬時形成的保護機制。久了之後，它不像一句話，而像背景噪音，讓人自動掃描自己不屬於哪裡、不配得到什麼。</p>
+        <p>這裡的洞見是：你不必把每個自我批判都當成真理。有些念頭只是舊程式，是別人的聲音在你腦中留下的迴音。你可以承認它出現，但不必跟著它走。重設心態不是一次完成，而是一次又一次，在被舊念頭勾住前，把自己帶回新的方向。</p>
+      </div>
+    </section>
+
+    <section class="closing" aria-label="結語">
+      <div>
+        <h2>把大腦訓練成自己的隊友</h2>
+        <p>這集給一般讀者的價值，在於它把「改變心態」變成一種很小、但可重複的日常訓練。你不需要先相信自己已經完全好了，也不需要假裝人生沒有難題。你只需要在今天，給大腦一個新的任務：幫我找一點證據，證明我可以重新開始。</p>
+      </div>
+      <div class="ritual">
+        <div><b>01</b><span>今天找一個心形，讓大腦練習看見新的證據。</span></div>
+        <div><b>02</b><span>抓到「如果失敗」時，改問「如果成功了呢」。</span></div>
+        <div><b>03</b><span>睡前寫下一個小勝利，而不是只盤點錯誤。</span></div>
+        <div><b>04</b><span>遇到「我不夠好」時，提醒自己：我是在進展中。</span></div>
+      </div>
+    </section>
+
+    <section class="source" aria-label="來源說明">
+      <h2>Source Notes</h2>
+      <p>原始影片：<a href="https://www.youtube.com/watch?v=ufQEqi4LUZ4" target="_blank" rel="noreferrer noopener">Mindset Reset: Take Control of Your Mental Habits | The Mel Robbins Podcast</a>，Mel Robbins，YouTube。</p>
+      <p>內容依 2026-06-12 取得的 YouTube 英文字幕與 oEmbed metadata 整理；自動字幕可能存在少量辨識誤差。</p>
+      <p>本文為教育與資訊整理，不能替代醫師、心理治療師或其他合格專業人士的建議。</p>
+      <p>頁面使用 AI-generated editorial images 作為雜誌式視覺呈現。</p>
+    </section>
+  </main>
+</body>
+</html>

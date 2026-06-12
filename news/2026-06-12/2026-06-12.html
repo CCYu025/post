@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-12 AI 新聞精選</title>
+  <style>
+    :root {
+      --ink: #11130f;
+      --paper: #f5f0e3;
+      --soft: #e4dcc7;
+      --grid: #292b22;
+      --amber: #d7a744;
+      --green: #5aa681;
+      --red: #c75547;
+      --white: #fffaf0;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      line-height: 1.65;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap: anywhere; }
+
+    .page,
+    .topline,
+    .lead,
+    .lead-copy,
+    .lead-art,
+    .briefs,
+    .rail,
+    .story,
+    .source-row {
+      min-width: 0;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 46px;
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+      border-bottom: 5px solid var(--grid);
+      padding-bottom: 12px;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 7vw, 6.8rem);
+      line-height: .86;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .datebox {
+      border: 2px solid var(--grid);
+      padding: 8px 12px;
+      text-align: right;
+      font-weight: 800;
+      background: var(--amber);
+      white-space: nowrap;
+    }
+
+    .lead {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+      gap: 24px;
+      border-bottom: 2px solid var(--grid);
+      padding: 24px 0;
+    }
+
+    .lead-copy {
+      border: 2px solid var(--grid);
+      background: var(--white);
+      padding: clamp(18px, 4vw, 34px);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 3px solid var(--red);
+      color: var(--red);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.25rem, 5.4vw, 5.35rem);
+      line-height: .96;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+    }
+
+    .deck {
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      margin: 0;
+      max-width: 68ch;
+    }
+
+    .lead-art {
+      border: 2px solid var(--grid);
+      background: #161812;
+      position: relative;
+      overflow: hidden;
+      min-height: 360px;
+    }
+
+    .lead-art img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+    }
+
+    .lead-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(17,19,15,.76));
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      color: var(--white);
+      z-index: 1;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .briefs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      border: 2px solid var(--grid);
+      border-top: 0;
+      background: var(--ink);
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .brief {
+      padding: 16px;
+      border-right: 1px solid rgba(255,250,240,.34);
+    }
+
+    .brief:last-child { border-right: 0; }
+
+    .brief strong {
+      display: block;
+      color: var(--amber);
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 30px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.55rem);
+      line-height: 1.05;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      border-top: 3px solid var(--grid);
+    }
+
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .story {
+      background: var(--white);
+      border: 2px solid var(--grid);
+      padding: 18px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 10px;
+      box-shadow: 6px 6px 0 var(--soft);
+    }
+
+    .story.major {
+      grid-column: span 2;
+      grid-template-columns: minmax(0, .32fr) minmax(0, .68fr);
+      grid-template-rows: auto;
+      align-items: stretch;
+      background: #f9f4e7;
+    }
+
+    .rank {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--grid);
+      background: var(--ink);
+      color: var(--amber);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 1;
+      min-height: 190px;
+    }
+
+    .story-body {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--grid);
+      padding: 3px 8px;
+      font-size: .76rem;
+      font-weight: 900;
+      line-height: 1.35;
+      background: var(--soft);
+    }
+
+    .badge.follow { background: var(--green); color: var(--white); }
+    .badge.warn { background: var(--red); color: var(--white); }
+
+    .story h3 {
+      margin: 0;
+      font-size: clamp(1.22rem, 2vw, 1.72rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .story p { margin: 0; }
+
+    .source-row {
+      border-top: 1px solid var(--grid);
+      padding-top: 9px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: center;
+      font-size: .88rem;
+    }
+
+    .source-row time {
+      font-weight: 800;
+      color: #565a49;
+    }
+
+    .source-row a {
+      font-weight: 800;
+    }
+
+    footer {
+      border-top: 5px solid var(--grid);
+      margin-top: 34px;
+      padding-top: 14px;
+      color: #5f624f;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 20px, 720px);
+        padding-top: 16px;
+      }
+
+      .topline,
+      .lead {
+        grid-template-columns: 1fr;
+      }
+
+      .datebox {
+        width: fit-content;
+        text-align: left;
+      }
+
+      .lead-art,
+      .lead-art img {
+        min-height: 280px;
+      }
+
+      .briefs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .brief:nth-child(2) {
+        border-right: 0;
+      }
+
+      .brief {
+        border-bottom: 1px solid rgba(255,250,240,.34);
+      }
+
+      .stories {
+        grid-template-columns: 1fr;
+      }
+
+      .story.major {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+
+      .rank {
+        min-height: 96px;
+        justify-content: flex-start;
+        padding-left: 16px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand {
+        font-size: 2.45rem;
+      }
+
+      h1 {
+        font-size: 2.06rem;
+      }
+
+      .lead-copy,
+      .story {
+        padding: 14px;
+      }
+
+      .lead-art,
+      .lead-art img {
+        min-height: 220px;
+      }
+
+      .caption {
+        left: 12px;
+        right: 12px;
+        bottom: 10px;
+      }
+
+      .briefs {
+        grid-template-columns: 1fr;
+      }
+
+      .brief,
+      .brief:nth-child(2) {
+        border-right: 0;
+      }
+
+      .source-row {
+        display: block;
+      }
+
+      .source-row span,
+      .source-row a,
+      .source-row time {
+        display: inline;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topline">
+      <p class="brand">AI Daily</p>
+      <div class="datebox">2026-06-12<br>全球 AI 新聞精選</div>
+    </header>
+
+    <section class="lead" aria-labelledby="main-title">
+      <div class="lead-copy">
+        <div class="kicker">Capital Shift</div>
+        <h1 id="main-title">AI 資本轉向工業，模型公司進入價格戰</h1>
+        <p class="deck">今天的訊號不在單一模型跑分，而在資本配置與商業壓力：工業 AI、機器人與 coding agent 基礎設施吸走巨額資金，OpenAI 與 Anthropic 的競爭則開始回到 token 價格、算力成本、公益部署與安全治理。</p>
+      </div>
+      <figure class="lead-art">
+        <img src="2026-06-12-hero.png" alt="工業 AI、機器人、自動化資料中心與模型價格戰交織的雜誌式主視覺">
+        <figcaption class="caption">模型公司不只比能力，也開始比誰能把 AI 放進工廠、企業流程與更低成本的使用場景。</figcaption>
+      </figure>
+    </section>
+
+    <section class="briefs" aria-label="今日摘要">
+      <div class="brief"><strong>6</strong>則保留新聞</div>
+      <div class="brief"><strong>3</strong>則接續追蹤</div>
+      <div class="brief"><strong>1</strong>則新切角</div>
+      <div class="brief"><strong>1</strong>則單一來源警示</div>
+    </section>
+
+    <h2 class="section-title">今日主線</h2>
+    <section class="stories" aria-label="今日主線新聞">
+      <article class="story major">
+        <div class="rank">01</div>
+        <div class="story-body">
+          <div class="badges"><span class="badge">NEW</span></div>
+          <h3>Prometheus 估值衝上 410 億美元：工業 AI 成為新一輪巨額資本出口</h3>
+          <p>Jeff Bezos 參與支持的 Prometheus 傳出完成約 120 億美元 Series B、估值約 410 億美元，讓「把 AI 放進製造、工程與科學流程」成為大型資金的新入口，而不只是再押注聊天模型。</p>
+          <div class="source-row">
+            <time datetime="2026-06-12T00:00:00+08:00">2026-06-12</time>
+            <span>來源：</span>
+            <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+            <a href="https://www.wsj.com/" target="_blank" rel="noreferrer">Wall Street Journal</a>
+            <a href="https://nypost.com/" target="_blank" rel="noreferrer">New York Post</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="badges"><span class="badge follow">🔄 接續報導</span></div>
+        <h3>OpenAI 祭出 token 價格戰，Anthropic 壓力開始回到毛利率</h3>
+        <p>相較前幾天市場聚焦 OpenAI 的上市節奏與 Anthropic 的算力融資，今天的新進展是競爭被推向 API 成本：OpenAI 據報評估調降 token 價格，以直接壓迫 Anthropic 的企業開發者市場。</p>
+        <div class="source-row">
+          <time datetime="2026-06-12T00:00:00+08:00">2026-06-12</time>
+          <span>來源：</span>
+          <a href="https://www.wsj.com/" target="_blank" rel="noreferrer">Wall Street Journal</a>
+          <a href="https://www.marketwatch.com/" target="_blank" rel="noreferrer">MarketWatch</a>
+          <a href="https://www.axios.com/pro-rata" target="_blank" rel="noreferrer">Axios Pro Rata</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="badges"><span class="badge">NEW</span></div>
+        <h3>Neura Robotics 擬募 14 億美元：人形機器人吃下 AI 熱錢</h3>
+        <p>Neura Robotics 據報洽談約 14 億美元融資，名單牽涉 Nvidia、Amazon、Qualcomm、Bosch 與 European Investment Bank，顯示「physical AI」從實驗展示走向資本密集的硬體與供應鏈競賽。</p>
+        <div class="source-row">
+          <time datetime="2026-06-12T00:00:00+08:00">2026-06-12</time>
+          <span>來源：</span>
+          <a href="https://www.wsj.com/" target="_blank" rel="noreferrer">Wall Street Journal</a>
+          <a href="https://www.ft.com/" target="_blank" rel="noreferrer">Financial Times</a>
+          <a href="https://www.barrons.com/" target="_blank" rel="noreferrer">Barron's</a>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">持續追蹤</h2>
+    <section class="stories" aria-label="持續追蹤新聞">
+      <article class="story">
+        <div class="badges"><span class="badge follow">🔄 接續報導</span></div>
+        <h3>Anthropic 推 Claude Corps：從公益部署回應 AI 對工作的焦慮</h3>
+        <p>延續前一天 Anthropic 投入 AI 經濟衝擊研究的脈絡，Claude Corps 把焦點從「研究工作會被怎麼改變」推進到「把 AI 人力部署到非營利組織」：與 CodePath 等夥伴訓練 fellows，讓 Claude 進入公益與社會服務場景。</p>
+        <div class="source-row">
+          <time datetime="2026-06-12T00:00:00+08:00">2026-06-12</time>
+          <span>來源：</span>
+          <a href="https://apnews.com/" target="_blank" rel="noreferrer">Associated Press</a>
+          <a href="https://www.anthropic.com/news" target="_blank" rel="noreferrer">Anthropic Newsroom</a>
+          <a href="https://www.codepath.org/" target="_blank" rel="noreferrer">CodePath</a>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="badges"><span class="badge follow">🔄 接續報導</span></div>
+        <h3>Anthropic 再示警 AI 風險，安全敘事成為治理與募資的共同語言</h3>
+        <p>相對前幾天的算力債務、IPO 傳聞與經濟衝擊研究，今天的增量是風險敘事重新升溫：Anthropic 高層持續把 frontier model 風險、監管與安全測試放在公共討論中心，讓治理不再只是政策附錄。</p>
+        <div class="source-row">
+          <time datetime="2026-06-12T00:00:00+08:00">2026-06-12</time>
+          <span>來源：</span>
+          <a href="https://www.barrons.com/" target="_blank" rel="noreferrer">Barron's</a>
+          <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+          <a href="https://www.anthropic.com/news" target="_blank" rel="noreferrer">Anthropic Newsroom</a>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">新切角</h2>
+    <section class="stories" aria-label="新切角新聞">
+      <article class="story major">
+        <div class="rank">06</div>
+        <div class="story-body">
+          <div class="badges"><span class="badge">NEW ANGLE</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <h3>OpenAI 擬收購 Ona：Codex cloud 能力補上執行層</h3>
+          <p>這不是另一則模型能力新聞，而是 coding agent 的執行層切角：若 OpenAI 收購 Ona 屬實，意義在於強化 Codex cloud 的工作流、協作與任務落地能力。不過目前仍以單一媒體報導為主，需等待 OpenAI 或 Ona 正式確認。</p>
+          <div class="source-row">
+            <time datetime="2026-06-12T00:00:00+08:00">2026-06-12</time>
+            <span>來源：</span>
+            <a href="https://economictimes.indiatimes.com/tech/artificial-intelligence" target="_blank" rel="noreferrer">The Economic Times</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。單一來源題目已降權並明確標示。
+    </footer>
+  </main>
+</body>
+</html>
