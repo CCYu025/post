@@ -1,0 +1,501 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-16 AI 新聞精選</title>
+  <style>
+    :root {
+      --ink: #101317;
+      --paper: #f3efe3;
+      --panel: #fffaf0;
+      --line: #20262d;
+      --cyan: #2c9ab7;
+      --amber: #d6a13d;
+      --red: #bc4a44;
+      --gray: #68717a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      line-height: 1.64;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap: anywhere; }
+
+    .page,
+    .masthead,
+    .hero,
+    .hero-copy,
+    .hero-art,
+    .signals,
+    .story,
+    .story-body,
+    .source-row {
+      min-width: 0;
+    }
+
+    .page {
+      width: min(1160px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+      padding-bottom: 12px;
+      border-bottom: 6px solid var(--line);
+    }
+
+    .brand {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 7.8vw, 7rem);
+      line-height: .84;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .date-card {
+      border: 2px solid var(--line);
+      background: var(--ink);
+      color: var(--panel);
+      padding: 9px 12px;
+      text-align: right;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(300px, 1.05fr);
+      gap: 18px;
+      padding-top: 20px;
+    }
+
+    .hero-copy {
+      border: 2px solid var(--line);
+      background: var(--panel);
+      padding: clamp(18px, 4vw, 34px);
+      display: grid;
+      align-content: space-between;
+      gap: 24px;
+    }
+
+    .stamp {
+      display: inline-flex;
+      width: fit-content;
+      border: 2px solid var(--line);
+      background: var(--cyan);
+      color: white;
+      padding: 4px 10px;
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 5vw, 4.9rem);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .deck {
+      margin: 0;
+      max-width: 66ch;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+    }
+
+    .cue {
+      border-left: 5px solid var(--amber);
+      padding-left: 12px;
+      margin: 0;
+      color: #36414a;
+      font-weight: 760;
+    }
+
+    .hero-art {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--line);
+      background: #101317;
+      min-height: 410px;
+    }
+
+    .hero-art img {
+      width: 100%;
+      height: 100%;
+      min-height: 410px;
+      object-fit: cover;
+    }
+
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16,19,23,.06), rgba(16,19,23,.72));
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      z-index: 1;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      color: white;
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    .signals {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 2px solid var(--line);
+      border-top: 0;
+      background: var(--ink);
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .signal {
+      padding: 15px;
+      border-right: 1px solid rgba(255,255,255,.25);
+    }
+
+    .signal:last-child { border-right: 0; }
+
+    .signal strong {
+      display: block;
+      color: var(--amber);
+      font-size: 1.9rem;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 30px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.5rem);
+      line-height: 1.05;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      border-top: 4px solid var(--line);
+    }
+
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .story {
+      border: 2px solid var(--line);
+      background: var(--panel);
+      box-shadow: 7px 7px 0 rgba(32,38,45,.16);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .story.wide {
+      grid-column: span 2;
+      grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      color: var(--amber);
+      border-right: 2px solid var(--line);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      line-height: 1;
+      min-height: 170px;
+    }
+
+    .story-body {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--line);
+      background: #dce8eb;
+      padding: 3px 8px;
+      font-size: .76rem;
+      font-weight: 950;
+      line-height: 1.35;
+    }
+
+    .badge.follow { background: var(--cyan); color: white; }
+    .badge.angle { background: var(--amber); }
+    .badge.warn { background: var(--red); color: white; }
+
+    .story h3 {
+      margin: 0;
+      font-size: clamp(1.22rem, 2vw, 1.72rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .story p { margin: 0; }
+
+    .source-row {
+      border-top: 1px solid var(--line);
+      padding-top: 9px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: center;
+      font-size: .88rem;
+    }
+
+    .source-row time {
+      color: var(--gray);
+      font-weight: 850;
+    }
+
+    .source-row a { font-weight: 850; }
+
+    footer {
+      border-top: 6px solid var(--line);
+      margin-top: 34px;
+      padding-top: 14px;
+      color: #59616b;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 20px, 720px);
+        padding-top: 16px;
+      }
+
+      .masthead,
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .date-card {
+        width: fit-content;
+        text-align: left;
+      }
+
+      .hero-art,
+      .hero-art img {
+        min-height: 280px;
+      }
+
+      .signals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .signal:nth-child(2) {
+        border-right: 0;
+      }
+
+      .signal {
+        border-bottom: 1px solid rgba(255,255,255,.25);
+      }
+
+      .stories {
+        grid-template-columns: 1fr;
+      }
+
+      .story.wide {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+
+      .number {
+        min-height: 88px;
+        justify-content: flex-start;
+        padding-left: 16px;
+        border-right: 0;
+        border-bottom: 2px solid var(--line);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand {
+        font-size: 2.45rem;
+      }
+
+      h1 {
+        font-size: 2.02rem;
+      }
+
+      .hero-copy,
+      .story-body {
+        padding: 14px;
+      }
+
+      .hero-art,
+      .hero-art img {
+        min-height: 220px;
+      }
+
+      .caption {
+        left: 12px;
+        right: 12px;
+        bottom: 10px;
+      }
+
+      .signals {
+        grid-template-columns: 1fr;
+      }
+
+      .signal,
+      .signal:nth-child(2) {
+        border-right: 0;
+      }
+
+      .source-row {
+        display: block;
+      }
+
+      .source-row span,
+      .source-row a,
+      .source-row time {
+        display: inline;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <p class="brand">AI Daily</p>
+      <div class="date-card">2026-06-16<br>全球 AI 新聞精選</div>
+    </header>
+
+    <section class="hero" aria-labelledby="main-title">
+      <div class="hero-copy">
+        <div>
+          <span class="stamp">Control Layer</span>
+          <h1 id="main-title">AI 管制反彈升溫，主權與晶片重新定價</h1>
+          <p class="deck">今天的新聞延續昨天的政策震盪，但焦點從「美國鎖住 Anthropic」轉向後座力：資安界擔心削弱防禦能力，歐洲模型公司迎來主權敘事窗口，市場則把 AI 供應鏈瓶頸押到晶片與記憶體技術。</p>
+        </div>
+        <p class="cue">今天不是模型能力競賽，而是誰能取得、部署、保護與商業化模型的控制權競賽。</p>
+      </div>
+      <figure class="hero-art">
+        <img src="2026-06-16-hero.png" alt="AI 出口管制反彈、歐洲 AI 主權、半導體供應鏈與企業 AI 組織壓力交織的雜誌式主視覺">
+        <figcaption class="caption">AI 的下一層競爭正在移向管制、資安、主權供應鏈與企業內部執行力。</figcaption>
+      </figure>
+    </section>
+
+    <section class="signals" aria-label="今日摘要">
+      <div class="signal"><strong>4</strong>則保留新聞</div>
+      <div class="signal"><strong>1</strong>則接續追蹤</div>
+      <div class="signal"><strong>2</strong>則新切角</div>
+      <div class="signal"><strong>1</strong>則單一來源警示</div>
+    </section>
+
+    <h2 class="section-title">今日主線</h2>
+    <section class="stories" aria-label="今日主線新聞">
+      <article class="story wide">
+        <div class="number">01</div>
+        <div class="story-body">
+          <div class="badges"><span class="badge follow">🔄 接續報導</span></div>
+          <h3>資安界反彈 Anthropic 管制：封鎖模型可能削弱防禦者</h3>
+          <p>相對昨天美國將 Anthropic Fable 與 Mythos 推入出口限制，今天的新進展是反對聲浪浮上檯面：多位資安高層與專家警告，若防禦團隊失去高階模型，攻擊者反而可能轉向非合規工具，企業安全與漏洞研究會被迫降級。</p>
+          <div class="source-row">
+            <time datetime="2026-06-16T00:00:00+08:00">2026-06-16</time>
+            <span>來源：</span>
+            <a href="https://apnews.com/" target="_blank" rel="noreferrer">Associated Press</a>
+            <a href="https://nypost.com/" target="_blank" rel="noreferrer">New York Post</a>
+            <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge angle">NEW ANGLE</span></div>
+          <h3>Mistral 抓住 AI 主權窗口，歐洲模型不再只是「OpenAI 替代品」</h3>
+          <p>同一波出口限制的另一面，是歐洲 AI 公司突然更有談判籌碼。Mistral 的價值不只在模型能力，而在能為政府、金融與受監管產業提供較少受美國政策開關牽動的供應選項。</p>
+          <div class="source-row">
+            <time datetime="2026-06-16T00:00:00+08:00">2026-06-16</time>
+            <span>來源：</span>
+            <a href="https://www.businessinsider.com/" target="_blank" rel="noreferrer">Business Insider</a>
+            <a href="https://www.ft.com/" target="_blank" rel="noreferrer">Financial Times</a>
+            <a href="https://apnews.com/" target="_blank" rel="noreferrer">Associated Press</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge">NEW</span></div>
+          <h3>AMD 收購 MEXT，AI 晶片戰開始補「記憶體效率」短板</h3>
+          <p>AMD 收購 AI 記憶體最佳化新創 MEXT，顯示晶片競爭不只是在 GPU 算力，也在資料搬移、記憶體頻寬與模型部署效率。這讓 AI 基礎設施投資從大型 GPU 擴張到更細的系統瓶頸。</p>
+          <div class="source-row">
+            <time datetime="2026-06-16T00:00:00+08:00">2026-06-16</time>
+            <span>來源：</span>
+            <a href="https://www.marketwatch.com/" target="_blank" rel="noreferrer">MarketWatch</a>
+            <a href="https://www.barrons.com/" target="_blank" rel="noreferrer">Barron's</a>
+            <a href="https://www.investors.com/" target="_blank" rel="noreferrer">Investor's Business Daily</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">公司內部</h2>
+    <section class="stories" aria-label="公司內部新聞">
+      <article class="story wide">
+        <div class="number">04</div>
+        <div class="story-body">
+          <div class="badges"><span class="badge angle">NEW ANGLE</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <h3>Meta AI 重組後員工不安，人才戰的代價開始出現在組織內部</h3>
+          <p>Meta 積極擴張 AI 團隊與新部門後，據報部分員工對職涯路徑、管理節奏與產品方向感到不安。這則新聞的切角不在單一模型，而在超大規模 AI 人才戰如何改變公司內部權力與工作穩定性。</p>
+          <div class="source-row">
+            <time datetime="2026-06-16T00:00:00+08:00">2026-06-16</time>
+            <span>來源：</span>
+            <a href="https://nypost.com/" target="_blank" rel="noreferrer">New York Post</a>
+            <a href="https://www.wired.com/" target="_blank" rel="noreferrer">Wired</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。單一來源題目已降權並明確標示。
+    </footer>
+  </main>
+</body>
+</html>
