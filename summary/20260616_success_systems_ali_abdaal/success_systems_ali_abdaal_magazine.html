@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>成功很難，直到你把生活做成系統｜Ali Abdaal 影片摘要</title>
+  <meta name="description" content="以深度雜誌專題方式整理 Ali Abdaal 影片 Success Is Hard Until You Build Systems Like This。">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1e2524;
+      --muted: #66716c;
+      --paper: #f7f3eb;
+      --paper-2: #fffaf2;
+      --line: rgba(42, 54, 50, 0.16);
+      --green: #516c5c;
+      --blue: #52687a;
+      --brass: #a47a34;
+      --brick: #8e5744;
+      --shadow: 0 28px 90px rgba(27, 35, 32, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(247, 243, 235, 0.96), rgba(255, 250, 242, 0.98)),
+        radial-gradient(circle at 78% 12%, rgba(82, 104, 122, 0.16), transparent 28rem);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.82;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .hero {
+      min-height: 720px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-items: center;
+      background: #1d231f;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.94) contrast(0.96);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(20, 25, 22, 0.82) 0%, rgba(20, 25, 22, 0.55) 38%, rgba(20, 25, 22, 0.08) 74%),
+        linear-gradient(180deg, rgba(20, 25, 22, 0.10), rgba(20, 25, 22, 0.38));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: calc(100% - 48px);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 78px 0 92px;
+    }
+
+    .kicker {
+      width: fit-content;
+      margin: 0 0 28px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 250, 242, 0.38);
+      color: #fff5e6;
+      background: rgba(0, 0, 0, 0.18);
+      font-size: 13px;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 830px;
+      margin: 0;
+      color: #fff8ea;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 60px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .dek {
+      max-width: 660px;
+      margin: 28px 0 0;
+      color: rgba(255, 248, 234, 0.9);
+      font-size: 20px;
+      line-height: 1.72;
+      overflow-wrap: anywhere;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 720px;
+      margin-top: 34px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      max-width: 100%;
+      padding: 6px 11px;
+      border: 1px solid rgba(255, 248, 234, 0.3);
+      color: rgba(255, 248, 234, 0.9);
+      background: rgba(0, 0, 0, 0.16);
+      font-size: 14px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin-top: 28px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 248, 234, 0.52);
+      color: #fff8ea;
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 1.35;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .watch:hover { background: rgba(255, 255, 255, 0.15); }
+
+    main {
+      width: calc(100% - 48px);
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .lead-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(280px, 0.48fr);
+      gap: 54px;
+      padding: 74px 0 58px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label {
+      margin: 0 0 18px;
+      color: var(--brick);
+      font-size: 13px;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 30px;
+      line-height: 1.58;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .brief {
+      align-self: end;
+      padding-top: 14px;
+      border-top: 4px solid var(--green);
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.78;
+      overflow-wrap: anywhere;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 220px) minmax(0, 720px);
+      gap: 58px;
+      padding: 60px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .side-note {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    .side-note strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .feature h2,
+    .scene h2,
+    .closing h2 {
+      margin: 0 0 22px;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 38px;
+      line-height: 1.25;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .feature p,
+    .scene p {
+      margin: 0 0 24px;
+      overflow-wrap: anywhere;
+    }
+
+    .pull {
+      margin: 38px 0;
+      padding: 26px 0 26px 30px;
+      border-left: 5px solid var(--blue);
+      color: #242b29;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 29px;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    .scene {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: 48px;
+      align-items: center;
+      padding: 66px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .scene figure {
+      margin: 0;
+      background: var(--paper-2);
+      box-shadow: var(--shadow);
+    }
+
+    .scene figcaption {
+      padding: 13px 16px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .systems {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .system-card {
+      min-height: 230px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 242, 0.68);
+    }
+
+    .system-card .num {
+      display: block;
+      margin-bottom: 28px;
+      color: var(--brass);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .system-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .system-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .closing {
+      padding: 72px 0 48px;
+    }
+
+    .closing-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.68fr) minmax(0, 1fr);
+      gap: 54px;
+      align-items: start;
+    }
+
+    .questions {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .questions li {
+      padding: 21px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 18px;
+      line-height: 1.68;
+      overflow-wrap: anywhere;
+    }
+
+    .source {
+      margin: 36px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.78;
+      overflow-wrap: anywhere;
+    }
+
+    .source a {
+      color: var(--brick);
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .systems { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .system-card:last-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 860px) {
+      body { font-size: 16px; }
+      .hero {
+        min-height: 0;
+        align-items: end;
+      }
+      .hero::after {
+        background:
+          linear-gradient(90deg, rgba(20, 25, 22, 0.86), rgba(20, 25, 22, 0.64)),
+          linear-gradient(180deg, rgba(20, 25, 22, 0.10), rgba(20, 25, 22, 0.50));
+      }
+      .hero-inner {
+        width: 100%;
+        max-width: none;
+        padding: 56px 18px 64px;
+      }
+      main {
+        width: calc(100% - 32px);
+        max-width: 1180px;
+      }
+      .kicker {
+        max-width: 100%;
+        margin-bottom: 22px;
+        font-size: 12px;
+        white-space: normal;
+      }
+      h1 { font-size: 38px; line-height: 1.18; }
+      h1, .dek { max-width: 100%; }
+      .dek { margin-top: 22px; font-size: 17px; line-height: 1.66; }
+      h1, h2, h3, p, li, .dek, .lead, .brief, .side-note, .source, .pill {
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+      .meta-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        margin-top: 22px;
+      }
+      .pill {
+        justify-content: flex-start;
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
+      }
+      .watch {
+        max-width: 100%;
+        margin-top: 20px;
+        white-space: normal;
+      }
+      .lead-grid, .feature, .scene, .closing-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .lead-grid { padding: 54px 0 44px; }
+      .lead { font-size: 22px; line-height: 1.62; }
+      .feature h2, .scene h2, .closing h2 { font-size: 28px; line-height: 1.28; }
+      .side-note { position: static; }
+      .systems { grid-template-columns: 1fr; }
+      .system-card { min-height: 0; }
+      .system-card:last-child { grid-column: auto; }
+      .pull { font-size: 24px; padding-left: 22px; }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .hero { min-height: 0; }
+      .hero-inner { padding-top: 34px; padding-bottom: 38px; }
+      h1 { font-size: 34px; line-height: 1.14; }
+      .dek { font-size: 16px; line-height: 1.55; }
+      .meta-row { margin-top: 16px; }
+      .pill { min-height: 0; padding: 5px 9px; font-size: 12px; }
+      .watch { margin-top: 16px; }
+    }
+
+    @media print {
+      body { background: white; color: black; }
+      .hero { min-height: auto; background: white; color: black; }
+      .hero img, .hero::after { display: none; }
+      .hero-inner { padding: 24px 0; }
+      h1, .dek, .pill, .watch, .kicker { color: black; background: transparent; border-color: #999; }
+      .side-note { position: static; }
+      a { text-decoration: underline; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero_success_systems_workspace.png" alt="晨光中的工作桌、手帳與跑鞋，象徵以系統安排工作、健康與生活">
+    <div class="hero-inner">
+      <p class="kicker">Video Feature / Life Systems</p>
+      <h1>成功很難，<br>直到系統接手</h1>
+      <p class="dek">Ali Abdaal 這支影片不把成功說成熱血、紀律或天賦，而是把它拆成一件更冷靜的事：你是否把重要行動變成不用每天重新決定的流程。</p>
+      <div class="meta-row" aria-label="影片資訊">
+        <span class="pill">Ali Abdaal</span>
+        <span class="pill">2026.02.19</span>
+        <span class="pill">約 26 分鐘</span>
+        <span class="pill">讀者：一般大眾</span>
+      </div>
+      <a class="watch" href="https://www.youtube.com/watch?v=MBPHU7aaklM" target="_blank" rel="noreferrer noopener">觀看原始影片 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="lead-grid" aria-labelledby="lead-title">
+      <div>
+        <p class="section-label" id="lead-title">The Feature</p>
+        <p class="lead">影片的核心不是「你應該更努力」，而是「你不該把每個重要決定都交給當下的情緒」。系統先花一點力氣設計，之後替你省下大量力氣。</p>
+      </div>
+      <aside class="brief">
+        Abdaal 將成功定義為：朝自己真正關心的目標前進，過程保持平衡，並且享受旅程。系統的任務，就是把目標、時間、健康、關係與金錢這些容易被日常吞沒的事，放進可重複的軌道。
+      </aside>
+    </section>
+
+    <section class="feature" aria-labelledby="definition">
+      <aside class="side-note">
+        <strong>不是更多意志力</strong>
+        沒有系統時，人每次都要重新判斷、重新鼓起勁、重新抵抗誘惑。系統把決定提前做好。
+      </aside>
+      <article>
+        <p class="section-label">01 / Philosophy</p>
+        <h2 id="definition">成功不是終點，是一套讓你持續前進的安排</h2>
+        <p>很多成功學把焦點放在「結果」：更好的工作、更大的事業、更健康的身體、更漂亮的財務數字。Abdaal 在影片開頭先把定義拉回來：如果你追逐某個目標時毀掉健康、關係與生活，那不算真正成功；如果你抵達終點時發現路上全是空洞，也不算真正成功。</p>
+        <p>他提出的成功比較像一個三角形：你正在朝自己在乎的目標前進，你用相對平衡的方式前進，你也能在過程中保有一點樂趣。系統存在的理由，不是把人生變成機械，而是讓這三件事比較不容易被忙碌、疲倦與情緒偷走。</p>
+        <div class="pull">真正可靠的生活，不是每天問「我今天有沒有動力」，而是讓重要的事有固定入口。</div>
+        <p>這也是為什麼影片會拿航空、醫療與手術清單當例子。越高風險的領域，越不會相信臨場發揮。經驗可以讓系統變得像直覺，但直覺背後仍然是被反覆訓練過的流程。</p>
+      </article>
+    </section>
+
+    <section class="feature" aria-labelledby="effort">
+      <aside class="side-note">
+        <strong>先難，後易</strong>
+        系統初期會增加設計成本，但一旦流程成形，後續行動會少很多摩擦。
+      </aside>
+      <article>
+        <p class="section-label">02 / The Curve</p>
+        <h2 id="effort">系統的前期成本，是為了買回後面的自由</h2>
+        <p>影片中有一個簡單但重要的對比：沒有系統時，每一次行動都像從零開始。今天要不要運動？晚餐吃什麼？這週最重要的事是哪件？薪水進來後要不要存錢？這些問題看似小，長期卻累積成巨大的決策疲勞。</p>
+        <p>有系統時，前期確實要多花一點力氣：設計流程、放進行事曆、設定提醒、決定預設動作。但一旦設定完成，日後你需要消耗的不是意志力，而是照著軌道走。Abdaal 用自己重訓的例子說明：多年隨興去健身房，幾乎沒什麼進步；直到教練排好課表、固定時段、遵循漸進超負荷，身體才開始回應。</p>
+        <p>商業銷售也是同樣邏輯。沒有系統的人每通電話都臨場發揮；有系統的人有開場、提問、異議處理、追蹤流程。差別不是誰更有靈感，而是誰更少把結果交給當天狀態。</p>
+      </article>
+    </section>
+
+    <section class="scene" aria-labelledby="five-systems">
+      <figure>
+        <img src="five_life_systems_still_life.png" alt="筆記本、時鐘、健康餐、兩杯咖啡與信封，象徵目標、時間、健康、關係與金錢系統">
+        <figcaption>編輯配圖，AI 生成。五組日常物件對應影片後半段提出的五種生活系統。</figcaption>
+      </figure>
+      <div>
+        <p class="section-label">03 / Five Systems</p>
+        <h2 id="five-systems">五個最值得普通人先建立的系統</h2>
+        <p>影片後半段把「系統」落到生活五個面向。它們不是高階管理術，而是一般人每天都會被消耗的地方：不知道要往哪走、時間被吃掉、健康靠感覺、關係靠想起來、錢靠月底剩多少。</p>
+        <div class="systems" aria-label="五個生活系統">
+          <article class="system-card">
+            <span class="num">01</span>
+            <h3>目標設定</h3>
+            <p>定期拉遠視角，從長期願景、三年想像到 90 天目標，避免只活在待辦與社會期待裡。</p>
+          </article>
+          <article class="system-card">
+            <span class="num">02</span>
+            <h3>時間管理</h3>
+            <p>用 time blocking、優先排序與每週回顧，替重要的事先預留位置。</p>
+          </article>
+          <article class="system-card">
+            <span class="num">03</span>
+            <h3>健康作業系統</h3>
+            <p>把睡眠、飲食、運動變成預設流程，降低每天重新選擇的成本。</p>
+          </article>
+          <article class="system-card">
+            <span class="num">04</span>
+            <h3>關係維護</h3>
+            <p>約會夜、關係回顧、固定聚會與生日提醒，讓在乎不只靠記憶。</p>
+          </article>
+          <article class="system-card">
+            <span class="num">05</span>
+            <h3>金錢自動化</h3>
+            <p>薪水一進來就自動分流到儲蓄、投資、稅務與帳單，剩下的才自由使用。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" aria-labelledby="human">
+      <aside class="side-note">
+        <strong>系統不是冷冰冰</strong>
+        影片最有意思的地方，是把關係也納入系統：不是把人流程化，而是承認忙碌會讓好意失手。
+      </aside>
+      <article>
+        <p class="section-label">04 / Human Systems</p>
+        <h2 id="human">越重要的事，越不能只靠想起來</h2>
+        <p>很多人聽到「關係系統」會反感，彷彿友情、婚姻、家人不該被行事曆安排。但影片的觀點很務實：成年人忙碌以後，靠自然發生的相聚會越來越少。不是感情不重要，而是沒有被保護的時間，最後會被工作與雜事填滿。</p>
+        <p>固定約會夜、每月關係回顧、年初先排假期、固定週末聚會、生日提前提醒，這些聽起來不浪漫，卻讓在乎變得可持續。系統不是取代情感，而是替情感留下位置。</p>
+        <p>健康與金錢也是如此。沒有人會因為每天重新思考 21 餐吃什麼就變健康；也很少人會因為月底看看剩多少錢才順利累積資產。好的系統讓你在情緒波動之前，就已經替未來的自己做了一部分正確決定。</p>
+      </article>
+    </section>
+
+    <section class="closing" aria-labelledby="questions">
+      <div class="closing-grid">
+        <div>
+          <p class="section-label">Practice</p>
+          <h2 id="questions">看完後，不必先改造人生，先問五個問題</h2>
+        </div>
+        <ul class="questions">
+          <li>我現在追的目標，是我真的在乎，還是只是社會、父母或過去的我留下的慣性？</li>
+          <li>哪一件重要的事，正在靠「有空再說」維持？它能不能先進行事曆？</li>
+          <li>我每天最常重複做的決定，是不是可以改成預設流程？</li>
+          <li>我有哪些關係其實很重要，卻沒有任何固定維護方式？</li>
+          <li>薪水或收入進來後，我是先照顧未來，還是先等月底看運氣？</li>
+        </ul>
+      </div>
+      <div class="source">
+        <p>資料來源：Ali Abdaal YouTube 影片 <a href="https://www.youtube.com/watch?v=MBPHU7aaklM" target="_blank" rel="noreferrer noopener">“Success Is Hard Until You Build Systems Like This”</a>、YouTube metadata，以及 YouTube 自動字幕 `en-orig` 清洗後 transcript。影片包含 Trading 212 贊助段落；本文整理其生產力與生活系統觀點，不構成投資或財務建議。文中圖片為 AI 生成的編輯配圖。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
