@@ -1,0 +1,515 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-17 AI 新聞精選</title>
+  <style>
+    :root {
+      --ink: #101418;
+      --paper: #f2eee1;
+      --panel: #fffaf0;
+      --line: #202830;
+      --blue: #2d7fbe;
+      --jade: #3f9b76;
+      --gold: #d0a14a;
+      --red: #b64a44;
+      --muted: #65707a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      line-height: 1.64;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap: anywhere; }
+
+    .page,
+    .masthead,
+    .hero,
+    .hero-copy,
+    .hero-art,
+    .signals,
+    .story,
+    .story-body,
+    .source-row {
+      min-width: 0;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+      padding-bottom: 12px;
+      border-bottom: 6px solid var(--line);
+    }
+
+    .brand {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 7.8vw, 7.1rem);
+      line-height: .84;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .date-card {
+      border: 2px solid var(--line);
+      background: var(--ink);
+      color: var(--panel);
+      padding: 9px 12px;
+      text-align: right;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(300px, 1.05fr);
+      gap: 18px;
+      padding-top: 20px;
+    }
+
+    .hero-copy {
+      border: 2px solid var(--line);
+      background: var(--panel);
+      padding: clamp(18px, 4vw, 34px);
+      display: grid;
+      align-content: space-between;
+      gap: 24px;
+    }
+
+    .stamp {
+      display: inline-flex;
+      width: fit-content;
+      border: 2px solid var(--line);
+      background: var(--jade);
+      color: white;
+      padding: 4px 10px;
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.12rem, 5.1vw, 5rem);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .deck {
+      margin: 0;
+      max-width: 66ch;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+    }
+
+    .cue {
+      border-left: 5px solid var(--gold);
+      padding-left: 12px;
+      margin: 0;
+      color: #37414a;
+      font-weight: 760;
+    }
+
+    .hero-art {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--line);
+      background: #101418;
+      min-height: 420px;
+    }
+
+    .hero-art img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16,20,24,.08), rgba(16,20,24,.72));
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      z-index: 1;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      color: white;
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    .signals {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 2px solid var(--line);
+      border-top: 0;
+      background: var(--ink);
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .signal {
+      padding: 15px;
+      border-right: 1px solid rgba(255,255,255,.25);
+    }
+
+    .signal:last-child { border-right: 0; }
+
+    .signal strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.9rem;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 30px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.5rem);
+      line-height: 1.05;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      border-top: 4px solid var(--line);
+    }
+
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .story {
+      border: 2px solid var(--line);
+      background: var(--panel);
+      box-shadow: 7px 7px 0 rgba(32,40,48,.16);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .story.wide {
+      grid-column: span 2;
+      grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      color: var(--gold);
+      border-right: 2px solid var(--line);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      line-height: 1;
+      min-height: 170px;
+    }
+
+    .story-body {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--line);
+      background: #dce8eb;
+      padding: 3px 8px;
+      font-size: .76rem;
+      font-weight: 950;
+      line-height: 1.35;
+    }
+
+    .badge.follow { background: var(--blue); color: white; }
+    .badge.angle { background: var(--gold); }
+    .badge.warn { background: var(--red); color: white; }
+
+    .story h3 {
+      margin: 0;
+      font-size: clamp(1.22rem, 2vw, 1.72rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .story p { margin: 0; }
+
+    .source-row {
+      border-top: 1px solid var(--line);
+      padding-top: 9px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: center;
+      font-size: .88rem;
+    }
+
+    .source-row time {
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .source-row a { font-weight: 850; }
+
+    footer {
+      border-top: 6px solid var(--line);
+      margin-top: 34px;
+      padding-top: 14px;
+      color: #59616b;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 20px, 720px);
+        padding-top: 16px;
+      }
+
+      .masthead,
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .date-card {
+        width: fit-content;
+        text-align: left;
+      }
+
+      .hero-art,
+      .hero-art img {
+        min-height: 280px;
+      }
+
+      .signals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .signal:nth-child(2) {
+        border-right: 0;
+      }
+
+      .signal {
+        border-bottom: 1px solid rgba(255,255,255,.25);
+      }
+
+      .stories {
+        grid-template-columns: 1fr;
+      }
+
+      .story.wide {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+
+      .number {
+        min-height: 88px;
+        justify-content: flex-start;
+        padding-left: 16px;
+        border-right: 0;
+        border-bottom: 2px solid var(--line);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand {
+        font-size: 2.45rem;
+      }
+
+      h1 {
+        font-size: 2.02rem;
+      }
+
+      .hero-copy,
+      .story-body {
+        padding: 14px;
+      }
+
+      .hero-art,
+      .hero-art img {
+        min-height: 220px;
+      }
+
+      .caption {
+        left: 12px;
+        right: 12px;
+        bottom: 10px;
+      }
+
+      .signals {
+        grid-template-columns: 1fr;
+      }
+
+      .signal,
+      .signal:nth-child(2) {
+        border-right: 0;
+      }
+
+      .source-row {
+        display: block;
+      }
+
+      .source-row span,
+      .source-row a,
+      .source-row time {
+        display: inline;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <p class="brand">AI Daily</p>
+      <div class="date-card">2026-06-17<br>全球 AI 新聞精選</div>
+    </header>
+
+    <section class="hero" aria-labelledby="main-title">
+      <div class="hero-copy">
+        <div>
+          <span class="stamp">Capital & Access</span>
+          <h1 id="main-title">AI 權力轉向資本與存取權，模型不再只是產品</h1>
+          <p class="deck">今天的主線很清楚：誰能拿到資金、誰能跨境取得 frontier model、誰能把 coding agent 變成平台，正在比單一模型跑分更重要。中國 DeepSeek 以巨額募資回到牌桌，美歐討論模型可信夥伴，SpaceX 則把 Anysphere 納入 AI 基礎設施想像。</p>
+        </div>
+        <p class="cue">AI 競爭開始像金融、國防與雲端基礎設施的混合體：資本、政策開關與人才組織，正在一起決定誰能部署模型。</p>
+      </div>
+      <figure class="hero-art">
+        <img src="2026-06-17-hero.png" alt="AI 資本、模型存取權、歐洲可信夥伴談判、DeepSeek 融資與 coding agent 基礎設施交織的雜誌式主視覺">
+        <figcaption class="caption">模型競爭正移向資本市場、跨境授權、主權供應鏈與軟體開發平台。</figcaption>
+      </figure>
+    </section>
+
+    <section class="signals" aria-label="今日摘要">
+      <div class="signal"><strong>5</strong>則保留新聞</div>
+      <div class="signal"><strong>2</strong>則接續追蹤</div>
+      <div class="signal"><strong>2</strong>則新切角</div>
+      <div class="signal"><strong>1</strong>則單一來源警示</div>
+    </section>
+
+    <h2 class="section-title">今日主線</h2>
+    <section class="stories" aria-label="今日主線新聞">
+      <article class="story wide">
+        <div class="number">01</div>
+        <div class="story-body">
+          <div class="badges"><span class="badge">NEW</span></div>
+          <h3>DeepSeek 傳募資 74 億美元，中國 AI 回到巨額資本牌桌</h3>
+          <p>DeepSeek 據報正洽談約 74 億美元募資，潛在投資者包含 Tencent、CATL、JD.com 與 NetEase。這不只是中國模型公司的融資新聞，而是美國出口限制與全球模型存取權重排後，中國 AI 生態系重新集結資本與產業盟友。</p>
+          <div class="source-row">
+            <time datetime="2026-06-17T00:00:00+08:00">2026-06-17</time>
+            <span>來源：</span>
+            <a href="https://www.wsj.com/" target="_blank" rel="noreferrer">Wall Street Journal</a>
+            <a href="https://www.bloomberg.com/" target="_blank" rel="noreferrer">Bloomberg</a>
+            <a href="https://www.businessinsider.com/" target="_blank" rel="noreferrer">Business Insider</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge follow">🔄 接續報導</span></div>
+          <h3>美歐談 AI 可信夥伴，Anthropic 管制後的補救方案浮現</h3>
+          <p>相對前兩天美國限制 Anthropic 高階模型的硬切換，今天的新進展是政策端開始尋找豁免與信任框架：美國與歐洲盟友據報討論「可信夥伴」安排，讓特定企業或政府能維持高階模型存取，同時降低外流風險。</p>
+          <div class="source-row">
+            <time datetime="2026-06-17T00:00:00+08:00">2026-06-17</time>
+            <span>來源：</span>
+            <a href="https://www.ft.com/" target="_blank" rel="noreferrer">Financial Times</a>
+            <a href="https://apnews.com/" target="_blank" rel="noreferrer">Associated Press</a>
+            <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge angle">NEW ANGLE</span></div>
+          <h3>Fable 爭議轉向公共治理：誰能決定高階模型的合理使用</h3>
+          <p>Anthropic Fable 的爭議不只是在出口管制，也牽涉研究、資安與公共利益如何取得模型。Bruce Schneier 等安全社群聲音把問題推向制度設計：frontier model 是否應有類似關鍵基礎設施的存取規則，而不是只靠公司或單一政府臨時開關。</p>
+          <div class="source-row">
+            <time datetime="2026-06-17T00:00:00+08:00">2026-06-17</time>
+            <span>來源：</span>
+            <a href="https://www.theguardian.com/" target="_blank" rel="noreferrer">The Guardian</a>
+            <a href="https://apnews.com/" target="_blank" rel="noreferrer">Associated Press</a>
+            <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">資本與組織</h2>
+    <section class="stories" aria-label="資本與組織新聞">
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge follow">🔄 接續報導</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <h3>SpaceX 擬買 Anysphere：太空算力故事接上 coding agent</h3>
+          <p>延續 6 月 10 日 SpaceX 軌道 AI data center 敘事，今天的新角度是軟體開發入口：若 SpaceX 收購 Cursor 母公司 Anysphere 屬實，Musk 的 AI 版圖將從算力與衛星延伸到 coding agent 工作流。不過目前仍以單一報導為主，需等待正式確認。</p>
+          <div class="source-row">
+            <time datetime="2026-06-17T00:00:00+08:00">2026-06-17</time>
+            <span>來源：</span>
+            <a href="https://nypost.com/" target="_blank" rel="noreferrer">New York Post</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge angle">NEW ANGLE</span></div>
+          <h3>Meta AI 士氣問題擴大，超級智慧部門先遇到管理瓶頸</h3>
+          <p>相較昨天只看到 Meta AI 重組後的不安，今天的增量是管理問題更具體：報導指出 Meta AI 員工對方向、資源分配與職涯路徑的不確定性升高。這提醒市場，AI 人才戰不只靠高薪挖角，也要能把研究、產品與平台團隊穩定接起來。</p>
+          <div class="source-row">
+            <time datetime="2026-06-17T00:00:00+08:00">2026-06-17</time>
+            <span>來源：</span>
+            <a href="https://www.wired.com/" target="_blank" rel="noreferrer">Wired</a>
+            <a href="https://nypost.com/" target="_blank" rel="noreferrer">New York Post</a>
+            <a href="https://www.businessinsider.com/" target="_blank" rel="noreferrer">Business Insider</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。單一來源題目已降權並明確標示。
+    </footer>
+  </main>
+</body>
+</html>
