@@ -53,6 +53,12 @@
   ],
   "summary": [
     {
+      "date": "2026-06-18",
+      "path": "summary/20260618_graham_weaver_full_power/graham_weaver_full_power_magazine.html",
+      "title": "全力活著：你要聽哪一個聲音？｜Graham Weaver 演講摘要",
+      "hero": "summary/20260618_graham_weaver_full_power/hero_full_power_crossroads.png"
+    },
+    {
       "date": "2026-06-16",
       "path": "summary/20260616_success_systems_ali_abdaal/success_systems_ali_abdaal_magazine.html",
       "title": "成功很難，直到你把生活做成系統｜Ali Abdaal 影片摘要",
@@ -105,12 +111,6 @@
       "path": "summary/20260604_Sandeep_Swadia_Claude_better_magazine_brief/Sandeep_Swadia_Claude_better_magazine_brief.html",
       "title": "把 Claude 從聊天框，變成你的私人工作室 | 一頁式雜誌摘要",
       "hero": "summary/20260604_Sandeep_Swadia_Claude_better_magazine_brief/Claude_better_hero_editorial.png"
-    },
-    {
-      "date": "2026-06-04",
-      "path": "summary/20260604_Mel_Robbins_James_Clear_habits_magazine_brief/Mel_Robbins_James_Clear_habits_magazine_brief.html",
-      "title": "30 天不是改變人生，是重新設計一天 | James Clear 習慣科學專題",
-      "hero": "summary/20260604_Mel_Robbins_James_Clear_habits_magazine_brief/Mel_Robbins_James_Clear_habits_hero_editorial.png"
     }
   ]
 }

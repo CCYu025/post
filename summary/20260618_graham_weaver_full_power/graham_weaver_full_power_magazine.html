@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>全力活著：你要聽哪一個聲音？｜Graham Weaver 演講摘要</title>
+  <meta name="description" content="根據 Stanford GSB Last Lecture Series：Graham Weaver「How to Live your Life at Full Power」整理的一頁式深度雜誌摘要。">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202422;
+      --soft-ink: #4f5b55;
+      --muted: #748079;
+      --paper: #f4efe6;
+      --paper-bright: #fffaf0;
+      --forest: #263d34;
+      --moss: #58745e;
+      --amber: #bd7c33;
+      --rust: #8e4f35;
+      --line: rgba(32, 36, 34, 0.16);
+      --shadow: 0 26px 90px rgba(23, 31, 27, 0.22);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(244, 239, 230, 0.96), rgba(255, 250, 240, 0.98)),
+        radial-gradient(circle at 18% 18%, rgba(189, 124, 51, 0.18), transparent 29rem);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.82;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .hero {
+      min-height: 720px;
+      position: relative;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background: #1d241f;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.96) contrast(0.96);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(18, 24, 20, 0.82) 0%, rgba(18, 24, 20, 0.54) 42%, rgba(18, 24, 20, 0.12) 78%),
+        linear-gradient(180deg, rgba(18, 24, 20, 0.02), rgba(18, 24, 20, 0.72));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: calc(100% - 56px);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 84px 0 88px;
+      color: #fff8e9;
+    }
+
+    .hero-caption {
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      z-index: 2;
+      max-width: 320px;
+      margin: 0;
+      color: rgba(255, 248, 233, 0.72);
+      font-size: 12px;
+      line-height: 1.45;
+      text-align: right;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.42);
+    }
+
+    .kicker {
+      display: inline-block;
+      margin: 0 0 26px;
+      padding: 7px 11px;
+      border: 1px solid rgba(255, 248, 233, 0.42);
+      background: rgba(0, 0, 0, 0.18);
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 64px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .dek {
+      max-width: 690px;
+      margin: 28px 0 0;
+      color: rgba(255, 248, 233, 0.91);
+      font-size: 20px;
+      line-height: 1.76;
+      overflow-wrap: anywhere;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 760px;
+      margin: 32px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      max-width: 100%;
+      padding: 6px 11px;
+      border: 1px solid rgba(255, 248, 233, 0.31);
+      color: rgba(255, 248, 233, 0.91);
+      background: rgba(0, 0, 0, 0.17);
+      font-size: 14px;
+      line-height: 1.36;
+      overflow-wrap: anywhere;
+    }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 28px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 248, 233, 0.54);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff8e9;
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .watch:hover { background: rgba(255, 255, 255, 0.15); }
+
+    main {
+      width: calc(100% - 56px);
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .opening {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.46fr);
+      gap: 58px;
+      padding: 78px 0 62px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .label {
+      margin: 0 0 18px;
+      color: var(--rust);
+      font-size: 13px;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 30px;
+      line-height: 1.6;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .brief {
+      align-self: end;
+      padding-top: 14px;
+      border-top: 4px solid var(--moss);
+      color: var(--soft-ink);
+      font-size: 16px;
+      line-height: 1.78;
+      overflow-wrap: anywhere;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 250px) minmax(0, 730px);
+      gap: 58px;
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .side {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    .side strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .feature h2,
+    .visual h2,
+    .closing h2 {
+      margin: 0 0 22px;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 38px;
+      line-height: 1.25;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .feature p,
+    .visual p {
+      margin: 0 0 24px;
+      overflow-wrap: anywhere;
+    }
+
+    .pull {
+      margin: 38px 0;
+      padding: 26px 0 26px 30px;
+      border-left: 5px solid var(--amber);
+      color: #222723;
+      font-family: Georgia, "Times New Roman", "Noto Serif TC", serif;
+      font-size: 29px;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    .promises {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 38px 0 0;
+    }
+
+    .promise {
+      min-height: 250px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.66);
+    }
+
+    .promise .num {
+      display: block;
+      margin-bottom: 28px;
+      color: var(--amber);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .promise h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.36;
+      letter-spacing: 0;
+    }
+
+    .promise p {
+      margin: 0;
+      color: var(--soft-ink);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .visual {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 50px;
+      align-items: center;
+      padding: 68px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    figure {
+      margin: 0;
+      background: var(--paper-bright);
+      box-shadow: var(--shadow);
+    }
+
+    figcaption {
+      padding: 13px 16px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .closing {
+      padding: 72px 0 50px;
+    }
+
+    .closing-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.68fr) minmax(0, 1fr);
+      gap: 54px;
+      align-items: start;
+    }
+
+    .questions {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .questions li {
+      padding: 21px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 18px;
+      line-height: 1.68;
+      overflow-wrap: anywhere;
+    }
+
+    .source {
+      margin: 36px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.78;
+      overflow-wrap: anywhere;
+    }
+
+    .source a {
+      color: var(--rust);
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .promises { grid-template-columns: 1fr; }
+      .promise { min-height: 0; }
+    }
+
+    @media (max-width: 860px) {
+      body { font-size: 16px; }
+      .hero {
+        min-height: 0;
+        align-items: end;
+      }
+      .hero::after {
+        background:
+          linear-gradient(90deg, rgba(18, 24, 20, 0.86), rgba(18, 24, 20, 0.62)),
+          linear-gradient(180deg, rgba(18, 24, 20, 0.04), rgba(18, 24, 20, 0.74));
+      }
+      .hero-inner {
+        width: 100%;
+        max-width: none;
+        padding: 56px 18px 64px;
+      }
+      .hero-caption {
+        right: 18px;
+        bottom: 12px;
+        max-width: calc(100% - 36px);
+        font-size: 11px;
+      }
+      main {
+        width: calc(100% - 32px);
+        max-width: 1180px;
+      }
+      .kicker {
+        max-width: 100%;
+        margin-bottom: 22px;
+        font-size: 12px;
+        white-space: normal;
+      }
+      h1 { font-size: 38px; line-height: 1.18; }
+      h1, .dek { max-width: 100%; }
+      .dek { margin-top: 22px; font-size: 17px; line-height: 1.66; }
+      h1, h2, h3, p, li, .dek, .lead, .brief, .side, .source, .pill {
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+      .meta-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        margin-top: 22px;
+      }
+      .pill {
+        justify-content: flex-start;
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
+      }
+      .watch {
+        max-width: 100%;
+        margin-top: 20px;
+        white-space: normal;
+      }
+      .opening, .feature, .visual, .closing-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .opening { padding: 54px 0 44px; }
+      .lead { font-size: 22px; line-height: 1.62; }
+      .feature h2, .visual h2, .closing h2 { font-size: 28px; line-height: 1.28; }
+      .side { position: static; }
+      .pull { font-size: 24px; padding-left: 22px; }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .hero { min-height: 0; }
+      .hero-inner { padding-top: 34px; padding-bottom: 38px; }
+      .hero-caption { display: none; }
+      h1 { font-size: 34px; line-height: 1.14; }
+      .dek { font-size: 16px; line-height: 1.55; }
+      .meta-row { margin-top: 16px; }
+      .pill { min-height: 0; padding: 5px 9px; font-size: 12px; }
+      .watch { margin-top: 16px; }
+    }
+
+    @media print {
+      body { background: white; color: black; }
+      .hero { min-height: auto; background: white; color: black; }
+      .hero img, .hero::after { display: none; }
+      .hero-inner { padding: 24px 0; color: black; }
+      h1, .dek, .pill, .watch, .kicker { color: black; background: transparent; border-color: #999; }
+      .side { position: static; }
+      a { text-decoration: underline; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero_full_power_crossroads.png" alt="清晨岔路前，一位跑者面向山谷與陽光，象徵傾聽內在聲音後的選擇。">
+    <div class="hero-inner">
+      <p class="kicker">Last Lecture / Life Design</p>
+      <h1>全力活著，<br>從聽見第二個聲音開始</h1>
+      <p class="dek">Graham Weaver 在 Stanford GSB 的 Last Lecture 不是一場成功學演說，而是一封寫給每個人的提醒：你真正缺的，往往不是能力，而是停止和自己作戰的勇氣。</p>
+      <div class="meta-row" aria-label="影片資訊">
+        <span class="pill">Graham Weaver</span>
+        <span class="pill">Stanford Graduate School of Business</span>
+        <span class="pill">2024.07.22</span>
+        <span class="pill">約 33 分鐘</span>
+      </div>
+      <a class="watch" href="https://www.youtube.com/watch?v=uxoCnxlxpIk" target="_blank" rel="noreferrer noopener">觀看原始演講 <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="hero-caption">AI-generated editorial image, not a video screenshot.</p>
+  </header>
+
+  <main>
+    <section class="opening" aria-labelledby="opening-title">
+      <div>
+        <p class="label" id="opening-title">The Brief</p>
+        <p class="lead">Weaver 把人生的問題縮成一個極簡、卻不輕鬆的選擇：你要聽那個會保護你、也會縮小你的恐懼聲音，還是那個比較安靜、卻知道你真正想去哪裡的聲音？</p>
+      </div>
+      <aside class="brief">
+        這場演講的力量，不在於它提出了新口號，而在於它把「做自己」拆成可以執行的三個承諾：拔掉讓你卡住的釘子，朝有能量的地方移動，然後不要再用「還不是時候」包裝恐懼。
+      </aside>
+    </section>
+
+    <section class="feature" aria-labelledby="two-voices">
+      <aside class="side">
+        <strong>兩個聲音</strong>
+        一個聲音很大，負責生存、懷疑、焦慮與自我批判；另一個聲音較安靜，常透過身體、胸口、直覺與能量出現。
+      </aside>
+      <article>
+        <p class="label">01 / The Conflict</p>
+        <h2 id="two-voices">恐懼聲音會讓你安全，也會讓人生變小</h2>
+        <p>Weaver 以自己剛從 Stanford GSB 畢業後的第一份工作開場：他選了一份看似安全、卻不讓自己興奮的公司職位。在一次 Napa offsite，他躲進廁所、換上跑步裝、逃出去跑步。荒謬的是，他最後在玻璃窗前被全公司看見；真正重要的是，那趟跑步讓他聽見一個清楚的內在聲音：這不是你，你不必這樣活。</p>
+        <p>他把這個經驗延伸成整場演講的核心：人心裡有兩股力量。第一個是生存本能，它用恐懼、懷疑、擔憂和焦慮保護你。第二個聲音則更接近直覺、靈魂、真實自我或內在智慧。第一個聲音通常在腦中喧嘩；第二個聲音常在身體裡出現，像胸口、心裡或腹部的一種知道。</p>
+        <div class="pull">恐懼的聲音會帶你走向一個太小的人生；第二個聲音則保留著你的夢、你的路徑，以及你的能量。</div>
+        <p>對一般讀者來說，這段最值得留下的不是神祕感，而是診斷方法：當你長期感到不協調、緊繃、耗損，可能不是你不夠努力，而是你正在用意志力維持一個太小的版本。</p>
+      </article>
+    </section>
+
+    <section class="feature" aria-labelledby="nail">
+      <aside class="side">
+        <strong>第一個承諾</strong>
+        Weaver 說，讓人卡住的「釘子」常來自四類：壞習慣、未處理的過去經驗、自我設定的規則或假設，以及恐懼。
+      </aside>
+      <article>
+        <p class="label">02 / The Nail</p>
+        <h2 id="nail">先拔掉釘子，而不是替它打造頭盔</h2>
+        <p>演講裡最有畫面的比喻，是那支「It’s not about the nail」影片：一個人頭上插著釘子，卻想談所有事情，唯獨不談真正讓自己痛苦的那件事。Weaver 說，我們多半也如此，知道問題在哪裡，卻用更複雜的生活安排去保護那顆釘子。</p>
+        <p>他舉了一位朋友失眠的例子。醫生指出她睡前喝四到五杯酒可能是主因，但她不願處理酒精問題，於是轉向更多藥物、更多規則、更多保護機制。問題沒有消失，只是變成一頂更厚的頭盔。</p>
+        <p>拔掉釘子的第一步，是說出真話：我有酒精問題；我在一段不該繼續的關係裡；我在一份不給我能量的工作裡。第二步更難，因為改變往往會先變糟。離開、結束、面對壞習慣，短期都可能更痛；但 Weaver 的提醒是：你想要的東西，常在「先變糟」的另一側。</p>
+      </article>
+    </section>
+
+    <section class="visual" aria-labelledby="energy">
+      <figure>
+        <img src="nine_lives_energy_map.png" alt="木桌上打開的筆記本，畫著九條向外延伸的路徑，旁邊有羅盤、鉛筆與咖啡。">
+        <figcaption>AI-generated editorial image, not a video screenshot. 「九種人生」練習把模糊的熱情，改寫成可觀察的能量線索。</figcaption>
+      </figure>
+      <article>
+        <p class="label">03 / Energy</p>
+        <h2 id="energy">不要追問唯一熱情，先觀察哪裡有能量</h2>
+        <p>Weaver 對「follow your passion」保持距離，因為它暗示人生只有一個熱情、你應該在很年輕時就知道，並且要一路追隨四十年。他說，這不是大多數創業者或成功人士真正走過的路。</p>
+        <p>他提出更可行的版本：追隨能量。你不需要先找到終身志業，只要誠實觀察現在什麼事情讓你起身、發亮、願意投入。為了找到這些線索，他使用「Nine Lives」練習：想像從今天開始，你還有八種平行人生，每一種都必須是你會興奮到想跳下床的生活。</p>
+        <p>這個練習有兩種用法。第一，把其中一種人生的小片段拉進當下，例如寫作、教學、運動、音樂或某個長久想做的計畫。第二，問自己：如果我知道自己不會失敗，我會選哪一種人生？那個答案，通常更靠近你最珍貴的夢。</p>
+      </article>
+    </section>
+
+    <section class="feature" aria-labelledby="not-now">
+      <aside class="side">
+        <strong>第三個承諾</strong>
+        「Not now」聽起來不像放棄，卻常是恐懼最有禮貌的偽裝。
+      </aside>
+      <article>
+        <p class="label">04 / Commitment</p>
+        <h2 id="not-now">最危險的拖延，不是「我不做」，而是「還不是時候」</h2>
+        <p>Weaver 說，許多人並不會直接說自己放棄夢想。他們說的是：等我更有經驗、等我還完貸款、等我更有信心、等孩子大一點、等計畫更完整。問題是，人生總會出現新的條件，於是「以後」慢慢變成「永遠不會」。</p>
+        <p>他用自己開始教學的故事說明這件事。第一次在課堂上表現不好後，他的內在批判者告訴他：等二十年後再說，等你準備好再說。但一位學生向他請教如何克服失敗恐懼，讓他意識到自己其實正在把給學生的建議說給自己聽。後來他把大量精力投入一段只有五分鐘的課後分享，慢慢從個案嘉賓、講者、教練，走到今天教授同一門課。</p>
+        <p>這裡的關鍵不是盲目冒進，而是身份的轉換。當你「全押」一件真正有能量的事，內在衝突會下降。你不再每天問自己要不要開始，因為你已經開始了。</p>
+
+        <div class="promises" aria-label="三個承諾">
+          <article class="promise">
+            <span class="num">01</span>
+            <h3>拔掉頭上的釘子</h3>
+            <p>承認那個真正讓你卡住的問題，並接受改變一開始可能更不舒服。</p>
+          </article>
+          <article class="promise">
+            <span class="num">02</span>
+            <h3>朝能量移動</h3>
+            <p>不急著命名唯一熱情，而是追蹤哪些人、事、題目讓你更像自己。</p>
+          </article>
+          <article class="promise">
+            <span class="num">03</span>
+            <h3>現在就全力投入</h3>
+            <p>停止用「還不是時候」延後人生，把興奮、能量與長期投入當成起點。</p>
+          </article>
+        </div>
+      </article>
+    </section>
+
+    <section class="closing" aria-labelledby="questions">
+      <div class="closing-grid">
+        <div>
+          <p class="label">Practice</p>
+          <h2 id="questions">把這場演講帶回自己身上</h2>
+        </div>
+        <div>
+          <ul class="questions">
+            <li>最近反覆出現在你腦中的問題，是不是一顆你還沒有承認的釘子？</li>
+            <li>你正在保護問題，還是在處理問題？你的「頭盔」是什麼？</li>
+            <li>如果你有九種人生，哪一種讓你最有能量？你能先把哪一小塊拉進現在？</li>
+            <li>你口中的「還不是時候」，到底是現實限制，還是恐懼換了一個說法？</li>
+            <li>如果人生最後只剩一個問題：你要聽哪個聲音？今天的答案是什麼？</li>
+          </ul>
+          <div class="source">
+            <p>本頁根據 Stanford Graduate School of Business YouTube 影片 <a href="https://www.youtube.com/watch?v=uxoCnxlxpIk" target="_blank" rel="noreferrer noopener">Last Lecture Series: How to Live your Life at Full Power — Graham Weaver</a> 製作，主要使用 YouTube 可取得的英文字幕 `en-HLz522dxCp0` 清洗後 transcript，並以 metadata 與影片描述欄補充日期、頻道與長度。本文為中文編輯摘要，非逐字翻譯；頁面圖片為 AI-generated editorial images，非影片截圖。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
