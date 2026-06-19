@@ -1,0 +1,499 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-19 AI 新聞精選</title>
+  <style>
+    :root {
+      --ink: #0f1419;
+      --paper: #f0ecdf;
+      --panel: #fffaf0;
+      --line: #202832;
+      --cyan: #2f91b4;
+      --green: #4c9b6f;
+      --gold: #d0a44d;
+      --red: #ba4d44;
+      --muted: #65707b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      line-height: 1.64;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap: anywhere; }
+
+    .page,
+    .masthead,
+    .hero,
+    .hero-copy,
+    .hero-art,
+    .signals,
+    .story,
+    .story-body,
+    .source-row {
+      min-width: 0;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+      padding-bottom: 12px;
+      border-bottom: 6px solid var(--line);
+    }
+
+    .brand {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 7.8vw, 7.1rem);
+      line-height: .84;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .date-card {
+      border: 2px solid var(--line);
+      background: var(--ink);
+      color: var(--panel);
+      padding: 9px 12px;
+      text-align: right;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .94fr) minmax(300px, 1.06fr);
+      gap: 18px;
+      padding-top: 20px;
+    }
+
+    .hero-copy {
+      border: 2px solid var(--line);
+      background: var(--panel);
+      padding: clamp(18px, 4vw, 34px);
+      display: grid;
+      align-content: space-between;
+      gap: 24px;
+    }
+
+    .stamp {
+      display: inline-flex;
+      width: fit-content;
+      border: 2px solid var(--line);
+      background: var(--green);
+      color: white;
+      padding: 4px 10px;
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.06rem, 5vw, 4.88rem);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .deck {
+      margin: 0;
+      max-width: 66ch;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+    }
+
+    .cue {
+      border-left: 5px solid var(--gold);
+      padding-left: 12px;
+      margin: 0;
+      color: #37424b;
+      font-weight: 760;
+    }
+
+    .hero-art {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--line);
+      background: #0f1419;
+      min-height: 420px;
+    }
+
+    .hero-art img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,20,25,.08), rgba(15,20,25,.72));
+      pointer-events: none;
+    }
+
+    .caption {
+      position: absolute;
+      z-index: 1;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      color: white;
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    .signals {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 2px solid var(--line);
+      border-top: 0;
+      background: var(--ink);
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .signal {
+      padding: 15px;
+      border-right: 1px solid rgba(255,255,255,.25);
+    }
+
+    .signal:last-child { border-right: 0; }
+
+    .signal strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.9rem;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 30px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.5rem);
+      line-height: 1.05;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      border-top: 4px solid var(--line);
+    }
+
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .story {
+      border: 2px solid var(--line);
+      background: var(--panel);
+      box-shadow: 7px 7px 0 rgba(32,40,50,.16);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .story.wide {
+      grid-column: span 2;
+      grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      color: var(--gold);
+      border-right: 2px solid var(--line);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      line-height: 1;
+      min-height: 170px;
+    }
+
+    .story-body {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--line);
+      background: #dce8eb;
+      padding: 3px 8px;
+      font-size: .76rem;
+      font-weight: 950;
+      line-height: 1.35;
+    }
+
+    .badge.follow { background: var(--cyan); color: white; }
+    .badge.angle { background: var(--gold); }
+    .badge.warn { background: var(--red); color: white; }
+
+    .story h3 {
+      margin: 0;
+      font-size: clamp(1.22rem, 2vw, 1.72rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .story p { margin: 0; }
+
+    .source-row {
+      border-top: 1px solid var(--line);
+      padding-top: 9px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: center;
+      font-size: .88rem;
+    }
+
+    .source-row time {
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .source-row a { font-weight: 850; }
+
+    footer {
+      border-top: 6px solid var(--line);
+      margin-top: 34px;
+      padding-top: 14px;
+      color: #59626b;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 20px, 720px);
+        padding-top: 16px;
+      }
+
+      .masthead,
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .date-card {
+        width: fit-content;
+        text-align: left;
+      }
+
+      .hero-art,
+      .hero-art img {
+        min-height: 280px;
+      }
+
+      .signals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .signal:nth-child(2) { border-right: 0; }
+      .signal { border-bottom: 1px solid rgba(255,255,255,.25); }
+
+      .stories { grid-template-columns: 1fr; }
+
+      .story.wide {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+
+      .number {
+        min-height: 88px;
+        justify-content: flex-start;
+        padding-left: 16px;
+        border-right: 0;
+        border-bottom: 2px solid var(--line);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand { font-size: 2.45rem; }
+      h1 { font-size: 2.02rem; }
+
+      .hero-copy,
+      .story-body {
+        padding: 14px;
+      }
+
+      .hero-art,
+      .hero-art img {
+        min-height: 220px;
+      }
+
+      .caption {
+        left: 12px;
+        right: 12px;
+        bottom: 10px;
+      }
+
+      .signals { grid-template-columns: 1fr; }
+
+      .signal,
+      .signal:nth-child(2) {
+        border-right: 0;
+      }
+
+      .source-row { display: block; }
+
+      .source-row span,
+      .source-row a,
+      .source-row time {
+        display: inline;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <p class="brand">AI Daily</p>
+      <div class="date-card">2026-06-19<br>全球 AI 新聞精選</div>
+    </header>
+
+    <section class="hero" aria-labelledby="main-title">
+      <div class="hero-copy">
+        <div>
+          <span class="stamp">Finance Desk</span>
+          <h1 id="main-title">AI 進入控制層：agent、規則、人才與資本一起定價</h1>
+          <p class="deck">今天的 AI 新聞把焦點從模型能力推向控制權：企業 agent 開始拿到大額資金，Anthropic 與白宮持續拉扯安全規則，OpenAI 挖走 Transformer 核心作者，政治人物則開始要求 AI 公司把超額收益交回公共資產。</p>
+        </div>
+        <p class="cue">本日關鍵不是誰發了新模型，而是誰能控制 AI 的部署流程、政策門檻、人才流向與基礎設施融資。</p>
+      </div>
+      <figure class="hero-art">
+        <img src="2026-06-19-hero.png" alt="企業 AI agent、政策談判、人才戰、公共持股與資料中心融資交織的雜誌式主視覺">
+        <figcaption class="caption">AI 產業的競爭正在變成營運流程、政策規則、人才流動與資本結構的混合戰。</figcaption>
+      </figure>
+    </section>
+
+    <section class="signals" aria-label="今日摘要">
+      <div class="signal"><strong>5</strong>則保留新聞</div>
+      <div class="signal"><strong>2</strong>則接續追蹤</div>
+      <div class="signal"><strong>2</strong>則新切角</div>
+      <div class="signal"><strong>1</strong>則單一來源警示</div>
+    </section>
+
+    <h2 class="section-title">今日主線</h2>
+    <section class="stories" aria-label="今日主線新聞">
+      <article class="story wide">
+        <div class="number">01</div>
+        <div class="story-body">
+          <div class="badges"><span class="badge">NEW</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <h3>Gradial 融資 6500 萬美元，agentic marketing 從概念走向營運預算</h3>
+          <p>Gradial 宣布 6500 萬美元 B 輪，主打讓 AI agent 接手企業行銷營運中的內容、流程與實驗迭代。這則新聞的訊號在於：企業 agent 不再只被包裝成聊天入口，而是開始進入可量化的營運預算與部門工作流。</p>
+          <div class="source-row">
+            <time datetime="2026-06-19T00:00:00+08:00">2026-06-19</time>
+            <span>來源：</span>
+            <a href="https://www.axios.com/pro-rata" target="_blank" rel="noreferrer">Axios Pro Rata</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge follow">🔄 接續報導</span></div>
+          <h3>Anthropic 安全規則談判延燒，白宮與模型公司爭奪「誰能按下開關」</h3>
+          <p>延續過去幾天 Fable、Mythos 出口限制與可信夥伴討論，今天的新進展是 Anthropic 與美國政府對高階模型測試、釋出與跨境供應的規則仍未收束。這讓 frontier model 更像受管制基礎設施，而不是一般 SaaS 產品。</p>
+          <div class="source-row">
+            <time datetime="2026-06-19T00:00:00+08:00">2026-06-19</time>
+            <span>來源：</span>
+            <a href="https://www.wsj.com/" target="_blank" rel="noreferrer">Wall Street Journal</a>
+            <a href="https://www.ft.com/" target="_blank" rel="noreferrer">Financial Times</a>
+            <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge angle">NEW ANGLE</span></div>
+          <h3>Noam Shazeer 轉投 OpenAI，人才戰回到 Transformer 原點</h3>
+          <p>Noam Shazeer 據報離開 Google 加入 OpenAI。這不是單純高薪挖角，而是象徵大模型競賽重新爭奪最底層的架構與訓練經驗：當基礎模型越來越昂貴，能設計與放大核心模型的人才本身就是稀缺基礎設施。</p>
+          <div class="source-row">
+            <time datetime="2026-06-19T00:00:00+08:00">2026-06-19</time>
+            <span>來源：</span>
+            <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+            <a href="https://www.businessinsider.com/" target="_blank" rel="noreferrer">Business Insider</a>
+            <a href="https://timesofindia.indiatimes.com/technology/artificial-intelligence" target="_blank" rel="noreferrer">Times of India</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">權力分配</h2>
+    <section class="stories" aria-label="權力分配新聞">
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge angle">NEW ANGLE</span></div>
+          <h3>Bernie Sanders 提出 AI 公有持股，AI 超額收益進入再分配政治</h3>
+          <p>Bernie Sanders 提議要求大型 AI 公司把部分股權或收益交給公共基金，將 AI 自動化帶來的生產力增益回流社會。這把 AI 治理從安全、隱私與版權，推進到「誰擁有 AI 紅利」的分配問題。</p>
+          <div class="source-row">
+            <time datetime="2026-06-19T00:00:00+08:00">2026-06-19</time>
+            <span>來源：</span>
+            <a href="https://apnews.com/" target="_blank" rel="noreferrer">Associated Press</a>
+            <a href="https://www.axios.com/" target="_blank" rel="noreferrer">Axios</a>
+            <a href="https://www.politico.com/" target="_blank" rel="noreferrer">Politico</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-body">
+          <div class="badges"><span class="badge follow">🔄 接續報導</span></div>
+          <h3>Meta AI 基建轉向金融工程，資料中心開始吸引 Wall Street 與主權資金</h3>
+          <p>相對前幾天 Meta AI 的組織與士氣問題，今天的新角度是基礎設施融資：Meta 透過華爾街與主權資金支持 AI 資料中心擴張，顯示大型 AI 公司正把 GPU、電力與資料中心帳單轉成可金融化的長期資產。</p>
+          <div class="source-row">
+            <time datetime="2026-06-19T00:00:00+08:00">2026-06-19</time>
+            <span>來源：</span>
+            <a href="https://www.ft.com/" target="_blank" rel="noreferrer">Financial Times</a>
+            <a href="https://www.wsj.com/" target="_blank" rel="noreferrer">Wall Street Journal</a>
+            <a href="https://economictimes.indiatimes.com/tech/artificial-intelligence" target="_blank" rel="noreferrer">The Economic Times</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。單一來源題目已降權並明確標示。
+    </footer>
+  </main>
+</body>
+</html>
