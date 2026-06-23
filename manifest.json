@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "date": "2026-06-23",
+      "path": "news/2026-06-23/2026-06-23.html",
+      "title": "AI 情報日刊 — 2026-06-23"
+    },
+    {
+      "date": "2026-06-22",
+      "path": "news/2026-06-22/2026-06-22.html",
+      "title": "AI 情報日刊 — 2026-06-22"
+    },
+    {
       "date": "2026-06-19",
       "path": "news/2026-06-19/2026-06-19.html",
       "title": "AI 情報日刊 — 2026-06-19"
@@ -39,19 +49,21 @@
       "date": "2026-06-10",
       "path": "news/2026-06-10/2026-06-10.html",
       "title": "AI 情報日刊 — 2026-06-10"
-    },
-    {
-      "date": "2026-06-09",
-      "path": "news/2026-06-09/2026-06-09.html",
-      "title": "AI 情報日刊 — 2026-06-09"
-    },
-    {
-      "date": "2026-06-08",
-      "path": "news/2026-06-08/2026-06-08.html",
-      "title": "AI 情報日刊 — 2026-06-08"
     }
   ],
   "summary": [
+    {
+      "date": "2026-06-23",
+      "path": "summary/20260623_dario_amodei_circuit_interview/dario_amodei_circuit_magazine.html",
+      "title": "在指數曲線的另一側｜Dario Amodei 深度訪談摘要",
+      "hero": "summary/20260623_dario_amodei_circuit_interview/hero_exponential_ai_command_room.png"
+    },
+    {
+      "date": "2026-06-22",
+      "path": "summary/20260622_clear_thinking_genius/clear_thinking_systems_magazine.html",
+      "title": "真正的清晰，不是想得更快｜系統思考影片摘要",
+      "hero": "summary/20260622_clear_thinking_genius/hero_systems_thinking_map.png"
+    },
     {
       "date": "2026-06-18",
       "path": "summary/20260618_graham_weaver_full_power/graham_weaver_full_power_magazine.html",
@@ -99,18 +111,6 @@
       "path": "summary/20260606_Dan_Martell_1900_books_rich_magazine_brief/Dan_Martell_1900_books_rich_magazine_brief.html",
       "title": "讀 1900 本書之後，真正值錢的不是書單 | Dan Martell 影片摘要",
       "hero": "summary/20260606_Dan_Martell_1900_books_rich_magazine_brief/Dan_Martell_1900_books_hero_editorial.png"
-    },
-    {
-      "date": "2026-06-05",
-      "path": "summary/20260605_Dan_Martell_AI_money_changed_magazine_brief/Dan_Martell_AI_money_changed_magazine_brief.html",
-      "title": "AI 不是副業工具，是一套新公司的營運骨架 | Dan Martell 影片摘要",
-      "hero": "summary/20260605_Dan_Martell_AI_money_changed_magazine_brief/Dan_Martell_AI_money_hero_editorial.png"
-    },
-    {
-      "date": "2026-06-04",
-      "path": "summary/20260604_Sandeep_Swadia_Claude_better_magazine_brief/Sandeep_Swadia_Claude_better_magazine_brief.html",
-      "title": "把 Claude 從聊天框，變成你的私人工作室 | 一頁式雜誌摘要",
-      "hero": "summary/20260604_Sandeep_Swadia_Claude_better_magazine_brief/Claude_better_hero_editorial.png"
     }
   ]
 }

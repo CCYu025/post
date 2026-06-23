@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>在指數曲線的另一側｜Dario Amodei 深度訪談摘要</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #151719;
+      --muted: #5e666d;
+      --paper: #f4f0e8;
+      --paper-2: #fffaf1;
+      --line: #c9c0b0;
+      --night: #111820;
+      --teal: #1e6d70;
+      --amber: #b46b35;
+      --rose: #8c3f3f;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Serif TC", "Noto Serif CJK TC", "Source Han Serif TC", Georgia, serif;
+      line-height: 1.82;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(30, 109, 112, 0.45);
+      text-underline-offset: 0.22em;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      background: var(--night);
+      color: #fff8ed;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9, 13, 18, 0.9) 0%, rgba(9, 13, 18, 0.68) 35%, rgba(9, 13, 18, 0.18) 73%, rgba(9, 13, 18, 0.42) 100%),
+        linear-gradient(0deg, rgba(9, 13, 18, 0.88) 0%, rgba(9, 13, 18, 0.04) 46%);
+      z-index: -1;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 80px 0 42px;
+    }
+
+    .kicker {
+      margin: 0 0 20px;
+      color: #d9b27a;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: 4.3rem;
+      line-height: 1.04;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .dek {
+      max-width: 680px;
+      margin: 28px 0 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 1.16rem;
+      line-height: 1.9;
+      color: rgba(255, 248, 237, 0.86);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 28px;
+      color: rgba(255, 248, 237, 0.74);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .hero-caption,
+    figcaption {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .hero-caption {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 10px auto 0;
+      color: #7b8186;
+    }
+
+    main {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .opening {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.55fr);
+      gap: 42px;
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 1.48rem;
+      line-height: 1.78;
+      font-weight: 700;
+    }
+
+    .brief {
+      border-left: 3px solid var(--teal);
+      padding-left: 20px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: #30363a;
+    }
+
+    .brief p {
+      margin: 0 0 14px;
+      font-size: 0.98rem;
+      line-height: 1.74;
+    }
+
+    .section {
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section h2 {
+      margin: 0 0 24px;
+      max-width: 760px;
+      font-size: 2.18rem;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .section p {
+      max-width: 820px;
+      margin: 0 0 22px;
+      font-size: 1.08rem;
+    }
+
+    .pull {
+      margin: 36px 0;
+      padding: 28px 0 28px 30px;
+      max-width: 900px;
+      border-left: 6px solid var(--amber);
+      font-size: 1.64rem;
+      line-height: 1.45;
+      font-weight: 900;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .ledger {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .ledger div {
+      padding-top: 16px;
+      border-top: 4px solid var(--teal);
+    }
+
+    .ledger strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .ledger span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.72;
+    }
+
+    .wide-image {
+      margin: 8px 0 46px;
+    }
+
+    .wide-image img {
+      width: 100%;
+      border-radius: 2px;
+    }
+
+    .source {
+      padding: 52px 0 70px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: #363b3f;
+    }
+
+    .source h2 {
+      margin: 0 0 16px;
+      font-size: 1.32rem;
+      font-family: "Noto Serif TC", "Noto Serif CJK TC", "Source Han Serif TC", Georgia, serif;
+    }
+
+    .source p {
+      max-width: 840px;
+      margin: 0 0 12px;
+      font-size: 0.94rem;
+      line-height: 1.75;
+    }
+
+    .timestamp {
+      color: var(--rose);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        min-height: 86vh;
+      }
+
+      .hero-inner,
+      main,
+      .hero-caption {
+        width: min(100% - 28px, var(--max));
+      }
+
+      h1 {
+        font-size: 2.82rem;
+        line-height: 1.08;
+      }
+
+      .dek {
+        font-size: 1.04rem;
+      }
+
+      .opening,
+      .grid-two,
+      .ledger {
+        grid-template-columns: 1fr;
+      }
+
+      .opening {
+        padding-top: 54px;
+      }
+
+      .lead {
+        font-size: 1.24rem;
+      }
+
+      .section h2 {
+        font-size: 1.82rem;
+      }
+
+      .pull {
+        padding-left: 18px;
+        font-size: 1.34rem;
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero-inner {
+        padding-top: 72px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .dek {
+        font-size: 1rem;
+        max-width: 720px;
+      }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .hero { min-height: auto; color: #111; background: #fff; }
+      .hero img, .hero::after { display: none; }
+      a { color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero_exponential_ai_command_room.png" alt="AI 生成的夜間辦公室影像，一位人物望向城市上升的指數曲線">
+    <div class="hero-inner">
+      <p class="kicker">Bloomberg Originals Extended Interview</p>
+      <h1>在指數曲線的另一側</h1>
+      <p class="dek">Dario Amodei 在訪談裡談的不是一家公司如何變大，而是當 AI 速度超過制度反應時，一個私人企業領導者如何為商業、工作、戰爭與公共信任尋找可承受的邊界。</p>
+      <div class="meta">
+        <span>Inside the Mind of Anthropic CEO Dario Amodei</span>
+        <span>約 70 分鐘訪談摘要</span>
+        <span>讀者：一般大眾</span>
+      </div>
+    </div>
+  </header>
+  <p class="hero-caption">AI-generated editorial image, not a video screenshot.</p>
+
+  <main>
+    <section class="opening" aria-label="article opening">
+      <p class="lead">這場訪談最值得讀的地方，不在於 Dario Amodei 是否比其他 AI 執行長更謹慎，也不在於 Anthropic 是否終於坐上產業中心。真正的主題是：如果 AI 是一條「平滑的指數曲線」，那麼人類社會最危險的反應，可能不是無知，而是忽冷忽熱的恐慌。</p>
+      <aside class="brief">
+        <p>Amodei 反覆使用一個詞：冷靜。他不主張停下來，也不主張把風險輕描淡寫。他描述的管理姿態更像外科手術：承認危險、保持節奏、逐步加上控制。</p>
+        <p>這也是整支影片的張力。Anthropic 同時是一家估值飆升、需求爆炸、深度嵌入國防與企業客戶的公司，又試圖說服外界：它仍有能力為自己設下界線。</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>速度，是這個故事的第一個角色</h2>
+      <p>訪談一開始，主持人問他睡得如何。Amodei 的回答很生活化，卻立刻把氣氛帶進高壓狀態：他說自己正在學習如何在「不尋常的壓力」中休息。接著他用相對論式的比喻描述 AI 產業：彷彿你每天醒來，地球已經過了更多天。昨天要處理兩天的事，今天變三天，明天變四天。</p>
+      <p>這不是誇張的科技宣傳語，而是他理解 AI 的核心框架：世界不是突然轉彎，而是長期沿著同一條曲線上升，只是人在曲線變陡時才感覺到「一切突然發生」。他說 Anthropic 的成長、公司與世界的反應，都像這條「平滑指數曲線」。</p>
+      <p>因此，他批評兩種反應：一種是假裝沒事，另一種是今天突然大喊要全面恐慌。成熟決策不是在否認與驚慌之間擺盪，而是在曲線上升時，讓防護、治理與商業判斷同步升級。</p>
+      <div class="pull">他真正反對的不是擔心，而是沒有節奏的擔心。</div>
+    </section>
+
+    <section class="section">
+      <h2>為什麼 Anthropic 選擇企業，而不是讓人上癮的消費產品</h2>
+      <p>當主持人問到 Claude Code 與企業市場，Amodei 把商業模式說成價值選擇。他的理由很直接：大型模型極其昂貴，必須有商業模式；但如果商業模式與價值觀衝突，公司最後不是背叛價值，就是變得無關緊要。</p>
+      <p>他把消費網路與廣告驅動模式放在對照面：注意力、停留時間、成癮與內容垃圾，會把產品帶往錯誤方向。相較之下，他認為企業客戶更重視長期信任、可靠交付與真實效用。藥物設計、能源效率、教育、開發中國家健康、經濟成長，這些他眼中的 AI 正向用途，大多發生在企業、研究機構、非營利組織與政府之間。</p>
+      <p>這裡的關鍵不是「企業比較高尚」，而是誘因比較不容易直接懲罰節制。對一般讀者來說，這是一個重要提醒：AI 產品的危險不只來自模型能力，也來自它被放進哪一種收入模型。</p>
+      <div class="ledger" aria-label="business model comparison">
+        <div>
+          <strong>企業市場</strong>
+          <span>重視穩定、責任、長期關係；比較容易把安全與信任變成產品價值。</span>
+        </div>
+        <div>
+          <strong>消費注意力</strong>
+          <span>容易追求使用時長與刺激感；模型越會生成內容，越可能放大垃圾與成癮。</span>
+        </div>
+        <div>
+          <strong>真正的護城河</strong>
+          <span>不再只是寫出複雜軟體，而是客戶關係、領域知識、信任與新的協作方式。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>白領工作不是消失或不消失，而是重新分配得夠不夠快</h2>
+      <p>影片中最貼近大眾的段落，是他談工作。Amodei 曾警告 AI 可能在一到五年內衝擊大量入門白領工作；在這次訪談中，他補上上下文：這不是「末日即將來臨」的口號，而是「我們需要預先處理」的風險估計。</p>
+      <p>他描述的可能未來很矛盾：GDP 快速成長，但失業、低薪、低度就業與不平等也同時上升。原因是 AI 先提高人的生產力，接著在某些任務上可能直接比人更適合執行。Anthropic 內部的軟體工程師也正在經歷這種轉變：一開始是 AI 幫人寫更多程式，後來某些工作可能變成 AI 直接完成。</p>
+      <p>但他沒有把未來說成單向崩塌。他提到新的需求會出現，例如前線部署工程師、應用 AI 解決方案架構師，以及需要技術能力又能與客戶溝通的人。更廣義地說，物理世界、人際關係、醫療照護、價值判斷與指揮 AI 的角色，可能會變得更重要。</p>
+      <p>這段對一般人最實用的翻譯是：不要只問「我的工作會不會被取代」，而要問「我現在的價值，是不是只存在於可被模型快速複製的資訊處理」。如果答案是肯定的，就要把自己移向領域判斷、人的信任、實體世界、跨部門協調與問題定義。</p>
+    </section>
+
+    <figure class="wide-image">
+      <img src="governance_balance_ai_cube.png" alt="AI 生成的靜物影像，企業、政府與公眾圍繞一個黑色 AI 運算方塊形成制衡">
+      <figcaption>AI-generated editorial image, not a video screenshot.</figcaption>
+    </figure>
+
+    <section class="section">
+      <h2>最棘手的不是模型會不會用於戰爭，而是誰來畫紅線</h2>
+      <div class="grid-two">
+        <div>
+          <p>訪談最尖銳的部分發生在國防段落。主持人追問：一位有反戰背景的人，為何讓 Anthropic 成為最早與美國國防部合作、進入機密網路的 AI 公司之一？Amodei 的回答是地緣政治。他提到俄羅斯入侵烏克蘭、中國攻台風險，以及一個「重新抬頭的威權陣營」。</p>
+          <p>他支持美國及盟友擁有更強情報與防禦能力，卻同時主張 AI 不能被用於完全自主的致命武器。他承認，供應商不可能逐一決定政府每一次軍事行動是否可用某項技術；但他認為公司仍可設定高層次界線，避免最危險的用途被正常化。</p>
+        </div>
+        <div>
+          <p>這也是訪談的道德難題：AI 若能協助情報分析，可能降低誤判、嚇阻衝突；但若被放進缺乏監督的殺傷流程，也可能加速錯誤。Amodei 用《奇愛博士》式的自動化核戰比喻提醒：真正可怕的不是有工具，而是工具在雙方誤判時自動替人按下按鈕。</p>
+          <p>對讀者而言，這段不是要你站隊某家公司，而是看見一個新現實：AI 公司的產品決策，已經不只是商業決策，也可能成為國家安全制度的一部分。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Mythos：把漏洞補起來，還是把武器交出去？</h2>
+      <p>Amodei 談到 Anthropic 內部一個代號為 Mythos 的模型，說它在資安上出現巨大躍升：不只是找出漏洞，還能把漏洞轉成可利用的攻擊路徑。部分早期試用的公司甚至要求 Anthropic 不要公開釋出，因為它太強。</p>
+      <p>他的辯護是「先給防守方」。如果模型可以找出大量軟體漏洞，那麼最好的情境是先讓防守者修補系統，再逐步開放能力；否則同樣能力若先落入攻擊者手中，整個網路生態會變得更脆弱。訪談中他提到，Mythos 曾在 Firefox 找到 271 個新漏洞，也在私人公司程式庫中找到更多尚未公開的問題。</p>
+      <p>但這套說法也暴露出 AI 治理的困境：誰有資格決定什麼叫「防守方」？政府建議放慢、客戶催促開放、公司承受商業損失，所有人都可能有合理理由。Amodei 說，這不是社群媒體上幾句「行銷話術」能解決的問題，而是社會必須共同承擔的取捨。</p>
+    </section>
+
+    <section class="section">
+      <h2>私人公司掌握公共權力，政府也不能毫無制衡</h2>
+      <p>當主持人問「政府為什麼不直接接管」時，Amodei 承認這是嚴肅問題。他指出，核武、網際網路、GPS、手機等過去強大技術，最初都與政府或公共研發體系密切相關；但 AI 是第一個主要由私人部門推進、政府較晚進場的強大技術。這在他看來是不穩定，也危險的。</p>
+      <p>他不支持政府直接接管 Anthropic，卻主張公司與政府都必須被制衡。他提到 Anthropic 的 long-term benefit trust 結構，可以任命或移除多數董事，理論上也能間接撤換 CEO。這是把公共治理的一部分元素放進公司制度裡。</p>
+      <p>另一方面，他也認為政府需要被國會、司法與透明制度約束。AI 需要基本監管，例如模型發布前測試、稽核與紅線。他真正反對的是極端擺盪：前一天還說任何透明度與出口管制都會摧毀創新，隔天看到危險又喊國有化。對他來說，穩健的答案是逐步加碼的治理，而不是從放任跳到接管。</p>
+    </section>
+
+    <section class="section">
+      <h2>中國、開源模型與「AI 會站在哪一邊」</h2>
+      <p>Amodei 對中國的態度在訪談中很明確。他擔心的不只是競爭，而是高科技威權體制把 AI 用於監控、壓制異議與跨境影響。他提到香港、維吾爾人，以及威權國家結合 AI 可能形成「1984 或更糟」的未來。</p>
+      <p>他也談到中國開源模型。短期看，較落後的模型仍可能有經濟價值；但在他眼中，前沿模型的價值會因能力差距而持續放大。真正讓他擔心的是：今天最前沿的資安能力，十二個月後可能出現在可下載的落後模型裡。這不是單純的產品競爭，而是能力外溢的安全問題。</p>
+      <p>這裡的核心問題是：AI 會成為民主社會擴大自由的工具，還是威權體制擴大控制的工具？Amodei 的答案不是技術自動會選邊，而是公司、政府與社會行動會把它推向某個方向。</p>
+    </section>
+
+    <section class="section">
+      <h2>信任不是形象，而是一串付出代價的決定</h2>
+      <p>訪談尾聲，主持人問了一個所有 AI 公司都必須面對的問題：你們打造了極其強大的東西，也會從中獲得巨大利益，為什麼外界應該信任你？</p>
+      <p>Amodei 沒有要求外界先信任。他反而說，從不信任開始是合理的，因為矽谷已經失去太多信任。Anthropic 想證明自己不同，只能靠行動。他列舉延遲 Claude 2、切斷某些中國相關模型存取、Mythos 不立即公開釋出等例子，說這些都讓公司承受實際商業成本。</p>
+      <p>但這篇摘要最應保留的不是他的自我辯護，而是判斷標準：在 AI 時代，值得信任的公司不是從來不犯錯的公司，而是願意在有利可圖時仍設限、願意被制度約束、願意把危險說清楚，並讓外界檢視它是否真的付出代價。</p>
+      <div class="pull">AI 的未來不是「相信誰」的問題，而是「誰必須被檢查」的問題。</div>
+    </section>
+
+    <section class="source">
+      <h2>來源說明</h2>
+      <p>原始影片：<a href="https://www.youtube.com/watch?v=x2VHFgyawPE&t=25s">Inside the Mind of Anthropic CEO Dario Amodei | The Circuit | Extended Interview</a>，Bloomberg Originals，影片 metadata 顯示發布日期為 2026-06-17，長度約 70 分 04 秒。</p>
+      <p>本文依 YouTube 英文自動字幕整理，並以影片 metadata 與字幕時間軸核對主題順序。自動字幕可能含有姓名、產品名或專有名詞誤聽，因此本文採摘要與意譯，不作逐字引用。</p>
+      <p>本文圖片為 AI 生成的編輯視覺，不是影片截圖，也不代表受訪者本人或 Bloomberg / Anthropic 官方素材。</p>
+    </section>
+  </main>
+</body>
+</html>

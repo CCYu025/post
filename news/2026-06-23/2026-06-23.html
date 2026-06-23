@@ -1,0 +1,189 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選｜2026-06-23</title>
+  <style>
+    :root {
+      --ink:#101418;
+      --paper:#f4f0e6;
+      --panel:#fbf8ef;
+      --cyan:#00c2cf;
+      --green:#91d95a;
+      --red:#d94c45;
+      --line:#1d2429;
+      --muted:#5d676f;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; max-width:100%; overflow-x:hidden; background:var(--ink); color:var(--ink); }
+    body { font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; line-height:1.65; }
+    img { max-width:100%; display:block; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap:anywhere; }
+    a { color:inherit; text-decoration-color: rgba(0,194,207,.65); text-underline-offset:3px; }
+    .page { width:100%; background:linear-gradient(90deg,#f7f2e5 0%,#ece7d8 54%,#f5f1e4 100%); }
+    .topbar { border-bottom:4px solid var(--line); background:var(--ink); color:var(--paper); }
+    .topbar-inner { max-width:1180px; margin:0 auto; padding:14px 22px; display:flex; justify-content:space-between; gap:18px; align-items:center; font-size:13px; letter-spacing:0; }
+    .tag { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.32); padding:3px 9px; color:var(--green); text-transform:uppercase; font-weight:800; }
+    .cover { max-width:1180px; margin:0 auto; padding:24px 22px 28px; display:grid; grid-template-columns:1.06fr .94fr; gap:22px; border-left:4px solid var(--line); border-right:4px solid var(--line); }
+    .mast { border-bottom:8px solid var(--line); padding-bottom:16px; }
+    .date { font-family: Georgia, "Times New Roman", serif; font-size:18px; font-weight:700; color:var(--red); }
+    h1 { margin:8px 0 8px; font-family: Georgia, "Times New Roman", serif; font-size:clamp(48px, 7vw, 96px); line-height:.9; letter-spacing:0; }
+    .subtitle { max-width:760px; font-size:20px; color:#263037; font-weight:700; }
+    .hero { border:4px solid var(--line); background:#0d1416; min-height:360px; display:flex; align-items:stretch; }
+    .hero img { width:100%; height:100%; object-fit:cover; min-height:360px; }
+    .lead-card { border:4px solid var(--line); background:var(--panel); padding:18px; display:flex; flex-direction:column; justify-content:space-between; min-height:360px; }
+    .label { display:inline-flex; width:max-content; max-width:100%; padding:3px 8px; border:2px solid var(--line); background:var(--cyan); color:#061214; font-size:12px; font-weight:900; }
+    .lead-card h2 { margin:18px 0 10px; font-family: Georgia, "Times New Roman", serif; font-size:34px; line-height:1.05; letter-spacing:0; }
+    .lead-card p { margin:0 0 14px; font-size:17px; font-weight:650; }
+    .source-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:var(--muted); font-size:13px; }
+    .source-list a { color:#172126; font-weight:800; }
+    .section { max-width:1180px; margin:0 auto; padding:24px 22px; border-left:4px solid var(--line); border-right:4px solid var(--line); border-top:4px solid var(--line); }
+    .section-title { margin:0 0 18px; display:flex; align-items:center; gap:12px; font-family: Georgia, "Times New Roman", serif; font-size:32px; line-height:1; }
+    .section-title::after { content:""; height:4px; background:var(--line); flex:1; min-width:30px; }
+    .grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; }
+    article { border:3px solid var(--line); background:rgba(251,248,239,.92); padding:16px; min-width:0; position:relative; box-shadow:6px 6px 0 rgba(16,20,24,.16); }
+    article::before { content:""; display:block; height:8px; margin:-16px -16px 14px; background:linear-gradient(90deg,var(--cyan),var(--green) 58%,var(--red)); border-bottom:3px solid var(--line); }
+    article h3 { margin:8px 0 8px; font-size:21px; line-height:1.22; letter-spacing:0; }
+    article p { margin:0 0 12px; color:#263037; }
+    .meta { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:10px; }
+    .pill { border:2px solid var(--line); background:#fff; padding:2px 7px; font-size:12px; font-weight:900; line-height:1.35; }
+    .pill.track { background:#101418; color:#fff; }
+    .sources { border-top:2px solid var(--line); padding-top:10px; color:var(--muted); font-size:13px; display:grid; gap:5px; }
+    .sources time { color:#34404a; font-weight:700; }
+    .note { max-width:1180px; margin:0 auto; padding:18px 22px 34px; border:4px solid var(--line); border-top:0; background:var(--ink); color:var(--paper); font-size:13px; }
+    @media (max-width: 820px) {
+      .topbar-inner { align-items:flex-start; flex-direction:column; }
+      .cover { grid-template-columns:1fr; padding:18px 14px 20px; border-left:0; border-right:0; }
+      .hero, .hero img, .lead-card { min-height:auto; }
+      .hero img { aspect-ratio:16/10; }
+      .grid { grid-template-columns:1fr 1fr; }
+      .section { padding:20px 14px; border-left:0; border-right:0; }
+      .lead-card h2 { font-size:28px; }
+      .subtitle { font-size:18px; }
+    }
+    @media (max-width: 560px) {
+      h1 { font-size:44px; line-height:.95; }
+      .grid { grid-template-columns:1fr; }
+      article { box-shadow:4px 4px 0 rgba(16,20,24,.16); }
+      .section-title { font-size:26px; align-items:flex-start; }
+      .source-list, .sources { font-size:12px; }
+      .topbar-inner { padding:12px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <span class="tag">AI Daily Brief</span>
+        <span>2026-06-23｜過去 24 小時全球 AI 新聞精選</span>
+      </div>
+    </header>
+
+    <section class="cover">
+      <div>
+        <div class="mast">
+          <div class="date">Tuesday, June 23, 2026</div>
+          <h1>機器進場，防線升級</h1>
+          <p class="subtitle">今天的 AI 新聞不再只問模型多聰明，而是誰能把算力、記憶體、機器人與資安責任放進真實營運。</p>
+        </div>
+        <div class="hero" aria-label="AI 資安、機器人與基礎設施主視覺">
+          <img src="2026-06-23-hero.png" alt="深夜指揮室中的機器手臂、伺服器與資安地圖">
+        </div>
+      </div>
+      <article class="lead-card">
+        <div>
+          <span class="label">今日主線</span>
+          <h2>Five Eyes 警告 AI 資安風險進入倒數，企業防禦不能等模型成熟後才補課</h2>
+          <p>五眼聯盟情報與資安機構警告，新一代 AI 模型可能在數月內放大漏洞發現與攻擊自動化能力，企業需把 AI 風險視為核心營運風險。</p>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜2026-06-22 23:17 GMT</li>
+          <li><a href="https://www.rnz.co.nz/" target="_blank" rel="noreferrer">RNZ</a>｜2026-06-22 20:07 GMT</li>
+          <li><a href="https://www.smh.com.au/" target="_blank" rel="noreferrer">The Sydney Morning Herald</a>｜2026-06-22 14:01 GMT</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">持續追蹤</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>Micron 供應 Anthropic，模型戰轉向記憶體長約</h3>
+          <p>相較前幾天只看模型公司估值與人才流動，最新增量是 Anthropic 與 Micron 簽下 AI 記憶體與儲存基礎設施協議，供應鏈鎖定開始變成競爭本體。</p>
+          <div class="sources">
+            <span><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜<time>2026-06-22 20:20 GMT</time></span>
+            <span><a href="https://finance.yahoo.com/" target="_blank" rel="noreferrer">Yahoo Finance</a>｜<time>2026-06-22 13:00 GMT</time></span>
+            <span><a href="https://www.hpcwire.com/" target="_blank" rel="noreferrer">HPCwire</a>｜<time>2026-06-22 14:08 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>Google 研究人才外流擴大，市場把 AI 人才戰重新計價</h3>
+          <p>繼 John Jumper 與 Noam Shazeer 相關報導後，市場反應集中到 Alphabet 股價與市值壓力，人才移動已被投資人視為模型實力的即時訊號。</p>
+          <div class="sources">
+            <span><a href="https://www.investors.com/" target="_blank" rel="noreferrer">Investor's Business Daily</a>｜<time>2026-06-22 18:36 GMT</time></span>
+            <span><a href="https://finance.yahoo.com/" target="_blank" rel="noreferrer">Yahoo Finance</a>｜<time>2026-06-22 21:34 GMT</time></span>
+            <span><a href="https://www.thetimes.co.uk/" target="_blank" rel="noreferrer">The Times</a>｜<time>2026-06-22 18:35 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">基礎設施與實體 AI</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>NVIDIA 推 Halos，機器人安全從展示場走進工廠規格</h3>
+          <p>NVIDIA 發表 Halos for Robotics，主打 physical AI 的全棧安全系統，讓機器人部署開始面對驗證、感測與現場責任問題。</p>
+          <div class="sources">
+            <span><a href="https://nvidianews.nvidia.com/news/nvidia-announces-halos-for-robotics-the-industrys-first-full-stack-safety-system-for-physical-ai" target="_blank" rel="noreferrer">NVIDIA Newsroom</a>｜<time>2026-06-22 13:05 GMT</time></span>
+            <span><a href="https://siliconangle.com/" target="_blank" rel="noreferrer">SiliconANGLE</a>｜<time>2026-06-22 13:00 GMT</time></span>
+            <span><a href="https://www.therobotreport.com/" target="_blank" rel="noreferrer">The Robot Report</a>｜<time>2026-06-22 15:07 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>Groq 募資 6.5 億美元，推理雲成為 GPU 之外的算力賽道</h3>
+          <p>Groq 宣布 6.5 億美元募資，用於擴張 AI inference cloud，顯示企業工作負載正在把低延遲推理能力推成獨立基礎設施市場。</p>
+          <div class="sources">
+            <span><a href="https://groq.com/" target="_blank" rel="noreferrer">Groq</a>｜<time>2026-06-22 00:00 GMT</time></span>
+            <span><a href="https://techcrunch.com/" target="_blank" rel="noreferrer">TechCrunch</a>｜<time>2026-06-22 20:13 GMT</time></span>
+            <span><a href="https://siliconangle.com/" target="_blank" rel="noreferrer">SiliconANGLE</a>｜<time>2026-06-22 20:06 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>AWS 補強企業 Agent 工具，代理系統進入治理與上下文管理階段</h3>
+          <p>AWS 推出面向企業 AI agents 的新工具，焦點不只是生成答案，而是讓 agent 在企業資料、權限與工作流裡更可控地執行任務。</p>
+          <div class="sources">
+            <span><a href="https://www.hpcwire.com/" target="_blank" rel="noreferrer">HPCwire</a>｜<time>2026-06-22 16:06 GMT</time></span>
+            <span><a href="https://www.techtimes.com/" target="_blank" rel="noreferrer">Tech Times</a>｜<time>2026-06-22 13:15 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">政治與治理</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill">New Angle</span></div>
+          <h3>AI 資金瞄準美國期中選舉，監管戰線從州初選擴大到國會版圖</h3>
+          <p>NPR 追蹤科技與 AI 團體如何布局期中選舉，新的切角是政治資金不只影響單一州初選，而是在提前塑造國會對 AI 監管的組成。</p>
+          <div class="sources">
+            <span><a href="https://www.npr.org/" target="_blank" rel="noreferrer">NPR</a>｜<time>2026-06-22 09:00 GMT</time></span>
+            <span><a href="https://apnews.com/" target="_blank" rel="noreferrer">Associated Press</a>｜<time>2026-06-18</time></span>
+            <span><a href="https://www.theguardian.com/" target="_blank" rel="noreferrer">The Guardian</a>｜<time>2026-06-22</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="note">本頁依過去 24 小時全球 AI 新聞整理；每則至少以兩個獨立來源交叉確認，標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。</footer>
+  </main>
+</body>
+</html>
