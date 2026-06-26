@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>先把斧頭磨利｜Simon Sinek 演講摘要</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1c1b18;
+      --muted: #686157;
+      --paper: #f5efe4;
+      --paper-soft: #fff9ef;
+      --line: #d3c5ad;
+      --forest: #25473a;
+      --moss: #5f6f45;
+      --amber: #b56b34;
+      --clay: #8b4e3e;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Serif TC", "Noto Serif CJK TC", "Source Han Serif TC", Georgia, serif;
+      line-height: 1.82;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(37, 71, 58, 0.45);
+      text-underline-offset: 0.22em;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      color: #fff9ef;
+      background: #1c211b;
+      isolation: isolate;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(23, 24, 19, 0.82) 0%, rgba(23, 24, 19, 0.64) 36%, rgba(23, 24, 19, 0.2) 75%),
+        linear-gradient(0deg, rgba(23, 24, 19, 0.84) 0%, rgba(23, 24, 19, 0.08) 54%);
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 80px 0 42px;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e7c18a;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: 4.3rem;
+      line-height: 1.04;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .dek {
+      max-width: 700px;
+      margin: 28px 0 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 1.14rem;
+      line-height: 1.9;
+      color: rgba(255, 249, 239, 0.87);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 26px;
+      color: rgba(255, 249, 239, 0.72);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .hero-caption,
+    figcaption {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .hero-caption {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 10px auto 0;
+    }
+
+    main {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .opening {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: 44px;
+      padding: 74px 0 52px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 1.46rem;
+      line-height: 1.76;
+      font-weight: 800;
+    }
+
+    .side-note {
+      padding-left: 22px;
+      border-left: 4px solid var(--forest);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: #37342f;
+    }
+
+    .side-note p {
+      margin: 0 0 15px;
+      font-size: 0.98rem;
+      line-height: 1.78;
+    }
+
+    .section {
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section h2 {
+      max-width: 820px;
+      margin: 0 0 24px;
+      font-size: 2.16rem;
+      line-height: 1.24;
+      letter-spacing: 0;
+    }
+
+    .section p {
+      max-width: 830px;
+      margin: 0 0 22px;
+      font-size: 1.08rem;
+    }
+
+    .pull {
+      max-width: 920px;
+      margin: 36px 0;
+      padding: 28px 0 28px 30px;
+      border-left: 6px solid var(--amber);
+      font-size: 1.62rem;
+      line-height: 1.45;
+      font-weight: 900;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 36px;
+      align-items: start;
+    }
+
+    .index {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .index div {
+      min-height: 142px;
+      padding: 16px 0 0;
+      border-top: 4px solid var(--moss);
+    }
+
+    .index strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #23251f;
+    }
+
+    .index span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.91rem;
+      line-height: 1.72;
+    }
+
+    .wide-image {
+      margin: 8px 0 46px;
+    }
+
+    .wide-image img {
+      border-radius: 2px;
+    }
+
+    .source {
+      padding: 52px 0 72px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: #37342f;
+    }
+
+    .source h2 {
+      margin: 0 0 16px;
+      font-family: "Noto Serif TC", "Noto Serif CJK TC", "Source Han Serif TC", Georgia, serif;
+      font-size: 1.32rem;
+    }
+
+    .source p {
+      max-width: 860px;
+      margin: 0 0 12px;
+      font-size: 0.94rem;
+      line-height: 1.76;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: 86vh;
+      }
+
+      .hero-inner,
+      .hero-caption,
+      main {
+        width: min(100% - 28px, var(--max));
+      }
+
+      h1 {
+        font-size: 2.82rem;
+        line-height: 1.08;
+      }
+
+      .dek {
+        font-size: 1.04rem;
+      }
+
+      .opening,
+      .feature-grid,
+      .index {
+        grid-template-columns: 1fr;
+      }
+
+      .opening {
+        padding-top: 56px;
+      }
+
+      .lead {
+        font-size: 1.24rem;
+      }
+
+      .section h2 {
+        font-size: 1.82rem;
+      }
+
+      .pull {
+        padding-left: 18px;
+        font-size: 1.32rem;
+      }
+
+      .index div {
+        min-height: auto;
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero-inner {
+        padding-top: 72px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .dek {
+        font-size: 1rem;
+        max-width: 720px;
+      }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .hero { min-height: auto; color: #111; background: #fff; }
+      .hero img, .hero::after { display: none; }
+      a { color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero_sharpen_the_axe.png" alt="AI 生成的清晨工作坊影像，一雙手在木桌上磨利斧頭">
+    <div class="hero-inner">
+      <p class="kicker">Simon Sinek｜Life & Leadership Feature</p>
+      <h1>先把斧頭磨利</h1>
+      <p class="dek">這支影片表面上是幾段鼓舞人心的演講剪輯，真正談的卻是現代人最容易誤會的成功：不是再多撐一點，而是學會休息、求助、聆聽、負責，並把工作場所變成值得投入的地方。</p>
+      <div class="meta">
+        <span>Simon Sinek's Advice Will Leave You SPEECHLESS 2.0</span>
+        <span>約 18 分鐘摘要</span>
+        <span>讀者：一般大眾</span>
+      </div>
+    </div>
+  </header>
+  <p class="hero-caption">AI-generated editorial image, not a video screenshot.</p>
+
+  <main>
+    <section class="opening" aria-label="article opening">
+      <p class="lead">Simon Sinek 的語言很簡單：斧頭、貝果、咖啡杯、手機、會議室裡最後一個說話的人。也正因如此，他在這支影片裡談的不是抽象領導學，而是一種日常倫理：人若只把自己當成產出機器，最後會失去產出真正需要的東西。</p>
+      <aside class="side-note">
+        <p>影片由多段演講剪成，主題彼此相連：長期主義、追求目標、互相照顧、謙卑、責任、同理心、科技成癮，以及為何熱愛工作不該是少數人的幸運。</p>
+        <p>這篇摘要以雜誌專題方式重組，不把內容做成口號清單，而是追問：如果這些建議都是真的，我們今天的生活與職場到底哪裡設計錯了？</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>效率之前，先問你是否還有刀刃</h2>
+      <p>影片以兩個伐木工的故事開始：兩人同時開工、同時收工，其中一人每天中途消失一小時，卻總能砍更多木頭。答案不是他更拚，而是他回去磨斧頭。</p>
+      <p>Sinek 用這個故事把「無限思維」拉回日常。若人生只看一天的產出，休假、關機、離開辦公室似乎都是浪費；若看的是一整個職涯，甚至一生，那些讓你重新變鋒利的時間，就不是獎賞，而是工作本身的一部分。</p>
+      <p>這對一般人很刺耳，因為我們太習慣用忙碌證明自己。可是忙碌不等於力量，長期不休息的人，往往只是拿著鈍斧頭在表演勤奮。</p>
+      <div class="pull">真正成熟的自律，不是永遠在線，而是知道何時必須離線。</div>
+    </section>
+
+    <section class="section">
+      <h2>看見你想要的，還是看見阻礙你的？</h2>
+      <p>第二個故事發生在中央公園賽跑後的免費貝果桌前。朋友看到的是長長的隊伍，Sinek 看到的是貝果。於是他走到桌邊，在不妨礙別人的情況下拿了兩個。</p>
+      <p>這個故事容易被誤讀成「鑽漏洞」。但影片裡真正重要的界線是：你可以用自己的方式靠近目標，但不能阻止別人靠近他們的目標。這不是鼓勵自私，而是提醒我們，社會上很多「排隊」其實只是習慣，不是法律；很多「不行」其實是旁觀者替自己找的理由。</p>
+      <p>對生活中的普通人來說，這段話的力量不在於貝果，而在於視角。有人先看見渴望，有人先看見障礙。兩種視角長期累積，會變成兩種人生。</p>
+    </section>
+
+    <section class="section">
+      <h2>能撐到最後的人，通常不是最強的人</h2>
+      <p>Sinek 接著講到海豹部隊選拔。最終留下來的人，不一定是肌肉最壯、履歷最好、最想證明自己的人。真正撐過極限的人，是在自己也耗盡時，還能伸手幫身邊的人。</p>
+      <p>這段話把成功從個人英雄主義裡抽出來。世界太難，沒有人能完全靠自己完成重要的事。能求助、能接受幫助、能在別人脆弱時靠近，這些不是性格溫柔的附屬品，而是高壓環境中的生存技術。</p>
+      <p>他也指出，人們常常不是不願意幫你，而是不知道你需要。當一個人長期假裝一切都在掌控中，身邊的人就只能相信這個假象。求助不是失敗的證據；很多時候，它是關係開始變真的那一刻。</p>
+      <div class="index" aria-label="article themes">
+        <div>
+          <strong>休息</strong>
+          <span>不是逃避工作，而是讓自己仍有能力長期工作。</span>
+        </div>
+        <div>
+          <strong>追求</strong>
+          <span>看見目標，但不踩過別人的目標。</span>
+        </div>
+        <div>
+          <strong>互助</strong>
+          <span>在自己也疲憊時，仍能照看旁邊的人。</span>
+        </div>
+        <div>
+          <strong>聆聽</strong>
+          <span>先讓別人完整說完，才輪到自己的判斷。</span>
+        </div>
+      </div>
+    </section>
+
+    <figure class="wide-image">
+      <img src="listening_circle_styrofoam_cup.png" alt="AI 生成的會議休息室影像，保麗龍杯、筆記本、反扣手機與一圈空椅子">
+      <figcaption>AI-generated editorial image, not a video screenshot.</figcaption>
+    </figure>
+
+    <section class="section">
+      <h2>領導者最難的動作，是先閉嘴</h2>
+      <div class="feature-grid">
+        <div>
+          <p>Sinek 用 Nelson Mandela 的故事談聆聽。Mandela 小時候跟父親參加部落會議，記得兩件事：大家圍成圓圈，父親總是最後一個說話。</p>
+          <p>在許多會議室裡，主管以為自己很開放：先說「這是問題，這是我的看法，但我想聽大家意見」。Sinek 的判斷很嚴厲：太晚了。當權威先表態，其他人已經在調整自己的答案。</p>
+        </div>
+        <div>
+          <p>真正的聆聽不是等著反駁，也不是一邊點頭一邊暗自下結論，而是把自己的意見暫時收起來，只問問題，理解對方為何如此看。最後你仍會有發言權，但你得到的，不只是禮貌性的回應，而是更接近真實的資訊。</p>
+          <p>這對家庭、團隊與社會討論都適用。很多衝突不是因為人們沒有說話，而是因為太早有人佔據了結論的位置。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>有時候，問題就是你</h2>
+      <p>影片中最不舒服的一段，是產褥熱的歷史故事。醫生從屍體解剖室走進產房，沒有洗手，女性因此大量死亡。當有人指出醫生就是問題，醫界長期不願接受。</p>
+      <p>Sinek 用這段歷史談責任。人們很願意為做對的事拿功勞，卻不一定願意為做錯的事承擔後果。可是真正可信任的人與組織，兩者必須成比例：能接受掌聲，也能接受檢討。</p>
+      <p>這裡的重點不是自責，而是可修正性。只要問題永遠在別人身上，系統就無法學習。願意承認「我可能是原因之一」，才有機會讓事情真正變好。</p>
+    </section>
+
+    <section class="section">
+      <h2>你永遠值得的是那只普通杯子</h2>
+      <p>另一個故事來自一位前國防部高官。他曾以高位身分受邀演講，有專人接送、飯店安排、陶瓷杯咖啡。隔年離職後，他自己搭車、自己報到，拿到的是普通保麗龍杯。</p>
+      <p>Sinek 借此提醒：那些禮遇多半不是給「你」的，而是給你的職位。名聲、頭銜、資源、禮貌，都可能是位置帶來的光暈。人可以享受它們，但若誤以為那是自己本來就應得的，就會失去謙卑。</p>
+      <p>這是一個很現實的成人提醒。當你被稱為主管、專家、前輩、成功者時，最危險的不是別人尊敬你，而是你開始相信所有便利都來自你的本質。</p>
+    </section>
+
+    <section class="section">
+      <h2>別再問如何榨出更多，改問如何讓人自然變好</h2>
+      <p>影片後段轉向世代與職場。Sinek 批評一種常見問題：「如何從員工身上得到最多？」他認為這個問法本身就錯了，因為它把人當毛巾，好像只要用力擰，就能擠出更多。</p>
+      <p>更好的問題是：如何幫助人處在自然最佳狀態？這需要同理心。當一整個世代在工作、關係、信心與科技成癮中掙扎，也許問題不只是「他們」。領導者不能一邊設計出讓人焦慮的環境，一邊責怪人們不夠堅強。</p>
+      <p>Sinek 談手機與社群媒體時，把它描述為一種快速提供安慰的機制。按讚、訊息、通知會刺激多巴胺，帶來短暫愉悅；但這種回饋不一定教會人如何建立深層關係、如何面對壓力、如何向真實的人求助。</p>
+      <p>這段對一般大眾的意義不只是「少滑手機」。更深的是：當我們用裝置處理孤獨，用表演處理自卑，用效率處理焦慮，我們就會失去練習關係的機會。</p>
+    </section>
+
+    <section class="section">
+      <h2>熱愛工作，不該像中彩票</h2>
+      <p>影片最後回到工作。Sinek 說，能說「我愛我的工作」不應該像少數人的幸運，而應該是多數人可以要求的基本狀態。這不是天真浪漫，而是對領導者的要求：創造一個人願意來、願意彼此照顧、願意承認脆弱、願意接受修正的環境。</p>
+      <p>當人覺得安全，知道領導者關心的不只是數字，也關心自己的生命、信心、技能與成長，他們才會把努力變成個人的承諾。那時候，公司不是冷冰冰的外部目標，而是自己願意參與的共同作品。</p>
+      <p>這也是整支影片的收束：為不在乎的東西努力，叫壓力；為在乎的東西努力，才接近熱情。差別不只在工作內容，也在環境是否允許人把自己完整帶進來。</p>
+      <div class="pull">一個好職場，不是讓人忘記自己是人，而是讓人因為被當成人，才願意付出更多。</div>
+    </section>
+
+    <section class="source">
+      <h2>來源說明</h2>
+      <p>原始影片：<a href="https://www.youtube.com/watch?v=vCIu7Ja_TE0">Simon Sinek's Advice Will Leave You SPEECHLESS 2.0 (MUST WATCH)</a>，Alpha Mentors。影片 metadata 顯示發布日期為 2024-12-08，長度約 18 分 26 秒。</p>
+      <p>本文依 YouTube 英文自動字幕 `en-orig` 整理，並以影片 metadata、字幕清單與時間軸核對內容。字幕清單未顯示人工字幕；自動字幕可能包含姓名或詞句誤聽，因此本文採摘要與意譯，不作逐字稿替代。</p>
+      <p>本文圖片為 AI 生成的編輯視覺，不是影片截圖，也不代表 Simon Sinek 或 Alpha Mentors 官方素材。</p>
+    </section>
+  </main>
+</body>
+</html>
