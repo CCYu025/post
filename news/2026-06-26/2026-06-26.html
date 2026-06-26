@@ -1,0 +1,198 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選｜2026-06-26</title>
+  <style>
+    :root {
+      --ink:#101214;
+      --paper:#f5efe2;
+      --card:#fffaf0;
+      --teal:#00a6a6;
+      --brass:#b98b31;
+      --red:#d94735;
+      --muted:#606970;
+      --line:#141719;
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; max-width:100%; overflow-x:hidden; background:var(--ink); color:var(--ink); }
+    body { font-family:"Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; line-height:1.63; }
+    img { max-width:100%; display:block; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap:anywhere; }
+    a { color:inherit; text-decoration-color:rgba(0,166,166,.72); text-underline-offset:3px; }
+    .page { width:100%; background:linear-gradient(90deg,#f8f1df 0%,#eee4d0 54%,#f8f2e4 100%); }
+    .top { background:var(--ink); color:var(--paper); border-bottom:5px solid var(--teal); }
+    .top-inner { max-width:1180px; margin:0 auto; padding:12px 22px; display:flex; justify-content:space-between; gap:16px; align-items:center; font-size:13px; font-weight:850; }
+    .mark { display:inline-flex; border:1px solid rgba(245,239,226,.45); padding:3px 9px; color:#8ff3df; text-transform:uppercase; }
+    .cover { max-width:1180px; margin:0 auto; padding:24px 22px 26px; display:grid; grid-template-columns:1.04fr .96fr; gap:20px; border-left:4px solid var(--line); border-right:4px solid var(--line); }
+    .mast { padding:12px 0 16px; border-top:8px solid var(--line); border-bottom:4px solid var(--line); }
+    .date { color:var(--red); font-family:Georgia,"Times New Roman",serif; font-size:18px; font-weight:900; }
+    h1 { margin:7px 0 8px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(45px,7vw,92px); line-height:.92; letter-spacing:0; }
+    .subtitle { margin:0; max-width:760px; font-size:20px; font-weight:800; color:#252b31; }
+    .hero { margin-top:16px; border:4px solid var(--line); background:#101214; min-height:370px; }
+    .hero img { width:100%; height:100%; min-height:370px; object-fit:cover; }
+    .lead { border:4px solid var(--line); background:var(--card); padding:18px; display:flex; flex-direction:column; justify-content:space-between; min-height:100%; box-shadow:8px 8px 0 rgba(16,18,20,.18); }
+    .label { display:inline-flex; width:max-content; max-width:100%; padding:3px 8px; border:2px solid var(--line); background:var(--teal); color:#061214; font-size:12px; font-weight:900; text-transform:uppercase; }
+    .lead h2 { margin:18px 0 10px; font-family:Georgia,"Times New Roman",serif; font-size:34px; line-height:1.07; letter-spacing:0; }
+    .lead p { margin:0 0 12px; font-size:17px; font-weight:700; }
+    .source-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:var(--muted); font-size:13px; }
+    .source-list a { color:#171b1f; font-weight:900; }
+    .section { max-width:1180px; margin:0 auto; padding:22px; border-left:4px solid var(--line); border-right:4px solid var(--line); border-top:4px solid var(--line); }
+    .section-title { margin:0 0 16px; display:flex; align-items:center; gap:12px; font-family:Georgia,"Times New Roman",serif; font-size:30px; line-height:1; }
+    .section-title::after { content:""; height:5px; background:linear-gradient(90deg,var(--teal),var(--brass),var(--red)); flex:1; min-width:34px; border-top:2px solid var(--line); border-bottom:2px solid var(--line); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    article { min-width:0; border:3px solid var(--line); background:rgba(255,250,240,.94); padding:15px; box-shadow:5px 5px 0 rgba(16,18,20,.16); }
+    article h3 { margin:8px 0 8px; font-size:21px; line-height:1.23; letter-spacing:0; }
+    article p { margin:0 0 12px; color:#283038; }
+    .meta { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:10px; }
+    .pill { border:2px solid var(--line); background:#fff; padding:2px 7px; font-size:12px; font-weight:900; line-height:1.35; }
+    .pill.track { background:var(--teal); color:#061214; }
+    .pill.angle { background:var(--brass); color:#111; }
+    .pill.warn { background:#ffe0a3; color:#111; }
+    .sources { border-top:2px solid var(--line); padding-top:10px; color:var(--muted); font-size:13px; display:grid; gap:5px; }
+    .sources time { color:#343b42; font-weight:800; }
+    .footer { max-width:1180px; margin:0 auto; padding:17px 22px 34px; border:4px solid var(--line); border-top:0; background:#101214; color:#f5efe2; font-size:13px; }
+    @media (max-width: 820px) {
+      .top-inner { align-items:flex-start; flex-direction:column; padding:12px 14px; }
+      .cover { grid-template-columns:1fr; padding:18px 14px 20px; border-left:0; border-right:0; }
+      .hero, .hero img { min-height:auto; }
+      .hero img { aspect-ratio:16/10; }
+      .lead { min-height:auto; }
+      .lead h2 { font-size:28px; }
+      .subtitle { font-size:18px; }
+      .section { padding:20px 14px; border-left:0; border-right:0; }
+      .grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      h1 { font-size:42px; line-height:.96; }
+      .grid { grid-template-columns:1fr; }
+      .section-title { font-size:25px; align-items:flex-start; }
+      article { box-shadow:4px 4px 0 rgba(16,18,20,.16); }
+      .sources, .source-list { font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div class="top-inner">
+        <span class="mark">AI Accountability Desk</span>
+        <span>2026-06-26｜過去 24 小時全球 AI 新聞精選</span>
+      </div>
+    </header>
+
+    <section class="cover">
+      <div>
+        <div class="mast">
+          <div class="date">Friday, June 26, 2026</div>
+          <h1>AI 開始被要求交帳</h1>
+          <p class="subtitle">今天的 AI 新聞不再只比模型與晶片，而是誰願意付費、誰要回報事故、誰能證明資料與能力來源。</p>
+        </div>
+        <div class="hero" aria-label="AI 商業化與問責主視覺">
+          <img src="2026-06-26-hero.png" alt="企業會議桌、帳本、伺服器與法規文件交錯的 AI 問責場景">
+        </div>
+      </div>
+      <article class="lead">
+        <div>
+          <span class="label">今日主線</span>
+          <h2>Big Tech 全押 AI 後，下一個問題變成客戶是否真的買單</h2>
+          <p>CBS News 指出大型科技公司已投入巨額 AI 基礎設施，但市場開始追問需求、價格與導入速度；這讓 AI 敘事從「建多少算力」轉向「誰願意付費」。</p>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://www.cbsnews.com/" target="_blank" rel="noreferrer">CBS News</a>｜2026-06-25 15:13 GMT</li>
+          <li><a href="https://finance.yahoo.com/" target="_blank" rel="noreferrer">Yahoo Finance</a>｜2026-06-25 22:20 GMT</li>
+          <li><a href="https://www.fool.com/" target="_blank" rel="noreferrer">The Motley Fool</a>｜2026-06-25 22:06 GMT</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">持續追蹤</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>AI 資料中心支出年增 60%，昨天的晶片戰今天變成帳單壓力</h3>
+          <p>相較前幾天焦點落在自研晶片與記憶體短缺，最新增量是 Intersect360 估 AI data center spending 去年增長 60%，可能在下個十年逼近 1 兆美元。</p>
+          <div class="sources">
+            <span><a href="https://www.hpcwire.com/" target="_blank" rel="noreferrer">HPCwire</a>｜<time>2026-06-25 16:14 GMT</time></span>
+            <span><a href="https://www.intersect360.com/" target="_blank" rel="noreferrer">Intersect360 Research</a>｜<time>2026-06-17 15:36 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>Anthropic 指控 Alibaba 抽取 Claude 能力，模型護城河進入蒸餾攻防</h3>
+          <p>繼 AI 人才與資料授權爭議後，最新焦點轉向模型能力是否被大規模 distillation；Anthropic 指控 Alibaba 透過大量帳號與互動抽取 Claude 能力。</p>
+          <div class="sources">
+            <span><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜<time>2026-06-24 20:45 GMT</time></span>
+            <span><a href="https://www.taipeitimes.com/" target="_blank" rel="noreferrer">Taipei Times</a>｜<time>2026-06-25 16:00 GMT</time></span>
+            <span><a href="https://www.tomshardware.com/" target="_blank" rel="noreferrer">Tom's Hardware</a>｜<time>2026-06-25 13:26 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">商業模式</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill angle">New Angle</span></div>
+          <h3>Salesforce 推 pay-per-resolution Help Agent，企業 AI 開始按結果收費</h3>
+          <p>Salesforce 發表 Agentforce Help Agent，主打快速部署並只在解決問題時收費；獨特切角是 enterprise AI 從席次與用量計價，轉向可驗證成果。</p>
+          <div class="sources">
+            <span><a href="https://www.salesforce.com/" target="_blank" rel="noreferrer">Salesforce</a>｜<time>2026-06-25 14:41 GMT</time></span>
+            <span><a href="https://www.cio.com/" target="_blank" rel="noreferrer">CIO</a>｜<time>2026-06-25 13:03 GMT</time></span>
+            <span><a href="https://siliconangle.com/" target="_blank" rel="noreferrer">SiliconANGLE</a>｜<time>2026-06-25 13:00 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill warn">⚠ 未交叉驗證</span></div>
+          <h3>Claude 付費消費者成長，ChatGPT 的訂閱壟斷開始被測試</h3>
+          <p>TechCrunch 報導 Anthropic 的 Claude 正吸引付費消費者，雖然 ChatGPT 仍是市場中心，但個人訂閱市場開始出現更明確的替代選項；目前仍以單一媒體來源為主。</p>
+          <div class="sources">
+            <span><a href="https://techcrunch.com/" target="_blank" rel="noreferrer">TechCrunch</a>｜<time>2026-06-25 17:38 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>Adobe 收購 Topaz Labs，創意 AI 從生成走向影像修復與增強</h3>
+          <p>Adobe 收購 Topaz Labs，補強影像與影片增強能力，顯示創意工具競爭不只在文字生成與繪圖，也在高解析、修復與本機 AI 工作流。</p>
+          <div class="sources">
+            <span><a href="https://techcrunch.com/" target="_blank" rel="noreferrer">TechCrunch</a>｜<time>2026-06-25 13:30 GMT</time></span>
+            <span><a href="https://petapixel.com/" target="_blank" rel="noreferrer">PetaPixel</a>｜<time>2026-06-25 14:56 GMT</time></span>
+            <span><a href="https://www.letsdatascience.com/" target="_blank" rel="noreferrer">Let's Data Science</a>｜<time>2026-06-25 19:49 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">政策與主權</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>美國議員提 AI 重大事故通報法案，模型公司可能面臨七日內回報義務</h3>
+          <p>Reuters 報導美國議員提出法案，要求 AI 公司通報 critical incidents；這把 AI 安全從自願揭露推向類似資安事件的強制回報制度。</p>
+          <div class="sources">
+            <span><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜<time>2026-06-25 15:11 GMT</time></span>
+            <span><a href="https://cybernews.com/" target="_blank" rel="noreferrer">Cybernews</a>｜<time>2026-06-25 21:03 GMT</time></span>
+            <span><a href="https://economictimes.indiatimes.com/" target="_blank" rel="noreferrer">The Economic Times</a>｜<time>2026-06-25 14:07 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>義大利 Domyn 擬一年內推開源 frontier model，歐洲主權 AI 找到新抓手</h3>
+          <p>Domyn 執行長表示計畫在一年內推出開源 frontier AI model，讓歐洲 AI 主權敘事不只停留在監管，也開始回到模型供給與開放路線。</p>
+          <div class="sources">
+            <span><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜<time>2026-06-25 16:22 GMT</time></span>
+            <span><a href="https://www.tradingview.com/" target="_blank" rel="noreferrer">TradingView</a>｜<time>2026-06-25 16:16 GMT</time></span>
+            <span><a href="https://www.marketscreener.com/" target="_blank" rel="noreferrer">MarketScreener</a>｜<time>2026-06-25 16:17 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。所有可收錄題均附來源與發布時間。</footer>
+  </main>
+</body>
+</html>

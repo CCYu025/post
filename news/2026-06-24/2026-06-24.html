@@ -1,0 +1,197 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選｜2026-06-24</title>
+  <style>
+    :root {
+      --ink:#111111;
+      --paper:#f6f1e4;
+      --card:#fffaf0;
+      --red:#d7262e;
+      --blue:#1464a5;
+      --brass:#b4873b;
+      --muted:#5e6064;
+      --line:#161616;
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; max-width:100%; overflow-x:hidden; background:var(--ink); color:var(--ink); }
+    body { font-family:"Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; line-height:1.62; }
+    img { max-width:100%; display:block; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap:anywhere; }
+    a { color:inherit; text-decoration-color:rgba(215,38,46,.7); text-underline-offset:3px; }
+    .paper { width:100%; background:repeating-linear-gradient(90deg,#f8f2e4 0,#f8f2e4 18px,#f2ebdc 18px,#f2ebdc 19px); }
+    .ticker { background:var(--ink); color:var(--paper); border-bottom:5px solid var(--red); }
+    .ticker-inner { max-width:1180px; margin:0 auto; padding:12px 20px; display:flex; justify-content:space-between; gap:14px; align-items:center; font-size:13px; font-weight:800; }
+    .ticker .mark { color:var(--red); background:#fff; padding:2px 8px; border:2px solid var(--red); }
+    .cover { max-width:1180px; margin:0 auto; padding:22px 20px 24px; display:grid; grid-template-columns:1.05fr .95fr; gap:18px; border-left:4px solid var(--line); border-right:4px solid var(--line); background:rgba(246,241,228,.78); }
+    .mast { border-top:10px solid var(--line); border-bottom:4px solid var(--line); padding:14px 0 16px; }
+    .date { color:var(--blue); font-family:Georgia,"Times New Roman",serif; font-weight:900; font-size:18px; }
+    h1 { margin:8px 0 6px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(44px,7.2vw,94px); line-height:.92; letter-spacing:0; }
+    .subtitle { margin:0; font-size:20px; font-weight:800; color:#252629; max-width:760px; }
+    .hero { margin-top:16px; border:4px solid var(--line); background:#0d0d0d; min-height:370px; }
+    .hero img { width:100%; height:100%; min-height:370px; object-fit:cover; }
+    .lead { border:4px solid var(--line); background:var(--card); padding:18px; display:flex; flex-direction:column; justify-content:space-between; min-height:100%; box-shadow:8px 8px 0 rgba(17,17,17,.18); }
+    .stamp { display:inline-flex; width:max-content; max-width:100%; padding:3px 8px; border:2px solid var(--line); background:var(--red); color:#fff; font-size:12px; font-weight:900; text-transform:uppercase; }
+    .lead h2 { margin:18px 0 10px; font-family:Georgia,"Times New Roman",serif; font-size:34px; line-height:1.08; letter-spacing:0; }
+    .lead p { margin:0 0 12px; font-size:17px; font-weight:700; }
+    .source-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:var(--muted); font-size:13px; }
+    .source-list a { font-weight:900; color:#181818; }
+    .section { max-width:1180px; margin:0 auto; padding:22px 20px; border-left:4px solid var(--line); border-right:4px solid var(--line); border-top:4px solid var(--line); background:rgba(246,241,228,.78); }
+    .section-title { margin:0 0 16px; display:flex; align-items:center; gap:12px; font-family:Georgia,"Times New Roman",serif; font-size:30px; line-height:1; }
+    .section-title::after { content:""; height:5px; background:linear-gradient(90deg,var(--red),var(--blue),var(--brass)); flex:1; min-width:36px; border-top:2px solid var(--line); border-bottom:2px solid var(--line); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    article { min-width:0; border:3px solid var(--line); background:var(--card); padding:15px; box-shadow:5px 5px 0 rgba(17,17,17,.18); }
+    article h3 { margin:8px 0 8px; font-size:21px; line-height:1.22; letter-spacing:0; }
+    article p { margin:0 0 12px; color:#2b2d31; }
+    .meta { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:10px; }
+    .pill { border:2px solid var(--line); background:#fff; color:#111; padding:2px 7px; font-size:12px; font-weight:900; line-height:1.35; }
+    .pill.hot { background:var(--red); color:#fff; }
+    .pill.track { background:var(--blue); color:#fff; }
+    .pill.warn { background:#ffe0a3; color:#111; }
+    .sources { border-top:2px solid var(--line); padding-top:10px; color:var(--muted); font-size:13px; display:grid; gap:5px; }
+    .sources time { color:#37393d; font-weight:800; }
+    .footer { max-width:1180px; margin:0 auto; padding:17px 20px 32px; border:4px solid var(--line); border-top:0; background:#111; color:#f6f1e4; font-size:13px; }
+    @media (max-width: 820px) {
+      .ticker-inner { align-items:flex-start; flex-direction:column; padding:12px 14px; }
+      .cover { grid-template-columns:1fr; padding:18px 14px 20px; border-left:0; border-right:0; }
+      .hero, .hero img { min-height:auto; }
+      .hero img { aspect-ratio:16/10; }
+      .lead { min-height:auto; }
+      .lead h2 { font-size:28px; }
+      .subtitle { font-size:18px; }
+      .section { padding:20px 14px; border-left:0; border-right:0; }
+      .grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      h1 { font-size:42px; line-height:.96; }
+      .grid { grid-template-columns:1fr; }
+      .section-title { font-size:25px; align-items:flex-start; }
+      article { box-shadow:4px 4px 0 rgba(17,17,17,.18); }
+      .sources, .source-list { font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="paper">
+    <header class="ticker">
+      <div class="ticker-inner">
+        <span class="mark">AI Market Watch</span>
+        <span>2026-06-24｜過去 24 小時全球 AI 新聞精選</span>
+      </div>
+    </header>
+
+    <section class="cover">
+      <div>
+        <div class="mast">
+          <div class="date">Wednesday, June 24, 2026</div>
+          <h1>泡沫疑雲壓上晶片盤</h1>
+          <p class="subtitle">AI 熱潮今天被資本市場、監管審查與訓練資料訴訟同時測試，投資人開始追問每一美元算力支出的回收路徑。</p>
+        </div>
+        <div class="hero" aria-label="AI 股票拋售與半導體壓力主視覺">
+          <img src="2026-06-24-hero.png" alt="交易地板與半導體實驗室交錯，紅色市場線條下跌">
+        </div>
+      </div>
+      <article class="lead">
+        <div>
+          <span class="stamp">Cover Story</span>
+          <h2>AI 泡沫疑慮引爆科技股拋售，晶片與算力支出成為市場壓力測試</h2>
+          <p>全球科技股與半導體股同步回落，市場焦點從「AI 需求無上限」轉向「資本支出是否過熱」，昨天還被追捧的算力敘事今天開始接受現金流檢驗。</p>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://www.npr.org/" target="_blank" rel="noreferrer">NPR</a>｜2026-06-23 19:31 GMT</li>
+          <li><a href="https://www.nbcnews.com/" target="_blank" rel="noreferrer">NBC News</a>｜2026-06-23 20:15 GMT</li>
+          <li><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜2026-06-23 23:03 GMT</li>
+          <li><a href="https://www.nytimes.com/" target="_blank" rel="noreferrer">The New York Times</a>｜2026-06-23 20:14 GMT</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">持續追蹤</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>美國要求 Meta 接受 AI 審查，frontier model 壓力轉向另一家巨頭</h3>
+          <p>相較前幾天焦點集中在 Anthropic 與模型存取規則，最新增量是美國政府據報施壓 Meta 接受 AI 安全審查，監管對象正在擴大。</p>
+          <div class="sources">
+            <span><a href="https://www.nytimes.com/" target="_blank" rel="noreferrer">The New York Times</a>｜<time>2026-06-23 21:28 GMT</time></span>
+            <span><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜<time>2026-06-23 23:03 GMT</time></span>
+            <span><a href="https://www.aa.com.tr/en" target="_blank" rel="noreferrer">Anadolu Agency</a>｜<time>2026-06-23 23:14 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill hot">New Angle</span></div>
+          <h3>AI 基建故事遇到估值折返，Micron 與 Groq 熱度被市場重新打折</h3>
+          <p>新的切角不是誰拿到供應長約或融資，而是投資人開始用股價回落檢查 AI 記憶體、推理雲與資料中心擴張是否已提前反映過多期待。</p>
+          <div class="sources">
+            <span><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜<time>2026-06-23 23:03 GMT</time></span>
+            <span><a href="https://www.cbsnews.com/" target="_blank" rel="noreferrer">CBS News</a>｜<time>2026-06-23 13:45 GMT</time></span>
+            <span><a href="https://www.cnn.com/" target="_blank" rel="noreferrer">CNN</a>｜<time>2026-06-23 12:10 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">權利與隱私</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>NVIDIA 遭 Jamendo 提告，AI 訓練資料戰線延伸到音樂平台</h3>
+          <p>Jamendo 對 NVIDIA 提起 AI 訓練相關訴訟，讓訓練資料爭議從文字、圖片與影片素材進一步延伸到音樂授權與創作者收益。</p>
+          <div class="sources">
+            <span><a href="https://www.reuters.com/" target="_blank" rel="noreferrer">Reuters</a>｜<time>2026-06-23 15:25 GMT</time></span>
+            <span><a href="https://www.billboard.com/" target="_blank" rel="noreferrer">Billboard</a>｜<time>2026-06-23 17:29 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>Meta 暫停員工滑鼠追蹤訓練計畫，內部資料也成 AI 隱私邊界</h3>
+          <p>Meta 因隱私疑慮暫停用員工行為追蹤資料訓練 AI 的計畫，顯示企業內部資料不再只是效率素材，也可能成為勞動與監控爭議。</p>
+          <div class="sources">
+            <span><a href="https://www.bbc.com/" target="_blank" rel="noreferrer">BBC</a>｜<time>2026-06-23 17:51 GMT</time></span>
+            <span><a href="https://www.yahoo.com/" target="_blank" rel="noreferrer">Yahoo</a>｜<time>2026-06-23 17:52 GMT</time></span>
+            <span><a href="https://www.letsdatascience.com/" target="_blank" rel="noreferrer">Let's Data Science</a>｜<time>2026-06-23 03:02 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill warn">⚠ 未交叉驗證</span></div>
+          <h3>Rhode Island 通過 ambient AI scribe 選擇退出法，醫療 AI 進入同意權細節</h3>
+          <p>Rhode Island 據報通過 ambient AI scribe opt-out 法，要求醫療場景更清楚處理患者同意與退出機制；目前仍以單一媒體來源為主。</p>
+          <div class="sources">
+            <span><a href="https://www.healthcareitnews.com/" target="_blank" rel="noreferrer">Healthcare IT News</a>｜<time>2026-06-23 17:41 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">全球產業</h2>
+      <div class="grid">
+        <article>
+          <div class="meta"><span class="pill warn">⚠ 未交叉驗證</span></div>
+          <h3>SoftBank 擬把舊 Sharp 工廠改成 AI 伺服器基地，日本補上算力主權拼圖</h3>
+          <p>SoftBank 據報計畫自 2027 會計年度起在舊 Sharp 廠區建置 AI 伺服器，讓日本 AI 基建從模型與晶片延伸到本土資料中心產能。</p>
+          <div class="sources">
+            <span><a href="https://asia.nikkei.com/" target="_blank" rel="noreferrer">Nikkei Asia</a>｜<time>2026-06-23 15:11 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill">New</span></div>
+          <h3>Infosys 估 AI 機會上看 4000 億美元，印度服務業把轉型說成增量市場</h3>
+          <p>Nandan Nilekani 表示 Infosys 可切入約 3000 億至 4000 億美元的 AI 機會，印度 IT 服務商正把 AI 從人力替代敘事轉成企業轉型預算。</p>
+          <div class="sources">
+            <span><a href="https://www.thehindu.com/" target="_blank" rel="noreferrer">The Hindu</a>｜<time>2026-06-23 20:40 GMT</time></span>
+            <span><a href="https://timesofindia.indiatimes.com/" target="_blank" rel="noreferrer">The Times of India</a>｜<time>2026-06-23 21:37 GMT</time></span>
+            <span><a href="https://www.business-standard.com/" target="_blank" rel="noreferrer">Business Standard</a>｜<time>2026-06-23 18:40 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。單一來源題已標示未交叉驗證。</footer>
+  </main>
+</body>
+</html>
