@@ -1,0 +1,190 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選 2026-06-29</title>
+  <style>
+    :root {
+      --ink: #07101f;
+      --paper: #f5f0df;
+      --cyan: #1bd7e5;
+      --brass: #bd8d2f;
+      --red: #d94b45;
+      --muted: #516070;
+      --line: rgba(7, 16, 31, 0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      background: radial-gradient(circle at 20% 0%, rgba(27, 215, 229, 0.18), transparent 28%), var(--paper);
+      color: var(--ink);
+      line-height: 1.75;
+      overflow-wrap: anywhere;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .page { width: min(1180px, calc(100% - 28px)); margin: 0 auto; padding: 26px 0 52px; }
+    .masthead {
+      border: 5px solid var(--ink);
+      border-left-width: 14px;
+      background: rgba(245, 240, 223, 0.92);
+      padding: 16px 18px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+    }
+    .kicker { font-family: Georgia, serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    h1 { margin: 2px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(40px, 7vw, 92px); line-height: 0.95; letter-spacing: 0; }
+    .date { border: 2px solid var(--ink); padding: 10px 12px; font-weight: 900; background: var(--cyan); white-space: nowrap; }
+    .deck { max-width: 850px; margin: 18px 0 0; font-size: clamp(17px, 2vw, 22px); font-weight: 650; }
+    .hero { margin: 18px 0 28px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr); border: 5px solid var(--ink); background: #fffaf0; }
+    .hero img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; border-right: 5px solid var(--ink); }
+    .lead { padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+    .label { display: inline-flex; align-items: center; gap: 8px; width: fit-content; border: 2px solid var(--ink); padding: 4px 9px; font-weight: 900; font-size: 13px; background: var(--brass); color: #111; }
+    h2, h3 { margin: 0; line-height: 1.18; letter-spacing: 0; }
+    .lead h2 { font-size: clamp(28px, 4vw, 52px); font-family: Georgia, "Times New Roman", serif; }
+    .summary { margin: 12px 0 0; font-size: 17px; }
+    .meta { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #142133; }
+    .meta a, .source a { border: 1px solid var(--line); padding: 3px 7px; background: rgba(255, 255, 255, 0.58); text-decoration: none; }
+    .section-title { margin: 30px 0 12px; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px; font-family: Georgia, serif; font-size: 24px; font-weight: 900; }
+    .section-title::after { content: ""; height: 5px; background: repeating-linear-gradient(90deg, var(--ink) 0 18px, transparent 18px 26px); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    article { border: 4px solid var(--ink); background: rgba(255, 250, 240, 0.94); padding: 16px; min-width: 0; box-shadow: 7px 7px 0 rgba(7, 16, 31, 0.12); }
+    article h3 { font-size: 22px; }
+    article.follow { background: linear-gradient(180deg, rgba(27, 215, 229, 0.16), rgba(255, 250, 240, 0.96)); }
+    .tag { display: inline-block; margin-bottom: 9px; border: 2px solid var(--ink); padding: 2px 7px; font-size: 12px; font-weight: 900; background: #fff; }
+    .tag.warn { background: var(--red); color: #fff; }
+    .source { margin-top: 14px; padding-top: 12px; border-top: 2px solid var(--line); font-size: 13px; color: #263445; }
+    .source div { margin-top: 5px; }
+    time { font-weight: 700; color: #53606d; }
+    footer { margin-top: 28px; border-top: 5px solid var(--ink); padding-top: 12px; font-size: 13px; color: var(--muted); }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 20px, 760px); padding-top: 16px; }
+      .masthead { grid-template-columns: 1fr; border-left-width: 5px; }
+      .date { width: fit-content; }
+      .hero { grid-template-columns: 1fr; }
+      .hero img { min-height: 280px; border-right: 0; border-bottom: 5px solid var(--ink); }
+      .grid, .grid.two { grid-template-columns: 1fr; }
+      article { box-shadow: 4px 4px 0 rgba(7, 16, 31, 0.12); }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 16px, 540px); padding-bottom: 34px; }
+      .masthead, .lead, article { padding: 12px; }
+      h1 { font-size: 40px; }
+      .lead h2 { font-size: 28px; }
+      article h3 { font-size: 20px; }
+      .deck, .summary { font-size: 16px; }
+      .section-title { font-size: 20px; grid-template-columns: 1fr; }
+      .section-title::after { height: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <div class="kicker">AI Compute Ledger</div>
+        <h1>算力開始被配給</h1>
+        <p class="deck">AI 熱潮今天不再只是誰買更多晶片，而是誰能拿到雲端容量、誰能承擔資料中心帳單，以及誰被允許使用 frontier model。</p>
+      </div>
+      <div class="date">2026-06-29</div>
+    </header>
+
+    <section class="hero" aria-label="今日主題">
+      <img src="2026-06-29-hero.png" alt="全球 AI 算力與資料中心調度的雜誌主視覺">
+      <article class="lead">
+        <div>
+          <span class="label">今日主線</span>
+          <h2>Google 限制 Meta 使用 Gemini，AI 巨頭也碰到算力配給</h2>
+          <p class="summary">Financial Times 報導 Google 因基礎設施吃緊而限制 Meta 使用 Gemini AI 的容量；這讓雲端算力從採購問題升級為巨頭之間的配給問題。</p>
+        </div>
+        <div class="source">
+          <strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxQbWg4ektkRTBhd0oyT3lfNUNKMmVNcHFrcF82cVBIZFBCVDB5OHg3ZTdLWkVqSXR3SHdPSGZ0V3NCNDFaMGIyNDc1ZUNNU0hfSm9xQnlUNHFYMndCRkdwMjlieTJjbThxMmR5UjgyWjVxaXhnVVlqblhrdmxfTEgzMzEyZmU0ZnFYbUhNQmxfZDNkcXZtX29PdlcwRnVMVHhPLUdMVXJiUERtbHNFeUVMTUgzMDZDY1MxQnfSAb8BQVVfeXFMUGxnWW1XYUw4aGx5S0ZrWHc4dk5MZlZON1hKY3VNdHlhYmtwZzZDQ2RXNmY1QUlLZnIwUTdMN2NfUjl5UVR5TTBPOUpXQmlUTTFISGhuSjBRZEZfQWVGZzFlNXBVXzB1dkFxN2NETTdIZXhlRC1zZl9QN3c5QWl3Z3BsUW9OSmZmZEc2cVctaHNrZ3J3aWczdC1BcmJSNjJuWWRJNEQtRXBnbkNZUXJZZ052ZkI1U09wOUZQTjQtUVU?oc=5">Storyboard18</a> <time>2026-06-28 05:35 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQWVM0V1BZZlM0UWNYY0JWRUVWaEg4ZVJndE16ZWxlU1ZTWlhMSVJaT010cGdObWZFUXZtb253OUJUWU1zUU0xVjJlQU9TVG5ZendWZS03VWk2eDhtMmtQWEltQ2VmM0JROU1oWHROMVQzaUl5SXBUOUw4ZVR2SVdhTklLUmZMUnBOSDhPR29tREljWTluczVLVW5DOHhaNm9KdS1HUTJmMGw2eWNiNDBBZUV3?oc=5">Seeking Alpha</a> <time>2026-06-28 13:32 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOZGtDcEpOR0lyaGI0QnVwZVgyNGFjYzdpMUJoN0M3d0V4T3IzcVVoTkVXRTFtek9xSXg5Q2V1eExKQk5TeG9NYzRLb3Zkd1FxN3kzUU9Ubkp5eHFYTFY1MlZxYkZIYm5WUF9VcF91Rkc4WmdqYVFxUnlTeXNUTXFkVmhHVTBsSkJMMFFHdVQ3YTVDck9pemhlUWk0UDMySUhtZ3RrenE0SnY3OG1FQXc?oc=5">MSN</a> <time>2026-06-28 10:38 GMT</time></div>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">持續追蹤</h2>
+    <section class="grid two">
+      <article class="follow">
+        <span class="tag">🔄 接續報導</span>
+        <h3>BIS 警告 AI 投資熱成金融穩定風險，算力帳單進入央行視野</h3>
+        <p class="summary">相較前幾天市場聚焦資料中心支出與科技股壓力，BIS 這次把 AI 投資熱直接列入全球金融風險，讓基建故事進入央行與監理語境。</p>
+        <div class="source"><strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNNVR4T0hxcEdBMnhpb3UwQThfajRZbl9DVkdCNVRmaUFoaHhNX1hzWm9MM3pXTk5aazFzMGpySTRCY3BPWUJfX0cyZE41ZjlmOVVOdWZBVk81QkllWjdxcEFSYmJnU19tZjN2MEpabDFrSS1FZk9LMXNfR3FTX0pLYg?oc=5">Reuters</a> <time>2026-06-28 09:03 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxORVdJdTNsMzhPR0x5a2ZYa282NnNqeHctQUVucmhLLXhWLW9aMTJ2RFJnM3RDS2pKWWJpaHNpLU96d25DQno5ZTVxdFBqVFFlVE5JcGxva3cyM1pac3dDaEhaQ0Z0U0hRUUFSWEk4YmtZYl9Wd2lzbGFmVkhlZmw0U1FJR05IZjNlczdlcmQ4Y1JNcTVCOTZ4aWVtVXl3bWU1VUs5dmNhZ1FXQdIBqgFBVV95cUxORVdJdTNsMzhPR0x5a2ZYa282NnNqeHctQUVucmhLLXhWLW9aMTJ2RFJnM3RDS2pKWWJpaHNpLU96d25DQno5ZTVxdFBqVFFlVE5JcGxva3cyM1pac3dDaEhaQ0Z0U0hRUUFSWEk4YmtZYl9Wd2lzbGFmVkhlZmw0U1FJR05IZjNlczdlcmQ4Y1JNcTVCOTZ4aWVtVXl3bWU1VUs5dmNhZ1FXQQ?oc=5">CNBC</a> <time>2026-06-28 11:31 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxQTkRCa1BZcFdFVHRMd0lSRk02MVlPZnhVNkFPTkZWbUZERkpENDJZVDFZUDhmd3JOUGt1WEZDSGYyd1FSZ1V1bHpnNHF4TzhUbHZrRnByUDJ3ekpDNUJ1UzY0S2NLYmxXV1RlOWFPNjVXZXJ2MXFCd0FZelpsa3JFUTZtVkNkQ2ZjeW5uLXJVa0U3eDhUUXNrNkljUm4xVmdVaUdCQ3VEblpPTDd5X1o0SjlWaGN6aEtzakRqRmhrM2htc01H?oc=5">TradingView</a> <time>2026-06-28 09:00 GMT</time></div>
+        </div>
+      </article>
+      <article class="follow">
+        <span class="tag">🔄 接續報導</span>
+        <h3>美國放行 Anthropic Mythos 給可信夥伴，模型存取權從禁令轉成配給名單</h3>
+        <p class="summary">前期爭議是美國限制 Anthropic 高階模型流通；最新進展是 Mythos 可提供給部分可信美國機構，管制重點從封鎖轉向名單化開放。</p>
+        <div class="source"><strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQeG1SQ2UxUF9nRHQ1ejZ2VU95NllPMFBvd3d4NzVMcEU2ai1JSzlTS3p2em5naEZickIyZWw3S0RPVzl0c0JBZnM5SDBzaEViRWoxY3FXNnBvQy1OdHEySlJmS0x3ZGVaa000RFpUNWwxTjI0bmdkSkhEMGFmMTJrTmE1YWZ0RUsxYnEzS1o3QlMxdHpxTHZDbHVrbFRGQUlCMGl3TmI2Z1dPN1U?oc=5">Semafor</a> <time>2026-06-26 22:30 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOREhtVHBfT0Y3bnFFSm9mMmdvYlFhelN2SkZfWWdkb0lzSkpvazRVUFdoY0l6RVVUNEZqdUIxaWtuQWZ5TXpFRzRSTHlDMkhUOS1MZ1ozVHVHSUJpZVZmQ2pmSmRPVHZSRmxqRm11RzhtLTgxbkJRZkVYeXQ4WFd4bFJxb1Z5Yi0xa2poU3U5SUZDMjVyM3p0T2dUYkRIanlGSjlPOFcyekpnbU5wd3UzY1FYQWJBUQ?oc=5">Reuters</a> <time>2026-06-26 22:37 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNdHVzZlByRmY5ajJIVnVPTVJlMnlycHBNRzBxUlhtMWViNDBzX3lPX3dueFVQUUdZZ0Q5UU5ReDIzZ1lfcXdoLVdnNjdhR3g2U1o0X2NQZzVIMGtQbU04b09vSFIxTU9CSU84TTRrbzVFQ2VzNGdfbEhiYTNqV0U5S3RtaVdKU09fRDZLUzVPcjVTdGNWUGRtaUhqV25VM0ZUdWU5MklqclhwbnNpRFFjbHFFMVB2c0lBZGMzMXZpdw?oc=5">TechCrunch</a> <time>2026-06-27 01:01 GMT</time></div>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">全球基建</h2>
+    <section class="grid">
+      <article>
+        <h3>Samsung、SK 傳十年投資 1.3 兆美元，韓國把 AI 晶片戰變成國家級工地</h3>
+        <p class="summary">Samsung 與 SK 據報將在十年內投入巨額資本，配合韓國西南部晶片聚落，AI 供應鏈競賽從單家公司擴大為國家級產能配置。</p>
+        <div class="source"><strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPZmV3U1pMQjJrTEpqR2ZTV2s5bGg1MDBpQ2RUQl9DeHZUckhybFNURzNlNkswdWRLRXJJcmxTcWFQcUk1WHZJcnNIS0JJelNEQ0FRbC1aNllveTVoUmJRMnpYT1RKZXphUUd2M0hyblh4WkpQdVAzamhHZFNWVWd1amdxYzNKUG9CeHQ0MVRUQ1ktUjN3dVNCNU9qbXI4c3hCeWxDUEJ5TWFKMXJ5ckE?oc=5">Bloomberg</a> <time>2026-06-28 23:17 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPNDYzVkJadlpvaEQtWTQ0Z29NRnpoblhZME50MnRjZUQxN0NGdjhhXzgtLVZsaUZhM0ZFLUhlRVBBU0MtUnNpTGdjRThPTEF0YXRLaHN1eFJ2dzNwVTFzM2J3VHduZUVjeVhXd05NemgzZ2t2YW1IaEJXYnNPSmlmQzlNVm8tUjVfeENkQUM3ZllTWWlEODcwRmNhbkN6MjVyVm0w?oc=5">Fortune</a> <time>2026-06-28 23:41 GMT</time></div>
+        </div>
+      </article>
+      <article>
+        <h3>Firmus 與 NVIDIA 攜手印尼資料中心，AI 雲端擴張轉向東南亞電力版圖</h3>
+        <p class="summary">澳洲 Firmus 與 NVIDIA 達成 AI 存取合作，並規劃在印尼 Batam 建資料中心，顯示 AI 雲端正在尋找新的電力、土地與區域連線節點。</p>
+        <div class="source"><strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxNUXhFdWlpT3kxWEM2cXkySklsX0FuOVdOU1JadkNMVVNLTTIxd0lmOUpHamVfSzBHdnlTdm93VW83cm9lZ3oxQ3RyZTZ5Q2dUdVJTYUZJQWxjSGNueXJLUVJ6aHdmOFBvQVdoNVBPckN6b2ZTLThRNVJsOU0yM2w2TWxDdklkR2JHRDVmY29kYnhMdGdqT21jZDhDUkU1dTJ3ZDNKUUdtWW5Nd2x0bVgyN1ZGdk0zR2NOZjRSZw?oc=5">Reuters</a> <time>2026-06-28 21:00 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxNY2hQSFNQTno2Z1lnWjMxWnVIaFpCNlhYR1VaWDZwZ3Y2c05rTGVMM1ZXVDl4U3YwS0Vkd292aUpHbGtndllNTTdGN0VnRFlqc1dMY0h2VGRaaHVJcmlNVFVST2JYSU5TempHNGU0WGJGc2tQeHdMTG5qUHNEQ0h3OFdxVHlpVmFNYVZuTUE3cURfeC1EcU5sSGg3Rkg3THRmWE5QbkppNmRPRGtmV1prT1BOdHhCMmd1YVZUU2gxZVdFNWEyNU9ubWd5SlA1emp2cFI1XzFGT1VEUWJhakVaNGN5SU1Jc2vSAecBQVVfeXFMTWNoUEhTUE56NmdZZ1ozMVp1SGhaQjZYWEdVWlg2cGd2NnNOa0xlTDNWV1Q5eFN2MEtFZHdvdmlKR2xrZ3ZZTU03RjdFZ0RZanNXTGNIdlRkWmh1SXJpTVRVUk9iWElOU3pqRzRlNFhiRnNrUHh3TExualBzRENIdzhXcVR5aVZhTWFWbk1BN3FEX3gtRHFObEhoN0ZIN0x0ZlhOUG5KaTZkT0RrZldaa09QTnR4QjJndWFWVFNoMWVXRTVhMjVPbm1neUpQNXpqdnBSNV8xRk9VRFFiYWpFWjRjeUlNSXNr?oc=5">The Economic Times</a> <time>2026-06-28 14:08 GMT</time></div>
+        </div>
+      </article>
+      <article>
+        <h3>Baidu 晶片子公司 Kunlunxin 傳 500 億美元香港 IPO，中國 AI 算力走向資本市場</h3>
+        <p class="summary">Kunlunxin 據報尋求香港 IPO，目標估值上看 500 億美元；中國 AI 晶片公司正把模型算力需求轉成資本市場敘事。</p>
+        <div class="source"><strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQOGJFLU95anpuZTRoNUlhcFJpMk5kWjU5T3VuR2d5NUtwVGJ1cmhRRWZYNEhYejdTMDl4SnZRcC1LSXBfWkJrZlFYMFAzNC15T1JxWlg2aFRWeURLdnJvOW9FNnNhS182RzBIWkYzejRnUHdKeHQ4LW5YVGNDQnJMQUpCRkFEOVM4M0M5NU5wWGFlM25paHF0SQ?oc=5">Yahoo Finance</a> <time>2026-06-28 18:19 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOQS1yRUUybFlIc3VMamFtNEpHTTNPNFZuanBCS094YUJQamszTEVlRTNfWkpyRlprN0FXZW9hX0VQcXV3OFRWcFFBTzhpNTY2X2tjX3VXdU1vUnVlRkxic2tTZHZ6ZlJJNjY3ZzQxb2RYNEdFLWUwNWVSbWJVNGlReEZVOF9NYnR3YXFGQm13U1BKWlR0UmFQOFdmNA?oc=5">The Information</a> <time>2026-06-28 18:00 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMi7gFBVV95cUxOZmdpQVNiNjVMbXhpVko5T1Q0Q0w4NnJyNXViOXk3QVlwMGJYZWR6RUNHSE0zb1RoXzYyZFh0dU52Mm1aSDduc0NJTG8wLXF3R1JTZGVmVUs4Z0NjcGstZHhfcGhtNGRNeGpNTzdTdFNHbThFUEtNdk9DU0tvaWJNU2MxaVBRZnNFQU9hc2wzQmp3bDNTM1BYV0ZFVnFrakQyeFN3VmFBajlDc1JGaFJvUXVndDhsd0YzV3RZcFppeVUwZXFrRXFXVW1qVGZCQ1c1bWFmWEpiUkx3V0xIb1pySlJ2TW1vYmlXZU15MGhR?oc=5">TradingView</a> <time>2026-06-28 18:37 GMT</time></div>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">產品與入口</h2>
+    <section class="grid two">
+      <article>
+        <h3>YouTube 加入 AI 留言過濾，平台治理從內容推薦走向即時對話控管</h3>
+        <p class="summary">YouTube 新增 AI-powered comment filtering 與更語意化的 Studio 搜尋，平台 AI 的角色不只推薦內容，也開始介入留言管理與創作者工作流。</p>
+        <div class="source"><strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxQc3ZZcktKNDNDU2JidmtPQ29oZkhkZjE1T2tEWHFRMGowVUlIRDBEQzZxN1o3cnZqUmdNWVYtRnh4d0Q2MS1sNVhvZ25VZXo3bjBrQmh2bnJtY0gxQlZuQVFYdEdhMjdheFBWVWg5OUJtS2Y3SXZLZVhtUENQZEkwVjZVZVpkVVRxZGRxVEhjcUI?oc=5">Social Media Today</a> <time>2026-06-28 22:47 GMT</time></div>
+          <div><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQUFV3cXl6WlRIM1pDSjdzVXlENWZ1X0pfQzBRTU9BRVNqbmw3bDVTNjVBWHUzRW9LNXFuU3c0YTJrcVpVMEZCOTZyTjlwd1dYUV9ORjNFcUtnQ2UzYzZoYWhVN0pBZnhKbzR6VFFtQ2YyMjFhQmlTeThseW1zY0hCamFLTEZXZw?oc=5">PPC Land</a> <time>2026-06-26 20:30 GMT</time></div>
+        </div>
+      </article>
+      <article>
+        <span class="tag warn">⚠ 未交叉驗證</span>
+        <h3>HP 宣布與 OpenAI 建立策略合作，AI PC 戰線開始綁定 frontier lab</h3>
+        <p class="summary">HP 宣布與 OpenAI 建立 frontier strategic partnership，焦點在把 AI 能力導入裝置與工作流程；目前僅見單一正式發布來源，故保留警示。</p>
+        <div class="source"><strong>來源</strong>
+          <div><a href="https://news.google.com/rss/articles/CBMipwJBVV95cUxQcS1KOXJ4V1ljVkZiTnptUlg1cVhjRVFTQmpNY1ByTEFDei1YMEZzcnRsTUFHV2VneHpnNGNwRUd2VUplR3g4eUYwSmljcDdzWXlZdDJxZ2xVdUI0SzVaVlJfTS1xZmxoMUNQX2FzYjJsWVZsRU9vLWFTaXRmZDR3V3BhNTZOWjdPNWRFd2tHbHNxUkxHZDJ2MTVUd3VRU3FxSXcyR0R2eWk2OWh4c1k0UkZvM0lOVU1LbE81XzhHWEtSRUJzUWpWeWxLQlBZSExEMERfUFcyQ3dOZTlxbmxldTdsR3ZlQW00ZTVkclAtdy1fNTVBcGIzM2gtM2ZNWGE0Wm9KVHpXTElpdDlGSHNhdEl4cGVyUjR5TVozNlpGM1dTMWFYWjhB?oc=5">GlobeNewswire</a> <time>2026-06-29 00:00 GMT</time></div>
+        </div>
+      </article>
+    </section>
+
+    <footer>本頁依過去 24 小時全球 AI 新聞整理；每則至少兩個獨立來源交叉查核，單一來源已標示警示。標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。</footer>
+  </main>
+</body>
+</html>
