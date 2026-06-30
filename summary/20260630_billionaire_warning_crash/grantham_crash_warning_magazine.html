@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>泡沫總是披著偉大發明的外衣｜Jeremy Grantham 訪談摘要</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17191b;
+      --muted: #626b70;
+      --paper: #f3efe6;
+      --paper-soft: #fffaf0;
+      --line: #cfc4b1;
+      --steel: #253746;
+      --rust: #a24f35;
+      --gold: #a87537;
+      --green: #3d6255;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Serif TC", "Noto Serif CJK TC", "Source Han Serif TC", Georgia, serif;
+      line-height: 1.82;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(61, 98, 85, 0.48);
+      text-underline-offset: 0.22em;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      color: #fff8ea;
+      background: #101923;
+      isolation: isolate;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(13, 18, 23, 0.86) 0%, rgba(13, 18, 23, 0.68) 36%, rgba(13, 18, 23, 0.18) 78%),
+        linear-gradient(0deg, rgba(13, 18, 23, 0.84) 0%, rgba(13, 18, 23, 0.04) 58%);
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 80px 0 42px;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #d6b278;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: 4.05rem;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .dek {
+      max-width: 720px;
+      margin: 28px 0 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 1.14rem;
+      line-height: 1.9;
+      color: rgba(255, 248, 234, 0.88);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 26px;
+      color: rgba(255, 248, 234, 0.72);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .hero-caption,
+    figcaption {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .hero-caption {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 10px auto 0;
+    }
+
+    main {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .opening {
+      display: grid;
+      grid-template-columns: minmax(0, 1.34fr) minmax(260px, 0.66fr);
+      gap: 44px;
+      padding: 74px 0 52px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 1.44rem;
+      line-height: 1.78;
+      font-weight: 800;
+    }
+
+    .side-note {
+      padding-left: 22px;
+      border-left: 4px solid var(--rust);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: #33383a;
+    }
+
+    .side-note p {
+      margin: 0 0 15px;
+      font-size: 0.98rem;
+      line-height: 1.78;
+    }
+
+    .section {
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section h2 {
+      max-width: 840px;
+      margin: 0 0 24px;
+      font-size: 2.12rem;
+      line-height: 1.24;
+      letter-spacing: 0;
+    }
+
+    .section p {
+      max-width: 850px;
+      margin: 0 0 22px;
+      font-size: 1.08rem;
+    }
+
+    .pull {
+      max-width: 930px;
+      margin: 36px 0;
+      padding: 28px 0 28px 30px;
+      border-left: 6px solid var(--gold);
+      font-size: 1.56rem;
+      line-height: 1.48;
+      font-weight: 900;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 36px;
+      align-items: start;
+    }
+
+    .risk-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .risk-map div {
+      min-height: 150px;
+      padding: 16px 0 0;
+      border-top: 4px solid var(--green);
+    }
+
+    .risk-map strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #22282a;
+    }
+
+    .risk-map span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.91rem;
+      line-height: 1.72;
+    }
+
+    .wide-image {
+      margin: 8px 0 46px;
+    }
+
+    .wide-image img {
+      width: 100%;
+      border-radius: 2px;
+    }
+
+    .source {
+      padding: 52px 0 72px;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: #373c3f;
+    }
+
+    .source h2 {
+      margin: 0 0 16px;
+      font-family: "Noto Serif TC", "Noto Serif CJK TC", "Source Han Serif TC", Georgia, serif;
+      font-size: 1.32rem;
+    }
+
+    .source p {
+      max-width: 880px;
+      margin: 0 0 12px;
+      font-size: 0.94rem;
+      line-height: 1.76;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: 86vh;
+      }
+
+      .hero-inner,
+      .hero-caption,
+      main {
+        width: min(100% - 28px, var(--max));
+      }
+
+      h1 {
+        font-size: 2.68rem;
+        line-height: 1.1;
+      }
+
+      .dek {
+        font-size: 1.04rem;
+      }
+
+      .opening,
+      .grid-two,
+      .risk-map {
+        grid-template-columns: 1fr;
+      }
+
+      .opening {
+        padding-top: 56px;
+      }
+
+      .lead {
+        font-size: 1.22rem;
+      }
+
+      .section h2 {
+        font-size: 1.78rem;
+      }
+
+      .pull {
+        padding-left: 18px;
+        font-size: 1.3rem;
+      }
+
+      .risk-map div {
+        min-height: auto;
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero-inner {
+        padding-top: 72px;
+      }
+
+      h1 {
+        font-size: 2.7rem;
+      }
+
+      .dek {
+        font-size: 1rem;
+        max-width: 720px;
+      }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .hero { min-height: auto; color: #111; background: #fff; }
+      .hero img, .hero::after { display: none; }
+      a { color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="hero_market_peak_dawn_office.png" alt="AI 生成的清晨金融辦公室影像，桌上有抽象市場高峰圖表">
+    <div class="hero-inner">
+      <p class="kicker">The Diary Of A CEO｜Jeremy Grantham</p>
+      <h1>泡沫總是披著偉大發明的外衣</h1>
+      <p class="dek">Jeremy Grantham 的警告不是說 AI 沒有價值，而是說最偉大的技術故事，最容易吸引最多錯誤的錢。這支長訪談從 AI 泡沫一路談到住房、生育率、毒性環境與社會契約，像一張關於未來十年的風險地圖。</p>
+      <div class="meta">
+        <span>Billionaire's WARNING: I'm SELLING. The Crash Is Already Here!</span>
+        <span>約 105 分鐘訪談摘要</span>
+        <span>讀者：一般大眾</span>
+      </div>
+    </div>
+  </header>
+  <p class="hero-caption">AI-generated editorial image, not a video screenshot.</p>
+
+  <main>
+    <section class="opening" aria-label="article opening">
+      <p class="lead">這支影片最容易被標題帶向「賣出」與「崩盤」的情緒。但 Grantham 真正在談的，是人類如何在偉大故事面前失去比例感：鐵路是真的，網際網路是真的，AI 也可能是真的；問題是，市場往往把真實的未來，提前用不真實的價格買完。</p>
+      <aside class="side-note">
+        <p>Grantham 是 GMO 共同創辦人，長期以泡沫研究、價值投資與悲觀市場判斷聞名。影片描述他曾管理最高約 1,650 億美元資產，並把大部分個人財富投入環境相關基金會。</p>
+        <p>本文整理的是受訪者觀點，不是投資建議。涉及股票、債券、房地產、加密貨幣與國家選擇的內容，都應視為一位投資人的風險框架，而非可直接照抄的個人配置方案。</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>偉大的想法，才有資格形成最大的泡沫</h2>
+      <p>Grantham 反覆強調一個容易被忽略的事：泡沫不一定建立在騙局之上。相反地，歷史上的巨大泡沫常常圍繞真正重要的發明。鐵路改變世界，網際網路改變世界，AI 也可能改變世界；正因大家都看見改變，資本才會蜂擁而入。</p>
+      <p>他的經典例子是 Amazon。在網路泡沫時期，Amazon 的股票曾大幅上漲，崩盤後又暴跌，最後卻從廢墟中繼承零售世界。這說明兩件事可以同時成立：技術路線可能正確，當下價格也可能瘋狂。</p>
+      <p>因此，Grantham 對 AI 的懷疑不是技術懷疑，而是估值懷疑。他認為現在的市場把 AI 的未來收益押得太滿，並把 SpaceX、AI 相關企業、以及大型科技股的高昂預期視為狂熱訊號。</p>
+      <div class="pull">泡沫最危險的地方，不是故事假的，而是故事太真，讓人忘了價格仍然可能錯。</div>
+    </section>
+
+    <section class="section">
+      <h2>崩盤在日常中不是圖表，而是工作、房租與安全感</h2>
+      <p>當主持人問一般人會感受到什麼，Grantham 的回答很樸素：高飛股票若下跌，企業會裁員，人們會覺得自己變窮，消費會收縮，經濟壓力會擴散。市場不是抽象賭桌，它會透過薪水、工作機會、房價與租金回到每個家庭。</p>
+      <p>他提到，過去泡沫破裂後常伴隨困難時期：1929 年後是大蕭條，1970 年代的 Nifty 50 泡沫破裂後伴隨嚴重衰退，日本 1989 年泡沫則帶來漫長停滯。這些例子不是精準預言，而是提醒：資產價格過高時，回到現實的路可能很長。</p>
+      <p>對一般讀者而言，這段最有價值的不是「什麼時候崩」，而是「如果未來不像過去十年那麼寬鬆，我的生活是否有緩衝」。影片中他多次回到同一點：不要假設好時代會自然延續。</p>
+    </section>
+
+    <section class="section">
+      <h2>他給的投資框架，其實是一種防守姿態</h2>
+      <p>Grantham 在影片中提出非常鮮明的主張：不要集中持有美國股票，尤其不要重倉美國科技股；若必須持有股票，應更重視美國以外的市場。他也談到現金、債券、少量貴金屬與房地產，但語氣不是尋找暴利，而是保留承受錯誤的能力。</p>
+      <p>他把債券解釋為一種借錢給政府或公司的工具，並指出在特定利率環境下，投資者可以用債券取得較可預期的現金流。主持人現場把 10 年期美國公債與公司債的殖利率拿來討論，讓這段對一般人變得具體。</p>
+      <p>但這裡必須保留距離：Grantham 的觀點是高度逆向、強烈悲觀，而且未必適合所有人。真正可帶走的不是「照他的配置買」，而是學會問自己：我的資產是否只押在同一個國家、同一種故事、同一批高估值公司上？</p>
+      <div class="risk-map" aria-label="risk map">
+        <div>
+          <strong>AI 泡沫</strong>
+          <span>技術可能偉大，但資本支出、估值與獲利時間差可能失衡。</span>
+        </div>
+        <div>
+          <strong>美股集中</strong>
+          <span>他認為美國股票太貴，尤其大型科技股承載過多預期。</span>
+        </div>
+        <div>
+          <strong>住房壓力</strong>
+          <span>房價相對收入過高，即使下跌三成，仍可能不便宜。</span>
+        </div>
+        <div>
+          <strong>社會韌性</strong>
+          <span>財富不平等、安全網與社會契約，會影響個人承受風險的能力。</span>
+        </div>
+      </div>
+    </section>
+
+    <figure class="wide-image">
+      <img src="household_resilience_social_contract.png" alt="AI 生成的餐桌靜物影像，有家庭預算筆記、水瓶、水果、地圖與嬰兒鞋">
+      <figcaption>AI-generated editorial image, not a video screenshot.</figcaption>
+    </figure>
+
+    <section class="section">
+      <h2>AI 的另一個問題：不是泡沫，而是權力</h2>
+      <div class="grid-two">
+        <div>
+          <p>訪談中段轉向 AI 風險。Grantham 延續 Geoffrey Hinton 等人的擔憂：如果人類繼續快速推進 AI，是否能確保系統具備某種「善意」？主持人追問，善意本身就有主觀性，不同宗教、文化與價值觀對「好」的定義不同。</p>
+          <p>這段討論把投資泡沫與文明風險連在一起。市場可能先為 AI 付出過高價格，而社會則可能在還沒想清楚控制方式前，就把更多決策交給系統。</p>
+        </div>
+        <div>
+          <p>Grantham 提到經典的「迴紋針」思考實驗：一個看似簡單的目標，若被沒有足夠人類價值理解的系統無限放大，可能導致災難性副作用。這不是科幻驚悚的重點，而是提醒人們，效率與智慧若缺少邊界，可能會放大錯誤。</p>
+          <p>他也觀察大型科技公司正在同一個 AI 戰場上投入巨額資本。當所有巨頭都把資本支出推向同一方向，競爭可能很殘酷，最後未必每家公司都能把投入轉成利潤。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>從財富不平等到社會契約：這不是單純的投資訪談</h2>
+      <p>影片後半，Grantham 把話題拉到西方社會的深層壓力。他談財富集中、年輕人買不起房、工作變稀缺、以及人們越來越覺得自己無法過得比父母好。他認為這些感受會侵蝕政治與社會穩定。</p>
+      <p>他提到歷史上極端不平等往往不是靠溫和政策自然修復，而是透過戰爭、災難、政治重組或深刻制度變化被打斷。這種說法很沉重，也未必是唯一解釋，但它揭示出一個核心問題：當財富上層越來越集中，底層安全感越來越薄，社會對未來的信任會被削弱。</p>
+      <p>他對美國社會契約尤其悲觀。Grantham 用鄰里互助、安全網、孕產婦死亡率、壽命與暴力等指標來討論「文明」是否真正照顧人，而不是只看平均財富或少數人的成功故事。</p>
+    </section>
+
+    <section class="section">
+      <h2>毒性環境與生育率，是他最不想被忽略的警訊</h2>
+      <p>訪談最意外的轉折，是 Grantham 大篇幅談生育率與環境毒性。他提到精子數量下降、微塑膠、內分泌干擾物、PFAS、農藥、化妝品與食品添加物等問題，並把這些視為比短期市場還更根本的風險。</p>
+      <p>主持人補充美國與歐洲在食品、化妝品與化學物質限制上的差異，並提到可以用產品掃描工具辨識某些風險成分。Grantham 則把重點放在孕婦、胎兒與下一代：若化學物質影響生殖與發育，它不只是個人健康問題，而是社會延續問題。</p>
+      <p>他提出「去毒化世界」與「去毒化資本主義」兩個層次。前者是禁止有害化學物質，後者則更難：讓社會重新把養育孩子、健康、社群與安全網視為共同責任，而不只是個人家庭各自承擔。</p>
+    </section>
+
+    <section class="section">
+      <h2>一般人能帶走什麼？不是恐慌，而是韌性</h2>
+      <p>主持人最後把問題拉回計程車司機、接待員、護理師這些普通人。Grantham 的答案是：以未來不容易為前提來規劃生活。這不是末日準備，而是務實地留一點現金、學有用技能、選擇還需要人類的工作、修復東西、做工程、科學研究，並讓自己活在比較緊密的社群裡。</p>
+      <p>他甚至把居住國家也納入風險框架，認為社會安全網、醫療、鄰里互信與公共制度，會影響個人面對危機時能否被接住。這對一般讀者的提醒是：財務韌性不只在投資帳戶裡，也在技能、人際網絡、居住環境與制度品質裡。</p>
+      <p>整支影片真正的結論不是「明天一定崩盤」，而是「不要把樂觀外包給市場、平台、公司或顧問」。在 Grantham 的世界裡，最危險的人不是悲觀者，而是從未認真想過壞情境的人。</p>
+      <div class="pull">他的警告若要翻成日常語言，就是：不要只問怎麼賺更多，也要問自己能承受什麼。</div>
+    </section>
+
+    <section class="source">
+      <h2>來源說明</h2>
+      <p>原始影片：<a href="https://www.youtube.com/watch?v=32u5T6lO8qk&t=31s">Billionaire's WARNING: I'm SELLING. The Crash Is Already Here!</a>，The Diary Of A CEO。影片 metadata 顯示發布日期為 2026-06-25，長度約 105 分 52 秒。</p>
+      <p>本文依 YouTube 英文自動字幕 `en-orig` 整理，並以影片 metadata、字幕清單與時間軸核對內容。字幕清單未顯示人工字幕；自動字幕可能包含姓名、數字或專有名詞誤聽，因此本文採摘要與意譯，不作逐字稿替代。</p>
+      <p>本文為影片觀點摘要，不構成投資、法律、稅務或醫療建議。涉及股票、債券、房地產、加密貨幣、居住國家與健康選擇的段落，請視為受訪者 Jeremy Grantham 的觀點框架，而非個人化建議。</p>
+      <p>本文圖片為 AI 生成的編輯視覺，不是影片截圖，也不代表 Jeremy Grantham、The Diary Of A CEO 或 GMO 官方素材。</p>
+    </section>
+  </main>
+</body>
+</html>

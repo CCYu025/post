@@ -1,0 +1,203 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選 2026-06-30</title>
+  <style>
+    :root {
+      --ink:#091018;
+      --paper:#f3eddd;
+      --card:#fff9eb;
+      --green:#0fb889;
+      --cyan:#22d3ee;
+      --brass:#c5963d;
+      --red:#d44a3a;
+      --muted:#59636d;
+      --line:#111821;
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; max-width:100%; overflow-x:hidden; background:var(--ink); color:var(--ink); }
+    body { font-family:"Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif; line-height:1.68; overflow-wrap:anywhere; }
+    img { display:block; max-width:100%; height:auto; }
+    a { color:inherit; text-decoration-color:rgba(15,184,137,.7); text-underline-offset:3px; text-decoration-thickness:2px; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap:anywhere; letter-spacing:0; }
+    .page { width:100%; background:linear-gradient(90deg,#f7f0dd 0%,#e9e2d2 52%,#f6f0e2 100%); }
+    .bar { background:var(--ink); color:var(--paper); border-bottom:6px solid var(--green); }
+    .bar-inner { max-width:1180px; margin:0 auto; padding:12px 18px; display:flex; justify-content:space-between; gap:16px; align-items:center; font-weight:900; font-size:13px; }
+    .stamp { border:1px solid rgba(243,237,221,.5); padding:3px 9px; color:#8af4dc; text-transform:uppercase; }
+    .cover { max-width:1180px; margin:0 auto; padding:24px 18px 24px; display:grid; grid-template-columns:1.02fr .98fr; gap:18px; border-left:5px solid var(--line); border-right:5px solid var(--line); }
+    .mast { border-top:10px solid var(--line); border-bottom:4px solid var(--line); padding:13px 0 16px; }
+    .date { font-family:Georgia,"Times New Roman",serif; color:var(--red); font-size:18px; font-weight:900; }
+    h1 { margin:8px 0 9px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(44px,7vw,90px); line-height:.93; }
+    .subtitle { margin:0; max-width:760px; font-size:20px; font-weight:850; color:#24303b; }
+    .hero { margin-top:16px; border:4px solid var(--line); background:#111821; min-height:370px; }
+    .hero img { width:100%; height:100%; min-height:370px; object-fit:cover; }
+    .lead { border:4px solid var(--line); background:var(--card); padding:18px; display:flex; flex-direction:column; justify-content:space-between; min-height:100%; box-shadow:8px 8px 0 rgba(9,16,24,.18); }
+    .label { display:inline-flex; width:max-content; max-width:100%; padding:3px 8px; border:2px solid var(--line); background:var(--green); color:#061412; font-size:12px; font-weight:950; text-transform:uppercase; }
+    .lead h2 { margin:17px 0 10px; font-family:Georgia,"Times New Roman",serif; font-size:34px; line-height:1.08; }
+    .lead p { margin:0 0 12px; font-size:17px; font-weight:720; }
+    .source-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:var(--muted); font-size:13px; }
+    .source-list a { color:#111821; font-weight:900; }
+    .section { max-width:1180px; margin:0 auto; padding:22px 18px; border-left:5px solid var(--line); border-right:5px solid var(--line); border-top:5px solid var(--line); }
+    .section-title { margin:0 0 16px; display:flex; align-items:center; gap:12px; font-family:Georgia,"Times New Roman",serif; font-size:30px; line-height:1; }
+    .section-title::after { content:""; height:6px; flex:1; min-width:34px; background:repeating-linear-gradient(90deg,var(--green) 0 22px,var(--cyan) 22px 42px,var(--brass) 42px 62px,var(--red) 62px 72px); border-top:2px solid var(--line); border-bottom:2px solid var(--line); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    article { min-width:0; border:3px solid var(--line); background:rgba(255,249,235,.95); padding:15px; box-shadow:5px 5px 0 rgba(9,16,24,.15); }
+    article h3 { margin:8px 0 8px; font-size:21px; line-height:1.24; }
+    article p { margin:0 0 12px; color:#27313b; }
+    article.follow { background:linear-gradient(180deg,rgba(34,211,238,.16),rgba(255,249,235,.96)); }
+    .meta { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:9px; }
+    .pill { border:2px solid var(--line); background:#fff; padding:2px 7px; font-size:12px; font-weight:950; line-height:1.35; }
+    .pill.track { background:var(--green); color:#061412; }
+    .pill.angle { background:var(--brass); color:#111; }
+    .pill.warn { background:var(--red); color:#fff; }
+    .sources { border-top:2px solid var(--line); padding-top:10px; color:var(--muted); font-size:13px; display:grid; gap:5px; }
+    .sources time, .source-list time { color:#333d47; font-weight:850; }
+    .footer { max-width:1180px; margin:0 auto; padding:17px 18px 36px; border:5px solid var(--line); border-top:0; background:var(--ink); color:var(--paper); font-size:13px; }
+    @media (max-width: 820px) {
+      .bar-inner { align-items:flex-start; flex-direction:column; padding:12px 14px; }
+      .cover { grid-template-columns:1fr; padding:18px 14px 20px; border-left:0; border-right:0; }
+      .hero, .hero img { min-height:auto; }
+      .hero img { aspect-ratio:16/10; }
+      .lead { min-height:auto; }
+      .lead h2 { font-size:28px; }
+      .subtitle { font-size:18px; }
+      .section { padding:20px 14px; border-left:0; border-right:0; }
+      .grid, .grid.two { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      h1 { font-size:40px; line-height:.98; }
+      .grid, .grid.two { grid-template-columns:1fr; }
+      .section-title { font-size:25px; align-items:flex-start; }
+      article { box-shadow:4px 4px 0 rgba(9,16,24,.15); }
+      .sources, .source-list { font-size:12px; }
+      .lead, article { padding:13px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="bar">
+      <div class="bar-inner">
+        <span class="stamp">AI Access Desk</span>
+        <span>2026-06-30｜過去 24 小時全球 AI 新聞精選</span>
+      </div>
+    </header>
+
+    <section class="cover">
+      <div>
+        <div class="mast">
+          <div class="date">Tuesday, June 30, 2026</div>
+          <h1>模型也要過海關</h1>
+          <p class="subtitle">今天的 AI 新聞像一座通關大廳：frontier model 被列入可信名單，晶片被查驗，企業則在成本、來源與可用性之間重新排隊。</p>
+        </div>
+        <div class="hero" aria-label="AI 模型存取與晶片管制主視覺">
+          <img src="2026-06-30-hero.png" alt="AI 模型、晶片與企業採購通過高科技關口的雜誌主視覺">
+        </div>
+      </div>
+      <article class="lead">
+        <div>
+          <span class="label">今日主線</span>
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h2>OpenAI GPT-5.6 傳採可信夥伴先行，frontier model 發布開始像核准制</h2>
+          <p>多家媒體報導 OpenAI GPT-5.6 Sol、Terra、Luna 先向約 20 個夥伴開放，公開推出延到 7 月，並與美國政府要求的早期存取與審查安排有關；模型發布權正從產品節奏變成政策節奏。</p>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNTnJsSlNZaWdqMUl4VXdTX2lxclRPUkx4NmRyXzJNTzRGMGU1WGZleWhTOVNLR1dhTmQ5RUpleDhLU0M3aVBPaXVVTHZIcFIyV3ZZQ0wySlRrZWlKU2xiVEpjT0pVZUpKRDZRUHMwUUp6SVZGM1p0QmxZSm14VTRoUjZZTWY4dGlpZFowTFNkQ25wVElzbkhadmFiS3VMUXlHMTB4NDJ5Y0R4bkc3?oc=5">Crypto Briefing</a>｜<time>2026-06-29 23:04 GMT</time></li>
+          <li><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPVkFsb2JiYnhROThRdlBEeHJDclkwMGlqd08zSEFiZFgxSFRNTWJwYjd3cnNqQ0ZNLXN6Y3NJaF9lU0JpSVpGdkwtcFRmWGN5X0xkOVl2Q3FhdGQyYkdPWTBtcE9va192T2xHcE1wLXViSWRFc0hZZ3FHenZNQXJ1TThERjFXWGVaOGctNUJIVWFDZUVNM19KMk1SdlI?oc=5">Mobile World Live</a>｜<time>2026-06-29 10:13 GMT</time></li>
+          <li><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPS0JUSUJ5VFNpMFN4YXNTWlBrYUx0Y3dMVG9rdXpTYmpFUzhGT1JWOXNLaU04SkoxNkJwcXJWeDloTFpFT2drMEUwN0plbFN1RzZraWRWMlRrX2Y3Rk1XOGRTMTl4cXBHUGZaaUVXdWw1QzJJai1IZU15UXlYSF9kUHc4cnhMNU1VQWtTUw?oc=5">Cybersecurity Dive</a>｜<time>2026-06-29 15:15 GMT</time></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">持續追蹤</h2>
+      <div class="grid two">
+        <article class="follow">
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>South Korea 晶片計畫擴到資料中心與機器人，國家級 AI 工地加速成形</h3>
+          <p>昨天焦點是 Samsung、SK 的巨額投資輪廓；今天的增量是報導把範圍延伸到 chips、data centers、robots，韓國 AI 供應鏈更像整套產業動員。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdTZfLXNyRDBjNFBwc3I0RHlJeGdDQUliYTJKSzd1NG9tbFgzYkt4YXl2U0daVERJZWVhY25RdmNMaGJYTDNzWE16aVgwUlltTlhVZDd3T2w4SFhvalk3QV95VUhVN0h3cDJWeld4NlF0YWc1VFFTTGtlM3djMXdaTlBYWXFJTmZ6V1FaczlZLXRlX1ZXNDRJWDBHUFJ0RDdZckFRemxkLVZLcXJZbFZFa3lrMmFudDh4ZU5DZGcxNENEb2c?oc=5">Tech Times</a>｜<time>2026-06-29 03:59 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMi-wFBVV95cUxOSFlISm5rYVJNWlVMY2JUZnBBZmpYZk1ZMW1UUEE3QWJ0Vmx6ekt3b1JVRjE3SDY3WlZtZVoybjlFMzZMMXVFdEFFWUQwSkZZSU9VOURiOGhvUFVOMHdZZm9EUVhUT1VuRmFGSU12SjhmWVFNZnRTTEtReE5TQ3NjaFJpTml2RThjSHZsOVVfV3BCcDlab2JVU0VyWVpOWlQwUWJjRGZsUHRvWUJRbEpGdy1fanBaNG5WcWl1QWtsY3UyN3gyd0ZKdkx5dTcwV2cySDY2aHRiWFlZSU1yVmhsSWhyTTZxbjRIQ3hDTzFDVlhIRlAtWkVZVjQyMNIBgAJBVV95cUxPOFdSZjIzUUdYWkZhdzRRZHRDMVhtQ21rYzNrT1lzOWVkTFQ4Zzd5QUp1Y3pWRFNVS3lqMlljNHo4Q05WeG43U3dOTWZpRWFsTHJ1X1BhOVA0TjBVMmFnbHYtRDhzazdHanVBRy1PUzVmWm1pNG5hOWlvZi1wWTNETWd3UGZxRkRXaWNZMzNfRUVPZXM0LV9NNExNOXNGSUVDcDJKQUwzOTd5clFNSGxMODBZeWFhX2JmNWozeDBoMkFTZHVZQ19CRllCNzAyUWpwZWUyWTlxaDVlUVRJZmV6SVlsRWZjZzFITkVqVFpLaUMyeG1RUmpsTjBjTEQzd1Fi?oc=5">The Economic Times</a>｜<time>2026-06-29 10:52 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">晶片邊境</h2>
+      <div class="grid two">
+        <article>
+          <h3>Supermicro 台灣辦公室遭搜索，NVIDIA 晶片管制進入執法現場</h3>
+          <p>台灣當局據報搜索 Supermicro 辦公室，調查 NVIDIA AI chips 相關走私或出口違規疑雲；這把晶片管制從政策聲明推進到供應鏈現場與股價反應。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPdE8wWm9URTJrXzMwc0xQakVNdjBRV0kzenJvOFN3OUZDLS1DaXFtMWVHWkpnVFRVNVBWMUNad2FmU0piSDhSaGpJNnRSZ1ZWaWxBcGhOSlRWcTlQTjNXUHB2TXlDbWZRSjRYTEdMeVRPM1lHZTB5Nk5KQmZPcGIwWTIzZHFJbHhBaEFRc3h5d2czZU5SMUg5MDI5RlU5dTRrWHdRUVFoaUdyS1ZvZFg2eEg2UnRwZw?oc=5">Bloomberg</a>｜<time>2026-06-29 17:59 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQc01jbHBHLS1BaUYyOHdzVVJ1eUhtRXdZUzhMTlJBTURKbmVHZUVhQWtQNHlzejh1R21rWHVhNWFjNW5YY3ZoNTBvU3V2cWZsX2lnaHMyZlRMUXF1SGdrdVZKd2ZKUTE1aERZb29BdG94QTkxQnZNamszSFI1OWNQTXVhU2s?oc=5">Financial Times</a>｜<time>2026-06-29 20:17 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxPTzBvTkUxSmVfeHVub0QyVVBTeGZBem1oS05oR0FBeE9JRDQ3dkF5UGthOWlzd2ZHYUVlUDRYaEU0YVp3U09sRGpHVnZhcnl1Q0I5MGM5NGhtdHpzaE1QNFh5T2RKNm1Bc21oc3FtZnIwamhERmZvcHkwWGVQN0lZcmk3dDVMMHhDVERrWWNLcTNZWXd2cXZ0TllqYVZVa2s?oc=5">Yahoo Finance</a>｜<time>2026-06-29 21:07 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill angle">New Angle</span></div>
+          <h3>印度企業轉向中國模型，AI 可用性開始改寫採購路線</h3>
+          <p>在美國高階模型受限與成本壓力之下，印度市場出現轉向中國模型的討論；獨特切角不是單一模型能力，而是模型存取權如何改變區域採購與技術依賴。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiggJBVV95cUxNdWRteXctYlB6bmF4NGxPNDctUl9Ba0wybkhLTTBoLVRvNmhzaDBCRzRnNkVjUnJCNEFtMmo3SWJ0N05qZUNJNDdfYnd2ZXVhS3FscGtucy0yUkZ0Q1B3RGNOamthS01ZTFEyMUYyazF2endlc3B4cGdlbzVtSTFaOWhrR0RianpHNTI5WXNWaHNpNV9TVEE0eUEwMTg4QVdDS3FleDg2cXZROUEyOVZGSWpQbEpZRGxnOERQdl94MlZXVHpwWFE2am5abm85NXdDUGFtaTJEeHc5OWFKWXQyY1Q1VUpRM2FGOThqXzE3VHRYcUFkTjZDOUZ5UXU2cENCclHSAYcCQVVfeXFMTl80dlFlN3Q0dUVONVVjNklwY0JNZTJmQlBUOEJReVQwcUExaVNTeUNWVXoxQWxJYXdrUDBHSXNYcGhvT0RGZGZGV0ZQczRUSU94aVEwVVYxX0ZVR09RZXF4ejEzWGhKLUU3WGR1ajhaQmR2VG9INVlHSTJtSmdSUFNfYzdEN2o1aFhyTUpaVmJ3T2F6VGZlZllGVVhsZzZwcGNsTWIyc05zWC1wVnhZWGstTm1ZVnJfVzVRenl5X0RvdnJWc3BTanRpYklIN21COXNqQ3NqV08taXh2YUhuQ3dvSEkyMVMyVllNeE13aEJ0UldyMFRORHY3SXJOMUNRUi1CWFNDWjA?oc=5">The Economic Times</a>｜<time>2026-06-29 00:31 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOQXY2WFc3a3g3Yk91ejdXQlJhcE9oVGotNWhwSGt5QXVLRTdQTmV2cjdqOW9pc1huVm9pZzVnNE1GYzdYelBHR2NxdXlOQnVRLTR6OHI0ZXZIazlkNTlMRjRDNWQ2dlkyZWNYdVkwSnlOYWhGYnk3aVlNNThrZFpEcU1ob0s2ZHdlM0dtSEtQY3ZFVnhMSjc5MWFJMHhnYk9rUzNGb1h3?oc=5">inkl</a>｜<time>2026-06-29 10:36 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">企業採購</h2>
+      <div class="grid">
+        <article>
+          <h3>Tech Mahindra 導入 Perplexity Enterprise Pro，AI 搜尋變成銷售團隊工具</h3>
+          <p>Tech Mahindra 與 Perplexity 合作，把 Enterprise Pro 導入銷售團隊；企業 AI 不只做內部問答，而是進入銷售情報、客戶準備與前線工作流。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQcEhKMGE1SjJ4SUw0X0FmenZVSG8wWWpVdEM0U0VtdmxuX291OWtBSVNPb2R4VFdJZmpDM2YyUUZxWXNYN2pUZGdZWWdjQzlueGZyTzVoTnNHQmZWZkhKLUlmcFZ2TkpJYUc3a3hZQW80WFNuc243akdRZExFUGNmQkVTaWR3UndFalkxcFNZR3FFdkoyV0FhRG04bjRjcmNHNU5tX1loWU9RWXZqNi1JRmtNZlBpZmlvd2t0dHQ3SmNyZ3hQN2xERkFTU3rSAdMBQVVfeXFMTi03OXVJdGhRU3JYMHJXVUtqY212ZW1MdEo1ME8zVVlzTlRSTzIycnU1UUh6ZFZfbV9QV2hhRUF6a0l6TTA3YUVxWGFmYndlVV8tOXRxNkR4Q3h6M2JreUFNVG5MVUdBdGpDRjg4UUoyVFdZLU0wTW50cGx3OUt0dEk0OUhYNlV5eFBYcExZdENlNW8yZXVUcnZ1SFpUbVVRU0tkSnZ1dTZ0SkRXZml1X2pQNzVzcDhXcm9mb1p3YndOcXp4bUU3WHAzbnZ5amVnRThlNA?oc=5">BusinessLine</a>｜<time>2026-06-29 11:36 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxOaHdTN1Z0b2NqMl9CZERHcW14VXlIaEl6c3FYNUZod1JmRkZ5aDlzWXMwaUppSUhKN2I5VlNVLVp6VHdUSVJLcDFqQ29MNEh2eVBPSTM4R1VQSEJtdVc3TVplS09naGQ3NW9fdVFBRnRiMGpPdW9MTVlBZWM5UEtoNlRwdnNocXR2RThOVTYyQVZpMDBkdG53QUp1Q3NhdVpnY04weHdDRUdZNTdSZ2FlZWNXbDR3QkxyOU9OLUVkVTNRZG4tVlpfRkFQSndaR3kzdEJzdXZxSnN4Rk5FNUZhc0Zn0gHiAUFVX3lxTE5od1M3VnRvY2oyX0JkREdxbXhVeUhoSXpzcVg1Rmh3UmZGRnloOXNZczBpSmlJSEo3YjlWU1UtWnpUd1RJUktwMWpDb0w0SHZ5UE9JMzhHVVBIQm11VzdNWmVLT2doZDc1b191UUFGdGIwak91b0xNWUFlYzlQS2g2VHB2c2hxdHZFOE5VNjJBVmkwMGR0bndBSnVDc2F1WmdjTjB4d0NFR1k1N1JnYWVlY1dsNHdCTHI5T04tRWRVM1Fkbi1WWl9GQVBKd1pHeTN0QnN1dnFKc3hGTkU1RmFzRmc?oc=5">Business Standard</a>｜<time>2026-06-29 10:28 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPaVo1ejA5SS0wcVl0UnpqOGgzQUdJTzl4M0dNbUF0S0lFWlNaLWNTa19jTFFJbkc4TGN0YTlCZUFjT0xYb2x1RGR3Y25ZRDZrVWFKVjJsX3ZPOTFZX2RFTUxwSHBJUERpeVhBQmZnanlOR3lLd3Z5eE9Tb081VDl4Tm1hRzJTNmdody1sUllBZm9ZaHBiTEVyTVZMUWlaOVhJVXlsS1d3WFBoWlhqNnY5UEc2aXY?oc=5">Analytics India Magazine</a>｜<time>2026-06-29 16:02 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill angle">New Angle</span></div>
+          <h3>AI API 帳單成採購核心，企業開始用價格重排模型名單</h3>
+          <p>G2 與市場報導同日把焦點放在 AI API pricing 與企業模型選擇成本；獨特切角是 AI 模型競爭不只看跑分，還看每次查詢、部署與營運帳單。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiS0FVX3lxTE1WcHdLMERLLU1zOG94cUlyU1VLUlVuSk9VcFN6Q2ZlVlcwbUtmWEE2aEZjTXdzUGRxSm54Z0dVSHV3WDNzRHhWa1kyZ9IBW0FVX3lxTFBsbGlZZ0FsbTB4eDY3NnZBS2VEZ0FpSjItR3pVMDNGYXhSd2lXRXptRTUwcFRUX3Q3T3VMVUhJUFFqS0RTbnJWZDNacFRXbkZISlM4OUNFNUlJb3M?oc=5">G2 Learn Hub</a>｜<time>2026-06-29 09:57 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMi8gFBVV95cUxNOWctdUNkcFRWLXVsTkRuTl9zVjNmNkgtV2wzNXRCbFJJNXRVTjNJM1RnWFNhRVRKTnVGSFNRMG0zVEJ5NlJXNG9LSGMwQ2xiRXRhUlJfX01WZGVIUndGWmluR0VrXzBKR2M3bk1YUE4tMUJXRXAwRzJ1Sm1ya0ZXcWNlRVZrbmhlTFZiWU14ekU5aHpkbVFkc3lqYzFmUE50ME9DeENjZ21CcTkzMUNlNWFZTkF3ZDJITl9TbEZ0bHZCc0lMMlpyVnJBbkJFTnZfWGRoQUkzcjFvalhOWmRDUHNmUmszaDlxWTl3WW9URUZHZ9IB9wFBVV95cUxQM3FGM2ZxaVlmYUpCa1VSUDhHdlVUU21hRWRMeHdwdjlPSVhRQVFaMkFqS0JKVFhVbnkwRlROc28wQjN5Z0x6TFlTVHdYSEgzYmRxdVdKbTg3ZXlzREh4N00tbUlVLUZHamkyN3JlaWVVclVlNUdCLU5oVGdhRUhlMWpMbHV4Ylc1OFVvd3BaNmtrbUdKOUZBYVJBNFV6aHFSOHplbjlXRFZ3VGFFY1NJVzFYRzFtU1pDTllfYUpwQXVPVXlubDY3bDZKUERpUTVZMDZKQjZvclN6NTN5djRneUFhV0lfRlF6dF83WG9MQzFULXlVc3Bn?oc=5">The Economic Times</a>｜<time>2026-06-29 10:36 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill warn">⚠ 未交叉驗證</span></div>
+          <h3>NPCI 用 AI 反詐，支付基礎設施把模型放進風控前線</h3>
+          <p>NPCI 據報轉向 AI 偵測與阻止支付詐欺，顯示金融基礎設施正把模型放進即時風控；目前主要來自單一媒體來源，保留警示。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxQS1NYOWM2akdDQXlhV0toaFhyY2J1VTJDZHR4aVFOYmMtdDhRMGlrZUljeUYybWN3eHMwWnR2Wkp1blM1Y0FlQjlYaHBxVkFUNDBHS1FTb3NEdWdmM3d5U1g4b1YzRDNHeDhEX3pXbUI2MWpHQTdhNTB5Qkd0MnZ4dkI0MEMyRW5BUjBqNmZTMktQYlZwb1lQWHdzXzlHVDZueE82M3JpY3VMY3JzdXZfMktTWEgxSU1Ua0E4MVd1ZHpPc2RiX3g4eG04SdIB0AFBVV95cUxNRldUZXoydjRwTl9WakJvNWF1aGxTTklUTFJISEZFejNxNmg1bzBjUktxWURCZy12UGtKMHd5SmJGel9rdE56YVZGa2w4a3huWDVwSFFINGl6dG1jQ215cm5RQ01wN0UyN3dtZjlkUDR6WUpxZkFFZEJkSFVLd2Nud0ZkNFZibXcyc2FYTWVka0s0X083ODNudkhSN09hOHZDclB5SzcxcHhLUmFtcFRYY3U4X2FoMm51TGlKS1ZhTFYxNFFzY0g0M3k1Vi1laHND?oc=5">The Economic Times</a>｜<time>2026-06-29 19:18 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">模型戰線</h2>
+      <div class="grid two">
+        <article>
+          <h3>Zhipu AI 發表 GLM-5.2，開放模型把資安能力拉進競爭焦點</h3>
+          <p>Zhipu AI 的 GLM-5.2 被報導為 open-weight model，並以資安任務能力挑戰 Claude 等高階模型；中國模型競爭從低成本延伸到特定高風險能力。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOd2N1ckRlT1Bad21NR3lVWC1fbzk4dURDbWs0dkFHUWZEVlh2YTZEbnNyakh1ZVBLRHRfM3ZBWVg1VFY3dkU3ZEpoTDAzYlloS2lFWlFYZzAwM28yTkYtOUtqWlYwLTcwQ1NNeElhOVNIV3prYWhFWDE2MTZtMTU2cko5TGg2NzlYWWk5c2FRbVA0akJjVTlGSGJFbzJNYnBKUjZJVWt0S0NRQnNwTENUVEtpS2hqNzYtR3c?oc=5">LatestLY</a>｜<time>2026-06-29 03:30 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1JMHJnbVI0WVVmbktOSURtTEtqMWNBZGgxaGt6c09LXzBDZlBGZGpmbkhFYng2M0VMX2pNbk1TbUlRM3dnbk1rRHRzR0pEcjdIOW9QUDNoc01kRnNKa3FFelFOTU8?oc=5">Blockchain Council</a>｜<time>2026-06-29 18:00 GMT</time></span>
+          </div>
+        </article>
+        </div>
+    </section>
+
+    <footer class="footer">本頁整理過去 24 小時全球 AI 新聞；單一來源題已標示警示。標題與摘要使用繁體中文，產品名、公司名與人名保留英文。</footer>
+  </main>
+</body>
+</html>

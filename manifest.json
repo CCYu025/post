@@ -1,6 +1,11 @@
 {
   "news": [
     {
+      "date": "2026-06-30",
+      "path": "news/2026-06-30/2026-06-30.html",
+      "title": "AI 情報日刊 — 2026-06-30"
+    },
+    {
       "date": "2026-06-29",
       "path": "news/2026-06-29/2026-06-29.html",
       "title": "AI 情報日刊 — 2026-06-29"
@@ -44,14 +49,15 @@
       "date": "2026-06-17",
       "path": "news/2026-06-17/2026-06-17.html",
       "title": "AI 情報日刊 — 2026-06-17"
-    },
-    {
-      "date": "2026-06-16",
-      "path": "news/2026-06-16/2026-06-16.html",
-      "title": "AI 情報日刊 — 2026-06-16"
     }
   ],
   "summary": [
+    {
+      "date": "2026-06-30",
+      "path": "summary/20260630_billionaire_warning_crash/grantham_crash_warning_magazine.html",
+      "title": "泡沫總是披著偉大發明的外衣｜Jeremy Grantham 訪談摘要",
+      "hero": "summary/20260630_billionaire_warning_crash/hero_market_peak_dawn_office.png"
+    },
     {
       "date": "2026-06-26",
       "path": "summary/20260626_simon_sinek_speechless/simon_sinek_speechless_magazine.html",
@@ -105,12 +111,6 @@
       "path": "summary/20260609_Dan_Martell_13_discipline_hacks_magazine_brief/Dan_Martell_13_discipline_hacks_magazine_brief.html",
       "title": "自律不是硬撐，是把選項重新設計 | Dan Martell",
       "hero": "summary/20260609_Dan_Martell_13_discipline_hacks_magazine_brief/Dan_Martell_discipline_hero_editorial.png"
-    },
-    {
-      "date": "2026-06-08",
-      "path": "summary/20260608_Jay_Shetty_purpose_magazine_brief/Jay_Shetty_purpose_magazine_brief.html",
-      "title": "把人生目的，從遠方拉回今天 | Jay Shetty",
-      "hero": "summary/20260608_Jay_Shetty_purpose_magazine_brief/Jay_Shetty_purpose_hero_editorial.png"
     }
   ]
 }
