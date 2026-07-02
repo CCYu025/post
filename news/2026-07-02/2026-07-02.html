@@ -1,0 +1,208 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選｜2026-07-02</title>
+  <style>
+    :root {
+      --ink: #111318;
+      --paper: #f2efe5;
+      --panel: #fff9ea;
+      --cyan: #19d1d1;
+      --amber: #f0b429;
+      --red: #d94b4b;
+      --muted: #5e6470;
+      --line: #181a20;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(90deg, #f5f1e4 0%, #ebe6d7 52%, #f7f2df 100%);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+    .page { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 22px 0 46px; }
+    .masthead {
+      border: 5px solid var(--line);
+      background: var(--paper);
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      min-height: 420px;
+      box-shadow: 10px 10px 0 var(--cyan);
+    }
+    .mast-copy { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; gap: 26px; }
+    .date-row { display: flex; justify-content: space-between; gap: 16px; border-bottom: 3px solid var(--line); padding-bottom: 12px; font-weight: 900; letter-spacing: 0; }
+    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 8vw, 96px); line-height: .9; letter-spacing: 0; }
+    .dek { margin: 0; max-width: 720px; font-size: 18px; font-weight: 700; }
+    .hero { border-left: 5px solid var(--line); background: #111318; min-height: 100%; }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    .ticker { display: grid; grid-template-columns: repeat(4, 1fr); border: 5px solid var(--line); border-top: 0; background: var(--ink); color: var(--paper); }
+    .ticker div { padding: 12px 16px; border-right: 2px solid rgba(255,255,255,.28); font-weight: 900; overflow-wrap: anywhere; }
+    .ticker div:last-child { border-right: 0; }
+    .section { margin-top: 34px; border-top: 5px solid var(--line); }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 14px 0 10px; }
+    h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(28px, 5vw, 52px); line-height: 1; letter-spacing: 0; }
+    .section-note { color: var(--muted); font-weight: 800; text-align: right; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    article {
+      background: var(--panel);
+      border: 3px solid var(--line);
+      padding: 20px;
+      min-width: 0;
+      box-shadow: 6px 6px 0 rgba(17,19,24,.18);
+    }
+    article.lead { grid-column: span 2; display: grid; grid-template-columns: .8fr 1.2fr; gap: 22px; align-items: start; background: #111318; color: #fff9ea; }
+    .score { font-size: 13px; font-weight: 900; color: var(--amber); text-transform: uppercase; }
+    article h3 { margin: 8px 0 10px; font-size: clamp(22px, 3vw, 34px); line-height: 1.15; letter-spacing: 0; overflow-wrap: anywhere; }
+    article p { margin: 0 0 14px; font-size: 16px; overflow-wrap: anywhere; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .badge { border: 2px solid currentColor; padding: 3px 8px; font-size: 12px; font-weight: 900; background: rgba(25,209,209,.12); }
+    .badge.angle { color: #006d77; background: rgba(25,209,209,.18); }
+    .sources { border-top: 2px solid currentColor; padding-top: 10px; font-size: 13px; color: inherit; }
+    .sources span { color: var(--muted); font-weight: 900; }
+    article.lead .sources span { color: #b9c0ca; }
+    time { font-weight: 800; }
+    .tracking-empty { border: 3px dashed var(--line); padding: 18px; background: rgba(255,249,234,.6); font-weight: 800; color: var(--muted); }
+    .footer { margin-top: 34px; padding-top: 18px; border-top: 5px solid var(--line); color: var(--muted); font-size: 13px; font-weight: 800; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 24px, 760px); padding-top: 14px; }
+      .masthead, article.lead { grid-template-columns: 1fr; }
+      .hero { border-left: 0; border-top: 5px solid var(--line); max-height: 360px; }
+      .ticker { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: 1fr; }
+      article.lead { grid-column: span 1; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .section-note { text-align: left; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 18px, 520px); }
+      .mast-copy, article { padding: 16px; }
+      .date-row { flex-direction: column; gap: 4px; }
+      .ticker { grid-template-columns: 1fr; }
+      .ticker div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.28); }
+      h1 { font-size: 44px; }
+      .dek { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="mast-copy">
+        <div class="date-row"><span>AI NEWS BRIEF</span><time>2026-07-02</time></div>
+        <div>
+          <h1>資本機房戰情室</h1>
+          <p class="dek">今天的 AI 新聞主軸不是單一模型發布，而是資金、晶片、資料中心與治理風險同步升溫：基礎設施正在變成產業競爭的主戰場。</p>
+        </div>
+      </div>
+      <figure class="hero"><img src="2026-07-02-hero.png" alt="AI 基礎設施與資本市場戰情室主視覺"></figure>
+    </header>
+    <section class="ticker" aria-label="今日訊號">
+      <div>8 則精選</div>
+      <div>0 則接續報導</div>
+      <div>2 則獨特切角</div>
+      <div>0 則未交叉驗證</div>
+    </section>
+
+    <section class="section" aria-labelledby="capital">
+      <div class="section-head">
+        <h2 id="capital">資本與基礎設施</h2>
+        <div class="section-note">資金正在沿著算力、資料與能源鏈條集中</div>
+      </div>
+      <div class="grid">
+        <article class="lead">
+          <div class="score">Score 19 / 20</div>
+          <div>
+            <h3>Together AI 完成 8 億美元融資，開源模型雲端進入巨額擴張期</h3>
+            <p>Together AI 以 83 億美元估值募集 8 億美元，顯示企業對可控模型訓練、推論與 GPU 雲端的需求，已從工具採購升級成基礎設施押注。</p>
+            <div class="meta"><span class="badge">new</span></div>
+            <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNT2FDQXdtMjduaGlBRWV1ZksxRDdWWk1kT2s5cHY2OS0xSkkwU2VCbjdHQXdsZGZqWTlYdXE0ZUE1anZLWFpQLXhmYjFZaS1RcmpGTWw4WnlSeVZfUEVDMVpQNE5qdXFfc1pVNGs5UmI2WUFSNG1hRnJUeUhLN0dBZEprcm5Bbkl5RGhjMVhvN0hPYXFSdEIzaWx1dGl6N2lTbVRtLUdLOFhMUnc?oc=5">Reuters</a>、<a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNcWxSb3R6OC1zejc5OUZRdnRSaWtOcE5zQUxmMGw1MFI0NnBaemNCRGUwOFpycnB2b1UwWWtfOFpfbzYtRm9UbVNRN3JIWWlnWmkzUmhkZVo0SXVTbXF1dGlmc2xFSUU0eHJfa0JLRlEzVEgxNlgyS093Z1ZWRnVSdDlfcUNockZvV3Y5VXNMemlIZjlhQjJrdQ?oc=5">YourStory</a>；<time>2026-07-01 16:05 GMT</time></div>
+          </div>
+        </article>
+        <article>
+          <div class="score">Score 18 / 20</div>
+          <h3>MGX 完成 490 億美元 AI 基金，主權資本把算力投資推到新尺度</h3>
+          <p>MGX 以投資 OpenAI、Anthropic 的脈絡擴大 AI 基金規模，代表海灣主權資本不只買股權，也在爭奪資料中心、晶片供應與模型公司的議價位置。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNcWxSb3R6OC1zejc5OUZRdnRSaWtOcE5zQUxmMGw1MFI0NnBaemNCRGUwOFpycnB2b1UwWWtfOFpfbzYtRm9UbVNRN3JIWWlnWmkzUmhkZVo0SXVTbXF1dGlmc2xFSUU0eHJfa0JLRlEzVEgxNlgyS093Z1ZWRnVSdDlfcUNockZvV3Y5VXNMemlIZjlhQjJrdQ?oc=5">YourStory</a>、<a href="https://news.google.com/search?q=MGX%20closes%20%2449B%20AI%20fund%20OpenAI%20Anthropic%20July%202026">Google News</a>；<time>2026-07-01 14:19 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="chips">
+      <div class="section-head">
+        <h2 id="chips">晶片與模型競速</h2>
+        <div class="section-note">GPU 之外的路線，開始拿到更高能見度</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="score">Score 17 / 20</div>
+          <h3>Oxmiq 募資 3500 萬美元，主打降低 AI 晶片架構成本</h3>
+          <p>Oxmiq 取得 3500 萬美元資金，切入低成本 AI 晶片架構，反映新創正在從模型層往硬體效率層尋找突破口。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOYmhpc3U1Q0JubmtQZ2Y2QnFlRXJHcURLa1lxZXpvRmtfb2xBQUhDWEJfVVV3RWtEZ2xQMnQ4QU5YMnYxaUZXa1RWRXVQSVNUdWVVRXVHUnBZSEdBZEtpakVYUjBpdWo0dldLUTZvdUM3ZWVjSFRERTFKbTRrS0FSZU5WMnE4dUM2Vk5jRDNIMEVXSXhRcEdhaHo3UVNqRTA1N093R1RzRWZGRXYta1VmZWFJWkhRTmlKRFFDdjVuVl9sQQ?oc=5">Reuters</a>、<a href="https://news.google.com/search?q=Oxmiq%20raises%20%2435%20million%20AI%20chip%20architecture">Google News</a>；<time>2026-07-01 14:09 GMT</time></div>
+        </article>
+        <article>
+          <div class="score">Score 15 / 20</div>
+          <h3>Qualcomm 挑戰 NVIDIA AI 晶片路線，避開 HBM 成為賣點</h3>
+          <p>Qualcomm 新 AI 晶片方案把「不用 HBM」放到敘事中心，市場訊號是供應鏈瓶頸本身正在變成產品差異化。</p>
+          <div class="meta"><span class="badge angle">獨特切角</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxNek80d3VhOEVNOTBmZ3FYR21BbmZPXzBBMFB1LW5ESVZxWU1SNkZ0YVljc1pwRThQV0xCUXBlT19XeWFRNDh0Q2ppY2JydW5oX3UtZmJKcFBzdVp6UWI3cWlFS3dZeEdtQTlqd01BRUdQV3kzU1dPTnQtYUc2b2VBbGgtdF9XTHNER0RzY0MtSlIwMzRoNXl5OHpsZ2VPRENnNzhhQ24tazB2VEFfN0FpNzIyT1otdFFPTzlDUXVOaVJlZXprNFNOTWlFaw?oc=5">Nikkei Asia</a>、<a href="https://news.google.com/search?q=Qualcomm%20AI%20chip%20ditches%20HBM%20Nvidia%20July%202026">Google News</a>；<time>2026-07-01 03:13 GMT</time></div>
+        </article>
+        <article>
+          <div class="score">Score 15 / 20</div>
+          <h3>中國 AI 模型縮小與 Anthropic、OpenAI 差距，競爭焦點轉向可用性</h3>
+          <p>新一輪報導把中國模型放進同一條性能曲線比較，獨特切角在於：全球模型競賽不只看封閉模型榜單，也看部署成本、語言市場與政策限制。</p>
+          <div class="meta"><span class="badge angle">獨特切角</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOZk9RRzFlT3oyWGV2NXBQcEQyWmtFSllXV3dXd1VKVEF5T0R5OHYxaDgtcTgxdWpaWlB3TVlZbG1vUWxxLV93WC1iVnIyWmtYeE9ET25MbDJtQ0JWV1k3MHVYSTA0OURFYy1EbWVaelBUQlV6OTlCNDNIRzFIdWp0a0RlZG5aUTJQYWR3amhHNmZzbklEMVE?oc=5">The New York Times</a>、<a href="https://news.google.com/search?q=Chinese%20AI%20models%20close%20gap%20Anthropic%20OpenAI%20July%202026">Google News</a>；<time>2026-07-01 20:06 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="research">
+      <div class="section-head">
+        <h2 id="research">研究工作台與風險治理</h2>
+        <div class="section-note">AI 進入科研流程，同時把心理安全與全球治理推上檯面</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="score">Score 16 / 20</div>
+          <h3>Databricks 與 NVIDIA 推 Genesis Workbench，AI 科學家工具鏈再整合</h3>
+          <p>Genesis Workbench 把資料、模型與加速運算放在科研工作流程裡，延續近期 AI research workbench 趨勢，但更偏向企業資料平台與 GPU 生態的整合。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOSk84Njk0dGdXajZ4RHZheHFZal9NcG5oOXdUU2FaZGFhdDhKSVVDbmZ4eWdTZ05MdWZ6NW1HQW04UUdDTnJaaWM0TmFLZnVvcEE0bHBxOTh6RzVqM0luY0hZUUFHS3RvSUtyUFlNbG1hZ0ZBdnNQdHVGNzFyeTRuX2hLa3dNeVdqeWx5OHZLYXZpTUl0bnlYblg2bXFRcl84VzAzNDFkVWZRM1k?oc=5">HPCwire</a>、<a href="https://news.google.com/search?q=Databricks%20Nvidia%20Genesis%20Workbench%20AI%20Scientists">Google News</a>；<time>2026-07-01 17:21 GMT</time></div>
+        </article>
+        <article>
+          <div class="score">Score 16 / 20</div>
+          <h3>UN 報告提醒 AI 風險與利益並存，治理議程走向全球公共財</h3>
+          <p>UN 報告同時指出 AI 的巨大潛在效益與高風險，讓政策討論從單一國家管制擴大到教育、勞動、資訊完整性與發展中國家落差。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxOa19UVl81bEhBaEtZaHNxMTVYTkxYZFNNMUxHdjFQTTMxRFdjS1dlbkF5aFM0czVWOGwzTVZkRXBrMU9lejcza2hndjN6ckFNOHZpQ3J4S1pYazhuNC1XVkcteEw4QnVTUGdsTjNmNlduVVRTOEgtTjRSQ0FpT0lGMkNsQWhMSzlIeDRYd2d0bVZpOFRPZTlBamdOcTg1V3l2TU8zTkotV2kyNmdE?oc=5">Reuters</a>、<a href="https://news.google.com/search?q=UN%20report%20AI%20benefits%20risks%20Reuters%20July%202026">Google News</a>；<time>2026-07-01 17:43 GMT</time></div>
+        </article>
+        <article>
+          <div class="score">Score 14 / 20</div>
+          <h3>ChatGPT 心理傷害訴訟再起，AI 產品責任進入個案化攻防</h3>
+          <p>一名加州男子主張 ChatGPT 加劇妄想並導致自傷，案件把聊天機器人的心理安全、警示機制與平台責任拉回法院現場。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMijgJBVV95cUxOQTc2aU02MF9kTlM4NWFyUWxLTl8temFmcUoxdG9tSW5sNnR6cFNCQUpuZVhxWDY3TmFlSjVrMlBESlhDekIxdTdtaUtuaGhDUGNfRk9lUFpuR0pmd2xlbHdVbi1RR2ZNOXJrb0JRQU1BUDlKOEp6LWw3Qld4ajZsU2tfLVZ5WDM3bkpNaEpRbFJUY2Z4aEhpc05lMXhmb1dqbjcxQXI0WWg1bTJOZXRJQnYtQ0hJX0VMUU9nTFk5NTExOXk3R2hudVhfMERoc3E2QWtmdFJQdkZMUU5Qb2NKNnJ6S0dtWUpBakxQTDFhdHNZU2hJU3ZVZFlEbEEtTGNIUy16OHIyYkJhQ1pqcnfSAZMCQVVfeXFMTko1UmJUeUVzdVNVb1JSMTNfSTVIRkpaTkh1Ry16cElMeW9RMDFWek1aUTRnMnZDNXl0WHZJa2VlRTh1NTVUR09EcUw3RFZsaWdmTy1WeFhoLWpRaUFzSkhvdkVmd3UxWkxNa19DRmhNUXc2ckdkdHJpU0JmbWVOdVpPTnc0M2F1anpuQnhoaTM4cmJrR0NKQTF6bVJESGw4cDh6SGE5RnZEVEZKQktJOUlFNGVSZFN3dFVNQi1NVWE3RjJXQzlkdGxrbXFOMnRXTlV3LUg1dVlnSUYyUHNjc1FWeEhyeFF3TDkwcTUxZXFwMUFxT3RVWHl1WWJXdU9UeXhKa3BKSE9IOWRCQ1oxMXRrQXM?oc=5">The Economic Times</a>、<a href="https://news.google.com/search?q=California%20man%20bipolar%20ChatGPT%20fueled%20delusions%20lawsuit">Google News</a>；<time>2026-07-01 17:43 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tracking">
+      <div class="section-head">
+        <h2 id="tracking">持續追蹤</h2>
+        <div class="section-note">只收有實質增量的接續報導</div>
+      </div>
+      <div class="tracking-empty">今日未納入接續報導；Anthropic Fable / Mythos 解禁、Claude Science、AWS embedded engineers 等 7/1 已收錄事件，今天沒有足以改寫判斷的新進展。</div>
+    </section>
+
+    <footer class="footer">本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。</footer>
+  </main>
+</body>
+</html>

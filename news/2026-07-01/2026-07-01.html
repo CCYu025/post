@@ -1,0 +1,201 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選 2026-07-01</title>
+  <style>
+    :root {
+      --ink:#0a1014;
+      --paper:#f3efe4;
+      --panel:#fffaf0;
+      --cyan:#20d3e8;
+      --amber:#d49a2f;
+      --red:#d94b3d;
+      --green:#39b37e;
+      --muted:#5c6770;
+      --line:#11181f;
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; max-width:100%; overflow-x:hidden; background:var(--ink); color:var(--ink); }
+    body { font-family:"Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif; line-height:1.66; overflow-wrap:anywhere; }
+    img { display:block; max-width:100%; height:auto; }
+    h1, h2, h3, p, span, a, time, li { overflow-wrap:anywhere; letter-spacing:0; }
+    a { color:inherit; text-decoration-color:rgba(32,211,232,.72); text-underline-offset:3px; text-decoration-thickness:2px; }
+    .page { width:100%; background:linear-gradient(90deg,#f8f1e3 0%,#e9e2d4 48%,#f7f1e6 100%); }
+    .top { background:var(--ink); color:var(--paper); border-bottom:6px solid var(--amber); }
+    .top-inner { max-width:1180px; margin:0 auto; padding:12px 18px; display:flex; justify-content:space-between; align-items:center; gap:16px; font-size:13px; font-weight:900; }
+    .stamp { border:1px solid rgba(243,239,228,.5); padding:3px 9px; color:#8bf3ff; text-transform:uppercase; }
+    .cover { max-width:1180px; margin:0 auto; padding:24px 18px 24px; display:grid; grid-template-columns:1.05fr .95fr; gap:18px; border-left:5px solid var(--line); border-right:5px solid var(--line); }
+    .mast { border-top:10px solid var(--line); border-bottom:4px solid var(--line); padding:13px 0 16px; }
+    .date { font-family:Georgia,"Times New Roman",serif; color:var(--red); font-size:18px; font-weight:900; }
+    h1 { margin:8px 0 9px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(42px,7vw,88px); line-height:.93; }
+    .subtitle { margin:0; max-width:760px; font-size:20px; font-weight:850; color:#24303a; }
+    .hero { margin-top:16px; border:4px solid var(--line); background:#11181f; min-height:370px; }
+    .hero img { width:100%; height:100%; min-height:370px; object-fit:cover; }
+    .lead { border:4px solid var(--line); background:var(--panel); padding:18px; display:flex; flex-direction:column; justify-content:space-between; min-height:100%; box-shadow:8px 8px 0 rgba(10,16,20,.18); }
+    .label { display:inline-flex; width:max-content; max-width:100%; padding:3px 8px; border:2px solid var(--line); background:var(--cyan); color:#051014; font-size:12px; font-weight:950; text-transform:uppercase; }
+    .lead h2 { margin:17px 0 10px; font-family:Georgia,"Times New Roman",serif; font-size:34px; line-height:1.08; }
+    .lead p { margin:0 0 12px; font-size:17px; font-weight:720; }
+    .source-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:var(--muted); font-size:13px; }
+    .source-list a { color:#11181f; font-weight:900; }
+    .section { max-width:1180px; margin:0 auto; padding:22px 18px; border-left:5px solid var(--line); border-right:5px solid var(--line); border-top:5px solid var(--line); }
+    .section-title { margin:0 0 16px; display:flex; align-items:center; gap:12px; font-family:Georgia,"Times New Roman",serif; font-size:30px; line-height:1; }
+    .section-title::after { content:""; height:6px; flex:1; min-width:34px; background:repeating-linear-gradient(90deg,var(--cyan) 0 20px,var(--amber) 20px 42px,var(--green) 42px 64px,var(--red) 64px 74px); border-top:2px solid var(--line); border-bottom:2px solid var(--line); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    article { min-width:0; border:3px solid var(--line); background:rgba(255,250,240,.95); padding:15px; box-shadow:5px 5px 0 rgba(10,16,20,.15); }
+    article h3 { margin:8px 0 8px; font-size:21px; line-height:1.24; }
+    article p { margin:0 0 12px; color:#27313b; }
+    article.follow { background:linear-gradient(180deg,rgba(32,211,232,.16),rgba(255,250,240,.96)); }
+    .meta { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:9px; }
+    .pill { border:2px solid var(--line); background:#fff; padding:2px 7px; font-size:12px; font-weight:950; line-height:1.35; }
+    .pill.track { background:var(--cyan); color:#051014; }
+    .pill.angle { background:var(--amber); color:#111; }
+    .sources { border-top:2px solid var(--line); padding-top:10px; color:var(--muted); font-size:13px; display:grid; gap:5px; }
+    .sources time, .source-list time { color:#333d47; font-weight:850; }
+    .footer { max-width:1180px; margin:0 auto; padding:17px 18px 36px; border:5px solid var(--line); border-top:0; background:var(--ink); color:var(--paper); font-size:13px; }
+    @media (max-width: 820px) {
+      .top-inner { align-items:flex-start; flex-direction:column; padding:12px 14px; }
+      .cover { grid-template-columns:1fr; padding:18px 14px 20px; border-left:0; border-right:0; }
+      .hero, .hero img { min-height:auto; }
+      .hero img { aspect-ratio:16/10; }
+      .lead { min-height:auto; }
+      .lead h2 { font-size:28px; }
+      .subtitle { font-size:18px; }
+      .section { padding:20px 14px; border-left:0; border-right:0; }
+      .grid, .grid.two { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      h1 { font-size:39px; line-height:.98; }
+      .grid, .grid.two { grid-template-columns:1fr; }
+      .section-title { font-size:25px; align-items:flex-start; }
+      article { box-shadow:4px 4px 0 rgba(10,16,20,.15); }
+      .sources, .source-list { font-size:12px; }
+      .lead, article { padding:13px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <div class="top-inner">
+        <span class="stamp">AI Industrial Desk</span>
+        <span>2026-07-01｜過去 24 小時全球 AI 新聞精選</span>
+      </div>
+    </header>
+
+    <section class="cover">
+      <div>
+        <div class="mast">
+          <div class="date">Wednesday, July 1, 2026</div>
+          <h1>AI 進入交付線</h1>
+          <p class="subtitle">今天的訊號不再只是誰發表更強模型，而是誰能把 agent 做便宜、把模型塞進科學與雲端工作台、把電力與法規也接上生產線。</p>
+        </div>
+        <div class="hero" aria-label="AI 工業化交付主視覺">
+          <img src="2026-07-01-hero.png" alt="AI agent、科學工作台、雲端資料中心與電力控制室交織的雜誌主視覺">
+        </div>
+      </div>
+      <article class="lead">
+        <div>
+          <span class="label">今日主線</span>
+          <div class="meta"><span class="pill angle">New Angle</span></div>
+          <h2>Claude Sonnet 5 主打低成本 agent，模型戰轉向可持續執行</h2>
+          <p>Anthropic 推出 Claude Sonnet 5，TechCrunch 將它定位為更便宜的 agent 執行方式。這延續昨天的 AI API 帳單議題，但新角度是價格不只影響採購，也決定 agent 能不能長時間跑在企業流程裡。</p>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE94UjQ1SEhHSWRtZUVlMlZDdHJBbDU1aEFlbzJpV3A1V19NVF9sLVNnbjlkSEcwMV9vZTBUZ0dGdUFybWhHRmRkUVlyVzFTdWo3aFlIaU5wbzlOZw?oc=5">Anthropic</a>｜<time>2026-06-30 18:03 GMT</time></li>
+          <li><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPYlk5UjUzQ3hOVkZIcHQ3cWNBY29hU1J4Zm1qcHlPckZvRTZWbzRhLXFaRDdnZkVXZm43SHFoX3BqeVFvaTluSm42eXRkWFpNSjczV3k2R2tYZFJLT2VnUkw0WVdueUhXblJWTDJneG5jcHpFLVRLSlFJZExQUG5CLURiWWNlUFZNdmNSOFdXWklXcTZiVDBXZ24ydGhCS25JREE?oc=5">TechCrunch</a>｜<time>2026-06-30 18:00 GMT</time></li>
+          <li><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNVlFRVkFtWEktV3VOdE9oejRtUGE2ajVnWEZqWnBzMzhERTdBZ0pOdlNBY1pXMlN6WjZSTm40ZzZ6RGpqYTVlNW5JSjU5ZGRPRy1zeDRKYzMtRnN4R1VwMHdtTGVVZ253TURoUFozdDB2MjAtc0dqcHRkQlRLRUcwc3FMSW5qeDdqYVkxVjhfcTg4OG1wM2NpZHctNEczbE0?oc=5">Let's Data Science</a>｜<time>2026-06-30 21:00 GMT</time></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">持續追蹤</h2>
+      <div class="grid two">
+        <article class="follow">
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>美國解除 Anthropic Fable 出口限制，模型通關從名單制再往回鬆動</h3>
+          <p>相較前幾天 Mythos 與 GPT-5.6 的可信夥伴安排，最新增量是 Reuters 報導美國將解除 Anthropic Fable export controls；frontier model 管制從封鎖、配給走向談判後放行。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxNZDJJRUpoY0J3YUZXZWFpUFF5N2pzUTM3X2pSMzZXdVI3ZEtsTnU1b09yRl9TU1NhMlV2RFF4Q3ZEaUVnQXVYWlpzd0k0OGVjRkgzNlBtVTFab3ZxZWFGWUMtWXFCOEZqODdRNzhhSml1Y0pTZGZVNVJLSFZvSGJ2VDFMZ1RTNm5fTXoxVXpQWWRSR3ptWXVpM2Mzc0l4YW05cl9LRDBPV3kwc1FhdmVKcWJwWHA?oc=5">Reuters</a>｜<time>2026-06-30 23:28 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQN05ySTVOczc5RFd3Z0E1R2JHYTVvcjBWQWN6Z0ZvUE1FYjNvNkZaaElLZlVKbEtxWTlvLW1OUmZfbUx6V2twQVlhV1pFVWZZVlg2VktlYlNfNEpaeHB0ZW9kczkydXQ5TTVaa05yUVpoTUFWLWVhOUlPb0V4U1o5Mlk0T092NmswMTgweUhJQVRoemRrVWJEaE9RT1Y0bU9RYndIQjlB?oc=5">Business Insider</a>｜<time>2026-07-01 00:02 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxOT2IzQkoydUJCX29DNFItUXFNZlo0TTVrZHdhamRZVUJmM2RndHhMMlEzSmVNakJ3ZmNkZnk4MVJVcnhEdHh6UFpLRmk0c2dPSUxnYXh2dGxTT2M1QmhlTXQ5cUdacmFVRU43REx1Yk1rc0l2VHhYa0U4WnRVcDdjMzRGTXdMNFAzTXFnaDJRUml3bnpm?oc=5">BeInCrypto</a>｜<time>2026-07-01 00:08 GMT</time></span>
+          </div>
+        </article>
+        <article class="follow">
+          <div class="meta"><span class="pill track">🔄 接續報導</span></div>
+          <h3>Supermicro 搜索擴大到九處，NVIDIA 晶片走私調查進入供應鏈深水區</h3>
+          <p>昨天的重點是 Supermicro 台灣辦公室遭搜索；今天的新進展是報導指搜索擴大到 Supermicro 與兩家供應鏈夥伴的九個地點，並有六人被傳喚。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQRGRMQjRpMlRpTzJwUFlmUmxxQjhYWlh6UXJqMjRUTUdMcWFfRkRsYndzMnV3cXJ5MWI5endzT0RqTy02MWZ5MGc1QmdUclFmcGpEMEpXbzBmVTNOYlk4QjFrdlIyMldwMGlOVXFSb01JVkJ5RE1uUVMxWlpreXRJenMyVzNTME5PSkdTRUZqV1E2Qk9qZXdiMUJZUjBodTBSdXIyZFY4WG54NmJucFRQTUVXd0hiTS1ONkNTc1JPRWFYdzRYak94aXZqTnU?oc=5">Tom's Hardware</a>｜<time>2026-06-30 11:18 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE93OEVyV3BrYVBoSzVTa0RVWlh5QVU5T2YtU2lkNDlDU09TQ2VodzduU3JKVldTRjU5SGMtUjdBT0NaSFFmckVwOHVsMkpKMHJkamFLT3pHWENnT09Pa0FoMjZIWWJMUnJab18xdjR4bkl1b3VfcEE?oc=5">BigGo Finance</a>｜<time>2026-06-30 07:55 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPeWl0Q3c0dnAzcnlhNVNVaW8xbjhpak5iVm1FdVh3bUhSc25TaDMtTXpGQ00xektNMjRsd1hKeG9HbTZVVllaQWlraWp2RDhxYUNuZjJfYjJJN1dDR0JDSndpdU15U2VxUXI4RHV2MGdnTUdSNFBsTmZZbnBXM3BYTFNreGJOd3dodU1KVkYwWldEa1BTTXRDQ3kxYVUxbjFJUlRNWDAtQ0RQQQ?oc=5">Invezz</a>｜<time>2026-06-29 20:13 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">基建與交付</h2>
+      <div class="grid">
+        <article>
+          <h3>Bloom Energy、Brookfield 把 AI 電力框架擴到 250 億美元</h3>
+          <p>Bloom Energy 與 Brookfield 擴大 AI infrastructure power partnership，框架上看 250 億美元；AI 資料中心的瓶頸正在從 GPU 與機房延伸到可快速部署的電力供應。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxQM2hZR3ZMTVdLeG15Z1N3dTkyZVgyZllkdjZzTXVCdWlrNVJLUG5VU3doMEh1OUJ4UW5qakw1NVNXRzFheDBwWDl6VFd5ekU1QVVMZjRZNnVybUV2X1Z2S19WcmZNNWpoQkxTSnIzWGR5WlN3bmM0VmxxQS1OUGQ4RnpzLUV6OF83YXBYU3hUOHBtc1luSi0ybmE5WndDWWJJSXloT0VpbFFsMkdVRTBnbE5sMGhJamhXdEpGc1JfSS1FYkUzY09rOA?oc=5">Reuters</a>｜<time>2026-06-30 21:11 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMi5AFBVV95cUxQSDlXNHVwazg4dUxrVWZIdUhfWklGUEJzN2tYSmRzbDdDYnJvT2xESk5pMXM2bXY5bEt5SDFwRGVnVjB1aW8ycWxlaktQQ2ZEY0JkTXZ5SXpZOHRPVmtUa3NVdWs0US1TOTR4YkE2bnlWR2x6MnE3SU5CMmVaVVRQMURzc1FVcWFjbVFKSnlJWG1ENk10N3FTY21Ia0Y3T3BDSXMtM3FlUEZHd201eThrVFdtZUJwZWFUOFpNNFBycUF4Y2Z5VG85NFNlTW55clZjdmduSlpkNkY0OGo1ZWx4ZWxZRGs?oc=5">TradingView</a>｜<time>2026-06-30 20:30 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxNM0d6My1xRC1yakFhUDczdTlNYm03bVBrcm8yN3p3OUZTa1ROQzE1UTBfRUR1ZVpJWHFwXzZEYVU0cUppTWlYSHIyRTU0RXlackRCT1IyTHhpaE1xRkZ6UTlOemtoX1V2Y18tRHFfMGVKWW1yMUJDVkRSbi0zRndXVU16RUc0SFhZa0NtRFlCQlU4Zw?oc=5">The Globe and Mail</a>｜<time>2026-06-30 21:37 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <div class="meta"><span class="pill angle">New Angle</span></div>
+          <h3>AWS 投入 10 億美元 embedded AI engineers，雲端服務開始走向駐場交付</h3>
+          <p>AWS 據報投入 10 億美元建立 embedded AI engineers 新單位。這不是單純模型或雲端產品升級，而是把 AI 交付方式推向顧問式、駐場式工程團隊。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNUnN2ZVVJdDBidHNmQklYVW9kTC1ORjFFNVA5UTlRelBoRFRLWWM0ODllUzN0UkJBX2ZpNmRtRl9Gd2FFZ2R0aV94M1FpOVNIaE9PS1pEbm1aZk9xMFVxR00wdUpsLVczVXRhMDc5S1hfdUhBUzNVT1htTTZvTm9EOXNTd2NlNFNzdlZoXzU4ZFpMMzNYWm8wU3VqWXVMMml1Z0pPYzV2eUpPNlBpcURIQjhuYi1Xc2lCRkh1bmxWWXhUQkNuWjBV?oc=5">Reuters</a>｜<time>2026-06-30 15:15 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNdGdqX1pKZTFLRGpwOElhNEJxdlZQd1FiYmhPaXQ3d3lPZS1WVDBfUU1VRDN1TmRMY0Y4LVBTbS1sbjJsdF9rZEl1WE5GeUtXVE5hUTRsS1BkMTZEbzkzdERBSFg0c2VhdXY4cDdKZzNsZWF0U2RnVWp0ZUE4cC0yVlJjeGU?oc=5">Crypto Briefing</a>｜<time>2026-06-30 18:06 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPZ3h5V0REeUVTSG1OSmxoQ3UyaTRuUEx6OThUdURSQU5qMWhoV3MxUTNTbzVoLWlZdUZvNUFrdkQ0TG8yODlCb2RPazNMR2hRaHYydVpYMzloOTV6RmFnY0pUQTNlVnBjZDFNRjhoVkVQRTRqcGFOcmxCWUp0blkxZ1VRWVJ2Qi1kWFF6ZEVUMWczY3FjNXMwNGNnQk5XaEVONmtpcUwwNjl4NjNFbXc?oc=5">MLQ.ai</a>｜<time>2026-06-30 19:03 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <h3>Claude 進入 Microsoft Foundry，Anthropic 的企業入口接上 Azure</h3>
+          <p>Claude models 據報在 Microsoft Foundry via Azure 上線，並與 NVIDIA Blackwell 硬體部署相連；Anthropic 不只賣模型，也在爭奪企業雲端入口與部署通道。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPRFlaM3RDdjhiUnBaVkdzN3l2NHpsdDFobHptZnVDNzA0RWljZzlXWmc2Z25VZ2tkQ2NkR0thUW5ZYmVwczZHY0RHQnhvOVhhc1ludGxheEstbmR3WUx5NmZkMlk1UDE0N0pGUkpLV09qVFJOa0hhWUNwMmpSMnVfT29URVZsMHExVWc?oc=5">datacenter.news</a>｜<time>2026-06-30 16:15 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPV2FmT21GOGREV0wwUG1JT1JHSXNGUUJfcllELVhDWG5kMlgza2steEJrS3pNMk5YMlhndHhLSlVCNlFheW83WlVXd0V0MldSSDlrWnhYeXp2a0MyRjA4ZUlHWmRON29pRDhMek1BbzR0enFUMDk5VHVwUGxtVlpzQldGd0VKSWlzRFM2REtSdm5TZTVSN1ZBTnRocw?oc=5">Yahoo Tech</a>｜<time>2026-06-30 09:26 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxORXpEa2Q1WnlMY1g4dGVsNTdMTjNxa1RLM3hzR1lnRW5rQ3FBa0NoTHR1ZUppRGw1WkV0Q2R2RC0yOWpxSl9FMFZjd1pJRmplcVJJUENXbXhIOEloNWlTMFdoUjE4MFR2bVllSW92d1Z6VTU1QXVtbXhWZ0JwaXNBMk4zbkIyVHNQek5fTTZ6OGo5dXhwODVjaXNWMy1ZMFZyczJuckJseHNLMlRTTmdSTkg2MlZOdw?oc=5">Technobezz</a>｜<time>2026-06-30 19:32 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">科學與權利</h2>
+      <div class="grid">
+        <article>
+          <h3>Anthropic 推 Claude Science，AI 工作台瞄準研究流程</h3>
+          <p>Anthropic 發表 Claude Science AI Workbench，並有 Basecamp Research 將 EDEN 的抗生素與疫苗設計模型帶入 Claude Science；AI 科學工具正從聊天助手走向研究工作台。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxQYXc2bXo5Y2VueWFwMzM5WTU1MGRvRUpPaHBLaVN4MGpITjg0RXpPdUhVNUNoWmJZNVJPMlFadFA5OWNmLS1YMkJkeHJiWDZidEVnUmU3bGFVTVR2U2E4NmwwMzVhZFZwU3ctZlNZMk1EMmZkWFN0Q0dsTlRCUnd1Wmd6ZDFqWXppUDFXWlBiODdXbTd3Y1NEQ1h3b3F6Q2Q1WFBxUWIwNUJWQVNVaV9Ycms5cw?oc=5">HPCwire</a>｜<time>2026-06-30 21:31 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMi6wFBVV95cUxPUXB0Rk83YjlpSkYyc2hBOEdDaXRiSnRIYm1JdTM5bnZWMHdTOVBOV3FmaGFmMnRycTVBUmFoc0U4SlpwbzM4NHlxREdXcTlVY1M1S2lZVmcyc1FyZ0lvd1RJdEtUNUUxQ3RvSzM3czY3UUs2TDM0LUxhLWcyYklkLWgzRHBRSjJWTGhpem1CbjNOdTZocDJnOEkwdTJCYnNwYXBfNW90bHJHSE96UkNSM1hEdE1VVnBCdVU3RnBUUWFXUFRuTDM2V2J6eXdDcjlIbVhmV2JTUVE2dE5NN2VzMl8yWThMdGdhdUJn0gHrAUFVX3lxTE9RcHRGTzdiOWlKRjJzaEE4R0NpdGJKdEhibUl1MzludlYwd1M5UE5XcWZoYWYydHJxNUFSYWhzRThKWnBvMzg0eXFER1dxOVVjUzVLaVlWZzJzUXJnSW93VEl0S1Q1RTFDdG9LMzdzNjdRSzZMMzQtTGEtZzJiSWQtaDNEcFFKMlZMaGl6bUJuM051NmhwMmc4STB1MkJic3BhcF81b3RsckdIT3pSQ1IzWER0TVVWcEJ1VTdGcFRRYVdQVG5MMzZXYnp5d0NyOUhtWGZXYlNRUTZ0Tk03ZXMyXzJZOEx0Z2F1Qmc?oc=5">The Economic Times</a>｜<time>2026-06-30 17:28 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxOclY4VXUyWW0yTGtNdlVMMnBPWmJDUGxXdy1WZTE4VTBsZDRhdGVpcnRWaGdFVkNRV3RxZXFvMHFDMDBUbkZySHNyUlBramFxbUxkYXp6VF9iVkpEbm5CaGJWU0ZmbEZtX01Vd0l5Y1lWZG54b2RKX2FQcDN0eUJWQ29SdFlKbUxIU1FoRGJUT0owSlJBZkpub1lZOWs4N18tY0V2WlFySnJYTGxRTmlqZFNxNVlmZ3V4NlhYOThqMkJYdDZwbXNF?oc=5">HPCwire</a>｜<time>2026-06-30 20:21 GMT</time></span>
+          </div>
+        </article>
+        <article>
+          <h3>Jamendo 再告 Suno，AI 音樂訓練資料戰線擴大</h3>
+          <p>Winamp 旗下 Jamendo 繼 NVIDIA 案後再對 Suno 提起 AI training copyright lawsuit，音樂平台把訓練資料爭議從晶片公司延伸到生成音樂服務。</p>
+          <div class="sources">
+            <span><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOYWR5eXZ2dXJqRl8tTWl2SUF0NjZQd0dLb3dTeVNxaVktNWJ1RllTdG1ZNlpEOWFiQ3BtLUpNV1hEbjZja2EtLUZ2akNoRDVFcTZRVTBxMzN5cDdzTTYyZk1wdUdYVzZQWlAxcFJ0eVFUaUNzSU90Mk1IR3pyYUUtTXVyNkNQcFV3NEV3ZTR5MXhkRDNlSC1MdXhWcTFhUHVmM0U3YnlxdEJFWl9rSUQ1SUVHTGJxMmZVbjQ4b2U3TWMxVFN5TDN0alpLeUtqTVBlMGxMdXo1ZmJiZw?oc=5">Music Business Worldwide</a>｜<time>2026-06-30 11:23 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPTlA3YklYVnlNOGlsWm9CWWN6cWpJUUxSYjRMU05wekp6c0pJaHE0Y0RXcm0yQ0ZodmpWR09YOGFrYTFTaldlUnJNQmctaXRCUVBJV3JYSEtLVklHQVAySnpjNzJTaGpMelNCY2M5bWR2NWM4Vll3MzBaZ1RLSjhwdzY1R3F5b2p0X2JfNEE3VkM?oc=5">Billboard</a>｜<time>2026-06-30 20:04 GMT</time></span>
+            <span><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPbUM0b3ExSEJaT3d6R3NyVmVHNFF2LThMR1ZzVDBMZnVORlJZUEFVaWNWZ3dzM0gzNkpVclg1VEZRVnhxWHlvdWl3eDFHU0gyWTQtZGIwdVZ6QnUtRkJaSVpvMk5pSlJXRGNheWlZb1JNaVpuWkNaTWdjSWRCSF9DcG9yR1E4QjBBdU1IZENnNjVsZkdCNE0xX2NPMA?oc=5">Yahoo Finance</a>｜<time>2026-06-30 06:30 GMT</time></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">本頁整理過去 24 小時全球 AI 新聞；保留題均以多來源交叉檢查。標題與摘要使用繁體中文，產品名、公司名與人名保留英文。</footer>
+  </main>
+</body>
+</html>
