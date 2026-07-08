@@ -1,0 +1,3579 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.040 --> 00:00:00.840
+When you work
+
+00:00:00.840 --> 00:00:03.640
+professionally as a software engineer,
+this is not practicing a hobby.
+
+00:00:03.640 --> 00:00:04.960
+You need to have numbers, right?
+
+00:00:04.960 --> 00:00:06.600
+Not just fluffy words.
+
+00:00:06.600 --> 00:00:09.320
+What was the actual landed impact
+on the business?
+
+00:00:09.320 --> 00:00:12.560
+Sometimes solving business problems
+means building software.
+
+00:00:12.560 --> 00:00:14.640
+That is good enough.
+Good enough for today.
+
+00:00:14.640 --> 00:00:15.840
+I just want things to be simple.
+
+00:00:15.840 --> 00:00:18.840
+Simple is complicated enough,
+especially at scale.
+
+00:00:19.120 --> 00:00:20.640
+System design.
+
+00:00:20.640 --> 00:00:23.640
+A skill that separates
+good engineers from great ones.
+
+00:00:23.920 --> 00:00:28.120
+So if you want to level up as software
+engineer, this conversation is for you.
+
+00:00:28.680 --> 00:00:33.120
+Joining me today is Bassem Dghaidi,
+senior software engineer over at GitHub.
+
+00:00:33.400 --> 00:00:36.400
+And especially a GitHub,
+they operate at scale.
+
+00:00:36.800 --> 00:00:40.720
+He shares how they design their software
+and solve specific problems
+
+00:00:41.080 --> 00:00:43.320
+in a way I didn't expect. So enjoy.
+
+00:00:45.000 --> 00:00:46.560
+Beyond Coding.
+
+00:00:46.560 --> 00:00:48.480
+From an outside service.
+
+00:00:48.480 --> 00:00:52.040
+I feel like I've shared this many times
+on the podcast, but I feel like the tech
+
+00:00:52.320 --> 00:00:54.120
+community is quite unique.
+
+00:00:54.120 --> 00:00:56.000
+People create software,
+they create products,
+
+00:00:56.000 --> 00:00:58.120
+and they put them out in the open
+for free.
+
+00:00:58.120 --> 00:01:01.320
+And GitHub is like the backbone
+that enables a lot of these things.
+
+00:01:01.320 --> 00:01:05.080
+I feel like I don't see no other industry,
+and it's it's kind of typical
+
+00:01:05.080 --> 00:01:07.440
+for me to say that
+because I'm in this industry,
+
+00:01:07.440 --> 00:01:10.080
+but I don't see any similar other industry
+where this is possible.
+
+00:01:10.080 --> 00:01:10.480
+Precisely.
+
+00:01:10.480 --> 00:01:12.120
+And not only that, like the learning,
+
+00:01:12.120 --> 00:01:15.960
+the teaching aspect that we have,
+how openly we share what we learn,
+
+00:01:16.080 --> 00:01:19.800
+and we have this status associated
+with people
+
+00:01:19.800 --> 00:01:23.680
+who actually teach in our industry,
+which I don't often see elsewhere.
+
+00:01:23.680 --> 00:01:24.800
+A lot of industries
+
+00:01:24.800 --> 00:01:28.040
+and I worked in other industries,
+like I've worked in container terminals,
+
+00:01:28.040 --> 00:01:31.040
+for example, for a while we were building
+the whole infrastructure and whatnot.
+
+00:01:31.320 --> 00:01:34.560
+It's very rare to find information
+about how a container terminal operates,
+
+00:01:34.680 --> 00:01:37.120
+unless you've, like,
+went to a specific program
+
+00:01:37.120 --> 00:01:39.720
+that teaches that we're taking specialized
+courses.
+
+00:01:39.720 --> 00:01:41.480
+You're never going to get that information
+anyway.
+
+00:01:41.480 --> 00:01:44.200
+Like there are no blog posts
+that describe how things work.
+
+00:01:44.200 --> 00:01:46.800
+Yeah, you just gotta learn it either
+from people who have been doing
+
+00:01:46.800 --> 00:01:48.960
+or practicing this industry for a while,
+or if
+
+00:01:48.960 --> 00:01:50.680
+you go through a specialized program.
+
+00:01:50.680 --> 00:01:54.280
+So I definitely relate to what you're
+saying, and I think it's pretty unique,
+
+00:01:54.280 --> 00:01:55.200
+which is awesome.
+
+00:01:55.200 --> 00:01:58.200
+There are some topics that I have in mind,
+and especially
+
+00:01:58.200 --> 00:02:01.200
+that I think are going to be a bigger
+focal point going towards the future.
+
+00:02:01.360 --> 00:02:04.600
+Something like system design,
+where there's a lot of theory out there
+
+00:02:04.960 --> 00:02:06.480
+and then actually putting it in practice.
+
+00:02:06.480 --> 00:02:09.040
+You can understand the theory,
+but then putting it to practice
+
+00:02:09.040 --> 00:02:13.360
+is still very challenging, especially in
+what type of organization you are.
+
+00:02:13.360 --> 00:02:16.200
+How far in the future
+are you going to design?
+
+00:02:16.200 --> 00:02:19.560
+I feel like it's challenging bridging
+the gap between theory and practice
+
+00:02:19.560 --> 00:02:20.960
+for that aspect 100%.
+
+00:02:20.960 --> 00:02:23.080
+And I was thinking about this
+topic earlier today, right?
+
+00:02:23.080 --> 00:02:26.120
+I was just reading a post on ECS
+that went viral
+
+00:02:26.120 --> 00:02:29.160
+where a startup was talking
+about the migration to Kubernetes
+
+00:02:29.160 --> 00:02:33.040
+and that it almost, 
+cost them their startup, like, oh, well,
+
+00:02:33.040 --> 00:02:36.160
+the startup could have almost failed
+because of that particular migration,
+
+00:02:36.640 --> 00:02:40.880
+and the owner was listing the reasons
+why they went for the migrations,
+
+00:02:40.880 --> 00:02:43.880
+and none of them were technical
+like the reasons were.
+
+00:02:44.000 --> 00:02:46.160
+The reasons were pushing for cloud native.
+
+00:02:46.160 --> 00:02:50.240
+Okay, their engineers wanted
+the Kubernetes experience and,
+
+00:02:50.280 --> 00:02:55.400
+they thought that they can deploy
+faster, bigger scale, better.
+
+00:02:55.400 --> 00:02:58.360
+But what they ended up with
+is just a fatter AWS bill.
+
+00:02:58.360 --> 00:03:02.880
+And then the much more competition
+feature shipment crawled to a halt.
+
+00:03:02.880 --> 00:03:05.240
+They had to dedicate
+certain engineers for this.
+
+00:03:05.240 --> 00:03:08.680
+And I think this stems from the fact
+that a lot of people
+
+00:03:08.680 --> 00:03:12.720
+want the status associated
+with fancy architectures,
+
+00:03:13.560 --> 00:03:16.680
+and they want the experience
+of working with fancy architectures
+
+00:03:16.680 --> 00:03:20.080
+and not necessarily solving problems
+with fancy architectures, or growing
+
+00:03:20.080 --> 00:03:23.640
+organically a certain architecture
+to solve a particular problem.
+
+00:03:24.240 --> 00:03:26.880
+And the problem with system design
+is, again,
+
+00:03:26.880 --> 00:03:29.880
+a lot of people want the fancy stuff,
+but they
+
+00:03:29.880 --> 00:03:33.000
+the boundaries for when you need to scale
+are very blurry.
+
+00:03:33.320 --> 00:03:35.440
+There are no concrete empirical numbers
+that tell you,
+
+00:03:35.440 --> 00:03:38.440
+like when you hit this particular scale,
+you need to do this.
+
+00:03:38.480 --> 00:03:41.280
+And when you hit this particular number,
+you need to do that.
+
+00:03:41.280 --> 00:03:46.120
+So people assume that as soon as they hit
+on their service or API or whatever,
+
+00:03:46.120 --> 00:03:48.040
+like a thousand requests per second,
+that's a lot.
+
+00:03:48.040 --> 00:03:51.760
+So now they need to build
+for the next evolution of the system.
+
+00:03:51.760 --> 00:03:53.920
+And often that's not really the case.
+
+00:03:53.920 --> 00:03:58.360
+At GitHub, for example,
+I've built services that handle millions
+
+00:03:58.360 --> 00:04:02.600
+of requests per second
+that are just simply running on a 5
+
+00:04:02.600 --> 00:04:07.120
+or 6 containers and a very tiny Kubernetes
+cluster somewhere.
+
+00:04:07.280 --> 00:04:09.480
+That's not what I would expect at all.
+
+00:04:09.480 --> 00:04:12.480
+So there's a lot there's a lot
+
+00:04:12.480 --> 00:04:15.480
+you can do with very little,
+
+00:04:15.600 --> 00:04:17.960
+and you can even run entire services
+
+00:04:17.960 --> 00:04:21.960
+on very basic VMs
+and scale some stuff around it.
+
+00:04:22.360 --> 00:04:26.040
+And the way we approach problems of scale,
+we never design or engineer.
+
+00:04:26.160 --> 00:04:29.320
+So when I design certain things,
+I recently did a lot of that.
+
+00:04:29.880 --> 00:04:34.360
+We were rewriting some parts of actions, 
+GitHub actions.
+
+00:04:34.360 --> 00:04:35.600
+That's what I work on.
+
+00:04:35.600 --> 00:04:37.160
+So we're going to talk more
+
+00:04:37.160 --> 00:04:40.160
+about that and engineering blog posts
+and what this is like, in my opinion,
+
+00:04:40.160 --> 00:04:43.920
+a case study for decades to come,
+because this doesn't often happen.
+
+00:04:43.920 --> 00:04:44.920
+That's awesome.
+
+00:04:44.920 --> 00:04:45.240
+Yeah.
+
+00:04:45.240 --> 00:04:49.360
+So, when we were designing this,
+we were designing for scale,
+
+00:04:49.360 --> 00:04:51.960
+but we know already
+we have established scale.
+
+00:04:51.960 --> 00:04:55.560
+So we know that we've hit the limit of
+what the previous architecture could do.
+
+00:04:56.200 --> 00:04:58.800
+And now is the point
+where we need to squeeze more
+
+00:04:58.800 --> 00:05:02.200
+out of a different tech
+stack to get to that next level.
+
+00:05:02.640 --> 00:05:05.520
+And we know that we're going
+to get to that next level because we
+
+00:05:05.520 --> 00:05:07.680
+we see the demand,
+we see how it's growing.
+
+00:05:07.680 --> 00:05:09.000
+We see the curve.
+
+00:05:09.000 --> 00:05:11.800
+We see how where it's going to
+be in five years from.
+
+00:05:11.800 --> 00:05:12.080
+Right.
+
+00:05:13.040 --> 00:05:14.400
+So we solved for that.
+
+00:05:14.400 --> 00:05:16.600
+We didn't prematurely scale.
+
+00:05:16.600 --> 00:05:20.080
+We just went all the way till the end
+with the existing architecture.
+
+00:05:20.080 --> 00:05:20.920
+Okay.
+
+00:05:20.920 --> 00:05:25.400
+And that's when we made the decision
+to rewrite some components and redesign
+
+00:05:25.400 --> 00:05:28.440
+certain aspects of it
+and make tradeoffs based on data
+
+00:05:28.440 --> 00:05:31.640
+we had and based on projections
+that we were going to attain or get.
+
+00:05:32.080 --> 00:05:34.360
+Is this then your advice as well?
+
+00:05:34.360 --> 00:05:38.440
+So to stick with what you have,
+start with initial design that is simple
+
+00:05:38.800 --> 00:05:41.840
+and then stick with it
+until you actually reach certain limits.
+
+00:05:41.840 --> 00:05:46.080
+And you can kind of based on your usage
+forecast what the next iteration would be.
+
+00:05:46.560 --> 00:05:49.560
+If I was a startup founder
+or a CTO of a startup, right.
+
+00:05:49.920 --> 00:05:53.920
+I would never go and start
+building for 100 x scale, even if I'm a
+
+00:05:53.920 --> 00:05:58.600
+like a firm believer in my idea and know
+that it's going to reach the masses
+
+00:05:58.600 --> 00:06:01.600
+and it's going to be global,
+I would never design for that.
+
+00:06:01.600 --> 00:06:06.080
+I would design for getting 100 users
+and maybe even 1000, right.
+
+00:06:06.400 --> 00:06:08.640
+And I would just run everything
+on a single VM, to be honest.
+
+00:06:08.640 --> 00:06:09.080
+Maybe to
+
+00:06:10.200 --> 00:06:11.800
+make it a bit more available.
+
+00:06:11.800 --> 00:06:15.560
+I would not go and build massive database
+clusters.
+
+00:06:15.720 --> 00:06:18.320
+Yeah, just start with one, maybe two
+nodes.
+
+00:06:18.320 --> 00:06:20.720
+Stops replication. That's it.
+
+00:06:20.720 --> 00:06:24.120
+And this will like really,
+really far, to be honest.
+
+00:06:26.040 --> 00:06:28.040
+Once I attain or I'm get,
+
+00:06:28.040 --> 00:06:32.040
+I'm like close to 80% of these limits
+my resources can do.
+
+00:06:32.040 --> 00:06:35.280
+And by the way,
+vertical scaling can take you a long way.
+
+00:06:35.760 --> 00:06:36.600
+Like you have no idea.
+
+00:06:36.600 --> 00:06:38.280
+We have
+
+00:06:38.280 --> 00:06:40.280
+large scale nodes
+
+00:06:40.280 --> 00:06:43.280
+that have hundreds of CPUs on them.
+
+00:06:43.520 --> 00:06:46.680
+So you don't really need to go
+and start sharding
+
+00:06:46.680 --> 00:06:48.600
+and doing all sorts of fancy stuff.
+
+00:06:48.600 --> 00:06:52.360
+When vertical scaling consists at you
+and you
+
+00:06:52.440 --> 00:06:56.120
+right now with cloud native solutions,
+you can go pretty far.
+
+00:06:56.120 --> 00:07:00.120
+Like you can get a one
+VM with 120 CPU cores, right?
+
+00:07:00.120 --> 00:07:03.400
+You can get terabytes of memory.
+
+00:07:03.400 --> 00:07:06.000
+Yeah, and that can do a lot for you.
+
+00:07:06.000 --> 00:07:08.000
+You don't need to start doing
+horizontal scaling
+
+00:07:08.000 --> 00:07:10.440
+before you get
+you really start hitting these limits.
+
+00:07:10.440 --> 00:07:11.640
+Interesting.
+
+00:07:11.640 --> 00:07:15.360
+See, I, I feel like I'm
+not great at system design.
+
+00:07:15.400 --> 00:07:19.040
+It's just not something
+that I specifically put my thoughts to,
+
+00:07:19.040 --> 00:07:21.760
+not something
+I prepared like from an interview style.
+
+00:07:21.760 --> 00:07:25.320
+And then I actually did a system
+design interview and my architecture was
+
+00:07:25.320 --> 00:07:28.480
+it was very simple,
+and I wanted it to be simple
+
+00:07:28.480 --> 00:07:30.600
+because I don't like complexity
+when we don't need it.
+
+00:07:30.600 --> 00:07:32.040
+And it was also for the use case.
+
+00:07:32.040 --> 00:07:34.080
+I was like,
+this is this is the simple aspect.
+
+00:07:34.080 --> 00:07:37.240
+And then the question was, okay,
+but what if we had x amount of scale
+
+00:07:37.240 --> 00:07:39.600
+and then we need indeed
+we need high availability
+
+00:07:39.600 --> 00:07:41.800
+and we need sharding
+and we need consistency.
+
+00:07:41.800 --> 00:07:45.400
+And then I was like but the like
+the argument that I had is in this case,
+
+00:07:45.400 --> 00:07:49.440
+it actually doesn't matter for me,
+the part of the benefit that we have
+
+00:07:49.440 --> 00:07:52.440
+a lot of information out there
+people can self-advocate
+
+00:07:52.440 --> 00:07:57.600
+is not also turning into this pitfall
+where complex system design is almost,
+
+00:07:57.800 --> 00:08:00.680
+I think in most industries
+where we don't actually have high
+
+00:08:00.680 --> 00:08:03.680
+availability across
+the globe is not needed.
+
+00:08:03.760 --> 00:08:07.200
+Yeah, yeah, people see that
+and they look up to big organizations
+
+00:08:07.200 --> 00:08:09.760
+like GitHub where they say, okay,
+this is what GitHub has.
+
+00:08:09.760 --> 00:08:10.600
+So we're going to do the same.
+
+00:08:10.600 --> 00:08:12.760
+We're going to build for the future 100%.
+
+00:08:12.760 --> 00:08:14.520
+And this is in my opinion, again,
+
+00:08:14.520 --> 00:08:17.520
+going back to the original thought
+that people's Chase status.
+
+00:08:18.360 --> 00:08:20.880
+So and this was honestly
+
+00:08:20.880 --> 00:08:23.880
+also very badly
+perpetuated by big tech companies.
+
+00:08:23.880 --> 00:08:24.160
+Right.
+
+00:08:25.240 --> 00:08:26.040
+And a lot of
+
+00:08:26.040 --> 00:08:29.400
+people followed, like in an interview for,
+
+00:08:29.800 --> 00:08:32.800
+for if you're interviewing for a place
+like GitHub, for example,
+
+00:08:33.000 --> 00:08:36.120
+it's understandable
+that they would want you or that
+
+00:08:36.120 --> 00:08:39.320
+they want to explore problems of scale
+with you just because
+
+00:08:39.800 --> 00:08:42.800
+from day one, you're going to be exposed
+to these problems.
+
+00:08:43.080 --> 00:08:46.440
+So what we are, what we are looking for
+is typically is people who have
+
+00:08:46.440 --> 00:08:50.480
+that experience, who are going to come in
+and actually use it on day one.
+
+00:08:50.480 --> 00:08:54.000
+Yeah, not that
+we might use it in a few years time.
+
+00:08:54.040 --> 00:08:57.600
+We just hire for what we need today
+because let's say you're shipping,
+
+00:08:57.840 --> 00:09:01.040
+you're shipping features to a service,
+and a lot of our services
+
+00:09:01.040 --> 00:09:04.360
+have hundreds of millions of requests
+and short periods of time.
+
+00:09:04.800 --> 00:09:08.040
+So you cannot really do a lot of the,
+
+00:09:08.640 --> 00:09:11.080
+you need to think about a lot of things,
+right?
+
+00:09:11.080 --> 00:09:13.360
+You need to think about caching
+from the bit from day zero.
+
+00:09:13.360 --> 00:09:15.520
+You need to think about your queries.
+
+00:09:15.520 --> 00:09:17.680
+From there, you need to think about
+your data access patterns.
+
+00:09:17.680 --> 00:09:21.240
+You need to think about non-relational
+databases and non-relational solutions
+
+00:09:21.240 --> 00:09:22.440
+for whatever you're building.
+
+00:09:22.440 --> 00:09:24.560
+You need to think about how you're going
+to gradually deploy this.
+
+00:09:24.560 --> 00:09:27.120
+You need to think about feature flags,
+how they're going to play in this game.
+
+00:09:28.120 --> 00:09:30.240
+You're going to think about authorization,
+authentication,
+
+00:09:30.240 --> 00:09:33.840
+all of the security problems
+that might happen when you have this
+
+00:09:33.840 --> 00:09:38.160
+security problem at at some other place
+like GitHub, it's going to be on the news.
+
+00:09:38.520 --> 00:09:39.800
+Yeah.
+
+00:09:39.800 --> 00:09:40.960
+Or less. Right.
+
+00:09:40.960 --> 00:09:43.120
+So you cannot make these mistakes.
+
+00:09:43.120 --> 00:09:44.280
+It's very tricky.
+
+00:09:44.280 --> 00:09:48.280
+So we look for experience in these domains
+so that people
+
+00:09:48.280 --> 00:09:54.400
+they still have this room tonight, but
+they need to deliver from very early on.
+
+00:09:54.400 --> 00:09:55.160
+Right.
+
+00:09:55.160 --> 00:09:57.720
+For smaller companies,
+
+00:09:57.720 --> 00:10:00.720
+they interview for the same,
+but they don't need it.
+
+00:10:01.040 --> 00:10:04.040
+And that's where the problems
+that's where the problem stands.
+
+00:10:04.080 --> 00:10:08.280
+If I was in a startup and I'm into I'm
+doing system design, I would interview,
+
+00:10:08.280 --> 00:10:13.600
+I would want to hear from a person
+who has exactly what we need for today.
+
+00:10:14.600 --> 00:10:16.800
+If we got to 100 million tomorrow.
+
+00:10:16.800 --> 00:10:17.120
+Yeah.
+
+00:10:17.120 --> 00:10:19.800
+We start hiring for tomorrow
+when we get to it.
+
+00:10:19.800 --> 00:10:20.920
+To be honest.
+
+00:10:20.920 --> 00:10:25.000
+And with the churn rate in our industry
+being 2 or 3 years,
+
+00:10:25.000 --> 00:10:28.000
+like people don't stay in the same job
+for more than that.
+
+00:10:28.040 --> 00:10:31.000
+Why would you, you know, hire
+for the next ten years?
+
+00:10:31.000 --> 00:10:32.640
+The person. Yeah.
+
+00:10:32.640 --> 00:10:35.520
+I feel like people really underestimate,
+like,
+
+00:10:35.520 --> 00:10:39.600
+how much they should or overestimate how
+much they should design for the future.
+
+00:10:39.600 --> 00:10:41.160
+Like a I'm in a consultancy right now.
+
+00:10:41.160 --> 00:10:42.880
+I go from assignment to assignment
+
+00:10:42.880 --> 00:10:44.760
+and some assignments that I've been in,
+I'm like,
+
+00:10:44.760 --> 00:10:46.880
+the system is way too complex
+for what we had.
+
+00:10:46.880 --> 00:10:48.240
+We used to have 30 engineers.
+
+00:10:48.240 --> 00:10:52.440
+Now we have eight, and the system we
+architected was maintained by 30 people.
+
+00:10:52.440 --> 00:10:55.440
+And now we have a problem because we only
+have eight because budget is running out.
+
+00:10:55.840 --> 00:10:59.640
+We're behind on KPIs because like the we
+we worked on a big rocket ship,
+
+00:10:59.640 --> 00:11:01.080
+but we actually needed a car.
+
+00:11:01.080 --> 00:11:03.920
+We needed to drive
+and actually make meters.
+
+00:11:03.920 --> 00:11:06.320
+And, and I talk about this stuff
+in my system
+
+00:11:06.320 --> 00:11:10.200
+design course because in consulting
+and when you sell a solution to a company.
+
+00:11:10.480 --> 00:11:13.040
+The company wants to pay for that solution
+once. Yeah.
+
+00:11:13.040 --> 00:11:16.040
+They don't understand
+that software is evolved.
+
+00:11:16.040 --> 00:11:17.080
+It's not built.
+
+00:11:18.200 --> 00:11:18.920
+Right.
+
+00:11:18.920 --> 00:11:21.680
+And the the term here is evolving it.
+
+00:11:21.680 --> 00:11:25.400
+So software needs to continuously
+be evolved and it needs to continuously
+
+00:11:25.400 --> 00:11:28.640
+fight entropy in the sense
+that you continuous need to maintain it.
+
+00:11:28.840 --> 00:11:32.640
+That is a fixed or running cost
+for maintenance of software
+
+00:11:32.920 --> 00:11:34.920
+that you don't necessarily
+find in other industries.
+
+00:11:34.920 --> 00:11:37.840
+When you buy a car,
+there is a cost for maintaining it, but
+
+00:11:37.840 --> 00:11:40.840
+it's not very regular
+or as regular as software.
+
+00:11:40.960 --> 00:11:41.520
+Right.
+
+00:11:41.520 --> 00:11:44.520
+And our industry,
+the maintenance cost is pretty high.
+
+00:11:44.640 --> 00:11:47.120
+So companies
+want to pay once for a solution
+
+00:11:47.120 --> 00:11:50.040
+and they want it to scale to the next
+ten x 100 x.
+
+00:11:50.040 --> 00:11:53.040
+And that's not very realistic
+in our industry at all.
+
+00:11:53.680 --> 00:11:56.680
+We need to build literally
+for the next order of
+
+00:11:57.600 --> 00:11:58.760
+of magnitude.
+
+00:11:58.760 --> 00:12:02.520
+So if we are ideal
+today, just build for ten x or 100 x.
+
+00:12:02.560 --> 00:12:03.120
+Yeah.
+
+00:12:03.120 --> 00:12:06.520
+If we add a ten x or a hundred x,
+we build for the other author, right.
+
+00:12:06.600 --> 00:12:08.520
+1000, 1 million, so on and so forth.
+
+00:12:08.520 --> 00:12:12.240
+What is then your perspective
+on building systems that can evolve?
+
+00:12:12.240 --> 00:12:15.320
+Because some people you can say, okay,
+this is the system design that we have,
+
+00:12:15.640 --> 00:12:20.040
+and we're going to continue on this
+until we reach a certain level of scale,
+
+00:12:20.040 --> 00:12:23.400
+and then we're going to revamp
+and say this would be the next iteration.
+
+00:12:23.800 --> 00:12:28.040
+But some people also say, okay,
+we have a system now, and this is able to
+
+00:12:28.320 --> 00:12:29.400
+whatever scale we need.
+
+00:12:29.400 --> 00:12:30.840
+And then they put in the extra effort
+
+00:12:30.840 --> 00:12:34.280
+to make sure that that is there
+from the beginning in our industry,
+
+00:12:35.400 --> 00:12:37.200
+very few technologies
+
+00:12:37.200 --> 00:12:41.840
+last for like a decade plus,
+and the rest is changing.
+
+00:12:41.840 --> 00:12:43.120
+Often.
+
+00:12:43.120 --> 00:12:47.920
+And that's why I personally don't invest,
+or I wouldn't design a solution
+
+00:12:47.920 --> 00:12:52.320
+that would last like ten, 20, 30 years,
+unlike what we did in the 80s or 90s.
+
+00:12:52.320 --> 00:12:54.440
+That's what
+that's how that was the design mentality.
+
+00:12:54.440 --> 00:12:57.440
+But things were way
+less complicated than they are today,
+
+00:12:58.080 --> 00:13:00.120
+and the scale was different.
+
+00:13:00.120 --> 00:13:03.080
+So I would always come with the mindset
+
+00:13:03.080 --> 00:13:05.520
+that I'm just going to design
+for the next order of magnitude,
+
+00:13:05.520 --> 00:13:06.960
+and then I'm going to evolve it
+from there.
+
+00:13:06.960 --> 00:13:09.960
+And that's going to require
+another round of investment.
+
+00:13:10.040 --> 00:13:13.320
+There's going to be continual investments
+in this and that business
+
+00:13:13.320 --> 00:13:17.080
+people are not going to love this
+because that makes accounting much harder.
+
+00:13:17.080 --> 00:13:20.880
+That makes strategic finance much harder
+because they cannot predict
+
+00:13:20.880 --> 00:13:23.640
+or anticipate
+the costs that might come in the future.
+
+00:13:23.640 --> 00:13:25.920
+They cannot extrapolate from today.
+
+00:13:25.920 --> 00:13:28.400
+You know,
+they don't like this fuzziness software.
+
+00:13:28.400 --> 00:13:29.760
+It's all risk. Yes.
+
+00:13:29.760 --> 00:13:32.840
+So and also like they cannot calculate
+like their bottom line
+
+00:13:32.840 --> 00:13:35.880
+or projections for the future,
+which are things that are very realistic,
+
+00:13:35.880 --> 00:13:40.000
+like publicly, publicly traded companies
+want to be able to do these projections,
+
+00:13:40.000 --> 00:13:44.200
+and they want to be able to say that, hey,
+we're not going to be spending more here
+
+00:13:44.760 --> 00:13:45.960
+than on evolving our software,
+
+00:13:45.960 --> 00:13:49.400
+but we're going to make much more revenue
+and increase our bottom line and margin.
+
+00:13:49.680 --> 00:13:51.480
+That's what businesses look for.
+
+00:13:51.480 --> 00:13:52.720
+So it's understandable.
+
+00:13:52.720 --> 00:13:56.040
+But from a software perspective,
+there needs to be regular investments.
+
+00:13:56.040 --> 00:13:57.760
+And I think the only approachable way,
+
+00:13:57.760 --> 00:14:00.760
+which is something we do at
+GitHub, is to continuously revisit
+
+00:14:00.840 --> 00:14:03.360
+these investments on a quarterly
+
+00:14:04.360 --> 00:14:07.360
+by quarterly, half a year or a year basis.
+
+00:14:07.800 --> 00:14:08.600
+Right.
+
+00:14:08.600 --> 00:14:11.600
+We can make projections
+for the next three, four, five years,
+
+00:14:11.680 --> 00:14:14.600
+but the confidence in these projections
+is less and less and less.
+
+00:14:14.600 --> 00:14:15.920
+Yeah, more time goes.
+
+00:14:15.920 --> 00:14:18.920
+And I think a lot more companies
+need to start doing the same.
+
+00:14:18.960 --> 00:14:21.400
+When you say we will then design
+
+00:14:21.400 --> 00:14:24.920
+for the next level,
+the order of magnitude for the next level,
+
+00:14:25.320 --> 00:14:29.520
+how far in the horizon do you look at what
+the GitHub actions example that you had?
+
+00:14:29.520 --> 00:14:30.720
+You said, okay, five years,
+
+00:14:30.720 --> 00:14:33.840
+but is that like an arbitrary thing
+or how depends on the curve, right.
+
+00:14:33.840 --> 00:14:36.840
+It depends on the GitHub like GitHub
+actions has been growing massively over
+
+00:14:36.880 --> 00:14:41.600
+since we, we we brought it up,
+at the beginning, and we're introducing
+
+00:14:41.600 --> 00:14:44.600
+more and more features
+that are increasing the adoption.
+
+00:14:45.200 --> 00:14:47.760
+So the curve we can see how it looks like.
+
+00:14:47.760 --> 00:14:49.600
+Yeah. But it might change at any point
+in time. Right.
+
+00:14:49.600 --> 00:14:53.400
+It can be disrupted close to zero
+or it can continue growing exponentially.
+
+00:14:53.880 --> 00:14:57.480
+So often the hockey stick
+that a lot of tech startups
+
+00:14:57.480 --> 00:15:01.320
+talk about, like exponential growth,
+it can appear and you can start seeing it.
+
+00:15:01.320 --> 00:15:02.680
+And when you start seeing it,
+
+00:15:02.680 --> 00:15:06.160
+you know, see how the solution
+like actions, companies that migrate to it
+
+00:15:06.160 --> 00:15:07.680
+are not going to flip flop. No.
+
+00:15:07.680 --> 00:15:10.680
+And very short periods of time be there
+so you can have some confidence that,
+
+00:15:10.680 --> 00:15:15.120
+okay, this trend is going to last
+for a year or two or 3 or 4, right?
+
+00:15:15.120 --> 00:15:17.400
+Nothing lasts forever, obviously.
+
+00:15:17.400 --> 00:15:19.720
+But you can start thinking
+in that direction.
+
+00:15:19.720 --> 00:15:22.000
+And then based on that,
+you can make investment decisions.
+
+00:15:22.000 --> 00:15:22.960
+Gotcha.
+
+00:15:22.960 --> 00:15:26.320
+I've had many discussions also in the past
+when we were talking about our software
+
+00:15:26.320 --> 00:15:29.640
+architecture
+in something that can be very specific
+
+00:15:29.640 --> 00:15:32.880
+and also purposeful, built versus
+setting it up in a generic way.
+
+00:15:33.280 --> 00:15:35.880
+But then it should be towards the future,
+because we have ambitions
+
+00:15:35.880 --> 00:15:39.120
+and hopes that we have
+X amount of solutions that are similar.
+
+00:15:39.120 --> 00:15:42.280
+So we make a generic right now,
+what is your perspective on
+
+00:15:42.280 --> 00:15:45.280
+making something specific versus
+generic in the first place?
+
+00:15:46.080 --> 00:15:48.240
+I like solving specific problems.
+
+00:15:48.240 --> 00:15:52.360
+I don't like solving generic problems
+because how can you make tradeoffs then?
+
+00:15:53.040 --> 00:15:53.320
+Right.
+
+00:15:53.320 --> 00:15:55.600
+Well, in software
+there's always trade offs.
+
+00:15:55.600 --> 00:15:58.160
+So how do you choose these trade offs?
+
+00:15:58.160 --> 00:16:00.240
+You can build something
+super generic. Sure.
+
+00:16:00.240 --> 00:16:04.160
+That basically is why building a framework
+that can be a toolbox
+
+00:16:04.160 --> 00:16:07.400
+and give you all sorts of solutions
+to all sorts
+
+00:16:07.400 --> 00:16:10.400
+of hypothetical problems
+that you might or might not have.
+
+00:16:10.480 --> 00:16:13.640
+That's not the Northstar
+I follow when I design software at GitHub.
+
+00:16:13.960 --> 00:16:15.280
+With my team, we
+
+00:16:16.560 --> 00:16:17.040
+are very
+
+00:16:17.040 --> 00:16:20.040
+specific about not overengineering things,
+
+00:16:20.280 --> 00:16:22.920
+and we solve for the problems
+we have today.
+
+00:16:22.920 --> 00:16:26.440
+So for example, we never introduce caching
+until we really need it,
+
+00:16:27.680 --> 00:16:31.080
+and we never over optimize
+until we start seeing problems.
+
+00:16:31.440 --> 00:16:34.880
+Sometimes, sometimes we we know
+that we're going to hit this problem
+
+00:16:34.880 --> 00:16:36.480
+a few months
+and we're not going to get the investment.
+
+00:16:36.480 --> 00:16:39.160
+So we solve it right now
+because it makes sense.
+
+00:16:39.160 --> 00:16:41.320
+But we don't over engineer solutions.
+
+00:16:41.320 --> 00:16:43.000
+We don't start jumping into things.
+
+00:16:43.000 --> 00:16:46.440
+For example, we don't necessarily jump
+to NoSQL at the beginning.
+
+00:16:46.480 --> 00:16:48.960
+We just start regular
+relational databases.
+
+00:16:48.960 --> 00:16:52.600
+You know, we build regular tables
+if we need if we need actually relational,
+
+00:16:52.880 --> 00:16:54.000
+content.
+
+00:16:54.000 --> 00:16:57.000
+Sometimes relational databases
+can always get so far.
+
+00:16:57.480 --> 00:17:01.320
+So we start needing to three
+think our solutions here.
+
+00:17:01.640 --> 00:17:03.440
+And we need to start going towards
+non-relational.
+
+00:17:03.440 --> 00:17:06.080
+Even if we need
+the relational consistency,
+
+00:17:06.080 --> 00:17:09.880
+or the consistency of relational
+databases, we need to start thinking about
+
+00:17:09.880 --> 00:17:12.120
+how can we move that to the application
+layer
+
+00:17:12.120 --> 00:17:16.680
+and start using other solutions
+that persist data that can help us scale?
+
+00:17:16.840 --> 00:17:20.520
+Yeah, there are some efforts, for example,
+where we start using cosmos or
+
+00:17:21.320 --> 00:17:22.760
+cosmos DB and things like that,
+
+00:17:24.280 --> 00:17:24.960
+but we
+
+00:17:24.960 --> 00:17:27.960
+never start exploring these
+until we hit really massive problems
+
+00:17:27.960 --> 00:17:31.000
+with our database clusters
+like our primaries cannot keep up.
+
+00:17:31.000 --> 00:17:32.720
+The IO is pretty high.
+
+00:17:32.720 --> 00:17:35.160
+Right? Operations are substantially big.
+
+00:17:35.160 --> 00:17:38.160
+We cannot scale these anymore.
+
+00:17:38.400 --> 00:17:40.000
+Sharding is not an option.
+
+00:17:40.000 --> 00:17:42.720
+Application
+layer sharding is not an option as well.
+
+00:17:42.720 --> 00:17:45.720
+When it becomes not an option,
+sometimes it is.
+
+00:17:45.800 --> 00:17:48.960
+So we started thinking about
+how can we design this
+
+00:17:48.960 --> 00:17:53.040
+and how can we migrate the data and
+migrations as much as they are painful,
+
+00:17:53.400 --> 00:17:54.520
+they are part of the job.
+
+00:17:54.520 --> 00:17:55.600
+Yeah, interesting.
+
+00:17:55.600 --> 00:17:57.360
+And we do go through them.
+
+00:17:57.360 --> 00:17:59.520
+I'm wondering
+when we talk about system design
+
+00:17:59.520 --> 00:18:01.720
+and then specifically
+practical experience,
+
+00:18:01.720 --> 00:18:04.520
+what your perspective is on
+someone to really get
+
+00:18:04.520 --> 00:18:07.520
+a better understanding of the theory,
+but also be able to put it in practice.
+
+00:18:07.520 --> 00:18:10.440
+You like you already mentioned that,
+for example, like GitHub,
+
+00:18:10.440 --> 00:18:13.440
+you need to have a certain
+level of experience under your belt
+
+00:18:13.440 --> 00:18:16.960
+and then you can work at GitHub
+where we have orders of magnitude
+
+00:18:16.960 --> 00:18:19.200
+with regards to scale.
+This is a vicious cycle, right?
+
+00:18:19.200 --> 00:18:21.880
+So do you. How do you
+how do you build experience
+
+00:18:21.880 --> 00:18:23.640
+that is required
+by this type of companies.
+
+00:18:23.640 --> 00:18:27.320
+But there's no other type of company
+that's going to give you that experience.
+
+00:18:27.800 --> 00:18:31.840
+Unfortunately there's that's that's
+the reason why there is a proliferation
+
+00:18:31.840 --> 00:18:35.120
+of a lot of system
+design courses and things online.
+
+00:18:35.760 --> 00:18:37.600
+And quite honestly,
+
+00:18:37.600 --> 00:18:40.800
+passing that into passing the interview
+threshold for companies like GitHub.
+
+00:18:42.080 --> 00:18:42.600
+That is
+
+00:18:42.600 --> 00:18:46.200
+achievable by learning
+theoretically these concepts, okay,
+
+00:18:46.200 --> 00:18:49.200
+and not necessarily
+having hands on experience with them.
+
+00:18:49.400 --> 00:18:52.160
+The bar feels high,
+
+00:18:52.160 --> 00:18:55.160
+but right now it's been sort of
+
+00:18:56.040 --> 00:18:58.680
+exploited to the point
+where a lot of the tricks
+
+00:18:58.680 --> 00:19:02.000
+and tips and whatnot are already available
+very much online.
+
+00:19:02.320 --> 00:19:05.320
+Like, I know, interview you guys, for
+example, they have this YouTube channel.
+
+00:19:05.320 --> 00:19:08.320
+They have pretty much covered
+a lot of the topics that you might get
+
+00:19:08.320 --> 00:19:10.080
+asked in a system design interview.
+
+00:19:10.080 --> 00:19:10.400
+Okay.
+
+00:19:10.400 --> 00:19:12.320
+And they go deep
+like they explain what Kafka
+
+00:19:12.320 --> 00:19:13.800
+is, what event streaming, as they explain.
+
+00:19:13.800 --> 00:19:15.880
+Right, is the internals, how it works,
+when do you use it?
+
+00:19:15.880 --> 00:19:16.960
+When not to use it?
+
+00:19:16.960 --> 00:19:19.960
+They explain the differences between
+relational and relational databases.
+
+00:19:19.960 --> 00:19:22.120
+They explain caching, how to implement
+
+00:19:22.120 --> 00:19:25.880
+caching in specific scenarios,
+and they give practical, hands on problems
+
+00:19:26.120 --> 00:19:27.160
+where you can actually learn
+
+00:19:27.160 --> 00:19:30.160
+how to effectively utilize
+all of these different components
+
+00:19:30.360 --> 00:19:33.360
+to come up
+with a relatively scalable solution.
+
+00:19:33.560 --> 00:19:36.480
+And they give you tips
+also on how to approach
+
+00:19:36.480 --> 00:19:39.480
+the discussion of scale
+within a system design interview.
+
+00:19:40.040 --> 00:19:41.640
+And I think
+they do a pretty good job at it.
+
+00:19:41.640 --> 00:19:44.520
+And I think that's enough,
+because a lot of people who go to big
+
+00:19:44.520 --> 00:19:47.560
+Tech will go to Google, and they don't
+necessarily have that hands on experience
+
+00:19:47.560 --> 00:19:51.040
+beforehand, even though the interview
+is looking for that hands on experience.
+
+00:19:51.480 --> 00:19:55.040
+But, you know, with these,
+because we hack the people.
+
+00:19:55.040 --> 00:19:56.960
+Hack the game. Yeah.
+
+00:19:56.960 --> 00:19:59.800
+So the signal is given to the interviewer.
+
+00:19:59.800 --> 00:20:03.000
+And then people when they have these,
+this foundation, they can actually
+
+00:20:03.240 --> 00:20:06.440
+do a relatively
+okay job on, when they join
+
+00:20:06.800 --> 00:20:08.640
+and they've got obviously
+not going to be a right.
+
+00:20:08.640 --> 00:20:10.400
+So you're never going to join a team
+and start
+
+00:20:10.400 --> 00:20:12.240
+building greenfield stuff from day zero.
+
+00:20:12.240 --> 00:20:15.920
+It rarely happens where you're going to
+join teams that are already established.
+
+00:20:15.920 --> 00:20:17.040
+So there's going to be people
+
+00:20:17.040 --> 00:20:20.040
+with experience more senior
+than you are going to give you guidance
+
+00:20:20.040 --> 00:20:22.880
+and review your solutions, your designs,
+so on and so forth.
+
+00:20:22.880 --> 00:20:25.200
+And that's why people make it right.
+
+00:20:25.200 --> 00:20:28.640
+But if you are interviewed for experience
+and you join a greenfield project,
+
+00:20:29.240 --> 00:20:31.680
+you know, you going to own your mistakes.
+
+00:20:31.680 --> 00:20:33.720
+And people do make mistakes often.
+
+00:20:33.720 --> 00:20:34.000
+Yeah.
+
+00:20:34.000 --> 00:20:36.360
+When it comes to these solutions,
+not everything big tech
+
+00:20:36.360 --> 00:20:40.640
+ships is a great feature or operates
+well in the world.
+
+00:20:40.640 --> 00:20:45.720
+And often we discover that, oh, this was a
+mistake and it was actually very costly.
+
+00:20:45.720 --> 00:20:48.720
+And some companies fail
+because of this researcher.
+
+00:20:48.720 --> 00:20:49.160
+Right?
+
+00:20:49.160 --> 00:20:52.080
+Any failures or mistakes
+that are top of mind for you
+
+00:20:52.080 --> 00:20:53.560
+that you can share
+for other people to learn?
+
+00:20:54.520 --> 00:20:54.920
+Tricky.
+
+00:20:54.920 --> 00:20:57.920
+No, I want to keep my job so
+
+00:20:58.360 --> 00:20:59.040
+that's fair.
+
+00:20:59.040 --> 00:21:00.840
+That's fair for me.
+
+00:21:00.840 --> 00:21:02.840
+Looking at what we do nowadays,
+
+00:21:02.840 --> 00:21:06.080
+I feel with AI tools and we're
+more productive in actually writing code.
+
+00:21:06.600 --> 00:21:09.760
+And I feel like when you amplify
+the amount of code that you write,
+
+00:21:10.080 --> 00:21:13.600
+you might also write yourself
+into a bottleneck, basically.
+
+00:21:13.600 --> 00:21:17.680
+So I feel like software architecture and
+specifically system design from the start,
+
+00:21:17.680 --> 00:21:22.000
+having a better understanding,
+especially I feel like like I do now,
+
+00:21:22.560 --> 00:21:25.800
+I need to grow there and I feel like it's
+going to be a more important skill
+
+00:21:25.800 --> 00:21:29.600
+to indeed figure out what are we designing
+for, what makes sense?
+
+00:21:29.600 --> 00:21:32.760
+What would be the next order of magnitude
+after, and actually
+
+00:21:33.080 --> 00:21:35.800
+make sure to convince people
+and have a certain level of buy in.
+
+00:21:35.800 --> 00:21:37.360
+We're always working in teams.
+
+00:21:37.360 --> 00:21:40.440
+Also, from a business standpoint,
+how would I, for example, say
+
+00:21:40.680 --> 00:21:42.720
+we're going to design for this
+until we reach scale
+
+00:21:42.720 --> 00:21:45.840
+and then we're going to need to revamp,
+and this is what that's going to entail
+
+00:21:46.080 --> 00:21:48.600
+for people that don't understand
+how to build software,
+
+00:21:48.600 --> 00:21:50.280
+understand the business constraints.
+
+00:21:50.280 --> 00:21:53.400
+So you're never going to be able
+to convince the business folks
+
+00:21:53.400 --> 00:21:54.280
+about of something.
+
+00:21:54.280 --> 00:21:57.280
+Technically,
+they're just it's too abstract.
+
+00:21:57.640 --> 00:22:02.400
+Even if it feels too intuitive
+for us, for them, it's magic.
+
+00:22:02.520 --> 00:22:03.360
+Yeah.
+
+00:22:03.360 --> 00:22:05.840
+And even if they try to understand
+
+00:22:05.840 --> 00:22:09.120
+how things work, they're never going
+to comprehend the magnitude of problems.
+
+00:22:09.120 --> 00:22:12.400
+And they're never going to 
+have this intuition about how software is
+
+00:22:12.400 --> 00:22:16.800
+and how not hard,
+you know, how how involved it is.
+
+00:22:17.720 --> 00:22:20.880
+So it's our job
+to get closer to their side.
+
+00:22:21.120 --> 00:22:23.280
+Some people say, no,
+we want the business to understand.
+
+00:22:23.280 --> 00:22:24.360
+They're not gonna.
+
+00:22:24.360 --> 00:22:25.880
+It's trickier.
+
+00:22:25.880 --> 00:22:29.800
+It's easier for you to acquire, assimilate
+some of the not everything,
+
+00:22:29.800 --> 00:22:33.800
+some of the business constraints
+and discuss them from that perspective.
+
+00:22:34.040 --> 00:22:38.160
+And that's why a lot of engineers
+who grow are very good at understanding
+
+00:22:38.160 --> 00:22:39.480
+the business constraints
+
+00:22:39.480 --> 00:22:42.480
+and then discussing the technical
+solutions within those constraints.
+
+00:22:42.600 --> 00:22:47.480
+So for example, I used to work in the
+container terminal industry for a while.
+
+00:22:47.480 --> 00:22:50.440
+We built a huge container terminal.
+
+00:22:50.440 --> 00:22:52.320
+We furnished everything
+from the fiber optics
+
+00:22:52.320 --> 00:22:54.360
+layer
+all the way to the three tier data center.
+
+00:22:54.360 --> 00:22:57.040
+With all of the enterprise applications
+running and running on it,
+
+00:22:57.040 --> 00:22:59.080
+and the operating system
+for the container,
+
+00:22:59.080 --> 00:23:02.120
+and it's one of the most
+massive operations you can ever imagine.
+
+00:23:03.120 --> 00:23:05.720
+One of the most hazardous as well.
+
+00:23:05.720 --> 00:23:10.320
+So the folks, they're there
+as far away from tech as possible.
+
+00:23:10.560 --> 00:23:12.560
+You're not never going
+to find the terminal operator
+
+00:23:12.560 --> 00:23:13.960
+who's going to understand what it means
+
+00:23:13.960 --> 00:23:17.520
+that your database is running hot
+and you cannot support their case.
+
+00:23:17.520 --> 00:23:20.520
+All they care about is, I have a ship
+here, was docked.
+
+00:23:21.200 --> 00:23:23.520
+There's like, 10,000 containers on it.
+
+00:23:23.520 --> 00:23:25.360
+I need to empty them into my yard.
+
+00:23:25.360 --> 00:23:28.280
+I have a very fixed window of time,
+and if I don't do it
+
+00:23:28.280 --> 00:23:31.280
+in that window of time,
+this is going to cost me money.
+
+00:23:32.400 --> 00:23:34.440
+We were operating at 12% capacity.
+
+00:23:34.440 --> 00:23:38.680
+That terminal was generating
+about $50,000 per hour.
+
+00:23:40.160 --> 00:23:42.040
+So 12%.
+
+00:23:42.040 --> 00:23:44.680
+So you can imagine if we get delayed
+
+00:23:44.680 --> 00:23:48.240
+every minute of delay is actually money
+that's disappearing.
+
+00:23:49.160 --> 00:23:53.640
+So this is how you need to discuss
+problems and investments and solutions.
+
+00:23:54.040 --> 00:23:57.240
+You need to understand what the impact
+is, what the impact is on the operators.
+
+00:23:57.240 --> 00:23:59.400
+And sometimes it's life threatening
+impact, right.
+
+00:23:59.400 --> 00:24:02.520
+If your software fails when a STS
+
+00:24:03.120 --> 00:24:05.920
+when the crane is offloading a container,
+
+00:24:05.920 --> 00:24:09.120
+this can be a very life
+threatening situation.
+
+00:24:09.280 --> 00:24:12.360
+You cannot really have your software
+malfunction at this point.
+
+00:24:12.360 --> 00:24:16.320
+So sloppiness of the software
+sub millisecond latencies,
+
+00:24:16.320 --> 00:24:18.160
+all of these things matter, right?
+
+00:24:18.160 --> 00:24:21.280
+So you need to approach the discussions
+with the stakeholders. Yes.
+
+00:24:21.360 --> 00:24:22.640
+By understanding them first.
+
+00:24:22.640 --> 00:24:24.480
+So what I've done, for
+example, in the industry is
+
+00:24:25.720 --> 00:24:28.360
+I've literally sat on a truck
+
+00:24:28.360 --> 00:24:29.200
+and went there
+
+00:24:29.200 --> 00:24:31.680
+and I sat with every single individual
+who works in that terminal
+
+00:24:31.680 --> 00:24:34.200
+to really understand
+what they go through on a daily basis.
+
+00:24:34.200 --> 00:24:38.040
+So a truck driver who's driving a truck
+for six, seven, eight hours
+
+00:24:38.040 --> 00:24:42.360
+and it was in Saudi Arabia in scorching
+heat, it's not going to understand
+
+00:24:42.360 --> 00:24:45.360
+like the button that they clicked
+is just it's so
+
+00:24:46.000 --> 00:24:47.600
+slow. Doesn't matter.
+
+00:24:47.600 --> 00:24:48.840
+Doesn't he doesn't care.
+
+00:24:48.840 --> 00:24:51.160
+He just wants it to just work.
+
+00:24:51.160 --> 00:24:53.120
+So you got to understand
+all of these perspectives.
+
+00:24:53.120 --> 00:24:54.920
+And then when you do
+you can start approaching
+
+00:24:54.920 --> 00:24:56.680
+discussions from that vantage point.
+
+00:24:56.680 --> 00:24:58.120
+And this applies to banks.
+
+00:24:58.120 --> 00:25:00.960
+This applies
+to hospitals to any other industry.
+
+00:25:00.960 --> 00:25:03.960
+So understand the industry understand
+the business constraints.
+
+00:25:04.240 --> 00:25:07.160
+And then any technical solution
+you want to discuss an investment,
+
+00:25:07.160 --> 00:25:08.840
+you can approach it
+from that vantage point.
+
+00:25:08.840 --> 00:25:12.240
+Then you're going to have much
+more success in these conversations.
+
+00:25:12.600 --> 00:25:13.320
+Yeah. Interesting.
+
+00:25:13.320 --> 00:25:15.760
+I feel like the
+the opposite then also holds true.
+
+00:25:15.760 --> 00:25:19.640
+So if you do understand the business
+context and you don't have a case for
+
+00:25:19.640 --> 00:25:21.960
+why you need to work on that,
+why you need to scale,
+
+00:25:21.960 --> 00:25:25.800
+well, you need to fix some of the issues,
+then there might not be an actual case.
+
+00:25:25.800 --> 00:25:28.560
+And right now is not the right time to do
+so. Okay.
+
+00:25:28.560 --> 00:25:32.040
+I do feel like it's it is a lot of
+prep work that you have to do.
+
+00:25:32.040 --> 00:25:34.280
+It's way easier
+to talk about the technical things right?
+
+00:25:34.280 --> 00:25:35.160
+Because that's what you see.
+
+00:25:35.160 --> 00:25:39.440
+That's what you perceive latency,
+numbers, storage, scalability.
+
+00:25:39.600 --> 00:25:41.160
+That's what you look at.
+
+00:25:41.160 --> 00:25:44.880
+And then reframing it and saying, okay,
+what is the impact for the business?
+
+00:25:44.880 --> 00:25:46.040
+What is the cost per feature?
+
+00:25:46.040 --> 00:25:50.320
+And what if we have, slower delivery rate
+compared to a faster in a new future?
+
+00:25:50.400 --> 00:25:50.680
+Yeah.
+
+00:25:50.680 --> 00:25:53.400
+Talking that language is very different
+from what you're used to.
+
+00:25:53.400 --> 00:25:53.920
+Absolutely.
+
+00:25:53.920 --> 00:25:55.880
+And the trickiest part, in my opinion, is
+
+00:25:55.880 --> 00:25:58.880
+when the stakeholders
+are not transparent about the numbers.
+
+00:25:58.880 --> 00:26:02.920
+So they're never going to tell you like,
+oh, we're making this $10 million
+
+00:26:02.920 --> 00:26:04.560
+investment today
+in this piece of software.
+
+00:26:04.560 --> 00:26:07.680
+Because the investor,
+one of the biggest investors
+
+00:26:07.680 --> 00:26:09.920
+we have,
+is willing to put that money in right now.
+
+00:26:09.920 --> 00:26:12.480
+But nobody has the guts to go
+tell him that.
+
+00:26:12.480 --> 00:26:15.040
+No, we need another 10,000,000
+in 10 years.
+
+00:26:15.040 --> 00:26:16.560
+Yeah, right.
+
+00:26:16.560 --> 00:26:19.560
+And nobody's
+going to come in and tell you that.
+
+00:26:19.600 --> 00:26:22.000
+But you need to also think about it.
+
+00:26:22.000 --> 00:26:24.000
+Try to extract that information,
+try to understand
+
+00:26:24.000 --> 00:26:27.880
+who was funding this,
+what is funding this, what is critical?
+
+00:26:28.880 --> 00:26:31.480
+What is the business in jeopardy?
+
+00:26:31.480 --> 00:26:33.680
+Is it right now under a lot of scrutiny?
+
+00:26:33.680 --> 00:26:35.320
+Is the bottom line not working?
+
+00:26:35.320 --> 00:26:38.320
+Is the margin of profit not that high?
+
+00:26:38.320 --> 00:26:40.920
+But what is driving
+this particular investment right now?
+
+00:26:40.920 --> 00:26:42.160
+Is it more strategic?
+
+00:26:42.160 --> 00:26:45.160
+So I worked in building banks,
+for example, in the in the Gulf
+
+00:26:45.440 --> 00:26:46.720
+I worked as a consultant as well.
+
+00:26:46.720 --> 00:26:49.200
+Right. So,
+
+00:26:49.200 --> 00:26:51.480
+there were banks
+that wanted to make a one shot
+
+00:26:51.480 --> 00:26:54.480
+investment into what they thought
+that was their future.
+
+00:26:54.720 --> 00:26:57.240
+And they had a lump
+sum of money that they wanted
+
+00:26:57.240 --> 00:27:00.480
+to put down once and build software
+that will last them for ten years.
+
+00:27:00.480 --> 00:27:01.240
+Yeah.
+
+00:27:01.240 --> 00:27:02.040
+They're not going to they
+
+00:27:02.040 --> 00:27:05.600
+nobody has the guts to come in
+and tell somebody, an executive
+
+00:27:05.840 --> 00:27:09.400
+who has no time whatsoever that, hey,
+well this investment is good.
+
+00:27:09.440 --> 00:27:12.400
+I see maybe like two, three, four years,
+but you need to put in also
+
+00:27:12.400 --> 00:27:16.160
+another million every year to maintain it
+and maybe even another 10,000,000 in 5,
+
+00:27:16.160 --> 00:27:19.160
+six years, because you need to keep up
+with the new trends.
+
+00:27:19.200 --> 00:27:20.400
+Nobody has the guts to come in
+
+00:27:20.400 --> 00:27:23.600
+and say that at the beginning,
+because then the decision maker might say,
+
+00:27:23.600 --> 00:27:25.760
+oh, well,
+this is not worth it for me anymore.
+
+00:27:25.760 --> 00:27:28.560
+Yeah, we might just scratch it
+completely. Precisely.
+
+00:27:28.560 --> 00:27:31.680
+What I've also seen
+is that some organizations operate
+
+00:27:31.680 --> 00:27:33.240
+with a number of engineers.
+
+00:27:33.240 --> 00:27:35.360
+And then from an outside standpoint,
+
+00:27:35.360 --> 00:27:37.200
+I have no clue
+what those engineers are doing.
+
+00:27:37.200 --> 00:27:40.040
+Like,
+if I look at a specific e-commerce website
+
+00:27:40.040 --> 00:27:42.640
+that might have 2000 engineers
+work, kind of a similar
+
+00:27:42.640 --> 00:27:45.640
+one with a similar level of skill,
+might have a few hundred.
+
+00:27:45.720 --> 00:27:46.920
+And then I feel like
+
+00:27:46.920 --> 00:27:49.920
+the few hundred engineers,
+they need to have a bigger landscape
+
+00:27:49.920 --> 00:27:53.280
+of ownership, understanding
+what they do in the context of the day
+
+00:27:53.280 --> 00:27:55.800
+to day on a business
+side is easier for them
+
+00:27:55.800 --> 00:27:58.320
+than being part of a group of 2000
+engineers.
+
+00:27:58.320 --> 00:28:00.480
+That kind of does the same in scale,
+if you like.
+
+00:28:00.480 --> 00:28:02.920
+If you're a cog, it's very hard to argue
+
+00:28:02.920 --> 00:28:06.200
+what kind of optimizing your little cog
+is going to do for the greater good.
+
+00:28:06.200 --> 00:28:07.440
+One thing I
+
+00:28:08.560 --> 00:28:09.240
+one thing a lot of
+
+00:28:09.240 --> 00:28:12.240
+people hate,
+but I think is very functional.
+
+00:28:12.320 --> 00:28:16.240
+And a lot of the companies
+that operate based on the San Francisco
+
+00:28:16.240 --> 00:28:19.560
+Silicon Valley model is the ruthlessness
+
+00:28:19.920 --> 00:28:23.440
+in terms of optimizing how engineers work,
+
+00:28:24.800 --> 00:28:25.920
+and layoffs.
+
+00:28:25.920 --> 00:28:28.440
+So in Europe, layoffs are not
+
+00:28:28.440 --> 00:28:31.760
+it's very famous for,
+a very well received thing,
+
+00:28:31.800 --> 00:28:34.800
+and I don't think they are very well
+received in the US as well.
+
+00:28:35.240 --> 00:28:35.880
+But they are.
+
+00:28:35.880 --> 00:28:39.080
+And if they are an effective mechanism,
+even though it's dehumanizing,
+
+00:28:39.080 --> 00:28:44.160
+but it is an effective mechanism
+to recalibrate how people
+
+00:28:44.160 --> 00:28:47.280
+or where people put their attention
+and what they are focusing on.
+
+00:28:47.880 --> 00:28:50.360
+So in a lot of situations,
+when layoffs happen,
+
+00:28:50.360 --> 00:28:53.840
+there's a huge product, features
+that are cut entirely, like,
+
+00:28:53.920 --> 00:28:55.560
+we don't need this anymore. Yeah.
+
+00:28:55.560 --> 00:28:58.400
+And it's it's more expensive
+to repurpose the skills
+
+00:28:58.400 --> 00:29:00.160
+of those same engineers in other areas.
+
+00:29:00.160 --> 00:29:02.520
+So let's just cut it off immediately.
+
+00:29:02.520 --> 00:29:05.760
+Hiring new engineers that are more
+experienced in that particular domain.
+
+00:29:06.080 --> 00:29:07.600
+Get them to focus on this right away.
+
+00:29:08.640 --> 00:29:10.400
+So this rapid,
+
+00:29:10.400 --> 00:29:12.880
+flexibility and moving
+
+00:29:12.880 --> 00:29:15.880
+and rotating resources or people basically
+
+00:29:16.160 --> 00:29:20.280
+allows these companies
+to be much more nimble, and effectively
+
+00:29:20.280 --> 00:29:24.600
+or more effectively allocate engineers
+to particular problems that matters today.
+
+00:29:25.120 --> 00:29:29.160
+The second thing I also think is a good
+that separates
+
+00:29:29.400 --> 00:29:34.160
+a lot of the big tech companies from other
+companies is your work or your reward
+
+00:29:34.560 --> 00:29:37.520
+bonuses, growth, whatever is associated
+
+00:29:37.520 --> 00:29:40.800
+with your business impact,
+not your software engineering impact.
+
+00:29:41.160 --> 00:29:43.880
+So you can come in and say,
+oh, I built the most the biggest
+
+00:29:43.880 --> 00:29:47.200
+Kubernetes cluster, 
+you know, known to the planet.
+
+00:29:47.440 --> 00:29:49.360
+It's beautiful. It's amazing.
+
+00:29:49.360 --> 00:29:52.280
+You're not going to get any of that
+or any recognition for it
+
+00:29:52.280 --> 00:29:55.280
+unless you justify why that was important.
+
+00:29:55.560 --> 00:29:58.360
+What was the actual
+landed impact on the business?
+
+00:29:58.360 --> 00:30:01.120
+So what did it contribute to
+in terms of our revenue?
+
+00:30:01.120 --> 00:30:02.680
+Did it help us grow?
+
+00:30:02.680 --> 00:30:05.080
+That didn't help us attract
+more customers?
+
+00:30:05.080 --> 00:30:09.120
+Did it solve a very hard problem for us
+that it affect developer experience?
+
+00:30:09.280 --> 00:30:13.080
+Are people more and you need to have
+numbers, not just fluffy words.
+
+00:30:13.920 --> 00:30:16.280
+So I think that's also
+another very effective
+
+00:30:16.280 --> 00:30:19.520
+way to reallocate attention software
+engineers.
+
+00:30:19.720 --> 00:30:22.920
+And it's very easy for us also software
+to drift into the comfort zones.
+
+00:30:23.280 --> 00:30:25.560
+So I'm building something
+I'm comfortable in it.
+
+00:30:25.560 --> 00:30:26.440
+Yeah.
+
+00:30:26.440 --> 00:30:27.920
+And nobody's questioning me on it.
+
+00:30:27.920 --> 00:30:29.320
+Nobody understands what I'm doing.
+
+00:30:29.320 --> 00:30:31.640
+I just keep doing the same thing
+every day.
+
+00:30:31.640 --> 00:30:34.680
+Yeah, I feel like I've also shared this
+previously on the podcast.
+
+00:30:35.320 --> 00:30:38.280
+Some engineers that I've met,
+they love the technical side of things.
+
+00:30:38.280 --> 00:30:41.720
+And when you let them go wild, when
+there's no business context or direction,
+
+00:30:42.040 --> 00:30:45.160
+they will build you a rocket ship
+and they will really enjoy doing it.
+
+00:30:45.960 --> 00:30:50.160
+There is a craft, 
+the craftsmanship aspect of software
+
+00:30:50.160 --> 00:30:51.360
+engineering is still there.
+
+00:30:51.360 --> 00:30:52.920
+You know, there is an esthetic to it.
+
+00:30:52.920 --> 00:30:55.560
+There is like, it's fun, it's enjoyable.
+
+00:30:55.560 --> 00:30:58.120
+But I always in my even my social media
+
+00:30:58.120 --> 00:31:01.120
+starts
+like I always strive to communicate that
+
+00:31:01.440 --> 00:31:05.160
+when you work professionally as software
+engineer, this is not practicing a hobby.
+
+00:31:05.880 --> 00:31:08.200
+And I think a lot of this craftsmanship,
+
+00:31:10.200 --> 00:31:11.960
+thinking comes from the fact
+
+00:31:11.960 --> 00:31:13.760
+that a lot of people
+went into software engineer
+
+00:31:13.760 --> 00:31:16.280
+because programing was a hobby
+for them, myself included.
+
+00:31:16.280 --> 00:31:17.640
+I started writing code when and stuff.
+
+00:31:17.640 --> 00:31:20.560
+I thought that this is amazing
+if I can make it my job perfect.
+
+00:31:20.560 --> 00:31:24.040
+But the job is very different
+than practicing code
+
+00:31:24.040 --> 00:31:27.040
+for the sake of writing code
+and the esthetics and the fun of it.
+
+00:31:27.720 --> 00:31:31.120
+Sometimes you are lucky to be able
+to bring that into your work,
+
+00:31:31.400 --> 00:31:34.240
+but most often you're not really solving
+for the esthetic.
+
+00:31:34.240 --> 00:31:36.840
+You're solving a business problem,
+
+00:31:36.840 --> 00:31:39.840
+and you need to keep that in mind
+always and often.
+
+00:31:40.080 --> 00:31:41.360
+It's not about the beauty of your skin.
+
+00:31:41.360 --> 00:31:44.800
+And if you can build a beautiful solution
+
+00:31:44.800 --> 00:31:48.000
+and solve the business problem
+effectively, fantastic.
+
+00:31:48.000 --> 00:31:49.840
+That's the cherry on top. Win-Win.
+
+00:31:49.840 --> 00:31:52.720
+But the priorities
+for the business problem
+
+00:31:52.720 --> 00:31:56.320
+and sometimes solving business problems
+means building software.
+
+00:31:56.320 --> 00:31:58.720
+That is good
+enough, good enough for today,
+
+00:31:59.680 --> 00:32:00.360
+right?
+
+00:32:00.360 --> 00:32:02.400
+Doesn't
+have to be good enough for tomorrow.
+
+00:32:02.400 --> 00:32:05.960
+Maybe it's horrible for tomorrow,
+but it just keeps on functioning.
+
+00:32:05.960 --> 00:32:09.120
+Yeah, and this investment we did in
+the good enough
+
+00:32:09.640 --> 00:32:11.160
+is going to give us a certain runway.
+
+00:32:11.160 --> 00:32:12.960
+And we should be okay with that.
+
+00:32:12.960 --> 00:32:14.560
+I think we should be okay with that.
+
+00:32:14.560 --> 00:32:15.480
+That's what I've seen where it's
+
+00:32:15.480 --> 00:32:19.320
+challenging for people, where they say,
+okay, I'm a little bit of a perfectionist.
+
+00:32:19.320 --> 00:32:22.200
+I value quality
+in what I do on a day to day.
+
+00:32:22.200 --> 00:32:26.840
+My job is basically part of who I am,
+and if I don't deliver the highest quality
+
+00:32:26.840 --> 00:32:29.880
+that I can in this aspect,
+like I'm doing myself with this justice.
+
+00:32:30.200 --> 00:32:33.680
+And it's very like if I lay it out
+like that, it might sound selfish,
+
+00:32:33.840 --> 00:32:36.400
+but I still have no clue
+that what they're saying is selfish.
+
+00:32:36.400 --> 00:32:38.880
+They genuinely think it's best
+for the organization.
+
+00:32:38.880 --> 00:32:40.200
+It's just some misinformation
+
+00:32:40.200 --> 00:32:44.080
+and misunderstanding because there's
+a dogmatic aspect of software engineering,
+
+00:32:44.080 --> 00:32:48.800
+and it was perpetuated in the previous era
+until 2000, 2000 and I
+
+00:32:48.800 --> 00:32:52.920
+when I ventured in working professionals,
+software engineer, 2007 eight nine,
+
+00:32:53.720 --> 00:32:55.560
+there was a lot of dogma,
+like there's a lot of
+
+00:32:55.560 --> 00:32:58.080
+this is how you do things
+and this is how you should do things.
+
+00:32:58.080 --> 00:33:00.880
+And if you do things
+any other way, you're wrong. Yeah.
+
+00:33:00.880 --> 00:33:06.080
+And part of that is elegance of code code,
+cleanliness code quality.
+
+00:33:06.080 --> 00:33:08.320
+You're all raised on this, these
+these concepts. Right.
+
+00:33:08.320 --> 00:33:09.120
+And they're important.
+
+00:33:09.120 --> 00:33:12.600
+And everybody always complained
+about bad code and horrible code
+
+00:33:12.600 --> 00:33:15.200
+because it was difficult to maintain.
+Nobody enjoys that.
+
+00:33:15.200 --> 00:33:16.400
+You're going to make it very difficult
+
+00:33:16.400 --> 00:33:19.320
+for the future engineers
+to solve these problems.
+
+00:33:19.320 --> 00:33:21.440
+But sometimes,
+
+00:33:21.440 --> 00:33:24.000
+you know, you don't have future engineers
+to solve these problems.
+
+00:33:24.000 --> 00:33:27.240
+Sometimes nobody's going to touch
+this code for decades to come.
+
+00:33:27.640 --> 00:33:30.640
+It's okay if it's just it just works.
+
+00:33:30.800 --> 00:33:33.600
+And then we ended up on the complete
+other end of the spectrum
+
+00:33:33.600 --> 00:33:37.160
+where we tried to clean up
+everything that we started adopting.
+
+00:33:37.160 --> 00:33:40.920
+All sorts of design,
+overcomplicated abstractions that are
+
+00:33:41.280 --> 00:33:42.480
+are just horrible to me.
+
+00:33:42.480 --> 00:33:44.240
+How horrible to reason about
+
+00:33:44.240 --> 00:33:48.680
+it takes you decades to become proficient
+in just reading that type of code.
+
+00:33:49.000 --> 00:33:50.000
+And then when you write it,
+
+00:33:51.000 --> 00:33:51.720
+it gets even more
+
+00:33:51.720 --> 00:33:55.200
+complicated and it's very difficult
+to maintain, in big Tech.
+
+00:33:55.200 --> 00:33:58.200
+And I always tell my colleagues
+in the juniors that report to me,
+
+00:33:58.520 --> 00:34:02.080
+simple is complicated enough,
+especially at scale.
+
+00:34:02.280 --> 00:34:02.560
+Yeah.
+
+00:34:02.560 --> 00:34:06.120
+So just write it in the dumbest,
+most simple way possible.
+
+00:34:06.160 --> 00:34:08.640
+This is why I also love code, for example.
+That's allowed.
+
+00:34:08.640 --> 00:34:10.560
+You do write. Yes.
+
+00:34:10.560 --> 00:34:12.560
+It's amazing. It's dumb.
+
+00:34:12.560 --> 00:34:14.360
+You don't have to
+
+00:34:14.360 --> 00:34:16.760
+think too much. It's
+just all in your face.
+
+00:34:16.760 --> 00:34:18.880
+Whenever you want to understand
+how something is built,
+
+00:34:18.880 --> 00:34:21.680
+you just trace it
+around. It's there, it's there.
+
+00:34:21.680 --> 00:34:23.360
+Fantastic. I love that.
+
+00:34:23.360 --> 00:34:27.000
+And in the situations
+where we're building at scale,
+
+00:34:27.320 --> 00:34:30.000
+I don't want to reason about abstractions.
+
+00:34:30.000 --> 00:34:32.240
+I don't want to think about edge cases.
+
+00:34:32.240 --> 00:34:35.520
+I don't want to think about complicated
+memory allocations
+
+00:34:35.880 --> 00:34:38.520
+and complicated memory structures.
+
+00:34:38.520 --> 00:34:40.600
+You know, I just want things to be simple.
+
+00:34:40.600 --> 00:34:45.520
+Memory leaks happen often,
+and they are very catastrophic at scale.
+
+00:34:46.160 --> 00:34:47.400
+I don't want to think about these things.
+
+00:34:47.400 --> 00:34:49.800
+I don't want to think about
+how my garbage collector is going to,
+
+00:34:49.800 --> 00:34:54.520
+you know, shut down the whole world
+and start causing multi second latency
+
+00:34:54.520 --> 00:34:58.520
+on my API requests, which at scale again
+become a gigantic problem for me.
+
+00:34:58.760 --> 00:35:01.360
+I just want things to be
+simple, easy to reason about.
+
+00:35:03.000 --> 00:35:03.840
+And that's it.
+
+00:35:03.840 --> 00:35:06.000
+Yeah. And interesting.
+
+00:35:06.000 --> 00:35:09.000
+I also feel like we've
+we are now in a trend where
+
+00:35:09.000 --> 00:35:12.000
+there is this conversation
+happening with people that are,
+
+00:35:12.480 --> 00:35:15.560
+first of all, vibe coding, loving it,
+being effective in what they do,
+
+00:35:15.560 --> 00:35:18.560
+solving a problem through software
+and they don't care how it looks.
+
+00:35:18.840 --> 00:35:21.560
+And then you have the older part,
+let's say existing software engineers
+
+00:35:21.560 --> 00:35:23.080
+that look at this and say
+
+00:35:23.080 --> 00:35:26.320
+both from a craft perspective
+and from an execution perspective,
+
+00:35:26.760 --> 00:35:27.840
+how does this work? Right.
+
+00:35:27.840 --> 00:35:31.640
+This is kind of really coming into
+my territory, I feel uncomfortable.
+
+00:35:31.920 --> 00:35:32.920
+Do I jump on this?
+
+00:35:32.920 --> 00:35:33.960
+Do I actually like it,
+
+00:35:33.960 --> 00:35:37.160
+or is this going to take away what I love
+dearly, what I used to do day to day?
+
+00:35:37.800 --> 00:35:39.880
+I think in essence, things are evolving.
+
+00:35:39.880 --> 00:35:41.560
+For me, that's a fact.
+
+00:35:41.560 --> 00:35:42.800
+The question is, where is it going?
+
+00:35:42.800 --> 00:35:45.080
+And I'm curious
+to see your perspective on a funny,
+
+00:35:45.080 --> 00:35:48.680
+it happens in every community,
+to be honest.
+
+00:35:49.080 --> 00:35:54.360
+So I'm starting my,
+a motorcycle riding classes.
+
+00:35:54.360 --> 00:35:55.560
+Okay, okay.
+
+00:35:55.560 --> 00:36:01.240
+And in motorcycle riding, a lot of the
+more advanced motorcyclist motorcyclists,
+
+00:36:01.360 --> 00:36:05.120
+they love manual, the clutch, they love,
+you know, changing gears.
+
+00:36:05.120 --> 00:36:08.920
+They love the
+the controlling the, the motorcycle
+
+00:36:09.360 --> 00:36:12.560
+in every single aspect, especially when
+they attain that level of proficiency.
+
+00:36:12.960 --> 00:36:15.720
+So a lot of them are now resisting
+a lot of the motorcycle companies
+
+00:36:15.720 --> 00:36:19.440
+introducing clutches or clutches
+that just operate automatically.
+
+00:36:19.440 --> 00:36:20.600
+They hate that.
+
+00:36:20.600 --> 00:36:24.360
+I don't want this like I want to control
+every single aspect of my bike.
+
+00:36:24.360 --> 00:36:24.920
+Right.
+
+00:36:24.920 --> 00:36:25.360
+And I feel
+
+00:36:25.360 --> 00:36:28.280
+this is pretty much the same thing
+that what's happening in software,
+
+00:36:28.280 --> 00:36:31.320
+a lot of the folks who have attained
+a high level of proficiency
+
+00:36:31.320 --> 00:36:34.640
+and they enjoy the craftsmanship
+aspect of software development,
+
+00:36:35.240 --> 00:36:36.600
+they love the coding part.
+
+00:36:36.600 --> 00:36:39.000
+They love
+reasoning about code structure, syntax.
+
+00:36:39.000 --> 00:36:43.320
+They get a kick out of coming up
+with a smarter solution, where they
+
+00:36:44.280 --> 00:36:45.000
+utilize a
+
+00:36:45.000 --> 00:36:48.880
+syntactical, feature
+and a programing language to do something
+
+00:36:48.880 --> 00:36:52.800
+that was not maybe designed for
+or do something smart with it.
+
+00:36:53.240 --> 00:36:56.960
+So if you take that away from them,
+you're basically introducing, you know, it
+
+00:36:57.000 --> 00:37:00.120
+clutches to software development
+and they're not going to react positively
+
+00:37:00.120 --> 00:37:04.240
+to it, even though the clutches help
+like when, for example, in
+
+00:37:04.240 --> 00:37:05.720
+when you're stopping at a
+
+00:37:05.720 --> 00:37:08.760
+at the light signal,
+you don't have to worry about stalling
+
+00:37:08.760 --> 00:37:10.000
+and you don't have to worry
+about these things.
+
+00:37:10.000 --> 00:37:14.240
+It just makes your life much easier, fun
+to ride the the sight for the motorcycle.
+
+00:37:14.800 --> 00:37:16.680
+It's just easier to control it.
+
+00:37:16.680 --> 00:37:18.720
+More accessible. Yeah. More accessible.
+
+00:37:18.720 --> 00:37:20.800
+So like, lighting
+is pretty much the same thing.
+
+00:37:20.800 --> 00:37:23.560
+I hate the term white coding
+because right now at GitHub, for example,
+
+00:37:23.560 --> 00:37:26.600
+I literally and this is part
+of my presentation at universe,
+
+00:37:27.080 --> 00:37:30.080
+90% of my code is written by agents.
+
+00:37:30.160 --> 00:37:33.320
+So I use the VS code
+agent mode all the time.
+
+00:37:33.320 --> 00:37:33.600
+Yeah.
+
+00:37:33.600 --> 00:37:36.720
+And I've been shipping features
+to production with it all the time.
+
+00:37:37.480 --> 00:37:41.480
+But that's not something
+you should just write and code, right?
+
+00:37:41.760 --> 00:37:43.320
+There's a lot of other stuff.
+
+00:37:43.320 --> 00:37:44.280
+Yeah, that come to it.
+
+00:37:44.280 --> 00:37:47.280
+And I now shift
+my focus towards the operational problems.
+
+00:37:47.440 --> 00:37:50.400
+I shift my focus towards
+making sure that we never go down.
+
+00:37:50.400 --> 00:37:52.360
+I shift my focus towards
+making sure that I don't
+
+00:37:52.360 --> 00:37:55.960
+introduce bugs that are unnecessary
+and cause people to have pain,
+
+00:37:55.960 --> 00:37:58.960
+because GitHub has become part
+of the infrastructure of the internet now.
+
+00:37:59.200 --> 00:38:01.120
+So any problem that I cause has
+
+00:38:02.360 --> 00:38:04.080
+great ripple effects.
+
+00:38:04.080 --> 00:38:07.080
+So that's where I put my focus on
+right now.
+
+00:38:07.120 --> 00:38:08.680
+Coding.
+
+00:38:08.680 --> 00:38:09.120
+Fine.
+
+00:38:09.120 --> 00:38:12.600
+Let the agent write it and I will
+instruct it to write it in a certain way.
+
+00:38:12.600 --> 00:38:14.280
+And if there's a syntactical
+
+00:38:14.280 --> 00:38:17.920
+approach that I prefer better,
+I still push it to to do that.
+
+00:38:18.240 --> 00:38:22.520
+And if something looks funky to me, and
+I also prompted to change the direction.
+
+00:38:22.920 --> 00:38:23.360
+Right.
+
+00:38:23.360 --> 00:38:26.680
+But at the same time, 
+one of the problems I was solving was
+
+00:38:27.120 --> 00:38:30.040
+recently was a caching problem, right?
+
+00:38:30.040 --> 00:38:33.040
+And I had different ways
+to implement the cache key,
+
+00:38:33.840 --> 00:38:36.520
+and each way
+
+00:38:36.520 --> 00:38:40.440
+forced a certain data access pattern
+because of how the key is structured.
+
+00:38:40.720 --> 00:38:43.920
+And it had a different impact on Redis
+based on how the keys structured.
+
+00:38:44.240 --> 00:38:47.280
+So what I've done with this code
+agent is I prompted it
+
+00:38:47.280 --> 00:38:49.680
+to write different benchmarks. Yeah.
+
+00:38:49.680 --> 00:38:50.640
+And I saw that, hey,
+
+00:38:50.640 --> 00:38:51.200
+this pattern,
+
+00:38:51.200 --> 00:38:53.600
+this pattern, in this pattern,
+go write three distinct benchmarks,
+
+00:38:53.600 --> 00:38:56.600
+run them, give me the results,
+analyze them, and give me the output.
+
+00:38:56.800 --> 00:38:57.360
+That's worked.
+
+00:38:57.360 --> 00:38:59.360
+That could have been done
+in like two three days.
+
+00:38:59.360 --> 00:39:01.400
+Maybe that was done in 20 minutes.
+
+00:39:02.360 --> 00:39:03.240
+Why not?
+
+00:39:03.240 --> 00:39:04.920
+Fantastic. It's amazing. Yeah.
+
+00:39:04.920 --> 00:39:08.840
+So you've been programing,
+you said hands on coding when you were 12.
+
+00:39:09.240 --> 00:39:12.520
+Have you always had this mindset
+to kind of let go of more of the craft
+
+00:39:12.520 --> 00:39:15.520
+things and look at what it is
+from an execution standpoint?
+
+00:39:15.560 --> 00:39:19.440
+Because I hear you from now
+and it feels like you're very much
+
+00:39:19.440 --> 00:39:22.560
+on board and making things more effective,
+understanding the business context.
+
+00:39:22.560 --> 00:39:26.800
+It's not just the craft,
+because, no, I was never like that.
+
+00:39:26.800 --> 00:39:29.800
+So when I was younger,
+I was all about the craft.
+
+00:39:30.600 --> 00:39:33.800
+And in I my early mentors,
+
+00:39:34.720 --> 00:39:37.120
+I fought with them a lot times.
+
+00:39:37.120 --> 00:39:39.280
+Right.
+And I was lucky to have mentors. Right?
+
+00:39:39.280 --> 00:39:40.480
+I was lucky,
+
+00:39:40.480 --> 00:39:41.520
+to have great mentors
+
+00:39:41.520 --> 00:39:44.160
+at the beginning of my career,
+but they never were able to explain to me
+
+00:39:44.160 --> 00:39:46.640
+why their perspective
+of the business matters.
+
+00:39:46.640 --> 00:39:49.760
+For me, business was too abstract, like,
+I don't understand the numbers.
+
+00:39:49.760 --> 00:39:50.800
+I didn't understand accounting.
+
+00:39:50.800 --> 00:39:53.040
+I was not accountable for the business
+outcomes.
+
+00:39:53.040 --> 00:39:56.000
+I was just asked to solve a problem
+
+00:39:56.000 --> 00:39:57.960
+and I thought I had
+infinite business resources.
+
+00:39:59.200 --> 00:40:01.920
+But when I realized that my mentors
+sometimes,
+
+00:40:01.920 --> 00:40:05.560
+took an extra mortgage on their house
+just to pay the payroll
+
+00:40:05.560 --> 00:40:09.000
+for their employees, oh, well,
+that makes a different problem, right?
+
+00:40:09.000 --> 00:40:12.760
+That gives perspective to the solutions
+that you're going to come up with.
+
+00:40:13.120 --> 00:40:14.360
+These are real people.
+
+00:40:14.360 --> 00:40:17.760
+Company owners are not just all
+millionaires and all, you know,
+
+00:40:18.160 --> 00:40:19.520
+people who are not investing.
+
+00:40:19.520 --> 00:40:22.560
+Some people are investing their own money
+in, but building businesses, right?
+
+00:40:23.200 --> 00:40:25.440
+So that matters.
+
+00:40:25.440 --> 00:40:28.600
+So when you understand this and when you
+become your business owner yourself,
+
+00:40:30.120 --> 00:40:31.880
+you start thinking
+about these things more.
+
+00:40:31.880 --> 00:40:35.280
+And now I approach these problems
+from that vantage point as well.
+
+00:40:35.280 --> 00:40:37.680
+That doesn't mean that, again,
+people might
+
+00:40:37.680 --> 00:40:40.680
+I always get this argument
+when I post about this stuff online.
+
+00:40:40.840 --> 00:40:42.920
+People think, oh,
+you write dirty code. No, I don't,
+
+00:40:44.000 --> 00:40:45.960
+but there's a certain level
+
+00:40:45.960 --> 00:40:50.120
+of the 20% that is required to reach
+that highest level of esthetics.
+
+00:40:50.120 --> 00:40:51.560
+Yeah, it's not worth it. No.
+
+00:40:51.560 --> 00:40:53.600
+So I drop that. Gotcha.
+
+00:40:53.600 --> 00:40:56.440
+As a final thought,
+there's many people listening that learn
+
+00:40:56.440 --> 00:40:59.440
+about software engineering and software
+design in the first place
+
+00:40:59.520 --> 00:41:01.400
+that either
+are early in career, mid-career,
+
+00:41:01.400 --> 00:41:04.040
+or are really just looking to level up
+within their career.
+
+00:41:04.040 --> 00:41:07.920
+What is your advice for people that really
+want to become great software engineers?
+
+00:41:07.920 --> 00:41:11.040
+What's
+they need to do to increase your breath?
+
+00:41:11.040 --> 00:41:12.200
+There's a lot of focus on that.
+
+00:41:12.200 --> 00:41:15.360
+That's, early on in your career,
+which is important.
+
+00:41:15.480 --> 00:41:19.240
+And there's an advice that perpetuates
+which says, focus,
+
+00:41:20.640 --> 00:41:22.400
+true focus.
+
+00:41:22.400 --> 00:41:25.400
+But at the same time, don't dismiss
+everything else that's happening.
+
+00:41:25.720 --> 00:41:27.200
+Increase your breadth.
+
+00:41:27.200 --> 00:41:31.560
+Personally, I optimized
+one thing that really got me far,
+
+00:41:31.920 --> 00:41:36.160
+which is having the ability to learn
+effectively in very short periods of time.
+
+00:41:36.720 --> 00:41:39.600
+And that's why
+whenever I tackle a problem,
+
+00:41:39.600 --> 00:41:43.080
+I don't have a problem
+digging very deep into anything new.
+
+00:41:43.080 --> 00:41:46.920
+I encounter, from quantum mechanics
+all the way
+
+00:41:46.920 --> 00:41:51.400
+to any technical problem
+that I face on a day to day basis.
+
+00:41:53.040 --> 00:41:55.440
+I'm a,
+you know, I mean, if I say drop out,
+
+00:41:55.440 --> 00:41:57.720
+I never finished
+my computer science education,
+
+00:41:57.720 --> 00:42:02.960
+but that did not deter me from picking up
+that education myself and really digging
+
+00:42:02.960 --> 00:42:07.200
+deep into all sorts of theoretical topics,
+but also practical areas and topics.
+
+00:42:07.200 --> 00:42:10.080
+And I'm a perpetual learner.
+
+00:42:10.080 --> 00:42:13.920
+So in my opinion,
+the next phase where we're heading
+
+00:42:14.160 --> 00:42:17.400
+is going to require people
+to be able to learn really fast,
+
+00:42:17.400 --> 00:42:20.760
+get out of their comfort
+zone, really fast, dig deep really fast,
+
+00:42:21.320 --> 00:42:24.880
+and attain high levels
+of functional proficiency in any new area.
+
+00:42:25.560 --> 00:42:30.040
+And then attaining mastery
+is not always required in everything.
+
+00:42:30.160 --> 00:42:33.680
+So just pick a few topics where you attain
+mastery in, but also increase your bets.
+
+00:42:34.320 --> 00:42:34.640
+Gotcha.
+
+00:42:34.640 --> 00:42:37.240
+I think this is going to be very important
+for the next phase.
+
+00:42:37.240 --> 00:42:41.640
+I love the how do you get comfortable
+with even saying,
+
+00:42:42.200 --> 00:42:45.000
+I've gotten really good at picking up
+new things and learning from quantum
+
+00:42:45.000 --> 00:42:48.000
+mechanics to anything
+technical, job related, whatever.
+
+00:42:48.400 --> 00:42:51.840
+I have a lot of interests
+and I see how fast
+
+00:42:51.840 --> 00:42:55.760
+I can get to a working proficiency
+with these interests.
+
+00:42:56.040 --> 00:42:59.040
+I play music,
+I'm learning to ride a motorcycle.
+
+00:42:59.280 --> 00:43:00.520
+Right. So,
+
+00:43:01.680 --> 00:43:03.720
+I never let's
+
+00:43:03.720 --> 00:43:06.840
+if I'm curious about something,
+I go and pursue it or I explore it,
+
+00:43:07.160 --> 00:43:10.160
+and I never let
+how complicated learning it
+
+00:43:10.560 --> 00:43:13.240
+is deter me from pursuing it.
+
+00:43:13.240 --> 00:43:16.560
+And I've become very comfortable
+with being uncomfortable
+
+00:43:16.560 --> 00:43:18.360
+learning something new.
+
+00:43:18.360 --> 00:43:21.480
+And actually,
+that gives me a joy and kick to the point
+
+00:43:21.480 --> 00:43:23.160
+where it became sort of an addiction.
+
+00:43:23.160 --> 00:43:26.160
+But, you know,
+I keep it under control sometimes.
+
+00:43:26.160 --> 00:43:32.160
+But I do enjoy the process of
+and exploring something entirely different
+
+00:43:32.160 --> 00:43:35.920
+and new, and in my opinion,
+that has given me so much breadth
+
+00:43:36.120 --> 00:43:38.760
+and the ability
+to talk about all sorts of things.
+
+00:43:38.760 --> 00:43:41.880
+But what I love the most about
+it is how I can cross
+
+00:43:42.560 --> 00:43:44.480
+different ideas together
+from different disciplines
+
+00:43:44.480 --> 00:43:47.560
+and have a much more diversified
+view of the world,
+
+00:43:48.320 --> 00:43:51.720
+and that gives me the ability to be able
+to empathize also with all sorts of people
+
+00:43:51.720 --> 00:43:54.720
+and different people, right,
+and understand their vantage point.
+
+00:43:54.840 --> 00:43:57.560
+So when someone's arguing with me,
+I take a pause
+
+00:43:57.560 --> 00:43:59.640
+and I try to reason
+about where they're coming from,
+
+00:43:59.640 --> 00:44:02.840
+what's their interest,
+how they got to that idea.
+
+00:44:02.840 --> 00:44:06.760
+But I draw from my own experiences
+also in learning about all sorts of stuff,
+
+00:44:07.480 --> 00:44:11.040
+including business and finance
+and investments and all sorts
+
+00:44:11.040 --> 00:44:12.960
+of all of these things. Right.
+
+00:44:12.960 --> 00:44:14.560
+So I think that's richness.
+
+00:44:15.760 --> 00:44:17.520
+And yeah, I would
+
+00:44:17.520 --> 00:44:20.600
+definitely love for people
+to be able to have that. Me too.
+
+00:44:20.840 --> 00:44:24.680
+I think curiosity is a beautiful thing
+when people say, I really don't have a
+
+00:44:24.720 --> 00:44:28.080
+drive to learn something or to explore
+something, I think it's a shame,
+
+00:44:28.560 --> 00:44:31.960
+and I honestly don't know how to solve
+that for people
+
+00:44:32.280 --> 00:44:36.360
+to make sure they have that kind of love
+for something or curiosity for something,
+
+00:44:36.360 --> 00:44:39.360
+because I feel like that fuels drive
+and that makes you move.
+
+00:44:39.680 --> 00:44:42.600
+Absolutely. I don't know how to
+
+00:44:42.600 --> 00:44:45.040
+I don't know if we really should
+make people do anything.
+
+00:44:45.040 --> 00:44:48.040
+I would love for people to have it. Yeah.
+
+00:44:48.240 --> 00:44:50.200
+If they don't, you can.
+
+00:44:50.200 --> 00:44:52.320
+There's a pretty,
+you know, interesting life.
+
+00:44:52.320 --> 00:44:56.560
+Still, some people have other commitments
+as well.
+
+00:44:56.880 --> 00:45:01.920
+Families, kids, less time, complicated
+relationships in life happens.
+
+00:45:01.920 --> 00:45:03.000
+It's understandable.
+
+00:45:03.000 --> 00:45:06.480
+And that doesn't mean that I'm also 100%
+always on the,
+
+00:45:06.520 --> 00:45:10.200
+you know, on the burner,
+learning every single minute of the day.
+
+00:45:10.200 --> 00:45:11.520
+No, I have my life as well.
+
+00:45:11.520 --> 00:45:14.400
+I have the complications of my life too.
+
+00:45:14.400 --> 00:45:17.200
+So balance is important.
+
+00:45:18.240 --> 00:45:21.240
+But I feel also curiosity is something
+that you need to develop.
+
+00:45:21.240 --> 00:45:23.000
+It's like a it's like a muscle.
+
+00:45:23.000 --> 00:45:24.920
+You need to grow as well.
+
+00:45:24.920 --> 00:45:27.200
+And approaching the world
+from a curious vantage
+
+00:45:27.200 --> 00:45:30.240
+point is way more interesting
+and more effective
+
+00:45:30.240 --> 00:45:34.960
+than being dogmatic or stubborn
+or hardheaded about certain things.
+
+00:45:34.960 --> 00:45:37.680
+You can have strong opinions,
+
+00:45:37.680 --> 00:45:40.440
+but not before you actually did
+your homework.
+
+00:45:40.440 --> 00:45:42.040
+Yeah, absolutely.
+
+00:45:42.040 --> 00:45:43.760
+Thanks so much for coming on and sharing.
+
+00:45:43.760 --> 00:45:46.240
+This was a blast. Absolutely. My pleasure.
+
+00:45:46.240 --> 00:45:49.080
+Going for hours. Me too.
+
+00:45:49.080 --> 00:45:51.680
+We're going to rounded off here
+if you're still with us.
+
+00:45:51.680 --> 00:45:53.160
+Leave a comment in the comment section.
+
+00:45:53.160 --> 00:45:56.160
+Let us know what you thought of this
+episode and we'll see you on the next one.
+
+00:45:57.120 --> 00:45:58.880
+Beyond Coding
+

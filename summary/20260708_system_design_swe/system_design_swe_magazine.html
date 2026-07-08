@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>最好的工程師，先問系統該長到哪裡</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #161716;
+      --muted: #64615b;
+      --paper: #f7f4ef;
+      --panel: #ffffff;
+      --line: #d8d0c3;
+      --steel: #264653;
+      --moss: #4f6f52;
+      --signal: #c6553d;
+      --gold: #c19036;
+      --soft-blue: #dce7e9;
+      --shadow: 0 24px 80px rgba(31, 30, 26, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        linear-gradient(90deg, rgba(38, 70, 83, 0.08), transparent 22%, transparent 78%, rgba(193, 144, 54, 0.08)),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Noto Serif TC", "Source Han Serif TC", "Songti TC", "Microsoft JhengHei", serif;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.22em;
+    }
+
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .mast {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: minmax(24px, 1fr) minmax(0, 1180px) minmax(24px, 1fr);
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      background: #111;
+    }
+
+    .mast::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(10, 12, 13, 0.88) 0%, rgba(10, 12, 13, 0.55) 42%, rgba(10, 12, 13, 0.24) 100%),
+        linear-gradient(0deg, rgba(10, 12, 13, 0.78) 0%, transparent 36%);
+    }
+
+    .mast img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .hero-copy {
+      grid-column: 2;
+      color: #fbf7ef;
+      padding: 96px 0 74px;
+      max-width: 770px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #f1c66e;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .deck {
+      margin: 28px 0 0;
+      max-width: 710px;
+      color: rgba(251, 247, 239, 0.86);
+      font-size: 22px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .source-strip {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 14px;
+      color: rgba(251, 247, 239, 0.88);
+    }
+
+    .source-strip span,
+    .source-strip a {
+      border: 1px solid rgba(251, 247, 239, 0.34);
+      background: rgba(17, 19, 20, 0.32);
+      padding: 8px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+
+    .caption {
+      font-family: "Inter", "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 10px 0 0;
+    }
+
+    .hero-caption {
+      position: absolute;
+      right: 24px;
+      bottom: 18px;
+      width: 280px;
+      color: rgba(251, 247, 239, 0.7);
+      text-align: right;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(22px, 1fr) minmax(0, 1120px) minmax(22px, 1fr);
+    }
+
+    .intro-band {
+      grid-column: 1 / -1;
+      background: #fffdf8;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 54px 22px 48px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.75;
+      font-weight: 800;
+      color: #20211e;
+    }
+
+    .brief {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    .brief div {
+      border-top: 3px solid var(--steel);
+      padding-top: 14px;
+      min-width: 0;
+    }
+
+    .brief b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--steel);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brief span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .article {
+      grid-column: 2;
+      padding: 68px 0 76px;
+      display: grid;
+      grid-template-columns: minmax(0, 710px) minmax(240px, 1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .story {
+      min-width: 0;
+    }
+
+    .story p {
+      margin: 0 0 28px;
+      font-size: 19px;
+      line-height: 1.9;
+    }
+
+    .story h2 {
+      margin: 62px 0 22px;
+      font-size: 32px;
+      line-height: 1.28;
+      letter-spacing: 0;
+      color: var(--steel);
+    }
+
+    .story h2:first-child {
+      margin-top: 0;
+    }
+
+    .drop:first-letter {
+      float: left;
+      font-size: 82px;
+      line-height: 0.86;
+      padding: 14px 13px 0 0;
+      color: var(--signal);
+      font-weight: 900;
+    }
+
+    .pull {
+      margin: 50px 0;
+      padding: 32px 0 32px 34px;
+      border-left: 6px solid var(--signal);
+      font-size: 28px;
+      line-height: 1.55;
+      font-weight: 900;
+      color: #2b2a26;
+    }
+
+    .image-spread {
+      margin: 56px 0;
+    }
+
+    .image-spread img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+    }
+
+    .side-rail {
+      position: sticky;
+      top: 22px;
+      align-self: start;
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    .rail-block {
+      border-top: 4px solid var(--gold);
+      padding: 18px 0 28px;
+      margin-bottom: 26px;
+    }
+
+    .rail-block h3 {
+      margin: 0 0 14px;
+      font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+
+    .rail-block p,
+    .rail-block li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .rail-block p {
+      margin: 0 0 12px;
+    }
+
+    .rail-block ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .rail-block li {
+      margin-bottom: 10px;
+    }
+
+    .meter {
+      display: grid;
+      gap: 10px;
+    }
+
+    .meter-row {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .bar {
+      height: 10px;
+      background: #e7dfd2;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--moss), var(--gold));
+      border-radius: inherit;
+    }
+
+    .note-band {
+      grid-column: 1 / -1;
+      background: #1b262b;
+      color: #eef2ef;
+    }
+
+    .note-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 54px 22px 60px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 44px;
+    }
+
+    .note-inner h2 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.25;
+      color: #f3c96f;
+    }
+
+    .note-inner p {
+      margin: 0 0 22px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: rgba(238, 242, 239, 0.84);
+    }
+
+    .source-note {
+      grid-column: 2;
+      padding: 40px 0 52px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .source-note p {
+      margin: 0 0 10px;
+    }
+
+    @media (max-width: 920px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .deck {
+        font-size: 19px;
+      }
+
+      .intro-inner,
+      .article,
+      .note-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .brief {
+        grid-template-columns: 1fr;
+      }
+
+      .side-rail {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .rail-block {
+        margin-bottom: 0;
+      }
+
+      .source-note {
+        grid-column: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .mast {
+        min-height: 86vh;
+        grid-template-columns: 18px minmax(0, 1fr) 18px;
+      }
+
+      .hero-copy {
+        padding: 78px 0 64px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .deck {
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .hero-caption {
+        position: static;
+        grid-column: 2;
+        width: auto;
+        padding-bottom: 18px;
+        text-align: left;
+      }
+
+      .lead {
+        font-size: 22px;
+      }
+
+      .article {
+        padding-top: 52px;
+      }
+
+      .story p {
+        font-size: 17px;
+      }
+
+      .story h2 {
+        font-size: 26px;
+      }
+
+      .pull {
+        padding-left: 22px;
+        font-size: 23px;
+      }
+
+      .side-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .note-inner h2 {
+        font-size: 27px;
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .mast {
+        min-height: 118vh;
+      }
+
+      .hero-copy {
+        padding-top: 52px;
+        padding-bottom: 48px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .deck {
+        font-size: 16px;
+      }
+
+      .source-strip {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="mast">
+      <img src="system_design_hero.png" alt="工程團隊在玻璃牆前討論大型系統架構圖">
+      <section class="hero-copy" aria-label="文章標題">
+        <p class="eyebrow">System Design for Working Engineers</p>
+        <h1>最好的工程師，先問系統該長到哪裡</h1>
+        <p class="deck">Bassem Dghaidi 在 Beyond Coding 的訪談裡，把 system design 從白板題拉回真實現場：它不是炫技的架構清單，而是判斷下一個量級、下一筆投資、下一次遷移是否值得。</p>
+        <div class="source-strip" aria-label="影片資訊">
+          <span>Beyond Coding</span>
+          <span>2025-11-19</span>
+          <span>約 46 分鐘</span>
+          <a href="https://www.youtube.com/watch?v=LeUUxLRdvho&t=319s" target="_blank" rel="noopener">觀看原始影片</a>
+        </div>
+      </section>
+      <p class="caption hero-caption">AI-generated editorial image, not a video screenshot.</p>
+    </header>
+
+    <main>
+      <section class="intro-band">
+        <div class="intro-inner">
+          <p class="lead">如果你把 system design 想成「Kafka、Redis、Kubernetes、NoSQL 要怎麼擺」，這集訪談會故意把你拉停。真正的問題不是能不能設計得更大，而是現在是否有足夠證據，值得讓系統背上更大的複雜度。</p>
+          <div class="brief" aria-label="文章重點">
+            <div>
+              <b>Core Tension</b>
+              <span>軟體工程不是個人興趣的延伸，而是要對商業結果、團隊維運與使用者風險負責。</span>
+            </div>
+            <div>
+              <b>Useful Rule</b>
+              <span>不要為想像中的百倍規模設計，先設計到下一個可信的 order of magnitude。</span>
+            </div>
+            <div>
+              <b>AI Shift</b>
+              <span>當 agent 能寫更多程式，工程師的價值更集中在判斷、驗證、營運與取捨。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article class="article">
+        <div class="story">
+          <h2>從「架構漂亮」到「影響落地」</h2>
+          <p class="drop">這支影片最刺耳的一句話，是把許多工程師心中珍惜的 craft 拉回職場現實：專業軟體工程不是練習嗜好。主持人與 Bassem 反覆回到同一個尺度：你的設計最後落在什麼業務影響上？它讓收入成長、客戶增加、使用者痛點減少，還是只是讓架構圖看起來更像大公司？</p>
+          <p>這不是否定工程品質。相反地，它要求品質必須有上下文。GitHub 這種平台需要在 feature flag、授權、驗證、安全、漸進部署與大規模營運上做更嚴格的設計，因為錯誤會被放大，甚至成為公共事件。但同一套尺度搬到小公司或早期產品，常常只會讓團隊在尚未證明需求之前，就先被維運成本拖住。</p>
+
+          <div class="pull">成熟的 system design，不是預測遙遠未來，而是替下一個可信階段留下足夠的路。</div>
+
+          <h2>下一個量級，而不是一百倍幻覺</h2>
+          <p>Bassem 提出一個對 SWE 很實用的心法：設計到下一個 order of magnitude。今天是百位使用者，就先能承受千位；已經到十倍瓶頸，再談下一層架構。這種說法聽起來保守，其實更像財務紀律。因為軟體不是一次買斷的建設，它會持續需要投資、遷移、改寫與營運，而這些成本在會議室裡常常被低估。</p>
+          <p>影片裡談到一個 startup 差點被 Kubernetes migration 拖垮的案例，重點不在 Kubernetes 好壞，而在時間點。當團隊還沒有足夠需求曲線、可靠瓶頸與人力承載能力時，把複雜平台搬進來，可能不是擴張能力，而是提前支付一筆尚未到期的債。</p>
+          <p>這也是為什麼他願意說，很多時候從單一 VM、垂直擴展、一般關聯式資料庫開始就夠了。對資深工程師而言，簡單不是幼稚；簡單是在知道複雜度價格之後，仍然克制地只買需要的部分。</p>
+
+          <div class="image-spread">
+            <img src="system_design_tradeoffs.png" alt="團隊以模組、圖表與資料模型討論系統設計取捨">
+            <p class="caption">AI-generated editorial image, not a video screenshot.</p>
+          </div>
+
+          <h2>架構設計也是 stakeholder research</h2>
+          <p>影片中最有現場感的片段，是 Bassem 回憶在貨櫃碼頭產業工作。他不是只在辦公室推導 latency，也坐上卡車，觀察司機、碼頭作業與危險場景。因為在那種環境裡，軟體失誤可能不只是使用者不滿，而是實際的安全風險。</p>
+          <p>這段讓 system design 的定義變寬：你要理解誰在付錢、誰承擔風險、誰每天被系統卡住、誰會在停機時被追責。否則工程師很容易把「技術上正確」當成唯一正確，卻無法說服決策者投資下一輪重構，也無法辨認現在其實不是重構時機。</p>
+          <p>對 SWE 來說，這是升級路徑中最容易被忽略的一步。你不只是把需求轉成程式；你要把不確定的商業語言、使用者痛點、營運風險與技術限制，翻譯成可討論、可驗證、可分階段投資的設計。</p>
+
+          <h2>AI agent 讓判斷更值錢</h2>
+          <p>訪談後段轉向 AI coding。Bassem 提到自己在 GitHub 使用 VS Code agent mode，甚至大量程式由 agent 產生。但他的結論不是「工程師不用懂細節」，而是相反：當 agent 能更快產出程式，工程師更需要把注意力移到營運問題、bug 風險、benchmark、data access pattern 與可部署性。</p>
+          <p>他舉 Redis cache key 的例子：不同 key structure 會導致不同資料存取模式，也會對 Redis 造成不同影響。agent 的價值，是把多個 benchmark 快速寫出、執行、分析，讓工程師更快看見證據。真正的設計決策仍然在人的手上：你要知道該問什麼問題、該驗證什麼假設，以及什麼結果代表可以承擔風險。</p>
+          <p>這對正在使用 AI 的 SWE 是一個提醒：AI 可以降低實作摩擦，但不會替你承擔系統後果。當寫 code 的成本下降，錯誤設計被放大的速度也會上升。</p>
+
+          <h2>資深不是把每件事做到極致</h2>
+          <p>影片最後把工程師的成長拉回學習能力。Bassem 認為未來需要快速進入陌生領域、取得功能性熟練度，並選少數主題追求真正精通。這不是叫人放棄品質，而是承認時間、資源與注意力都是有限的。</p>
+          <p>他也談到年輕時更迷戀 craft，後來才理解商業資源並非無限。有些程式會長期無人碰觸，只要穩定工作就足夠；有些系統則需要被嚴格設計，因為一旦出錯，影響會穿透組織。資深工程師的難處，正是在這兩者之間不斷校準。</p>
+          <p>所以這集給 SWE 的核心訊息，不是「多學 system design 面試題」。而是：把系統看成一組正在演化的承諾。你承諾目前規模下的可靠性，承諾下一個量級的可遷移性，承諾向非工程 stakeholders 說清楚成本與風險，也承諾不把尚未證明的未來，提前變成今天團隊的負擔。</p>
+        </div>
+
+        <aside class="side-rail" aria-label="延伸觀察">
+          <section class="rail-block">
+            <h3>Design Radar</h3>
+            <ol>
+              <li>先找出目前真正的瓶頸，而不是套用大公司模板。</li>
+              <li>用量級思考規模，用數字說明投資理由。</li>
+              <li>把遷移、維運與人力成本放進設計討論。</li>
+              <li>讓 AI agent 幫你加速驗證，不要讓它替你決策。</li>
+            </ol>
+          </section>
+
+          <section class="rail-block">
+            <h3>Complexity Budget</h3>
+            <p>每一項技術選擇都會消耗團隊未來的注意力。問題不是技術先進與否，而是這筆注意力是否能換回可衡量的可靠性、成長或速度。</p>
+            <div class="meter" aria-label="複雜度預算示意">
+              <div class="meter-row"><span>Scale</span><span class="bar"><i style="width: 72%"></i></span></div>
+              <div class="meter-row"><span>Risk</span><span class="bar"><i style="width: 63%"></i></span></div>
+              <div class="meter-row"><span>People</span><span class="bar"><i style="width: 48%"></i></span></div>
+              <div class="meter-row"><span>Proof</span><span class="bar"><i style="width: 82%"></i></span></div>
+            </div>
+          </section>
+
+          <section class="rail-block">
+            <h3>For SWE</h3>
+            <p>下次你想引入新架構時，先寫下三件事：目前數字、下一個量級、如果半年後證明方向錯誤，團隊如何退場。</p>
+          </section>
+        </aside>
+      </article>
+
+      <section class="note-band">
+        <div class="note-inner">
+          <h2>好的設計，是讓未來有路，不是讓今天像未來。</h2>
+          <div>
+            <p>這集訪談最值得帶走的，不是某個技術選型，而是一種職業成熟度：知道什麼時候該簡單，什麼時候該投資，什麼時候該用數據讓組織理解下一步。</p>
+            <p>當 AI agent 把實作變快，這種成熟度會更稀缺。因為世界不缺能產生程式的工具，缺的是能判斷系統何時該長大、何時不該長大的工程師。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="source-note" aria-label="資料來源">
+        <p>資料來源：Beyond Coding 影片 <a href="https://www.youtube.com/watch?v=LeUUxLRdvho&t=319s" target="_blank" rel="noopener">Why The Best Software Engineers Focus On System Design</a>，使用 YouTube 英文自動字幕 <code>en-en</code> 與影片公開 metadata 製作摘要。</p>
+        <p>圖片為配合文章脈絡生成的編輯視覺，非影片截圖；文中觀點以完整字幕內容整理、改寫與脈絡化。</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

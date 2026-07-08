@@ -1,6 +1,26 @@
 {
   "news": [
     {
+      "date": "2026-07-08",
+      "path": "news/2026-07-08/2026-07-08.html",
+      "title": "AI 情報日刊 — 2026-07-08"
+    },
+    {
+      "date": "2026-07-07",
+      "path": "news/2026-07-07/2026-07-07.html",
+      "title": "AI 情報日刊 — 2026-07-07"
+    },
+    {
+      "date": "2026-07-06",
+      "path": "news/2026-07-06/2026-07-06.html",
+      "title": "AI 情報日刊 — 2026-07-06"
+    },
+    {
+      "date": "2026-07-03",
+      "path": "news/2026-07-03/2026-07-03.html",
+      "title": "AI 情報日刊 — 2026-07-03"
+    },
+    {
       "date": "2026-07-02",
       "path": "news/2026-07-02/2026-07-02.html",
       "title": "AI 情報日刊 — 2026-07-02"
@@ -29,29 +49,15 @@
       "date": "2026-06-25",
       "path": "news/2026-06-25/2026-06-25.html",
       "title": "AI 情報日刊 — 2026-06-25"
-    },
-    {
-      "date": "2026-06-24",
-      "path": "news/2026-06-24/2026-06-24.html",
-      "title": "AI 情報日刊 — 2026-06-24"
-    },
-    {
-      "date": "2026-06-23",
-      "path": "news/2026-06-23/2026-06-23.html",
-      "title": "AI 情報日刊 — 2026-06-23"
-    },
-    {
-      "date": "2026-06-22",
-      "path": "news/2026-06-22/2026-06-22.html",
-      "title": "AI 情報日刊 — 2026-06-22"
-    },
-    {
-      "date": "2026-06-19",
-      "path": "news/2026-06-19/2026-06-19.html",
-      "title": "AI 情報日刊 — 2026-06-19"
     }
   ],
   "summary": [
+    {
+      "date": "2026-07-08",
+      "path": "summary/20260708_system_design_swe/system_design_swe_magazine.html",
+      "title": "最好的工程師，先問系統該長到哪裡",
+      "hero": "summary/20260708_system_design_swe/system_design_hero.png"
+    },
     {
       "date": "2026-06-30",
       "path": "summary/20260630_billionaire_warning_crash/grantham_crash_warning_magazine.html",
@@ -105,12 +111,6 @@
       "path": "summary/20260610_self_educated_with_AI_magazine_brief/self_educated_with_ai_magazine.html",
       "title": "危險地自學：AI 時代的閱讀不是捷徑，而是判斷力訓練",
       "hero": "summary/20260610_self_educated_with_AI_magazine_brief/hero_self_educated_ai.png"
-    },
-    {
-      "date": "2026-06-09",
-      "path": "summary/20260609_Dan_Martell_13_discipline_hacks_magazine_brief/Dan_Martell_13_discipline_hacks_magazine_brief.html",
-      "title": "自律不是硬撐，是把選項重新設計 | Dan Martell",
-      "hero": "summary/20260609_Dan_Martell_13_discipline_hacks_magazine_brief/Dan_Martell_discipline_hero_editorial.png"
     }
   ]
 }

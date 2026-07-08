@@ -1,0 +1,204 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選｜2026-07-03</title>
+  <style>
+    :root {
+      --ink: #11131a;
+      --paper: #f7f3e8;
+      --panel: #fffaf0;
+      --cyan: #00c2c7;
+      --red: #c9293e;
+      --gold: #d8a21b;
+      --muted: #626977;
+      --line: #11131a;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background: radial-gradient(circle at 12% 0%, rgba(0,194,199,.12), transparent 28%), linear-gradient(90deg, #f4efe1 0%, #ece7db 48%, #f8f2e5 100%);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+    .page { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 22px 0 48px; }
+    .masthead {
+      display: grid;
+      grid-template-columns: .96fr 1.04fr;
+      border: 5px solid var(--line);
+      background: var(--paper);
+      box-shadow: 12px 12px 0 var(--red);
+      min-height: 430px;
+    }
+    .mast-copy { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .date-row { display: flex; justify-content: space-between; gap: 16px; border-bottom: 3px solid var(--line); padding-bottom: 12px; font-weight: 900; letter-spacing: 0; }
+    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 8vw, 94px); line-height: .9; letter-spacing: 0; }
+    .dek { margin: 14px 0 0; max-width: 720px; font-size: 18px; font-weight: 800; }
+    .hero { margin: 0; border-left: 5px solid var(--line); min-height: 100%; background: var(--ink); }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    .ticker { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 5px solid var(--line); border-top: 0; background: var(--ink); color: var(--paper); }
+    .ticker div { padding: 12px 16px; border-right: 2px solid rgba(255,255,255,.26); font-weight: 900; overflow-wrap: anywhere; }
+    .ticker div:last-child { border-right: 0; }
+    .section { margin-top: 34px; border-top: 5px solid var(--line); }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 14px 0 10px; }
+    h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(28px, 5vw, 52px); line-height: 1; letter-spacing: 0; }
+    .section-note { color: var(--muted); font-weight: 900; text-align: right; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    article { min-width: 0; border: 3px solid var(--line); background: var(--panel); padding: 20px; box-shadow: 6px 6px 0 rgba(17,19,26,.18); }
+    article.lead { grid-column: span 2; display: grid; grid-template-columns: .72fr 1.28fr; gap: 22px; align-items: start; background: #11131a; color: #fffaf0; }
+    .kicker { font-size: 13px; font-weight: 900; color: var(--gold); text-transform: uppercase; overflow-wrap: anywhere; }
+    article h3 { margin: 8px 0 10px; font-size: clamp(22px, 3vw, 34px); line-height: 1.15; letter-spacing: 0; overflow-wrap: anywhere; }
+    article p { margin: 0 0 14px; font-size: 16px; overflow-wrap: anywhere; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .badge { border: 2px solid currentColor; padding: 3px 8px; font-size: 12px; font-weight: 900; background: rgba(0,194,199,.13); }
+    .badge.follow { color: var(--gold); background: rgba(216,162,27,.13); }
+    .badge.angle { color: #006a70; background: rgba(0,194,199,.18); }
+    .badge.warn { color: var(--red); background: rgba(201,41,62,.12); }
+    .sources { border-top: 2px solid currentColor; padding-top: 10px; font-size: 13px; color: inherit; }
+    .sources span { color: var(--muted); font-weight: 900; }
+    article.lead .sources span { color: #b8bec8; }
+    time { font-weight: 800; }
+    .footer { margin-top: 34px; padding-top: 18px; border-top: 5px solid var(--line); color: var(--muted); font-size: 13px; font-weight: 800; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 24px, 760px); padding-top: 14px; }
+      .masthead, article.lead { grid-template-columns: 1fr; }
+      .hero { border-left: 0; border-top: 5px solid var(--line); max-height: 360px; }
+      .ticker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid { grid-template-columns: 1fr; }
+      article.lead { grid-column: span 1; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .section-note { text-align: left; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 18px, 520px); }
+      .mast-copy, article { padding: 16px; }
+      .date-row { flex-direction: column; gap: 4px; }
+      .ticker { grid-template-columns: 1fr; }
+      .ticker div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.26); }
+      h1 { font-size: 43px; }
+      .dek { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="mast-copy">
+        <div class="date-row"><span>AI NEWS BRIEF</span><time>2026-07-03</time></div>
+        <div>
+          <h1>AI 股權談判桌</h1>
+          <p class="dek">今天的 AI 競爭從模型跑分轉向政商條件：政府股權、晶片供應、新聞授權與跨國治理，正在重新定義誰能取得算力、內容與市場入口。</p>
+        </div>
+      </div>
+      <figure class="hero"><img src="2026-07-03-hero.png" alt="AI 政商談判與資料中心主視覺"></figure>
+    </header>
+    <section class="ticker" aria-label="今日訊號">
+      <div>8 則精選</div>
+      <div>1 則接續報導</div>
+      <div>2 則獨特切角</div>
+      <div>1 則未交叉驗證</div>
+    </section>
+
+    <section class="section" aria-labelledby="tracking">
+      <div class="section-head">
+        <h2 id="tracking">持續追蹤</h2>
+        <div class="section-note">模型公司與政府的邊界繼續重畫</div>
+      </div>
+      <div class="grid">
+        <article class="lead">
+          <div class="kicker">Score 20 / 20</div>
+          <div>
+            <h3>OpenAI 擬讓美國政府持股 5%，模型管制升級為股權談判</h3>
+            <p>相較前幾天 GPT-5.6 早期存取與 frontier model 審查爭議，最新增量是 OpenAI 據報提議讓 Trump administration 取得 5% 股權，以換取華府壓力降溫。</p>
+            <div class="meta"><span class="badge follow">🔄 接續報導</span></div>
+            <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNWmlORndTRDBueEJHV25lbTl2ejNISG9xT09Vbk01NzNCNnoxNmpIdVZJeUdHV19qWU9IUWdncnQ3Q1BYRjZ3SFJCaE53REFzYVN2em1TbldqYi03eklMaFRJVk9NVm9XM2F3My1xN2k1czcxQU9uOG9fSWFHa1oxRUVzRFk4QmI2Smd4cG9wZTN0OURZTkZOQ2dsOHdzWW8wYTFEQ0V6Q3lKR1NSYS1YcWVaMFJYQdIBuwFBVV95cUxPWEdwWkRiR25HQmRfNTB5VG10bElQUDYzb3lQQ3UxNHU5dmd2UTRDdmxfeHdoMkZza21yTEhOWWI3NGxxVlJXOHp0T25fT2FDYXhfX0RzM2l6c1ppZXpkLVNFMHlfVVBDWTJvVW5EQndfcUpIWDZVdDlVR3gwTjFxTXl0LUktRUl1RmtGaFBuN1FJQnRSMDY3X0dMLW9GQmJPemdBUE1US29ELTdFcFBrM2diMmV3RjZpQzM0?oc=5">CNBC</a>、<a href="https://news.google.com/search?q=OpenAI%20proposes%205%25%20stake%20Trump%20administration%20Washington%20pressure">Google News</a>；<time>2026-07-02 04:41 GMT</time></div>
+          </div>
+        </article>
+        <article>
+          <div class="kicker">Score 15 / 20</div>
+          <h3>Fable 解禁後政策評論升溫，美國 AI 治理訊號仍然混亂</h3>
+          <p>這不是新的解禁事件，而是獨特切角：Fortune、WSJ 與 Chatham House 都把 Anthropic Fable / Mythos 事件解讀為美國 frontier AI 政策搖擺，企業仍難預測下一次通關規則。</p>
+          <div class="meta"><span class="badge angle">獨特切角</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNV2Q2UjNmTGlYeUNpMlA2MUxEZUdYQnVRR0RsM0Q2Vk1xdElWT0MwWFpWMWw1Q09UVnVNS0FpeXlXdnBYR2p5ZDR1cVY1eUNfTjRqSkwyODF6UUc4WlZaN1dsdG5kTk9BNDhNcE5RVmMwNXY3ejZuQjRBRzhQZGo4eUVmeDgxYm03NS1xRy1Od05ucVFUdjFad1ZaRXk2S3JVQXYtY3ctMA?oc=5">Fortune</a>、<a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxQUk16cGQ1Y3VxWndneFFtYVF5ZHFzdlB3WXVsZVFRSk03YTg1bGhzeUFhVk5Mc2xIamh3YUxNUWgwNV9KTEhGN2h6Z1BrNVNEUm53MWlsZk5OQ3hsTFVJYnpJVzRPT3JaZUxqZExfR2RZZjRMZ3NEd1BXd1A4UGl6MGpNSXR0Vzl3MU1UaTZkem9SSGttQ2h4eUJBUXZOOWhoZmNZRmZ3emtCQUhDdVFLbVZSN25SbGFp?oc=5">Chatham House</a>；<time>2026-07-02 18:47 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="chips">
+      <div class="section-head">
+        <h2 id="chips">晶片與供應鏈</h2>
+        <div class="section-note">模型公司開始把硬體命運握回自己手上</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="kicker">Score 18 / 20</div>
+          <h3>Anthropic 與 Samsung 洽談自研 AI 晶片，Claude 也要走向垂直整合</h3>
+          <p>Anthropic 據報正在和 Samsung 討論 custom AI chip，顯示 frontier lab 不只買 GPU，也開始思考用自家工作負載定義晶片與封裝路線。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQVEZIQk56bmVISXlQbVVSX0d0Uk1jZFM3MkR5Rkl6R2RtMmZXdk5mZXpFeFNqejN2TE84RlVDQTNTUEdEZnRMSjlOWG9fOFIwTnNGeENSUTZKdHU4WEk5eS03UG5tTjlRa3Vxc2JFbTJvYzJrNU9iLXFldWthLUJ2Q2NYa0V3UHFyTmh1eTZTVmNrc1U?oc=5">TechCrunch</a>、<a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE9BaGVRcElmUGNGcTBwVXE2di1NOVlmRTlfNlZOLVk2MTN5SUdSODQyVnV4Tm1vX1k4SEN0M0t4ZUJVUmk1SEJPamF2NThZc01nWGk5VjRkONIBV0FVX3lxTE9BaGVRcElmUGNGcTBwVXE2di1NOVlmRTlfNlZOLVk2MTN5SUdSODQyVnV4Tm1vX1k4SEN0M0t4ZUJVUmk1SEJPamF2NThZc01nWGk5VjRkOA?oc=5">Aju Press</a>；<time>2026-07-02 18:31 GMT</time></div>
+        </article>
+        <article>
+          <div class="kicker">Score 14 / 20</div>
+          <h3>Palantir CEO 批 token model，企業 AI 付費邏輯再被挑戰</h3>
+          <p>繼近期 AI API 帳單成為採購焦點，Palantir CEO 直接批評 OpenAI、Anthropic 的 token 計價模式；獨特切角是企業客戶開始要求模型價格對齊業務成果。</p>
+          <div class="meta"><span class="badge angle">獨特切角</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQb2NpSEdiRDM1UkNscVEtUmY5OEUtMWo5NzBLbjg5clRLVkVOdG03M2VzZktCRjhjY3dfZHFpOVFXWnJLcUJURlN3MUtfSk5Gb2pmQUZMYVhjM25hRk1iZ3hsWm5ka2YxWHVsNk1hXzNoWGh2ZGZyTUpUSDBETW14ZkM1d0Rzd3BVTllyMUhrS1liTXNnbGFfc2RXOXNJVHpuZ3dsTURWX1RBY00wUTJNblhfOW1WTjNXREpzTUZoYWxjTUFSTktNUEVzczdUeWhZ0gHQAUFVX3lxTFBvY2lIR2JEMzVSQ2xxUS1SZjk4RS0xajk3MEtuODlyVEtWRU50bTczZXNmS0JGOGNjd19kcWk5UVdacktxQlRGU3cxS19KTkZvamZBRkxhWGMzbmFGTWJneGxabmRrZjFYdWw2TWFfM2hYaHZkZnJNSlRIMERNbXhmQzV3RHN3cFVOWXIxSGtLWWJNc2dsYV9zZFc5c0lUem5nd2xNRFZfVEFjTTBRMk1uWF85bVZOM1dESnNNRmhhbGNNQVJOS01QRXNzN1R5aFk?oc=5">The Economic Times</a>；<time>2026-07-02 10:05 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="capital">
+      <div class="section-head">
+        <h2 id="capital">資本與內容合約</h2>
+        <div class="section-note">錢流和授權條款，正在決定 AI 產品能走多遠</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="kicker">Score 17 / 20</div>
+          <h3>Microsoft 與 Nine 達成澳洲 AI 媒體交易，Copilot 內容授權落地</h3>
+          <p>Microsoft 同意向 Nine 支付新聞內容授權費，成為其首個澳洲 AI media deal；新聞業與 AI 平台的關係，正從訴訟與封鎖走向付費資料供應。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXVrZTR5VGRCZDduVDQtLXRhdm43SkhmRXV2Q2RzVG5tWV9iSWs2WVlfX3lvYzIzbHhsSXVjYkhOWVhBMnpISUtBVkZzRGVkMUtVb0tWa1ZpeHV0OTRRZEhjNkxEbmpoVjJUMUhmLXplY3QzRGprdVlsTGZVVktmdlR4OV96N1V0V2gzSmZnb3k5ejA2UkxnbENrQnFDM0RTUUF3OXlBSEx0U2dNc2t4X3U2SHFSaEJ2aFR4WTBaYUg?oc=5">SMH</a>、<a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxPUFY4S24wLW9CTVU2T1ZoZ3dRcWJZbE0wZ0tvaGxRcmhNN08wUjVhMEVyR3hPczRHUV9xcU9KQ2ZQUXJJVVJKdU1QYUtOUk9CMUtJV2lPMHNIN2pxMkpFXzlIZDVWZWNBbkRVX21NQmc0bTdaWWdtRnFzS3Q0dGR1YlUwT1JHS3R5cWlVb1RtclZESGVRdGl2NFVNdWJHT1pjaUNpVUI4b25URThQVGwydG1JU0lnaHlBeURhbUNPOGh4MmRFVFRVbmJwMmtpSjRp?oc=5">AFR</a>；<time>2026-07-02 19:00 GMT</time></div>
+        </article>
+        <article>
+          <div class="kicker">Score 16 / 20</div>
+          <h3>全球 H1 創投達 5100 億美元，AI 熱潮把募資與退場一起推高</h3>
+          <p>Crunchbase 指上半年全球 startup investment 達 5100 億美元，AI 仍是核心推力；這把昨天的單筆大額融資，放進更大的資本循環裡看。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMlM1RWVud3pTT0dUazNMQ2pZVTF0T0VRUWhLX2VfVERNNnY4X1plS1F5UjhqOG1OY0liX1ZRa3psYUxBN2U1Qm5fRGU0MGdRYkRUTnctMWswc2lQaGRhSk1JYVBnOXRoS2I5NHVXdkNBcTlLbjJRUXBVRWtUZHo5ckxlV1VIU1Rad09R?oc=5">Crunchbase News</a>、<a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQZ2V6SXlCUVdJVWV2NjNlMkFHZVFlSzlLa1EzZ3Q2cGtkeHRFTWNkVGJXQ0J5UDJaOHZRSDhKVzdKdEN6UVI2Z19GenhHR1ZhNmVLZFItQjNWNnFybGloaGVkRmlvQU1PZm1tSEFDQ3V1Q3ZWZHU5SzBYVlUyY05peElqRW5XRUxLVUJnNllNTFpJSTBNajBwV1hlTVRTZzN2cFF3NWJEcHAwQm8?oc=5">SiliconANGLE</a>；<time>2026-07-02 11:00 GMT</time></div>
+        </article>
+        <article>
+          <div class="kicker">Score 15 / 20</div>
+          <h3>Quantum Systems 估值達 80 億美元，AI 防務新創擠進巨額募資帶</h3>
+          <p>德國無人機公司 Quantum Systems 據報以 80 億美元估值募資，說明 AI、自主系統與國防科技正在合流，歐洲硬科技也進入高估值競賽。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMlhJbjZZRUs2cVpNRjhCNVFvZFhSTzVhZk04VzlmeEN3cG96cGVoTUFDOExsa1ZzZHJPdml5d1dQVnFza01nRDhIX2cxOV9HeTFST3RDQWs2Y2pHWjFWaU12d0U4cFgxaXJ2emMtUUVtN0NQWm5yaGJObVNnSmVUSmtvTmxPX011YjRNd2kyczR3NHpfMG9lU3pWaEo2NkhJRHBnajVLTUpJMl9aOHJYVGtLaVpSQXRCMVJr?oc=5">WSJ</a>、<a href="https://news.google.com/search?q=Quantum%20Systems%20raises%20funding%20%248%20billion%20valuation%20drone%20AI">Google News</a>；<time>2026-07-02 14:08 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="governance">
+      <div class="section-head">
+        <h2 id="governance">跨國治理</h2>
+        <div class="section-note">AI 聯盟正在沿著市場、人才與安全框架重組</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="kicker">Score 16 / 20</div>
+          <h3>India、Japan 發表 AI roadmap，亞洲治理合作從口號進入清單</h3>
+          <p>India 與 Japan 公布 AI roadmap，涵蓋 governance、innovation 與 talent；在美中模型與晶片緊張之外，亞洲民主國家開始建立自己的協作路徑。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOS1pnYWk2VzVmRDhqd2dQc21oMzktb1FFTmVjY1NBOVBTQ0ZpaEdwT2VsWi1EMGIyX3lRUS1CMHBWZHpVZExyUmNoNzhhUXBma3p2VVFBMkpaQUN3NHV4WDc4ZUxPbHFibFRyaEpfZFUtckVsQ294c1pha2xXZVFTalBIS0NmTGg0YnRCcFpLZHAwYlV1MWJqYnNVbHFjNk1mVG1aLXZQSG9JNTZ1NVR0X1Z1Z3RGblpPc2JXaFRqNnN0dzg?oc=5">DD India</a>、<a href="https://news.google.com/search?q=India%20Japan%20AI%20roadmap%20governance%20innovation%20talent%20July%202026">Google News</a>；<time>2026-07-02 20:41 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。</footer>
+  </main>
+</body>
+</html>

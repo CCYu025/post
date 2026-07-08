@@ -1,0 +1,198 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 新聞精選｜2026-07-06</title>
+  <style>
+    :root {
+      --ink: #101217;
+      --paper: #f4f1e8;
+      --panel: #fffaf0;
+      --teal: #00b7bd;
+      --red: #d73535;
+      --silver: #c8ced6;
+      --gold: #d6a733;
+      --muted: #626a75;
+      --line: #101217;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(90deg, #f1ede2 0%, #e8e3d7 48%, #f9f3e6 100%);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+    .page { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 22px 0 48px; }
+    .masthead { display: grid; grid-template-columns: 1.05fr .95fr; min-height: 430px; border: 5px solid var(--line); background: var(--paper); box-shadow: 12px 12px 0 var(--teal); }
+    .mast-copy { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .date-row { display: flex; justify-content: space-between; gap: 16px; border-bottom: 3px solid var(--line); padding-bottom: 12px; font-weight: 900; letter-spacing: 0; }
+    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 8vw, 94px); line-height: .9; letter-spacing: 0; }
+    .dek { margin: 14px 0 0; max-width: 760px; font-size: 18px; font-weight: 800; }
+    .hero { margin: 0; border-left: 5px solid var(--line); min-height: 100%; background: var(--ink); }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    .ticker { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 5px solid var(--line); border-top: 0; background: var(--ink); color: var(--paper); }
+    .ticker div { padding: 12px 16px; border-right: 2px solid rgba(255,255,255,.28); font-weight: 900; overflow-wrap: anywhere; }
+    .ticker div:last-child { border-right: 0; }
+    .section { margin-top: 34px; border-top: 5px solid var(--line); }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 14px 0 10px; }
+    h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(28px, 5vw, 52px); line-height: 1; letter-spacing: 0; }
+    .section-note { color: var(--muted); font-weight: 900; text-align: right; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    article { min-width: 0; border: 3px solid var(--line); background: var(--panel); padding: 20px; box-shadow: 6px 6px 0 rgba(16,18,23,.18); }
+    article.lead { grid-column: span 2; display: grid; grid-template-columns: .72fr 1.28fr; gap: 22px; align-items: start; background: #101217; color: #fffaf0; }
+    .kicker { font-size: 13px; font-weight: 900; color: var(--gold); text-transform: uppercase; overflow-wrap: anywhere; }
+    article h3 { margin: 8px 0 10px; font-size: clamp(22px, 3vw, 34px); line-height: 1.15; letter-spacing: 0; overflow-wrap: anywhere; }
+    article p { margin: 0 0 14px; font-size: 16px; overflow-wrap: anywhere; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .badge { border: 2px solid currentColor; padding: 3px 8px; font-size: 12px; font-weight: 900; background: rgba(0,183,189,.13); }
+    .badge.follow { color: var(--gold); background: rgba(214,167,51,.13); }
+    .badge.angle { color: #006a70; background: rgba(0,183,189,.18); }
+    .badge.warn { color: var(--red); background: rgba(215,53,53,.12); }
+    .sources { border-top: 2px solid currentColor; padding-top: 10px; font-size: 13px; color: inherit; }
+    .sources span { color: var(--muted); font-weight: 900; }
+    article.lead .sources span { color: #b8bec8; }
+    time { font-weight: 800; }
+    .footer { margin-top: 34px; padding-top: 18px; border-top: 5px solid var(--line); color: var(--muted); font-size: 13px; font-weight: 800; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 24px, 760px); padding-top: 14px; }
+      .masthead, article.lead { grid-template-columns: 1fr; }
+      .hero { border-left: 0; border-top: 5px solid var(--line); max-height: 360px; }
+      .ticker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid { grid-template-columns: 1fr; }
+      article.lead { grid-column: span 1; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .section-note { text-align: left; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 18px, 520px); }
+      .mast-copy, article { padding: 16px; }
+      .date-row { flex-direction: column; gap: 4px; }
+      .ticker { grid-template-columns: 1fr; }
+      .ticker div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.28); }
+      h1 { font-size: 43px; }
+      .dek { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="mast-copy">
+        <div class="date-row"><span>AI NEWS BRIEF</span><time>2026-07-06</time></div>
+        <div>
+          <h1>AI 壓力錶開盤</h1>
+          <p class="dek">週一的 AI 新聞不是單一產品週期，而是資本、記憶體、電信雲、平台監管與資安警報一起升壓。AI 產業的問題正從「誰模型更強」轉向「誰扛得住基建、合規與市場成本」。</p>
+        </div>
+      </div>
+      <figure class="hero"><img src="2026-07-06-hero.png" alt="AI 資本壓力與半導體資料中心主視覺"></figure>
+    </header>
+    <section class="ticker" aria-label="今日訊號">
+      <div>8 則精選</div>
+      <div>1 則接續報導</div>
+      <div>2 則獨特切角</div>
+      <div>3 則未交叉驗證</div>
+    </section>
+
+    <section class="section" aria-labelledby="tracking">
+      <div class="section-head">
+        <h2 id="tracking">持續追蹤</h2>
+        <div class="section-note">OpenAI 股權與 IPO 故事進入風險定價</div>
+      </div>
+      <div class="grid">
+        <article class="lead">
+          <div class="kicker">Score 18 / 20</div>
+          <div>
+            <h3>OpenAI IPO 與美國持股疑雲升溫，投資人開始重估治理折價</h3>
+            <p>相較 7 月 3 日的 5% 政府持股提案，最新增量是 Forrester 與市場報導把焦點放到 OpenAI IPO 前景、政府介入與 token payment scrutiny，模型公司估值開始被治理風險牽動。</p>
+            <div class="meta"><span class="badge follow">🔄 接續報導</span></div>
+            <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNM0pfd296VDZHdXNsaW1weXNLNzJodmJ1X0swM3NLMjVBX3JUX2J2SWJrd3JPVEdHZ2lHbE9CQzQ5YlJhUTRKRm12RTdhTGU0Z3RzQ3dfZ2JDVmR3SUdxcGRKSDJuWjJFcklnbW1STURSX09KVXBQLW1Wd0gycEZQZXJR?oc=5">IT Brief Asia</a>、<a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxNOG9DZG5LNENteFpPaUxudUYtQk11bC00bHFUaW5rai1kcVU2WGh3cFROaEJRWTloTFRSVnVMTXpDMzZtWVhJN1pXZl9FMEJqV2QwYkc0RFJIMlhpV0ZvUmVQQWM1bkRwU0w1b0xxdDNUZEJiaFZWVHNqckFZRUdqYmxUVmdFMC1ZRmNxLWFYVksxdkxJMVJVTDBYcUl3aGF0SFRUQ054bnNwRklhS3k5djZncHRrTjZCSjc2SGRmdEdEc2twT2JMV1ZXd2x0SExUdVhsMHNWTzBIRHdPUkE?oc=5">The Daily Upside</a>；<time>2026-07-06 01:15 GMT</time></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="infrastructure">
+      <div class="section-head">
+        <h2 id="infrastructure">基建與記憶體</h2>
+        <div class="section-note">AI 支出開始壓到電信、半導體與消費電子價格</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="kicker">Score 19 / 20</div>
+          <h3>KT 投入 18 兆韓元轉型 AI 平台公司，電信商也加入基建軍備賽</h3>
+          <p>KT 宣布 18 兆韓元 AI 投資計畫，目標從傳統電信轉向 AI platform company；這讓韓國 AI 競賽不只停留在 Samsung、SK Hynix，也擴大到網路、雲端與企業服務入口。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE51cWpldS1KQkY1ZGNhOE9zV1hTbHRVOXUwaWxYYWdFZ0F3NHRlNnJFLXQ5MVdDZ0pIQzUzbHlma1Z4WC0yV3ZqZUtPMnk4NjZtQjRZTDZwQ1dNU1NfbXMtMHNNREdSODRJLWFzenE2MXRPMzdjVnFn?oc=5">Yonhap News Agency</a>、<a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTFBQbkM3cFZnMzVYMXotYUYwMTVIeWFjcXJYTEw4Z0Rfb3RhbkxtX3RtdkllZlVjZDNoU25ZU0ZCTGVRb0E4LUI2ZGNmSkNVbUxxc2xuZTctUQ?oc=5">The Korea Herald</a>；<time>2026-07-06 03:06 GMT</time></div>
+        </article>
+        <article>
+          <div class="kicker">Score 17 / 20</div>
+          <h3>SK Hynix 傳啟動 280 億美元美國上市，AI 記憶體紅利走向資本市場</h3>
+          <p>SK Hynix 據報規劃大型美國上市以追逐全球 AI wave，顯示 HBM 與高階記憶體不只改變供應鏈，也正在改寫晶片公司的融資與估值路線。</p>
+          <div class="meta"><span class="badge">new</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxOeUVySmM1T3FDQTg4RHprZDBFbWFuTzk1aFRvNUV0eHZmNXhVX0MwOTRTWWVHUVJ6Y0QtZzZEc01CUkVQamluQW93c3dOOVZHVXFiWkhPdG40cnY4T09aZE52OFNIZWU1VnVKTFZhV0Z6XzJQdUwwZ1YxWU5taVJvdW1OcDVBUkdkdnBJQ3JSUzdQQkxNRFBSeTZVNm9mLUh6clRYSHI2QXFPQzRvMklxZHhBbk0yRWRkY0dOb0VYNm41d0FqdmFyUWpsUTM?oc=5">The Star</a>；<time>2026-07-06 00:22 GMT</time></div>
+        </article>
+        <article>
+          <div class="kicker">Score 16 / 20</div>
+          <h3>AI 記憶體荒外溢到手機與筆電，消費電子折扣季可能縮水</h3>
+          <p>記憶體需求被 AI data center 拉高後，Moneycontrol 指手機與筆電成本也開始承壓；獨特切角是 AI 基建熱不只影響雲端帳單，還可能推高一般消費者的硬體價格。</p>
+          <div class="meta"><span class="badge angle">獨特切角</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxON1FQU215bS1ZZzFCOVhsenBzZUpxNlZCZUdVTjNCcmx5c3RvWFlPQUNqSE9YM3ZmMzV5ZXFLWTBYSkMxT2ZLVjdCQ1JjVlU4RzJQRFdlVmIwZmhXSHV0dTJqZTkxcTVRLUlINVBQSUNNamgwSG42Q29odERsYTZZTkNNd3lhLVF5SXVCZ0Nmek9qQjBtNG1pRjJUM2cwZkhpUmhuR3ZjMWt5RzVJMTFtTGpZZjRPMU56Y2VYVDlCTHV2cU8xakR2MHA0dDZlY2U1QnRHY0RWcU5BVjg3UWdCUVhxd9IB6AFBVV95cUxPVElXN0RNc1NEWjBjS3lNS1doRWxaSk5oRWFvczVqS2lBOXcyTHZXNkpEcTVyTlUzQUZWU2tEbjVybWtrS2ROX080eFlkbmVwcTdMZXNCY2lWUDJjT0NmS1ZTbEtGZGpJazc1STA3QnBNZFNFR0NPMWNnckowQWFqMHdDd1A3ZUFKelNhMUFJM181V3Z3TkVhcTk4RnJNNmlTQnJ6T2pkQ2dCcU5Zc1Y1bE1laWdHS1BrbWlwS0hxUk9paGNmVWlNYTFON2l0NG5pQm5hZnBuSVpHYTFmbVVkYnc0dnBGRlhF?oc=5">Moneycontrol</a>、<a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPaWFqLXgwY3p2QjZrVENBMHBQOWhXTTBNdjhSR2pYZFBqSWM0RnR5dzNTeWUzR1lDdTdBMVdEUFRyOWtxVTFvVUl1ZE5NSlBVeERSdVhOWGQ1UDk4OFpaT1R3djNBMEhNRjBmVmZmWWQ0Z2dKaHVGZnpkTkdJLXV4eg?oc=5">HarianBasis</a>；<time>2026-07-06 03:40 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="china">
+      <div class="section-head">
+        <h2 id="china">中國模型與監管</h2>
+        <div class="section-note">資本追逐與內容管控同步發生</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="kicker">Score 17 / 20</div>
+          <h3>Moonshot AI 估值衝上 200 億美元，Meituan 領投把中國模型戰推回資本桌</h3>
+          <p>Moonshot AI 據報在 Meituan 領投的新一輪融資後估值達 200 億美元，顯示中國大模型公司在 GLM-5.2 熱度之外，也重新取得平台資本支持。</p>
+          <div class="meta"><span class="badge">new</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxPa1VXTG9OOG1hVFQwOFN0YkNUTU11RHlQRlU4NHdnbVRLOEk5YzBOOFBTX3BFcEFwdG9Mbmg2TV9WNkI3OVItUVlVbVA5djM1a1NTYlFiSE04Mnl1SDlEdk1yQUlLYVJPa2RCemEwVlYtak52NnNsUmZMNUZBNWJ5Y2pmUE9fbDRJMmwwZ1lfMzlhdnFRLUZzVzBmSGcyVnBaenhIYTNOUzFmY2JvSU5SRll4bThfMHR3d2hFVTN2NURyNzBwTk9MSDVTTHV2V2g1Z0V5a1VDVHRGdlU?oc=5">The Standard</a>；<time>2026-07-05 07:43 GMT</time></div>
+        </article>
+        <article>
+          <div class="kicker">Score 17 / 20</div>
+          <h3>ByteDance、Alibaba 下架 AI companion，北京把情感聊天產品納入強監管</h3>
+          <p>ByteDance 與 Alibaba 據報撤下部分 AI companion 產品，反映中國監管焦點從基礎模型延伸到陪伴式應用、未成年人風險與內容邊界。</p>
+          <div class="meta"><span class="badge">new</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5Rdjg4eXBsMUxfcmMwazZFdXlWNU14XzVxcVlVVFU3b05Pb0x6N2FvS2U1aklvRk5aRTVuRW1Ldm1CaXBQMjdlMjVGNy1aMkZ2QkVN?oc=5">The Edge Malaysia</a>；<time>2026-07-06 03:47 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="security">
+      <div class="section-head">
+        <h2 id="security">安全與治理</h2>
+        <div class="section-note">AI 進入瀏覽器、銀行與資安工單，風險面積同步放大</div>
+      </div>
+      <div class="grid">
+        <article>
+          <div class="kicker">Score 15 / 20</div>
+          <h3>AI browsers 被三組研究團隊點名，瀏覽器代理成為新攻擊面</h3>
+          <p>多組研究團隊警告 AI browsers 可能把網頁、指令與使用者資料混在同一個自動化環境；獨特切角是 agent 進入瀏覽器後，安全問題不再只是模型幻覺，而是瀏覽器權限與網頁攻擊鏈。</p>
+          <div class="meta"><span class="badge angle">獨特切角</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQNEVrZV9SaVREbU03TlYzd2ZvX19PbzdGNGgtdFBXN25aeS1nR3dnQkNlUnVnTVU2SzZSUXhBazExejYxVjVpYTdVSU82OGhfSlAzYjBqcWg5WU43Ukh4bV9Ja2tfWVpFMGJpQXN4emtFY2w5dXpxcnRtZ0lxNlplVzNWVkR5a254cWdCWmZyVy1tVTNMNDIweXRnVWtscUMz?oc=5">SOFX</a>、<a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPejU2eXJtejZlNkpVczBYTHJ4bTlBS25MekJzU2NQclN2cTZMMWViRDlqc2hIQ0VsVUtjTDNuMTJBZkdSRWV1Q3l1cmtPc3hhQlN5eHJkZU43WndYbmo5QTJMQkFZMW1DTjlBM2FnMDBhMGVtenBuYUpTdmN0Nm9GakNYaEJkWVNQQkNV?oc=5">Help Net Security</a>；<time>2026-07-06 03:23 GMT</time></div>
+        </article>
+        <article>
+          <div class="kicker">Score 14 / 20</div>
+          <h3>Thailand 推銀行 AI red teaming，金融監理開始測模型實戰韌性</h3>
+          <p>Thailand 啟動銀行安全 AI red teaming initiative，顯示金融監理正在把模型風險測試納入實務，從政策原則走向攻防演練。</p>
+          <div class="meta"><span class="badge">new</span></div>
+          <div class="sources"><span>來源：</span><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPcVVFeEtxUlo2aVZqeEdkS19rOE1NQ2NfTG15SHFST2F2R2Mwa0tJVGQxWHE4bzhQelFPY08wajc0d2pLdG5mczdTVTlWQ09tNGItN3F5Qmg0X0NTbXVSRUVfRUNtM1RIRVY5aExSY3RTX3JNa1g5TWt0TDRYalFGbmgyMDFNVUQ1ZS0zZFY3cjFqOHc?oc=5">OpenGov Asia</a>、<a href="https://news.google.com/rss/articles/CBMivgJBVV95cUxOaGFGOENyd3NKc0RNakdnVVI5Q3JocS1BYUZrcjVHZEljdXJZeVBmOVpyRWFXd3Zxb2tGTFNrRUU2VmdiaFA2UVpZMVd2alF2ellLczZnSW1JUVRrSVJ0bTRvTkNaeWhnT2lpN0dVTC1VZnc4bEJnV2FtN3Y5bmVmZHlHWlFpYkFnSm50dUQwam1ZejNxM2V4Q2JJZi1TYWhYaGc4NmZFYTkzaHZSUkk0LWdXUjN5ODEzQkwzLVhaWFIzUG91UUg4V2NNMzR2VWZGVE5JcFJmVmRfckl5V1FQb181TmtvdjVvd0J2cDZzaFNqTFkxZFhqRFlJTzJGc2NxbmxMUHVjZmY4TmJ5QkZxNnlGUUtVaXlYVlptZzNMYjlIU3QxMzItNnVVbzYwbURTREhuZ0NEU0NQUlMwQnc?oc=5">iTWire</a>；<time>2026-07-05 23:54 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。</footer>
+  </main>
+</body>
+</html>
