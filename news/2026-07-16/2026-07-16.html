@@ -1,0 +1,248 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-16 AI 新聞精選</title>
+  <style>
+    :root {
+      --ink: #080c0f;
+      --paper: #f2f4ef;
+      --panel: #11181c;
+      --teal: #28d6c9;
+      --mint: #b8fff5;
+      --red: #e2463f;
+      --steel: #59686d;
+      --line: #1d2a2e;
+      --white: #fbfcf7;
+      --shadow: 10px 10px 0 rgba(8, 12, 15, .13);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      letter-spacing: 0;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration-color: rgba(40, 214, 201, .72); text-underline-offset: 3px; }
+    .page { width: min(1200px, calc(100% - 32px)); margin: 0 auto; padding: 22px 0 48px; }
+    .cover {
+      position: relative;
+      min-height: 570px;
+      border: 3px solid var(--ink);
+      overflow: hidden;
+      background: var(--panel);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .9; }
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8,12,15,.94) 0%, rgba(8,12,15,.68) 42%, rgba(8,12,15,.12) 100%), linear-gradient(0deg, rgba(8,12,15,.72), rgba(8,12,15,0) 46%);
+    }
+    .cover-copy { position: relative; z-index: 1; width: min(760px, 100%); min-height: 570px; padding: 34px; display: flex; flex-direction: column; justify-content: space-between; }
+    .date-line { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; color: var(--mint); font-weight: 900; font-size: .85rem; text-transform: uppercase; }
+    .date-line::before { content: ""; width: 64px; height: 3px; background: var(--red); display: inline-block; }
+    h1 { margin: 0; font-size: clamp(2.3rem, 5.9vw, 5.9rem); line-height: .95; font-weight: 950; max-width: 11ch; overflow-wrap: anywhere; }
+    .dek { margin: 22px 0 0; max-width: 690px; font-size: clamp(1rem, 2.1vw, 1.24rem); color: rgba(251,252,247,.88); overflow-wrap: anywhere; }
+    .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .stat { border: 1px solid rgba(251,252,247,.42); background: rgba(8,12,15,.48); padding: 8px 12px; font-weight: 900; font-size: .84rem; color: var(--white); }
+    .section-title { margin: 42px 0 18px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; font-weight: 950; font-size: .94rem; }
+    .section-title::before, .section-title::after { content: ""; height: 3px; background: var(--ink); }
+    .lead-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr); gap: 18px; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .stack { display: grid; gap: 18px; }
+    article { min-width: 0; border: 2px solid var(--ink); background: rgba(251,252,247,.82); padding: 18px; box-shadow: var(--shadow); }
+    article.major { background: #10191d; color: var(--white); border-color: #10191d; padding: 24px; }
+    .kicker { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .tag { display: inline-flex; max-width: 100%; padding: 4px 8px; border: 1px solid currentColor; color: var(--red); background: rgba(226,70,63,.08); font-size: .72rem; font-weight: 950; overflow-wrap: anywhere; }
+    .tag.angle { color: #007a72; background: rgba(40,214,201,.13); }
+    .tag.warn { color: #9a6500; background: rgba(226,152,25,.14); }
+    article.major .tag { color: var(--mint); }
+    h2, h3 { margin: 0; line-height: 1.18; font-weight: 950; overflow-wrap: anywhere; }
+    h2 { font-size: clamp(1.78rem, 3.35vw, 3.15rem); max-width: 17ch; }
+    h3 { font-size: clamp(1.08rem, 1.9vw, 1.42rem); }
+    p { margin: 12px 0 0; overflow-wrap: anywhere; }
+    .meta { margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(8,12,15,.25); color: var(--steel); font-size: .84rem; overflow-wrap: anywhere; }
+    article.major .meta { border-top-color: rgba(251,252,247,.24); color: rgba(251,252,247,.72); }
+    .sources { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px 12px; }
+    .sources a { font-weight: 850; }
+    .empty-follow { border: 2px dashed rgba(8,12,15,.45); background: rgba(255,255,255,.36); color: var(--steel); padding: 16px; overflow-wrap: anywhere; }
+    footer { margin-top: 34px; padding-top: 16px; border-top: 3px solid var(--ink); color: var(--steel); font-size: .86rem; overflow-wrap: anywhere; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 22px, 760px); padding-top: 12px; }
+      .cover, .cover-copy { min-height: 500px; }
+      .cover-copy { padding: 24px; }
+      .lead-grid, .news-grid { grid-template-columns: 1fr; }
+      h1 { max-width: 10ch; }
+      h2 { max-width: 100%; }
+      article { box-shadow: 6px 6px 0 rgba(8,12,15,.13); }
+    }
+    @media (max-width: 560px) {
+      .page { width: calc(100% - 16px); padding-bottom: 30px; }
+      .cover, .cover-copy { min-height: 430px; }
+      .cover-copy { padding: 18px; }
+      .date-line::before { width: 36px; }
+      .stat { width: 100%; }
+      article, article.major { padding: 15px; }
+      .section-title { grid-template-columns: 1fr; text-align: left; gap: 8px; }
+      .section-title::before, .section-title::after { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover">
+      <img src="2026-07-16-hero.png" alt="Semiconductor trading room, chip fab, cloud data center and glowing enterprise AI network lines">
+      <div class="cover-copy">
+        <div class="date-line"><span>2026-07-16</span><span>AI NEWS DAILY</span></div>
+        <div>
+          <h1>AI 進入交付壓力測試</h1>
+          <p class="dek">今天的新聞不再只問模型多強，而是問晶片供應、雲端合約、企業服務與法務風險能不能撐住 AI 的實際部署。</p>
+          <div class="stats">
+            <span class="stat">8 則收錄</span>
+            <span class="stat">0 則接續報導</span>
+            <span class="stat">4 則獨特切角</span>
+            <span class="stat">1 則未交叉驗證</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="follow-title">
+      <div class="section-title" id="follow-title">持續追蹤</div>
+      <div class="empty-follow">今日沒有同一事件的明確增量；以下以新事件與不同切角收錄。</div>
+    </section>
+
+    <section aria-labelledby="chip-title">
+      <div class="section-title" id="chip-title">晶片財報與供應鏈</div>
+      <div class="lead-grid">
+        <article class="major">
+          <div class="kicker"><span class="tag angle">獨特切角</span></div>
+          <h2>TSMC 獲利可望再創高，AI boom 先反映在晶圓代工報表</h2>
+          <p>Reuters 報導 TSMC 第二季獲利預期受 AI demand 推動再創紀錄；相較於模型發布，今日市場更直接盯著先進製程是否仍能把 AI capex 轉成現金流。</p>
+          <div class="meta">
+            <time datetime="2026-07-16T07:03:00Z">發布時間：2026-07-16 07:03 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPUk5mYmNUVFNRQ1VkeFE1RHUyQzZEb1YzRncyMVVTR2VSdVZiaFJRM0Q3RWNXZUl6c3JQV2xldkowNmdKUTNzVmZvVGt3NDZjZy1lN0I3S1Y4a2dvT2psbUNvVFhjWW12ckZLREdHeWlweUgzbGJ6UG0za25BRGlpcVlhMkJpRHFkVVFZWWRZeFVIV18xelNBV2x1QWF3aFAyY1NydG1pWmpCWDJNY1ZF?oc=5">Reuters</a>
+              <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNOVNCVkRmcnBFVjQ3VDN0RjlIOVFHc0ZMNFg3R3U1RmRXYlFsX3FfWHh3cHBmZW9pTmtyeFlPQUFVY2RXTm1QVkdVWUxNQVF2MHFBNWRNTzRvclRTV01YV21xeDdjaDZYQW01SkVMckFtdnNSSUJhM3RyS0xXOTdJMWR1bjJPRGxiZExPU0JBOFp0MU5EeFNxWmNTMU5kT3Z2NmNQRV9LYXVzeFpBZ0hRMTBOQWRDYkdtbVFXaDc3c2JyazhXb3BCXw?oc=5">TradingView</a>
+              <a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxQVDRmMEZUVlNfcWNrNWpTN3RPZzJDVjM1cHNOeHh2Tzl1akg0bjZqVmVYczNXeUVHd0haMlZBbVFzM2NIV0RyUnhkS0dOaDJadDh1TkpabmZFdk5zYTBKM0pGMHk1RTJmNTUtQVVscmlERGdEbVdBUnNqMW02YldRS3g0MVJhVXpTNGEteQ?oc=5">AI Magazine</a>
+            </div>
+          </div>
+        </article>
+        <div class="stack">
+          <article>
+            <div class="kicker"><span class="tag angle">獨特切角</span></div>
+            <h3>ASML 擴產安撫瓶頸疑慮，AI 晶片熱轉向 lithography 產能考題</h3>
+            <p>ASML 因 AI chip demand 上修展望並擴大產能，市場焦點從 GPU 缺貨延伸到 EUV 與先進設備能否跟上資料中心投資。</p>
+            <div class="meta">
+              <time datetime="2026-07-15T13:07:00Z">發布時間：2026-07-15 13:07 UTC</time>
+              <div class="sources">
+                <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPXzZLbXpRNUdRRjYtV203dG1SS1l6U29PMFZGelkzMVV3Mm1tSXI4ak90clF2Q0EwMW5sV1ptV2JURmVSRzYtMUZjenlvLWNuQklqZ2FDX1EzUWR1ZWI0bkZYcXVrbXNTZHdPZS1sNmthTlpOTHNpMkMxc1FfSUR1NEplT3l5Nk84Z3c?oc=5">Reuters</a>
+                <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQTFBycHE5QTlRSUh2NU9iUExOVnQ1eGc5cHNJVXJjNkdzWjctWjJOcTFERFJPQzF0TG9XU1BLRlhweUZEdy00VS1FYTV2eVhTQzBTdWE1OHFiNUJoRXo2d2lOajYxcGY0SUotTVBPTENSVEkyOFlrSFBlVHp4ZW1IaEJjbU5XZHNEeDQ3NHJLVWdUUXRPQ0V3ZHJTekdGQQ?oc=5">Investing.com</a>
+              </div>
+            </div>
+          </article>
+          <article>
+            <div class="kicker"><span class="tag">新事件</span></div>
+            <h3>Axelera AI 推 Voyager Wingman，edge AI 開發也開始長出 coding assistant</h3>
+            <p>Axelera AI 公開 Voyager Wingman，用 AI assistant 加速 edge AI application development；模型工具化正在從雲端 IDE 擴到晶片與邊緣裝置生態。</p>
+            <div class="meta">
+              <time datetime="2026-07-16T01:45:00Z">發布時間：2026-07-16 01:45 UTC</time>
+              <div class="sources">
+                <a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxPNnllMnJpX0dDMWdRZmJTWlFybk0xcEJRMC14ZzNnbmt3ZEJLLXlpdU1kV1pjYjd3RkpRcUtrVGdBM0Q0X2ZIeHBXRnRjRnZuOEQ5ak1USUNSZ1JlNTNiUUhFVk1vbERfdjlrUE5aS3lnS0trUUxMSE9yVmNHZUZqa0c0amNodmRIUzN1NHZJRVB3X0hwQnBpTy05cWFid0lfc0pEcUhmSXh0NnhKc3BCUjM4QnppVk5hbEwwQlFBQVo5MjlkUWJ3aFRVWE5tcHdyWTZHN21aNUtJZng2MHhF?oc=5">HPCwire</a>
+                <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPU3h0SVlJd1hfMnJBRVpmYVNKLTFQQ1B4YkJrV0hqNGx3S3hqM0FLQUc2X0JpXzh0c3lzR0FJWkFhTVl1OWRsVW5oV0FPdUxPME5GN05lNlZULUZnTVJxOWNUZGdycjA3R3loaVhSRDN0WGRucENjLURDRHBBWHphN0h6ZVNUY2VFZGZqdkZweUM2Nkw4dWdKUTdwSHhsMThkaVEwR1RQb2U?oc=5">SiliconANGLE</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="enterprise-title">
+      <div class="section-title" id="enterprise-title">企業 AI 服務化</div>
+      <div class="news-grid">
+        <article>
+          <div class="kicker"><span class="tag">新事件</span></div>
+          <h3>Anthropic 與 Blackstone 推 Ode，企業 AI 的戰場轉向導入服務</h3>
+          <p>Anthropic、Blackstone 與 Hellman &amp; Friedman 推出 Ode with Anthropic，定位為 enterprise AI services firm；這顯示大型客戶需要的不只是模型 API，而是能交付轉型的服務體系。</p>
+          <div class="meta">
+            <time datetime="2026-07-16T03:35:00Z">發布時間：2026-07-16 03:35 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxNTW5QWE0xRDNDaENwbEhlclhHcjdPUkJpUXpnNWRxaFFjT1ppaUVmU0NpNk0yWjVkMk5EMEwwNzFMV0Vxd1pwbnEtbmx6RjNVRGlPVklBcldsZmQtcV9kUTQ5Ty1sMHQ3eWtXNnRVY21SZUdjN0dYcHVtOWZXN2YycWpxc2FWRW1FRGFxUDJ5YWxKMGpJanBSOFI2RDBkZGhsRXRjNXVyRlozb1BLT2RFMG9fNU01dERrMURjMVdYaHZuNDcyUWNfNWVmZlg4TE91dlU4bi1zTVh2NjZk?oc=5">HPCwire</a>
+              <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPY3prX2JOU2pzdmdCRTFTQmlSdmttXzhKZmFtYzhselNBSmJTQ2toSHBHeFJrTkxvb0lVRU5CUDFWYzFhZGtDUmU5WWs5c1M3TDItYnY4cEt5ZW80TUo1UnMxRTA1VExuQjBVZDJBQmVxSXZLX1g0VUxSSTJMbDBnRnVzVTV4U2djQlZsNnNUaEw2bEU0dWRnNmV2SjVnVGRveF9ZcTc5MVAzNkFNNXpnMDRqLUo5OTRoT1E?oc=5">PE Hub</a>
+              <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOUnVleUdnUnRlcVBEdnQzSS1mMmVkOTM3eXItQU9zWERZdHhuV3ZQcC1lcktYUm1wc1lnN1dyb1BsYjQ1eDRXR18wem5WWGxia0xLOXA2WUpyaHlYZjExdUNoQ1BsMDlJTlhCeG82MFlKRlNFWFVqTXFiRVkzY0U3bHFSaWU5cThFc0puV0xobTF1dkhaSmw2U2xETWtXQ1ppQzRFSg?oc=5">Yahoo Finance</a>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="kicker"><span class="tag angle">獨特切角</span></div>
+          <h3>Nebius 改用基建夥伴模式擴張 AI cloud，算力雲進入資產分工期</h3>
+          <p>Nebius 宣布以 infrastructure partnerships 擴大全球 AI cloud，市場反應轉強；在資料中心建設受限的背景下，AI cloud 供應商開始用更輕的合作架構擴張。</p>
+          <div class="meta">
+            <time datetime="2026-07-15T20:30:00Z">發布時間：2026-07-15 20:30 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxPR05XNlFjOWZGSHJpUHBBQW1nWmRMVE81XzhqaVNYdnJoNDB2eDhXX185OWRzQm1CX0VfX2p1MFZSUFdEaDZ0Q1BfcV9FbjBmeHRpRkFBZERTYWdlaUx3Yng4dmFTbUlkbzA3dkZoRG9JMGh1YjJPbHVBd0dURWplMkdJVld3NFB0Z0RpQ0gzc2xMYmw1U21XeW9NYndGeDBSVVBneW1yN3drck81QWhCeFBwQzFTQVFJTGUtTVp1TnFqUDA3cFh0RHhldko2WnZTOXlmNUFic1JIOF9aRk5jRmcyYTVFZTA?oc=5">Business Wire</a>
+              <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPVWc4d3JHTmtuZFVJQzlwMFN4ZXBBdVAxTzFkSFMzeVZGSXBqN2sxWFBrWllLZ0ZEWGpOeHphNnZnZmxlZldmZVoxYm9sb1RYLU54bkhseDhmbHVsUjRRcVZ2cXFDWEkxQTMtblloNDBJVVFyeEhoSnQ2TUpwa2N3T2JveVF1WlNlMU5ZbzczZGdQMGRuZDJZcTJuV0RHcFBXd2c?oc=5">Yahoo Finance</a>
+              <a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxNOHNhTEN0SGNlckxYM2pxYVJhSzFNR0VYRXp3QkN6Q1RrU2o4Q1hOMTBDcVVMVUJkLURrRVg2WGVneXd3aXp2TGpQX2l2VDBLdm9zRXJGQkNoMHZqTWNncU9KaUhESHVWcUN5amV5Z0RVUVhONGNFOG1WY3VscGMxZm5URjJlLXBaUVJsWW03ZHItQl9qcUR1TnM4WThZeWNuUGY5aEpRQXNxal9mMzJhQVpTQnU0cFRDSlVkZGF0cHhvd0pveEIzeUVEeEtwR2RnLUpjZDcxd3MtbmdaMXc?oc=5">HPCwire</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="risk-title">
+      <div class="section-title" id="risk-title">代理網路與風險現場</div>
+      <div class="news-grid">
+        <article>
+          <div class="kicker"><span class="tag angle">獨特切角</span></div>
+          <h3>Nokia 與 AWS 展示 agentic network slicing，電信網路也開始交給代理調度</h3>
+          <p>Nokia 與 AWS 展示由 agentic AI 支援的 network slicing，並與 du、Orange 場景連動；AI agents 不只進辦公室，也開始碰到 5G-Advanced 網路資源配置。</p>
+          <div class="meta">
+            <time datetime="2026-07-15T17:06:00Z">發布時間：2026-07-15 17:06 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxOdXNab0dzdXgyUzZhQzZYdkl0OEFZYW53bk5RWVM0eFhwQ0pWODNmSUVISWhNUkxQQTdIZFAySldyVEktc0pFUWF5UDd4cU1xNnM0S3RVX3BhTVV1VXZXSE9iNloxSUtHajBUVG9WODV0aDI2U3dMek14NmVKdXNFdGpqTHFFU1RfZG1SZjhkc2tyeFJndkRicUtvbWhIMVZMTVl1UlNURFUtUW5ZXzRGQVJURkh6UWh6VmFDYnJ5OWxIOVo3blRtU1JpWDlHcC1FbG9GYUpudWw?oc=5">HPCwire</a>
+              <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPeGVSMEl3bUZTUGFaWE43REZiOWlzQ09ZeVF5al9TMG9UVTFkRlVSeFg4SWRnc3pLbGR6Qk5GUEFtWFFaVVdfaXRJMDRUU1RtQkItRG1SZnBOeGUxSEVWeG9kUXN1NE9wbXVXUy1SUEZMakdJNlZwTmh1dW14U0lwM25IRnJOdmtWQ2VWS3ByOFVrSmNXNFAtbVh0UE0zQ1pqQ09vbE5yNVd5STNJbW1VM0Z2bGgzLVlqM1ZJUVlzMVZmZGV2OE9zQk5B?oc=5">Nokia</a>
+              <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxOWjh6bEtRcFRoeVdHWVFfYXZjV19wWmJFY3U2enpsclIzc3RETHBvc1RHaVdnckpudFlqZGE3al84eGpGNFkxZHRJSHoydTBDb1AxMExzb1pTYUhNMG9sakQ2QkJEamRwa2l4dEFsMGVhV04tRUprbVFCcGh4b2M5Y2FMbUZuM3BCVkY5MXpQLVBqMWplclhNUE9R?oc=5">Light Reading</a>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="kicker"><span class="tag">新事件</span></div>
+          <h3>Japan 企業採用 NVIDIA Nemotron open models，垂直產業模型走向在地客製</h3>
+          <p>NVIDIA 宣布日本企業與新創以 Nemotron open models 建立 industry-specialized AI；開放模型的競爭重點正在轉向特定產業資料與部署能力。</p>
+          <div class="meta">
+            <time datetime="2026-07-16T07:00:00Z">發布時間：2026-07-16 07:00 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMi-wFBVV95cUxPeFJHU2lEWjBRNG9PUW5CX2ZHTmJtSWNTQ0pub292WjhVYnkzc2lHalBHRFAzRnZZVDVfbXRCeTgzMWJCd3J2dlhEUGgtSVhjYWJTVkpiM19Kb0s3TklHcGRSSHZYTjRuTXgza19hVU95ZDdVQ0p3LVdmdFlGWnRiY1JZbEJkOXJaZVQyQ05oREd0OGpEQy1GeGdlaklfdXZiZXU5R0p6VktRRjJaWXBpNWN4bUozM0FJTklQTlc4a1I4U2RLalZZY0wxbWdpc3NodDBzb1ZVUXFVRzZaNkJoUzE2ZXJGSHd0RkItNTh0N2ZScUJHZkJKZEEtWQ?oc=5">GlobeNewswire</a>
+              <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWTBVQ3JMbjFnMkdqbE9HSUc5M09Ubk15SktvWUVCQXVjMWp1dmpLdFdQanVibjV3d0RBNTdpWlhDVEZ3U09MaUhOb2hrbVdaODItV05mRy00WFI2bE41UDhTWWpWcHBwaVdocEl1VWtFdE40M1NUTlFzZG5qaVhTZERnMWdnQmNMWno1QkdMTDUzLXE0R0dHSUpOLTJLY2ZMczZwSnRXb3NlUWNVdnpnR3R0R0Fvb2tnekVkM3ptOEtwOU4xZjlpblR4Zy1Ndjhr?oc=5">The Fast Mode</a>
+              <a href="https://news.google.com/rss/articles/CBMia0FVX3lxTFBLczVnQlgwNklEOGlkRmtLRUtsczFWdU8xcmJrd21lZWtOYjFpMWpWZ0VCRVVva2hWbXFPVW5WdHZzR1VsVmc4X0pMbDVwMzZfRkhpbm9ja0gxNFBNQmhXeWVldXdRUFU4Ykk4?oc=5">Crypto Briefing</a>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="kicker"><span class="tag">新事件</span><span class="tag warn">⚠ 未交叉驗證</span></div>
+          <h3>Meta 被控用 AI 鎖定患病員工裁員，演算法 HR 進入訴訟風險區</h3>
+          <p>Reuters 報導前員工訴稱 Meta 使用 AI targeting 將有 medical conditions 的員工納入裁員；目前主要來源有限，但它把 AI governance 從產品責任推進到勞動法與 HR 決策。</p>
+          <div class="meta">
+            <time datetime="2026-07-15T00:44:00Z">發布時間：2026-07-15 00:44 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOeXpzajJiQVM5dEtfLWVGbEE5MFhvaThhd1UtRmZ1aUFmejRaRUZDcVlMR21rLXVsS0c5R2p3SFlSX1RJYjhBejhmSFI2NXo3bFN1TXNqdUFfdGI5aHZreEtadnlHZzBsdVpFak1QVDRPSUFKdTR1UncwVUp0Y0hWT2FMMkU4dEZZUHowY2p3LWFPNm9vRXpWbWpDNjB0QVdxQlFQX1FNVTF2cURnOWpid3NXUTBGM1B1ZHc?oc=5">Reuters</a>
+              <a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE5tY0ZtbHZvckVnNHZ3bXlBdDFJSjhiQnFWUjZVbXdBUkhteE5GTHpDOVF6RXQyZ1J2TTlnZTl4M2pqS1pQaTZtNVVMZGVudlNjODZ4WllSQQ?oc=5">New Orleans CityBusiness</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。單一來源或轉載不足題目已明確標示。
+    </footer>
+  </main>
+</body>
+</html>

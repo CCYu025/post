@@ -1,6 +1,36 @@
 {
   "news": [
     {
+      "date": "2026-07-16",
+      "path": "news/2026-07-16/2026-07-16.html",
+      "title": "AI 情報日刊 — 2026-07-16"
+    },
+    {
+      "date": "2026-07-15",
+      "path": "news/2026-07-15/2026-07-15.html",
+      "title": "AI 情報日刊 — 2026-07-15"
+    },
+    {
+      "date": "2026-07-14",
+      "path": "news/2026-07-14/2026-07-14.html",
+      "title": "AI 情報日刊 — 2026-07-14"
+    },
+    {
+      "date": "2026-07-13",
+      "path": "news/2026-07-13/2026-07-13.html",
+      "title": "AI 情報日刊 — 2026-07-13"
+    },
+    {
+      "date": "2026-07-10",
+      "path": "news/2026-07-10/2026-07-10.html",
+      "title": "AI 情報日刊 — 2026-07-10"
+    },
+    {
+      "date": "2026-07-09",
+      "path": "news/2026-07-09/2026-07-09.html",
+      "title": "AI 情報日刊 — 2026-07-09"
+    },
+    {
       "date": "2026-07-08",
       "path": "news/2026-07-08/2026-07-08.html",
       "title": "AI 情報日刊 — 2026-07-08"
@@ -19,36 +49,6 @@
       "date": "2026-07-03",
       "path": "news/2026-07-03/2026-07-03.html",
       "title": "AI 情報日刊 — 2026-07-03"
-    },
-    {
-      "date": "2026-07-02",
-      "path": "news/2026-07-02/2026-07-02.html",
-      "title": "AI 情報日刊 — 2026-07-02"
-    },
-    {
-      "date": "2026-07-01",
-      "path": "news/2026-07-01/2026-07-01.html",
-      "title": "AI 情報日刊 — 2026-07-01"
-    },
-    {
-      "date": "2026-06-30",
-      "path": "news/2026-06-30/2026-06-30.html",
-      "title": "AI 情報日刊 — 2026-06-30"
-    },
-    {
-      "date": "2026-06-29",
-      "path": "news/2026-06-29/2026-06-29.html",
-      "title": "AI 情報日刊 — 2026-06-29"
-    },
-    {
-      "date": "2026-06-26",
-      "path": "news/2026-06-26/2026-06-26.html",
-      "title": "AI 情報日刊 — 2026-06-26"
-    },
-    {
-      "date": "2026-06-25",
-      "path": "news/2026-06-25/2026-06-25.html",
-      "title": "AI 情報日刊 — 2026-06-25"
     }
   ],
   "summary": [
@@ -57,6 +57,12 @@
       "path": "summary/20260708_system_design_swe/system_design_swe_magazine.html",
       "title": "最好的工程師，先問系統該長到哪裡",
       "hero": "summary/20260708_system_design_swe/system_design_hero.png"
+    },
+    {
+      "date": "2026-07-08",
+      "path": "summary/20260708_software_engineer_2026_github_vp/software_engineer_2026_magazine.html",
+      "title": "2026，還該成為軟體工程師嗎？",
+      "hero": "summary/20260708_software_engineer_2026_github_vp/software_engineer_2026_hero.png"
     },
     {
       "date": "2026-06-30",
@@ -105,12 +111,6 @@
       "path": "summary/20260611_karpathy_vibe_coding_agentic_engineering/karpathy_agentic_engineering_magazine.html",
       "title": "從 Vibe Coding 到 Agentic Engineering：Karpathy 給 AI 軟體工程師的下一個分水嶺",
       "hero": "summary/20260611_karpathy_vibe_coding_agentic_engineering/hero_agentic_engineering_cockpit.png"
-    },
-    {
-      "date": "2026-06-10",
-      "path": "summary/20260610_self_educated_with_AI_magazine_brief/self_educated_with_ai_magazine.html",
-      "title": "危險地自學：AI 時代的閱讀不是捷徑，而是判斷力訓練",
-      "hero": "summary/20260610_self_educated_with_AI_magazine_brief/hero_self_educated_ai.png"
     }
   ]
 }

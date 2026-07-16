@@ -1,0 +1,224 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-10 AI 新聞精選｜基建交易盤</title>
+  <style>
+    :root {
+      --ink: #111216;
+      --paper: #f2eee2;
+      --panel: #fffaf0;
+      --teal: #00a6b6;
+      --gold: #d69a24;
+      --red: #cf3f32;
+      --grid: rgba(17,18,22,.22);
+      --muted: #615d57;
+      --shadow: rgba(17,18,22,.17);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(0,166,182,.12) 0 2px, transparent 2px 100%),
+        linear-gradient(180deg, rgba(214,154,36,.14) 0 2px, transparent 2px 100%),
+        linear-gradient(135deg, rgba(207,63,50,.11), transparent 38%),
+        var(--paper);
+      background-size: 68px 68px, 68px 68px, auto, auto;
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    img { display: block; max-width: 100%; height: auto; }
+    .page { width: min(1200px, calc(100% - 34px)); margin: 0 auto; padding: 26px 0 54px; }
+    .masthead {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      border: 3px solid var(--ink);
+      background: var(--panel);
+      box-shadow: 12px 12px 0 var(--teal);
+      min-width: 0;
+    }
+    .intro { padding: 24px; min-height: 430px; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+    .kicker { margin: 0 0 18px; color: var(--red); font-size: 13px; font-weight: 950; text-transform: uppercase; overflow-wrap: anywhere; }
+    h1 { margin: 0; font-size: clamp(48px, 8.5vw, 110px); line-height: .9; font-weight: 950; letter-spacing: 0; overflow-wrap: anywhere; }
+    .dek { margin: 22px 0 0; max-width: 760px; color: #26252a; font-size: clamp(17px, 2vw, 22px); font-weight: 720; overflow-wrap: anywhere; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .chip { border: 2px solid var(--ink); background: #fff; padding: 6px 10px; font-size: 13px; font-weight: 900; box-shadow: 4px 4px 0 var(--gold); overflow-wrap: anywhere; }
+    .hero { border-left: 3px solid var(--ink); min-height: 430px; background: #0b1014; overflow: hidden; position: relative; }
+    .hero img { width: 100%; height: 100%; min-height: 430px; object-fit: cover; filter: saturate(1.08) contrast(1.05); }
+    .hero::after { content: ""; position: absolute; inset: 0; border: 12px solid rgba(242,238,226,.28); pointer-events: none; }
+    .tape { margin: 28px 0 26px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 3px solid var(--ink); background: #15151a; color: #fffaf0; }
+    .tape div { padding: 14px 16px; border-right: 2px solid rgba(255,250,240,.24); min-width: 0; }
+    .tape div:last-child { border-right: 0; }
+    .tape b { display: block; font-size: 28px; line-height: 1; color: var(--gold); }
+    .tape span { display: block; margin-top: 6px; font-size: 13px; font-weight: 850; overflow-wrap: anywhere; }
+    section { margin-top: 34px; }
+    .section-head { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; border-bottom: 4px solid var(--ink); margin-bottom: 16px; }
+    h2 { margin: 0; font-size: clamp(26px, 4vw, 46px); line-height: 1.05; font-weight: 950; overflow-wrap: anywhere; }
+    .section-mark { margin: 0 0 8px; color: var(--red); font-size: 13px; font-weight: 950; text-transform: uppercase; }
+    .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+    article { grid-column: span 6; min-width: 0; background: rgba(255,250,240,.95); border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--shadow); padding: 18px; overflow-wrap: anywhere; }
+    article.lead { grid-column: span 12; display: grid; grid-template-columns: 1fr .46fr; gap: 20px; background: #fffdf7; }
+    .rank { margin: 0 0 8px; color: var(--teal); font-size: 13px; font-weight: 950; }
+    h3 { margin: 0; font-size: clamp(21px, 2.4vw, 32px); line-height: 1.2; font-weight: 950; overflow-wrap: anywhere; }
+    article:not(.lead) h3 { font-size: clamp(20px, 2vw, 27px); }
+    p { margin: 12px 0 0; font-size: 16px; color: #29252a; overflow-wrap: anywhere; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .badge { border: 1.5px solid var(--ink); background: #e8fbff; color: #064f5d; padding: 3px 8px; font-size: 12px; font-weight: 900; }
+    .badge.warn { background: #ffe7dc; color: #8d2a20; }
+    .sources { margin-top: 16px; padding-top: 12px; border-top: 1.5px solid var(--grid); font-size: 13px; color: var(--muted); font-weight: 740; }
+    .sources a { font-weight: 920; color: var(--ink); }
+    .side-note { border-left: 4px solid var(--red); padding-left: 14px; align-self: end; color: var(--muted); font-size: 14px; font-weight: 780; }
+    footer { margin-top: 44px; padding-top: 16px; border-top: 3px solid var(--ink); color: var(--muted); font-size: 13px; font-weight: 720; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 22px, 730px); padding-top: 14px; }
+      .masthead { grid-template-columns: 1fr; box-shadow: 7px 7px 0 var(--teal); }
+      .intro { min-height: auto; padding: 18px; }
+      .hero { border-left: 0; border-top: 3px solid var(--ink); min-height: auto; }
+      .hero img { min-height: 260px; max-height: 430px; }
+      .tape { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tape div:nth-child(2) { border-right: 0; }
+      article, article.lead { grid-column: span 12; }
+      article.lead { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 16px, 420px); }
+      .masthead { border-width: 2px; box-shadow: 4px 4px 0 var(--teal); }
+      h1 { font-size: clamp(39px, 16vw, 70px); }
+      .dek { font-size: 16px; }
+      .chip { width: 100%; padding: 7px 9px; }
+      .tape { grid-template-columns: 1fr; }
+      .tape div { border-right: 0; border-bottom: 1.5px solid rgba(255,250,240,.24); }
+      .tape div:last-child { border-bottom: 0; }
+      .section-head { display: block; }
+      article { padding: 14px; box-shadow: 4px 4px 0 var(--shadow); }
+      h3, article:not(.lead) h3 { font-size: 21px; }
+      p { font-size: 15px; }
+      .sources { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="intro">
+        <div>
+          <p class="kicker">AI News Briefing · 2026-07-10</p>
+          <h1>基建交易盤</h1>
+          <p class="dek">模型發布後，今天的訊號轉向企業入口、資本籌碼、AI chip 自研與金融網安風險。AI 競賽正在從誰有模型，變成誰能承受流量、算力與監管壓力。</p>
+        </div>
+        <div class="chips">
+          <span class="chip">8 則精選</span>
+          <span class="chip">2 則接續報導</span>
+          <span class="chip">2 則獨特切角</span>
+          <span class="chip">1 則未交叉驗證</span>
+        </div>
+      </div>
+      <figure class="hero" aria-label="AI infrastructure trading desk editorial image">
+        <img src="2026-07-10-hero.png" alt="AI 晶片、資料中心、交易燈號與企業網路流量交錯的雜誌式主視覺">
+      </figure>
+    </header>
+
+    <div class="tape" aria-label="今日重點數字">
+      <div><b>8</b><span>過去 24 小時精選新聞</span></div>
+      <div><b>2</b><span>接續報導</span></div>
+      <div><b>2</b><span>獨特切角</span></div>
+      <div><b>1</b><span>單一來源警示</span></div>
+    </div>
+
+    <section aria-labelledby="tracking-title">
+      <div class="section-head">
+        <h2 id="tracking-title">持續追蹤</h2>
+        <p class="section-mark">Deployment</p>
+      </div>
+      <div class="grid">
+        <article class="lead">
+          <div>
+            <p class="rank">01</p>
+            <h3>OpenAI 正式推 GPT-5.6 與 ChatGPT Work，模型發布轉進企業工作流</h3>
+            <div class="badges"><span class="badge">🔄 接續報導</span></div>
+            <p>相較昨天市場只看到 GPT-5.6 排上公開釋出，今天新增量是 OpenAI 正式把 GPT-5.6 與 ChatGPT Work 放到企業工作流敘事中，競爭焦點從模型可用性推進到專業任務與 coding power。</p>
+            <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMiSEFVX3lxTE1pWmhBYnBfLXg2OGhrbmlYM2FobFBJanp6RHFiZ1lIa1BSSE1CTnNYSExtRW1USTFWbDloOUxIS3FKY2hXbm5ULQ?oc=5">OpenAI</a>、<a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWlJvdVNBN1BfQVlGeDQ2NG9oMjZMaWhMT1NmckZBTEVQLVByOXFXRVBnZFZsV08xQkY3SkpFRFJZRk9rdzFVbndBckFfM3d5NGlEZ0I1N2tfZ3NtZVd3dTU5bmJOUXRwdE9udEpaM19oN0RjaE5NVDcyZm1nQ3hRMWlqenIyaW1Qd2dLOWlJdTg2dmk1Q1dSazF5ZnB4WXhaU3dXVjhpdW5UOVB1SmxNaXNBM2VmX21MVWk3NVRfTjM5ZEpKQjNnbmdRc0oyTkJR0gHQAUFVX3lxTFBaUm91U0E3UF9BWUZ4NDY0b2gyNkxpaExPU2ZyRkFMRVAtUHI5cVdFUGdkVmxXTzFCRjdKSkVEUllGT2t3MVVud0FyQV8zd3k0aURnQjU3a19nc21lV3d1NTluYk5RdHB0T250SlozX2g3RGNoTk1UNzJmbWdDeFExaWp6cjJpbVB3Z0s5aUl1ODZ2aTVDV1JrMXlmcHhZeFpTd1dWOGl1blQ5UHVKbE1pc0EzZWZfbUxVaTc1VF9OMzlkSkpCM2duZ1FzSjJOQlE?oc=5">Fortune India</a> · <time datetime="2026-07-09T20:14:46Z">2026-07-09 20:14 GMT</time></div>
+          </div>
+          <aside class="side-note">這則的關鍵不在版本號，而是 OpenAI 把前沿模型、企業入口與專業 coding 場景綁在同一套商業化路徑。</aside>
+        </article>
+
+        <article>
+          <p class="rank">02</p>
+          <h3>SK Hynix 完成 265 億美元美國上市，AI memory 紅利正式進華爾街通道</h3>
+          <div class="badges"><span class="badge">🔄 接續報導</span></div>
+          <p>接續 7 月 6 日 SK Hynix 傳出啟動大型美國上市，今天新增量是其美國發行定價並募得 265 億美元；AI memory 需求不只改寫財報，也變成全球投資人可直接交易的資本標的。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxQWEhCckk2WnRQeFdNaEFWQlJ5VnJROXhGbnN1clFZTWVrWWVDd3o4cU5BNTctQkp4d2VfcjQ0N2toRTJqbnFjTEw3Wmp4dW9zY2RuNFo4U2tkNmM4dThWSzhYRVAyYzJXQUNIOHVnaGh6NEw0dTZaTS1pclZ2SFJjRjJxYjJfV1F5ZWJHeVlubHV2RnFDUGtZUjA0RURsbmlLeGdEbGN2ZG5hZC1oVENNNFZqam9HYno2cHJqOHhiU1M?oc=5">Reuters</a>、<a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1yeVNDUHk2U3ZBWW5BQ0FLcF91Rnptd2dIdlFOSTA3WEF1ZGQ5aF93eTZwMWVqZGtSS0E0YldtT2xESllvTGRfUVhYbmZyTlp2RHhEc3d4TUpwdw?oc=5">Yonhap News Agency</a> · <time datetime="2026-07-09T01:38:00Z">2026-07-09 01:38 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="capital-title">
+      <div class="section-head">
+        <h2 id="capital-title">資本與控制權</h2>
+        <p class="section-mark">Capital Stack</p>
+      </div>
+      <div class="grid">
+        <article>
+          <p class="rank">03</p>
+          <h3>Tencent 擬成為 Manus 最大股東，中國 agent 新創進入平台巨頭棋局</h3>
+          <p>Tencent 據報洽談成為 AI startup Manus 最大股東，顯示中國 agent 產品不只靠模型能力競爭，也正在被大型平台納入流量、雲端與應用分發的控制權布局。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxPbFpzUmJDMlREcGZWUUdDdlJybWdBY0Q5NXcxUFdiT0NrV3V2OUtyZjVHUmFROHB5c2ZHNjN5QkNmNU0wT2dSdm1YaEJKRklfNFZSWmpEdHVYa2VDNXhEX3FpLUhyZFZCZHlndjhJbE1pQUtRRlpyT0ZOdWdFYVc1S3Z4VC1FamNUdlpXNUxQcjZOa1FBSFlHV044NHFKSlNNWjZwVGFQeU9WZUVCYWZqUDF6cXVRQXc?oc=5">Reuters</a>、<a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxQUWZGaG1FV0UwdDN2VU5uX1pQeVNDazNYcnNPUG1mQ3hxcUxsc0VKLUpYMHlrV3JYaTdYcGI2UTIzS1JySVJWYnk4TVVXcWlWbl9NUEdKMG14VHFldVJxVTZHZHpBMHVQaUowSFhyUmpKdk5GVnF5S2htcHZrZVBKVWdBdEE0d090NHVrWVZiNVJrRG5oSmtlSmUtTHFRbjhZV0lnOUMya1FIXzhWUmNPNi1tcXVkNEhJSmx2M2IwajJoam5MZlhF0gHMAUFVX3lxTE9GMm82RGx3Q05FQjAtamtta01VZFkwRUZNUVJTSkJsWHF5WkUwUUYwVW5xVkpuRklKbHowdmpJcG1BZHdZS19ILXRJOGFhSkdxdnBZdGVvNUpYMXBtX2JyakhYUGdrRGVHUnhUTjdFX2V3LVJSUU1SYUtsQUpMUW5BMWc0Z2xHcFJUSFVrY0pJQ2szaXJKaDlDY3FGWUgxbE9vSU9lTFZPMHFuUDB3bDd3eXJaN0JHbzh0YmRfSzBjLTBORnM1NkhTWG85bQ?oc=5">Moneycontrol</a> · <time datetime="2026-07-10T03:07:00Z">2026-07-10 03:07 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">04</p>
+          <h3>MiniMax 傳尋求近 20 億美元募資，中國模型公司接力補充彈藥</h3>
+          <p>相較昨天 Zhipu AI 在香港售股籌資，今天的獨特切角是 MiniMax 也傳出以售股與可轉債尋求近 20 億美元，顯示中國模型公司正把募資節奏推成群體行動。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQTWJxWkNLb0pDUFhSRUlfOE5KSm92TjZGS2JidzBvalpaeF9BcUI3bklKWUJkZDB0b013eDhZbGl0UmVZSjhvS0dKQkNvcmdnWFlpUnd4TzFsbWpNcWlrTTY3QWZBd2REYkhlbWoyWUdIZ0R3aHYwbnRvN0hhd2JlRlEyZ2NELWdUSFlucmhLRXFSMWsyblJ4ci1sSVNvNDNhbEp4MkZYWmx2VWFyaGc?oc=5">Bloomberg</a>、<a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE9lalVRVGdkZTJOZ3JscXRMc1RGOVd0TEpxOVpHQlpETDM0QUw1eVJ5OHRhRk40RnFxbmJxUEZDTUxkMWZXZHo3TUZuT0xxa184?oc=5">The Edge Malaysia</a> · <time datetime="2026-07-09T16:08:36Z">2026-07-09 16:08 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">05</p>
+          <h3>Ollama 募得 6500 萬美元，local AI developer tools 站上雲端化路口</h3>
+          <p>Ollama 完成 6500 萬美元 Series B，顯示本地模型工具的市場正在變大；關鍵不只是 open source 熱度，而是開發者希望在本機、私有雲與雲端之間保留模型控制權。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQR3ZmYzR6X2dLWndvVm9OXzFxOENFcDI0MWZxeDRpY0EtZ2RwUjZjUnF4VjA5U0lORmx4OEdYLXhkZjJhc0ZyZG84YThmdXRUMERYeEd4S3lKQVJtN3Z4Q01Vd1dNc3k2RDFZc29VZG1MUmpzM3J1MnJKSGdEaUdXWHVSU3YzWThBdmY3d2RmLUNFcUFhaUhDc0Nva1RLQXhiOFVKbk53SW9jLWk5eWJYMTJsaEc1QQ?oc=5">TechCrunch</a>、<a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxQNFJzOTg0NzhkRDU3T0pRcjNZWTk2SEtPSHEtUVJLZ0NndVc4U3pOWm04ekhzbjFvbUpMQWVkcG92Nk00cXNReklyaldVV25fa2pyeV9UZzJVVUZ4S0NpU3IxWXRSRThzLXVoUWJUZE5SaWFwUHpCTEcyeG9GLUVjYTRKOC1vM3hqeVd6eTVYdnMydFkwNmF4cFh1dWo3TkFNZm8xOUc2bzFLdEZITTN1VG1sUQ?oc=5">HPCwire</a> · <time datetime="2026-07-09T13:00:00Z">2026-07-09 13:00 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="infra-title">
+      <div class="section-head">
+        <h2 id="infra-title">晶片、網路與風險</h2>
+        <p class="section-mark">Infrastructure Pressure</p>
+      </div>
+      <div class="grid">
+        <article>
+          <p class="rank">06</p>
+          <h3>Meta 自研 AI chip 9 月投產，hyperscaler 開始把算力供應鏈內收</h3>
+          <p>Meta 內部 memo 顯示其 AI chip 將在 9 月投產，目標是提高 computing capacity 並降低對外部供應的依賴；這把 AI 基建競賽從買 GPU 推進到自研 silicon 與產能控制。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxOQmJUcmlIQzJ4M0Vmd1QxQno5ajZPWnFqRHMtQkNMSzVRMHlnOXBqZDN4cjVuRU1XR3IyajdHekZJRkNpeXA2UjRBaXdiaDlnbkxVa1VXb1hwY3BDMUE1am9uX0o3OUxYTWVkeUMyemFUQ0JkMlVpX1RWSTBLVzI3bC1uaTVGelVXd1pSdEY4RHpreUQySmhOUjZMemVGQ3k4YTREY3VxN3k5alhELVdJa1hGeGYxbUltMV9mVUtHZWM4SmQ1eGNqRkk0RUk?oc=5">Reuters</a>、<a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxOR1ppUUxrYmJLWVlKSk5hbmdIRTNFWXFRQklQMFQyWkJ6VVBqQVVvU0ZDaVlpcUdvWENHeWY3bUp6Q3A3VXhhaGlidEJVR0FEWTFxZlp1aWtjaTVSd3RfUzgxSEQxV1JRTWl4MEJDQnB3ZFFsYkRuekJrRDZZY19pa193SWxraVhGMnBrdHJ1c1N4UQ?oc=5">TechCrunch</a> · <time datetime="2026-07-09T23:48:25Z">2026-07-09 23:48 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">07</p>
+          <h3>Eurogroup 把 AI cyber risk 放上財長議程，金融監管焦點從模型轉向韌性</h3>
+          <p>相較 7 月 8 日 Bank of England 警告 AI 金融穩定風險，今天的獨特切角是 Eurogroup 將 AI cyber risk 放進財長議程，歐洲開始把 AI 當作金融韌性與數位基礎設施問題。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMibkFVX3lxTE42LVpjYXJaR0MwclQwc2dnSnk3WmhuTTdvZDM4QmRveUpXVndjWGV1dXI4WkRLT1d1M3ptQVRPNW45MlMwMFR3Q0tMTWVCcjlNR2tFMTlWWlVoaXo5ZHIwMzc1X0xldWQzN1BrZHln?oc=5">EU Today</a>、<a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxPV2hoTXFocE1fM1RKeGJBZWhySUhLR19idHR5bjNiLUVYNDJuU3Z0U2tIZ0dFMk5SN2RXMXJTa0JhNXIybWhneHFsMjc2eU1LZ0dXNlpvOFpjU2ZKcUdBVUNqWDdOaUtKM0h3bmdxajRFX2tWUUE2LUcxeTUyRWN6WE1fYlRoMEY1VE55dUhzN1NkZjA1LTB6OWJEZkZvTUNaVTA3cVE5Q2R4czJaY00zNUowQUVmT2o3cFFERWNBT3RjZkRUeHRreld0aU5NdTlaWThla0I1ZDc0ZTVZ?oc=5">Insight EU Monitoring</a> · <time datetime="2026-07-10T07:27:43Z">2026-07-10 07:27 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">08</p>
+          <h3>Lumen 收購 Alkira 管理 AI traffic，企業網路也被算力浪潮推向重整</h3>
+          <div class="badges"><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <p>Lumen 收購 cloud networking 公司 Alkira，被定位為處理 AI traffic 的基建交易；若交易整合順利，企業 AI 的瓶頸將不只在模型與 GPU，也在跨雲網路與資料流量治理。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGJ4TlU2R1g5bW1GdVAwT0ZNSVZxYkhDTndNU2paZWRyel94OWd3cC1zM2ZuVDlnRzZqQTkzaUg5ejhIQVBxTzBQeVpIVXlLVS00WklIMGkxMk9DZzNqVHFOSGluQ2kxdmtJUV9nd05IQXlRSlNHenp6YzNGNnlDa19aN0pDVXNLMzhuWmEtRQ?oc=5">Enterprise Times</a> · <time datetime="2026-07-10T06:00:09Z">2026-07-10 06:00 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。
+    </footer>
+  </main>
+</body>
+</html>

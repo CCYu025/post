@@ -1,0 +1,218 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-13 AI 新聞精選｜壓力測試開盤</title>
+  <style>
+    :root {
+      --ink: #101216;
+      --paper: #f3efe4;
+      --panel: #fffaf0;
+      --teal: #00a7b2;
+      --gold: #d39a29;
+      --red: #d74735;
+      --line: rgba(16,18,22,.23);
+      --muted: #625d56;
+      --shadow: rgba(16,18,22,.16);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(0,167,178,.12) 0 2px, transparent 2px 100%),
+        linear-gradient(180deg, rgba(211,154,41,.13) 0 2px, transparent 2px 100%),
+        radial-gradient(circle at 18% 12%, rgba(215,71,53,.14), transparent 28%),
+        var(--paper);
+      background-size: 70px 70px, 70px 70px, auto, auto;
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    img { display: block; max-width: 100%; height: auto; }
+    .page { width: min(1200px, calc(100% - 34px)); margin: 0 auto; padding: 26px 0 54px; }
+    .cover { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid var(--ink); background: var(--panel); box-shadow: 12px 12px 0 var(--red); min-width: 0; }
+    .intro { padding: 24px; min-height: 430px; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+    .kicker { margin: 0 0 18px; color: var(--red); font-size: 13px; font-weight: 950; text-transform: uppercase; overflow-wrap: anywhere; }
+    h1 { margin: 0; font-size: clamp(48px, 8.5vw, 108px); line-height: .9; font-weight: 950; letter-spacing: 0; overflow-wrap: anywhere; }
+    .dek { margin: 22px 0 0; max-width: 760px; color: #26252a; font-size: clamp(17px, 2vw, 22px); font-weight: 720; overflow-wrap: anywhere; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .chip { border: 2px solid var(--ink); background: #fff; padding: 6px 10px; font-size: 13px; font-weight: 900; box-shadow: 4px 4px 0 var(--teal); overflow-wrap: anywhere; }
+    .hero { border-left: 3px solid var(--ink); min-height: 430px; background: #0c1014; overflow: hidden; position: relative; }
+    .hero img { width: 100%; height: 100%; min-height: 430px; object-fit: cover; filter: saturate(1.08) contrast(1.04); }
+    .hero::after { content: ""; position: absolute; inset: 0; border: 12px solid rgba(243,239,228,.28); pointer-events: none; }
+    .ticker { margin: 28px 0 26px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 3px solid var(--ink); background: #14151a; color: #fffaf0; }
+    .ticker div { padding: 14px 16px; border-right: 2px solid rgba(255,250,240,.24); min-width: 0; }
+    .ticker div:last-child { border-right: 0; }
+    .ticker b { display: block; font-size: 28px; line-height: 1; color: var(--gold); }
+    .ticker span { display: block; margin-top: 6px; font-size: 13px; font-weight: 850; overflow-wrap: anywhere; }
+    section { margin-top: 34px; }
+    .section-head { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; border-bottom: 4px solid var(--ink); margin-bottom: 16px; }
+    h2 { margin: 0; font-size: clamp(26px, 4vw, 46px); line-height: 1.05; font-weight: 950; overflow-wrap: anywhere; }
+    .section-mark { margin: 0 0 8px; color: var(--red); font-size: 13px; font-weight: 950; text-transform: uppercase; }
+    .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+    article { grid-column: span 6; min-width: 0; background: rgba(255,250,240,.95); border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--shadow); padding: 18px; overflow-wrap: anywhere; }
+    article.lead { grid-column: span 12; display: grid; grid-template-columns: 1fr .46fr; gap: 20px; background: #fffdf7; }
+    .rank { margin: 0 0 8px; color: var(--teal); font-size: 13px; font-weight: 950; }
+    h3 { margin: 0; font-size: clamp(21px, 2.4vw, 32px); line-height: 1.2; font-weight: 950; overflow-wrap: anywhere; }
+    article:not(.lead) h3 { font-size: clamp(20px, 2vw, 27px); }
+    p { margin: 12px 0 0; font-size: 16px; color: #29252a; overflow-wrap: anywhere; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .badge { border: 1.5px solid var(--ink); background: #e8fbff; color: #064f5d; padding: 3px 8px; font-size: 12px; font-weight: 900; }
+    .badge.warn { background: #ffe7dc; color: #8d2a20; }
+    .sources { margin-top: 16px; padding-top: 12px; border-top: 1.5px solid var(--line); font-size: 13px; color: var(--muted); font-weight: 740; }
+    .sources a { font-weight: 920; color: var(--ink); }
+    .side-note { border-left: 4px solid var(--red); padding-left: 14px; align-self: end; color: var(--muted); font-size: 14px; font-weight: 780; }
+    footer { margin-top: 44px; padding-top: 16px; border-top: 3px solid var(--ink); color: var(--muted); font-size: 13px; font-weight: 720; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 22px, 730px); padding-top: 14px; }
+      .cover { grid-template-columns: 1fr; box-shadow: 7px 7px 0 var(--red); }
+      .intro { min-height: auto; padding: 18px; }
+      .hero { border-left: 0; border-top: 3px solid var(--ink); min-height: auto; }
+      .hero img { min-height: 260px; max-height: 430px; }
+      .ticker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ticker div:nth-child(2) { border-right: 0; }
+      article, article.lead { grid-column: span 12; }
+      article.lead { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 16px, 420px); }
+      .cover { border-width: 2px; box-shadow: 4px 4px 0 var(--red); }
+      h1 { font-size: clamp(39px, 16vw, 70px); }
+      .dek { font-size: 16px; }
+      .chip { width: 100%; padding: 7px 9px; }
+      .ticker { grid-template-columns: 1fr; }
+      .ticker div { border-right: 0; border-bottom: 1.5px solid rgba(255,250,240,.24); }
+      .ticker div:last-child { border-bottom: 0; }
+      .section-head { display: block; }
+      article { padding: 14px; box-shadow: 4px 4px 0 var(--shadow); }
+      h3, article:not(.lead) h3 { font-size: 21px; }
+      p { font-size: 15px; }
+      .sources { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover">
+      <div class="intro">
+        <div>
+          <p class="kicker">AI News Briefing · 2026-07-13</p>
+          <h1>壓力測試開盤</h1>
+          <p class="dek">週一的 AI 敘事轉向市場壓力測試：晶片超循環仍被央行看好，但 AI 股、資料中心 IPO、電力元件與模型價格戰都開始檢驗這波熱潮的承受力。</p>
+        </div>
+        <div class="chips">
+          <span class="chip">8 則精選</span>
+          <span class="chip">2 則接續報導</span>
+          <span class="chip">3 則獨特切角</span>
+          <span class="chip">3 則未交叉驗證</span>
+        </div>
+      </div>
+      <figure class="hero" aria-label="AI market pressure test editorial image">
+        <img src="2026-07-13-hero.png" alt="AI 晶片、資料中心、交易曲線與廣告透明標籤交錯的雜誌式主視覺">
+      </figure>
+    </header>
+
+    <div class="ticker" aria-label="今日重點數字">
+      <div><b>8</b><span>過去 24 小時精選新聞</span></div>
+      <div><b>2</b><span>接續報導</span></div>
+      <div><b>3</b><span>獨特切角</span></div>
+      <div><b>3</b><span>單一來源警示</span></div>
+    </div>
+
+    <section aria-labelledby="tracking-title">
+      <div class="section-head">
+        <h2 id="tracking-title">持續追蹤</h2>
+        <p class="section-mark">Chip Cycle</p>
+      </div>
+      <div class="grid">
+        <article class="lead">
+          <div>
+            <p class="rank">01</p>
+            <h3>Bank of Korea 看 AI 晶片超循環未結束，駁斥景氣見頂疑慮</h3>
+            <div class="badges"><span class="badge">🔄 接續報導</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+            <p>接續上週 SK Hynix 上市與 AI memory 紅利題，今天新增量是 Bank of Korea 表態 AI-driven chip supercycle 仍會延續，等於用央行視角回應市場對記憶體景氣見頂的疑慮。</p>
+            <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE1scXdHbUhrZ25pNU4zMUVScDRSZTBSOVNoWXpYMlA0eHR5cl9Oc2w4MUNLR1d5MHVXMW5VdVRfYWNQVXluV293a1NmX01RaWVhYWdPVDdLUXgtdw?oc=5">Yonhap News Agency</a> · <time datetime="2026-07-12T23:53:11Z">2026-07-12 23:53 GMT</time></div>
+          </div>
+          <aside class="side-note">同一條晶片故事正在分裂成兩種訊號：基本面仍熱，市場定價卻開始追問能否繼續加速。</aside>
+        </article>
+
+        <article>
+          <p class="rank">02</p>
+          <h3>SK Hynix 掛牌後跳漲，AI memory 從募資事件進入二級市場測試</h3>
+          <div class="badges"><span class="badge">🔄 接續報導</span></div>
+          <p>相較 7 月 10 日的美國上市完成，最新增量是 SK Hynix 在 Nasdaq debut 後大幅上漲；AI memory 的故事不再只是募資金額，而是市場願意給多少倍數。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxPMExLUjFrRzQ2NkttZDk4SDNNeEpJU2c0YkUzbnJvQmVvbm9ic1B3dXNudV9DcE8waEVDc1pXMW1MMkt3MGFYSFFEVnpvRFNWVVREU0hVTnFWRnBIbjdFTzBRbmFodWU1bmc4LTNRdzdQZlJWXzluQkFJSDAxZGptTHhlRlBvLWZQMTBwcVdxMElKUU9hdm91dGVDQVVMVHdyejRvdkxVQ3U4UUJrQ3JoVmItLWJHWDNqbFFVQ2xXUE5KT25jc3F5TmU3UnFSMkU?oc=5">Tech Times</a>、<a href="https://news.google.com/rss/articles/CBMib0FVX3lxTE5yUk5RcmVhbjdpc0I2Mm8tMUttMGRjSGlrSVM1RzRiME05NUFLalFhcWI1b2lEU0JJWFBtNzBtbVZQNmxyT0w1Vm52b1p4WTFQRm9wSFZIREFvdGdrU1FlS3dzOTBIS3RHZzhCcDd2RQ?oc=5">eciks.org</a> · <time datetime="2026-07-12T14:25:01Z">2026-07-12 14:25 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="market-title">
+      <div class="section-head">
+        <h2 id="market-title">市場壓力</h2>
+        <p class="section-mark">Valuation Test</p>
+      </div>
+      <div class="grid">
+        <article>
+          <p class="rank">03</p>
+          <h3>高飛 AI 股開始回檔，估值熱潮遇到第一波獲利了結</h3>
+          <div class="badges"><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <p>這不是單一公司新聞，而是獨特切角：AI 熱門股在連續上漲後出現修正，說明市場已開始把晶片、資料中心與模型題材從「全買」轉向逐項檢驗。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNdWVySVlldld3SDdLeDBObXZNQXd1QXd0ZGxlMVlPQm1mMmRNZTliTmd2cDVMU1FEVGpyRTNrbG5ETEZycFhPXzNFRjNYc1cyU3htVnJtMDhzYUJ6NWpXNzJBcnlTTmVfMmFWWllDeUxyaTFPZFQzSkl0cHpHR1lwcDZJTmdkVGpicUZHQUVWTndXaXJRZDJlZ284WE1DYklyRkM3X2JFSzJQdUFLaXA0TkZuOWlSQdIBuwFBVV95cUxPU0ZWMGpfWnlJRzJ1YXpoRkRVdWhvZXE5UnpjMVhNOUxvS0JxNHdsVUEtcS13X2UzelZLYXhSZ1h1Nm14ZFI0LXFXaVdHN29HVmFmU0tuU05IZTlEWG9XeHAxT05zaTQyUWxTSXItOXFnaHpyRVZVVHdZTm84MktpaU43S182UFdsUUpRcHNEMXhkbVNrMzVJU2IyYlp1cmJOYnVNSEt2UU0wdXhHZGhBbHdoN3IwZGFKRGZr?oc=5">Moneycontrol</a> · <time datetime="2026-07-12T23:30:01Z">2026-07-12 23:30 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">04</p>
+          <h3>資料中心 IPO 成 AI 交易新考題，基建敘事要接受公開市場定價</h3>
+          <p>資料中心公司 IPO 被視為 AI stock trade 的下一次測試；獨特切角在於，AI capex 不只由 Nvidia、雲端巨頭與電力公司反映，現在連資料中心資產本身也要被公開市場重估。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1yU0ZfcktQR3lIcjZlNnJMc3lxcUlCMnhQTW4tRlVTQ0RscDJwSmlLcGZiZk9hMEU2SW9xSXlNMlNrNzFXWF9tTjVXZm1CV01oNm1mMFA3dnFydnZrYlhiZ19yN05paFN0OGlCZ1ExZWl6R3duVEs2NlhmXy02ZGM?oc=5">Barron's</a>、<a href="https://news.google.com/rss/articles/CBMi-gFBVV95cUxQQTJ3YVlrWUZvMk9WRGVSYXVDM0NTSE9fajlyVVFtVXJqcW9lSkkzOGltdXVGOTFpcmNfeEtGak1zTXowZEx4SzRVelpMUC1mbC13aHFjb2JWUFg4RmtCcHFHTFFxbkxTSjZrWUhiaUJjRXlLbFJXbVJPSERPbVMxUW1ucncyZHNjVWNIYlJnMmhxTlNzSnc1NDFWMXNoMVhQczFEdk1RcURCSHJwTmh2ejJzNGVlMXF3QnVfRnhKU3FoNGZ1WktTUkpOQzFZelFPWnRSdWdVREpqeFJiYUJJWU96akxwOW9DSWx4TEJoRld3cFJ5UWNncVJn?oc=5">MSN</a> · <time datetime="2026-07-12T05:30:00Z">2026-07-12 05:30 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">05</p>
+          <h3>AI servers 拉動新一代 power semiconductors，電力元件成算力股外圍戰場</h3>
+          <p>AI server 需求正在推高對 next-generation power semiconductors 的關注；獨特切角是投資人不只追 GPU，也開始沿著電力轉換、散熱與供電模組尋找下一層基建受益者。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFAzQ0xnaUFHMER6akthZ1pFeHVxZlRna0ZoOFpSU3ZmZDkzdDZ6eEIyLUJlVVVZcUlvaUU0Uk5hWFVBOWNwYUlTNEE3Tk0xTENURjFLdg?oc=5">News On Japan</a>、<a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOa0lWb1N0ZXBDMFE0ZFJlTnp5S254bDZpMldwNmtiMnZLblp5N2RKSnBpOGVjaHl2bXhPUkFnUU9SZU1KTklKWUFVVFVNdWtZUDNueHlESzF6Y1BRaDFuZHVYSHVia0IyTUpXLUJaYjR6dWNoSm1ZanI2Q3doaWVRMmlxa0RBTktIbUNPV2VyTE5Wbk9WclBpemVuMGMxZlF3?oc=5">24/7 Wall St.</a> · <time datetime="2026-07-12T18:42:49Z">2026-07-12 18:42 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="product-title">
+      <div class="section-head">
+        <h2 id="product-title">產品與規則</h2>
+        <p class="section-mark">Product Layer</p>
+      </div>
+      <div class="grid">
+        <article>
+          <p class="rank">06</p>
+          <h3>Google 為 AI-generated ads 增加透明標示，生成式廣告進入責任包裝期</h3>
+          <p>Google 增加 AI-generated ads 透明度標示，代表生成式廣告不只追求產能與轉換率，也開始被要求讓消費者知道內容來源；這會影響廣告平台、品牌素材與合規審核。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQRTA4Y3gwUERtaVY5NmR1NWx2WmtkaURjVlVpQUhFR3lKNTBOOWlldE9aVWZDS1VsTFA2UlVHcGFodnBxbW9KOG5ERl9icTYwREZSNHJVRV9DYVlOaG5Za2FqSDBDSGQxWFdLdk5qQzkxVDViXzBSWHYzcDFibl9wWEhUM0ltMF9Yb05DRGJRNzBpdFN4TmRrWDVsSDVXZW1zZ0daSnh3?oc=5">MediaPost</a>、<a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOa1BMUzJDQWN4WV9JYUFXN0stSVBXOVBxS0FyWU9Wc254MUJtb1dwdFVITm9oS2dTMEFadDNUWVRfdkZEZTlrQU5lYnFOanhWUE8xdDMwVHQ3SklpeHhPOFEzamNDaF9UUlFoSWJvY0ZmeEtnQlloWnpBUHBiNG9SemJQT0xBVUpBVFZINWhNRzNtbUdIM2l4ZzBNcmNPMFE?oc=5">Tekedia</a> · <time datetime="2026-07-10T05:57:48Z">2026-07-10 05:57 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">07</p>
+          <h3>Grok 4.5 以低價 Opus-class 定位切入，模型價格戰壓向 coding agents</h3>
+          <p>Grok 4.5 的新報導把焦點放在更低的 coding agent pricing，這讓 OpenAI、Anthropic 與 xAI 的競爭不只比能力，也比企業與開發者能否承受長時間 agent 成本。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPamRVNW9GZWpFX1h1WnNmRS1DMmRfT0Z0bXpRRl8xNHRPenQ1NHZvZG5xbE9KQUt6RVZ5UFgwRG43Y183STVNbWdNQWp4bUMtVW40VXAzSHdrSmZEbk5Qa05HNnM5R3lFcTE3ZnAyTVdGdHBId3RzWlVmb2JDUjZDM3gyZ3FJb2ZRX0Z4Tw?oc=5">Memeburn</a>、<a href="https://news.google.com/rss/articles/CBMidEFVX3lxTFBCRFBpTEZNeGh4RWk5Q2diajZkelhQdU84cDdwOUROSHprcnBZUlhOdFVXV0ZreGtfR1pvWkIzMk94bnJXc3ZRVEFPc3RhRjJfRkRHZ1VvVV8xV3UzekZiTXFKdkYyZWlFNjdZcUxoeGtRMGRX?oc=5">Crypto Briefing</a> · <time datetime="2026-07-12T17:01:10Z">2026-07-12 17:01 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">08</p>
+          <h3>LG Electronics 切入 AI server rack，韓國供應鏈瞄準 Big Tech 機房</h3>
+          <div class="badges"><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <p>LG Electronics 被報導成為 Big Tech AI rack supplier option，並瞄準 direct-to-chip cooling；這代表 AI 基建供應鏈正從晶片與記憶體，外溢到整櫃伺服器、冷卻與組裝能力。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOYnVVWVdfbi02eFQ1MTJkdl9IRVBBc3dralhnb3pqa1RUUjktemxVZzhza1pCOEdRRXE3ZkZMeHIyUFVtZWpPLVVKVmFsQ010SVppWUxIaVZlLURkdlBFT3pJU18zcklpY3BCb0pGZnBCNWlKcWo3OWRhZGtmZVlHMlVpUlJPVC0zOWhhRF9KSWxKVnhzM0pxLUUzUFdUWFE?oc=5">Seoul Economic Daily</a> · <time datetime="2026-07-12T22:34:26Z">2026-07-12 22:34 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,216 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-14 AI 新聞精選｜基建外溢</title>
+  <style>
+    :root {
+      --ink: #101216;
+      --paper: #f2eee1;
+      --panel: #fffaf0;
+      --teal: #00a7b6;
+      --gold: #d39b2c;
+      --red: #cf3f32;
+      --line: rgba(16,18,22,.24);
+      --muted: #625d56;
+      --shadow: rgba(16,18,22,.16);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(0,167,182,.12) 0 2px, transparent 2px 100%),
+        linear-gradient(180deg, rgba(211,155,44,.13) 0 2px, transparent 2px 100%),
+        radial-gradient(circle at 15% 8%, rgba(207,63,50,.14), transparent 30%),
+        var(--paper);
+      background-size: 72px 72px, 72px 72px, auto, auto;
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    img { display: block; max-width: 100%; height: auto; }
+    .page { width: min(1200px, calc(100% - 34px)); margin: 0 auto; padding: 26px 0 54px; }
+    .cover { display: grid; grid-template-columns: .94fr 1.06fr; border: 3px solid var(--ink); background: var(--panel); box-shadow: 12px 12px 0 var(--gold); min-width: 0; }
+    .intro { padding: 24px; min-height: 430px; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+    .kicker { margin: 0 0 18px; color: var(--red); font-size: 13px; font-weight: 950; text-transform: uppercase; overflow-wrap: anywhere; }
+    h1 { margin: 0; font-size: clamp(48px, 8.5vw, 108px); line-height: .9; font-weight: 950; letter-spacing: 0; overflow-wrap: anywhere; }
+    .dek { margin: 22px 0 0; max-width: 760px; color: #26252a; font-size: clamp(17px, 2vw, 22px); font-weight: 720; overflow-wrap: anywhere; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .chip { border: 2px solid var(--ink); background: #fff; padding: 6px 10px; font-size: 13px; font-weight: 900; box-shadow: 4px 4px 0 var(--teal); overflow-wrap: anywhere; }
+    .hero { border-left: 3px solid var(--ink); min-height: 430px; background: #0c1014; overflow: hidden; position: relative; }
+    .hero img { width: 100%; height: 100%; min-height: 430px; object-fit: cover; filter: saturate(1.08) contrast(1.04); }
+    .hero::after { content: ""; position: absolute; inset: 0; border: 12px solid rgba(242,238,225,.28); pointer-events: none; }
+    .ticker { margin: 28px 0 26px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 3px solid var(--ink); background: #14151a; color: #fffaf0; }
+    .ticker div { padding: 14px 16px; border-right: 2px solid rgba(255,250,240,.24); min-width: 0; }
+    .ticker div:last-child { border-right: 0; }
+    .ticker b { display: block; font-size: 28px; line-height: 1; color: var(--gold); }
+    .ticker span { display: block; margin-top: 6px; font-size: 13px; font-weight: 850; overflow-wrap: anywhere; }
+    section { margin-top: 34px; }
+    .section-head { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; border-bottom: 4px solid var(--ink); margin-bottom: 16px; }
+    h2 { margin: 0; font-size: clamp(26px, 4vw, 46px); line-height: 1.05; font-weight: 950; overflow-wrap: anywhere; }
+    .section-mark { margin: 0 0 8px; color: var(--red); font-size: 13px; font-weight: 950; text-transform: uppercase; }
+    .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+    article { grid-column: span 6; min-width: 0; background: rgba(255,250,240,.95); border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--shadow); padding: 18px; overflow-wrap: anywhere; }
+    article.lead { grid-column: span 12; display: grid; grid-template-columns: 1fr .46fr; gap: 20px; background: #fffdf7; }
+    .rank { margin: 0 0 8px; color: var(--teal); font-size: 13px; font-weight: 950; }
+    h3 { margin: 0; font-size: clamp(21px, 2.4vw, 32px); line-height: 1.2; font-weight: 950; overflow-wrap: anywhere; }
+    article:not(.lead) h3 { font-size: clamp(20px, 2vw, 27px); }
+    p { margin: 12px 0 0; font-size: 16px; color: #29252a; overflow-wrap: anywhere; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .badge { border: 1.5px solid var(--ink); background: #e8fbff; color: #064f5d; padding: 3px 8px; font-size: 12px; font-weight: 900; }
+    .badge.warn { background: #ffe7dc; color: #8d2a20; }
+    .sources { margin-top: 16px; padding-top: 12px; border-top: 1.5px solid var(--line); font-size: 13px; color: var(--muted); font-weight: 740; }
+    .sources a { font-weight: 920; color: var(--ink); }
+    .side-note { border-left: 4px solid var(--red); padding-left: 14px; align-self: end; color: var(--muted); font-size: 14px; font-weight: 780; }
+    footer { margin-top: 44px; padding-top: 16px; border-top: 3px solid var(--ink); color: var(--muted); font-size: 13px; font-weight: 720; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 22px, 730px); padding-top: 14px; }
+      .cover { grid-template-columns: 1fr; box-shadow: 7px 7px 0 var(--gold); }
+      .intro { min-height: auto; padding: 18px; }
+      .hero { border-left: 0; border-top: 3px solid var(--ink); min-height: auto; }
+      .hero img { min-height: 260px; max-height: 430px; }
+      .ticker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ticker div:nth-child(2) { border-right: 0; }
+      article, article.lead { grid-column: span 12; }
+      article.lead { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .page { width: min(100% - 16px, 420px); }
+      .cover { border-width: 2px; box-shadow: 4px 4px 0 var(--gold); }
+      h1 { font-size: clamp(39px, 16vw, 70px); }
+      .dek { font-size: 16px; }
+      .chip { width: 100%; padding: 7px 9px; }
+      .ticker { grid-template-columns: 1fr; }
+      .ticker div { border-right: 0; border-bottom: 1.5px solid rgba(255,250,240,.24); }
+      .ticker div:last-child { border-bottom: 0; }
+      .section-head { display: block; }
+      article { padding: 14px; box-shadow: 4px 4px 0 var(--shadow); }
+      h3, article:not(.lead) h3 { font-size: 21px; }
+      p { font-size: 15px; }
+      .sources { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover">
+      <div class="intro">
+        <div>
+          <p class="kicker">AI News Briefing · 2026-07-14</p>
+          <h1>基建外溢</h1>
+          <p class="dek">AI 的重心今天從模型排行榜外移到真實世界：資料中心擴建、核電政策、晶片通膨、出口規則、隱私反彈與零售現場 agent 同時推進。</p>
+        </div>
+        <div class="chips">
+          <span class="chip">8 則精選</span>
+          <span class="chip">2 則接續報導</span>
+          <span class="chip">3 則獨特切角</span>
+          <span class="chip">1 則未交叉驗證</span>
+        </div>
+      </div>
+      <figure class="hero" aria-label="AI infrastructure spillover editorial image">
+        <img src="2026-07-14-hero.png" alt="AI 資料中心、電網、晶片、物流與隱私防護交錯的雜誌式主視覺">
+      </figure>
+    </header>
+
+    <div class="ticker" aria-label="今日重點數字">
+      <div><b>8</b><span>過去 24 小時精選新聞</span></div>
+      <div><b>2</b><span>接續報導</span></div>
+      <div><b>3</b><span>獨特切角</span></div>
+      <div><b>1</b><span>單一來源警示</span></div>
+    </div>
+
+    <section aria-labelledby="tracking-title">
+      <div class="section-head">
+        <h2 id="tracking-title">持續追蹤</h2>
+        <p class="section-mark">Infrastructure</p>
+      </div>
+      <div class="grid">
+        <article class="lead">
+          <div>
+            <p class="rank">01</p>
+            <h3>Meta 再加碼 400 億美元 Louisiana AI data center，算力競賽進入州級基建尺度</h3>
+            <div class="badges"><span class="badge">🔄 接續報導</span></div>
+            <p>接續上週 Meta 自研 AI chip 與算力倍增脈絡，今天新增量是 Meta 計畫再投入 400 億美元擴建 Louisiana AI data center；模型公司與 hyperscaler 的戰場正落到土地、電力與地方政治。</p>
+            <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPQ3IycUxsb2tWX0ZLUzlPX3pfRUxrNkxEcXd5X1lPcG1Ld1A1RmhYelB0Um9BOVN0ZWtteEtIeU1tZ3ZwWU5PRm9ZVlktNUk0VUhDbGg5R0RGck1kSFR5azlKVEpQQXJFa1JabmxJdFVKcmI2YTJDNGtrMzdPWXJYbFhqbW5OVnBSZTdVaUZxajh1WnowSVduNXVYTUh2aWo0Y01Cb3g5eV84NFAtTHlzT2lrSzREOVdmbmNEb0RlRkR2ZHRIdHc5MGNn0gHPAUFVX3lxTE1MNkR0c3BmWjBuQTlzY0JJaXFPUmJfNDVKcFlEcmZtbjJicW9uNHMxQ2F6U1lJUzlER0NPSGR4QmttUnVkVi01QVdKSWpFanVsOUFidHd3dFBvbVdHd01wd2lXWkVTRlV3Uy1BUC1kQjNoS1BpSjhJREtKVThOS21mR1B5MGo3Mno2enlRYTlvbDlHVjZkb3pMMmpZdWFRV0FnWFd0ck1tb1ItRHM4YkhyQ2pfQzF6Q3l6eVlVZTU5dXdIOS1tU1dRSEpIQndXOA?oc=5">NOLA.com</a>、<a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNQjZqODJUOGhvd3IwcHlMOGNJeEVlLVZCRU9hNlpoazFjcDYyOUFtVGdHSE5iZ2h2cm1DQmdTTl95OVo0Rl9YRHZJcXpQQ0M1aTZncE4wWE9KWmFKS2FtdFJBUTRTZ3JlazRZaEhSaFVCRzdEMkpOcXdiSzNsanQ2UHpfQ1BQTUdfQ24xUlVfVXoyZXhza25sV0xMbXRBMW4zWk5oZ05vQ1BkcmE3ZUZxMl9B?oc=5">Bloomberg</a> · <time datetime="2026-07-13T09:25:00Z">2026-07-13 09:25 GMT</time></div>
+          </div>
+          <aside class="side-note">這則把 AI capex 從財報數字變成地理事件：誰能供電、供水、審批與建造，誰就接住下一波模型需求。</aside>
+        </article>
+
+        <article>
+          <p class="rank">02</p>
+          <h3>AI-driven chipflation 壓到消費電子，記憶體紅利開始轉成終端價格壓力</h3>
+          <div class="badges"><span class="badge">🔄 接續報導</span><span class="badge warn">⚠ 未交叉驗證</span></div>
+          <p>接續近期 AI memory shortage、SK Hynix 與 Bank of Korea 晶片超循環報導，今天新增量是 chipflation 影響電子產品購買意願；AI 資料中心需求正沿供應鏈外溢到一般消費者。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQbHdaTnhna2JKa2FwMlJzOGxjeGt6LXJrMXBvektKTGZFNm02MXJtUFlGcGVOVXBEUXVORzJCbGdWaFBKQlhsN3NBa0NReWdXNUJRSTFFN0diZU1BQkVEMTJ4LWItYUNQa0Q5MzJIakFSZ0pPMHZEZFpoOWNVa0RIWXNMZzJfT2xQa09iel81QVh6cmRNM2JrYXdseW93QWhIbVgybHNjSmVZVEZxTkww?oc=5">Nikkei Asia</a> · <time datetime="2026-07-13T22:36:00Z">2026-07-13 22:36 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="policy-title">
+      <div class="section-head">
+        <h2 id="policy-title">能源與政策閥門</h2>
+        <p class="section-mark">Power & Export</p>
+      </div>
+      <div class="grid">
+        <article>
+          <p class="rank">03</p>
+          <h3>韓國晶圓廠與 AI data centers 把核電政策拉回中心</h3>
+          <p>韓國媒體指出 chip fabs 與 AI data centers 讓核電政策重新成為焦點；獨特切角是 AI 基建不只推高電價，也會改變國家能源組合與長期供電安全辯論。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTFB1MUpkYm1DX29kak80c2xmU1pfS1BwRnZhZUdNdnFydE5HbC1uampLLXJZVGdmU3VncFdqSXhSaWFFT3pPXzVzUHZwdUJhNFFldTFCZlI1RUQwdw?oc=5">Yonhap News Agency</a>、<a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOOWpieXl2aEJaemN6WnBWYTZ2QTY5dTVkOUlFS294OHNNbDlJdFJkeEMycE8zLWtxQXdhN3JVeFl2ckJOSi01dm1uYnNOOTVvbUtjeW1ZTFhPYTFvNnZJYmxFdF9GOUw2dmEwdy0zTmYzV2tqY3hMYmZySERPXzZ4bm90NDJJLWtvTlhBRG14NDJvYzB3N3J2eGlLMVQ5MEJZTVE4?oc=5">Korea Bizwire</a> · <time datetime="2026-07-13T05:59:46Z">2026-07-13 05:59 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">04</p>
+          <h3>美國放寬 UAE AI chip 與防務科技出口規則，中東算力通道再開一格</h3>
+          <p>美國對 UAE 放寬 AI chip 與 defense technology export rules，顯示華府在管控中國之外，也在用分級待遇重塑盟友算力通道；這是 AI 地緣供應鏈的新角度。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPUmEzbUZHNVFPLVdNXzl5aDFkem9UVFlKZy1JTk1UU1FWWTdfYTVOMmxuTEdZUVdBcElxcWdQQW8yT2I5OXRud1RoNE5kZEZhZTl2TnctVVlZa1duZ3Z6X2UyaVNSVFpsYU5Zdy1MVDZwUDRvMVFOWmVpbWtOUXZSNkROdXVLMVdFTDAzcE5ndw?oc=5">Muslim Network TV</a>、<a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxQNXZqV24yVmRveGNSa05jUU9nYXlERFlYWVR5STZseXdkbDY4QVpTVzlPWjgtS2dFcmhNaVNRTklDTlNJTWc2N3R0V3ZydnlUejA0c3BkaHZqNFlQMjFIcElCd1NocHNhZ1laRnpsb0VtT29VR0xVRE5JZ0hKamtuOWpCaUxSbGVSRUdXNWVqNUp3d2wwOURPb1JZOA?oc=5">EnterpriseAM</a> · <time datetime="2026-07-13T21:45:00Z">2026-07-13 21:45 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">05</p>
+          <h3>Meta 回收 Instagram 公開圖片 AI 工具，社群資料使用權再踩紅線</h3>
+          <p>Meta 在外界批評後收斂一項會自動存取 public Instagram images 的 AI tool；這不是單純產品調整，而是生成式 AI 對社群內容、同意與平台資料邊界的再次測試。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPTW9PUmRYbkcxeUhtbGs3SHFyNkpJWnY4SXk5ZW1BZmdwRFRZeGRVUV9aNjRuRF9laE4zTy1CV0dXSHpzdWgyRXZFSHdrQlhsRjhiQXljMDBRUVZyWnFJY3czN0duY3UtUEk1d0tINGJRVVlERjBPVjQtc0N2TlZNWkE2Z0tkZU9MbjIwU0dXWTNvc20wb3E2ZjJFeldjbVhOMTFSOVNjVHZfZ2tFRE1TUGxlZWp5aEROeTEzUTQ5dm9kUF9ZYkhqNDhLdw?oc=5">WTOP</a>、<a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE5YTy1qcDBYZ1FKZGhQeXJPNmxmNFZLNFpCelpzOTZwYkc5M2dLVEdtYkZnc2FyS0ZlTnd1dlFlOE1CMkVrc1lXaWdocU1lUlJWMGR6N3ZnMEI5TTEwb0tNVVY3TEdVaC1RakVsNnBOcEhRWU1o?oc=5">Cybernews</a> · <time datetime="2026-07-11T16:35:57Z">2026-07-11 16:35 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="product-title">
+      <div class="section-head">
+        <h2 id="product-title">產品落地</h2>
+        <p class="section-mark">Agents & Apps</p>
+      </div>
+      <div class="grid">
+        <article>
+          <p class="rank">06</p>
+          <h3>Fujitsu 為 AEON Food Style 打造店長協作 AI Agent，零售營運進入現場決策層</h3>
+          <p>Fujitsu 開發可與 AEON Food Style 店長協作的 AI Agent，切入 store operations；重點不在聊天，而是 AI agent 開始進入補貨、陳列、策略門市營運這類現場決策節點。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMi_wFBVV95cUxQbC1HR3dNM25zb2laVjJzb0pWNVVhV3V5djltNnZKUzBDaHlDRjFXTXVBdnRuVDB6OVVFVUp6YUdjaGFJV29iWUVXSDBBVmlkWUpKU1dzdWJrd3AwWXU4emZWNFVSbVhUazVRQUU4LUxvVE9tZ0IycjlhYXJ5TEdGeHl3SlRkS3MwaWJORXE1bmoxTzQtRnVjYmhua0thbHgzakUyY1hnMC1CTHZTUTctRkNibHNTM1dtRURWZ1JEdEdmdkRQWlhOcGNJUE5XV1ZicU0xS1o3QkY3N1d3MTdTR1lQOUpFVDdjYTd2cUZqQUJmWFdoR2VWQnVKUDJ2TDQ?oc=5">ACN Newswire</a>、<a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxPY1A4a1VQVjRGOGZDelRlWFJuNEsyRDhIVGs5aDRWQndWcFVsdHJEOXVOVUpEQjcwZVlvMXlIWHJ5VHY5V2JuNVF6dUZta1l2cjhCU1pPekRhWm5VbFhrQzNXS1p5b0hMZ3IxdkpOQ0VoZFBIOW93aUZyTUpnWkI3eHBBaw?oc=5">Grocery Trade News</a> · <time datetime="2026-07-13T15:38:00Z">2026-07-13 15:38 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">07</p>
+          <h3>Waze 推出 Gemini AI features，導航開始變成個人化代理介面</h3>
+          <p>Waze 新增 Gemini AI-powered features、motorbike mode 與個人化路線；獨特切角是 AI 不只在辦公室 agent 化，也在日常移動場景中把路線、偏好與語音互動重新包裝。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQX3N5RVJuTTFqeFdSNTFvcDFsREZZS0Exd2c2VV9LUHd6Q3B6S0RLX0hnUnRnZGFQUUUyeFkyeUwxNTBldkY0bHdUUW1oOHowcElxVEdPeUhRYlljLU1jYWhabnYtRzFZZUlrUXdFWXlodFk2eF9ZMkktSEFKQVRmcWo5WDJJYW1WekZnWi1maFhzTVJrdXJFR3diN0VDMjJ3ZndsV1FWYzFHX3NFMmtiS0VR?oc=5">MediaPost</a>、<a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE8xZk1MbGEzeDh2al9RNFc5b0duWGlqSENBWkc3OW5NNmVlSWVscjVWWkdZOW5aQWlJUzEtTVhxV0htOHgzZnoyNFkyVm8xbDZ3TkhrZG5hY3ZzSlhldTZqNlp4M3M5N3lGWUVsMzQwZ0c3c3VMMHhqTWxJeGU?oc=5">MacRumors</a> · <time datetime="2026-07-13T21:08:34Z">2026-07-13 21:08 GMT</time></div>
+        </article>
+
+        <article>
+          <p class="rank">08</p>
+          <h3>Apple 起訴 OpenAI 涉 trade secrets，Big Tech 與模型公司的合作裂縫擴大</h3>
+          <p>Apple 對 OpenAI 提出 trade secrets lawsuit，讓近期 OpenAI 與 Big Tech 的合作不穩定性再升級；這則的獨特切角是 AI 人才、商業秘密與平台合作正在互相拉扯。</p>
+          <div class="sources">來源：<a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNLXMtTEZ3RVJwWnBiMVNOdFpPdkRoTFgxYklzOEE2Y3kyZTlUbHdiOEJIYjBhZ2UzWXVlMi1zWXZXS18tRGV3WEs0MGR1ck5nM05CNF9oUjVvRm9wRHpZN0UxLWpuRy1POGk2eUpNSV9oMXFOTXcwU2FidTgtbWN5d2tNOWdNdGNGcjhSVF9vZ3dyU2FyMXJZZXBrNmNRN2ZRaVhXSDRUSQ?oc=5">AppleInsider</a>、<a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOTlJ2VlNSbml2cW9xcXhLUjNmaHJkeWxRSXBsbFlIMGJxa25yd1dxMjVBdFNHM0JvS2dQZ1p0RlVoV3VYYzJLdGZwUzZoRkdfZXAxVndrRlUtMDBCbWlyWVV5Z2JBdEJZZzNsR2ZmbzdtOHZ1bW1vSkxkc1dUYVljYVpwazFteWhzYkFXWUxOOXdoclVxeExhN2FDUXYtUQ?oc=5">GuruFocus</a> · <time datetime="2026-07-13T14:14:00Z">2026-07-13 14:14 GMT</time></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。
+    </footer>
+  </main>
+</body>
+</html>

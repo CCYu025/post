@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026，還該成為軟體工程師嗎？</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #171a1b;
+      --muted: #626867;
+      --paper: #f5f1e8;
+      --cream: #fffaf0;
+      --line: #d8cfbf;
+      --night: #132026;
+      --green: #566f54;
+      --blue: #2d6675;
+      --amber: #c8892b;
+      --red: #b64d3b;
+      --shadow: 0 28px 88px rgba(18, 25, 27, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background:
+        linear-gradient(90deg, rgba(45, 102, 117, 0.08), transparent 20%, transparent 80%, rgba(200, 137, 43, 0.09)),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Noto Serif TC", "Source Han Serif TC", "Songti TC", "Microsoft JhengHei", serif;
+      line-height: 1.78;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.22em;
+    }
+
+    .page {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .hero {
+      min-height: 94vh;
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: minmax(24px, 1fr) minmax(0, 1180px) minmax(24px, 1fr);
+      align-items: center;
+      background: #0e1518;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(10, 15, 18, 0.9), rgba(10, 15, 18, 0.68) 42%, rgba(10, 15, 18, 0.18) 100%),
+        linear-gradient(0deg, rgba(10, 15, 18, 0.82), transparent 42%);
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .hero-copy {
+      grid-column: 2;
+      width: min(780px, 100%);
+      padding: 96px 0 84px;
+      color: #fff8ed;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f0bc5d;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 60px;
+      line-height: 1.06;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .dek {
+      margin: 28px 0 0;
+      max-width: 720px;
+      font-size: 22px;
+      line-height: 1.72;
+      color: rgba(255, 248, 237, 0.88);
+      font-weight: 500;
+    }
+
+    .meta {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 14px;
+      color: rgba(255, 248, 237, 0.9);
+    }
+
+    .meta span,
+    .meta a {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 248, 237, 0.34);
+      border-radius: 999px;
+      background: rgba(9, 14, 17, 0.38);
+      backdrop-filter: blur(10px);
+    }
+
+    .caption {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .hero-caption {
+      position: absolute;
+      right: 24px;
+      bottom: 18px;
+      width: 290px;
+      text-align: right;
+      color: rgba(255, 248, 237, 0.66);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(22px, 1fr) minmax(0, 1140px) minmax(22px, 1fr);
+    }
+
+    .opening {
+      grid-column: 1 / -1;
+      background: var(--cream);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .opening-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 56px 22px 50px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.72;
+      font-weight: 900;
+      color: #20221f;
+    }
+
+    .thesis {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    .thesis div {
+      border-top: 4px solid var(--blue);
+      padding-top: 15px;
+    }
+
+    .thesis b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--blue);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .thesis span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .feature {
+      grid-column: 2;
+      padding: 70px 0 78px;
+      display: grid;
+      grid-template-columns: minmax(0, 720px) minmax(250px, 1fr);
+      gap: 50px;
+      align-items: start;
+    }
+
+    .story {
+      min-width: 0;
+    }
+
+    .story h2 {
+      margin: 64px 0 22px;
+      font-size: 32px;
+      line-height: 1.28;
+      letter-spacing: 0;
+      color: var(--night);
+    }
+
+    .story h2:first-child {
+      margin-top: 0;
+    }
+
+    .story p {
+      margin: 0 0 28px;
+      font-size: 19px;
+      line-height: 1.92;
+    }
+
+    .drop:first-letter {
+      float: left;
+      padding: 15px 14px 0 0;
+      font-size: 84px;
+      line-height: 0.84;
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    .quote {
+      margin: 52px 0;
+      padding: 30px 0 30px 34px;
+      border-left: 7px solid var(--amber);
+      color: #222521;
+      font-size: 28px;
+      line-height: 1.55;
+      font-weight: 900;
+    }
+
+    .photo-break {
+      margin: 56px 0;
+    }
+
+    .photo-break img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+    }
+
+    .rail {
+      position: sticky;
+      top: 22px;
+      align-self: start;
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    .rail-section {
+      margin-bottom: 28px;
+      padding-top: 18px;
+      border-top: 4px solid var(--green);
+    }
+
+    .rail-section h3 {
+      margin: 0 0 13px;
+      color: var(--green);
+      font-size: 15px;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .rail-section p,
+    .rail-section li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .rail-section p {
+      margin: 0 0 12px;
+    }
+
+    .rail-section ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .rail-section li {
+      margin-bottom: 10px;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .signal-grid span {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.74);
+      color: var(--night);
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .closing {
+      grid-column: 1 / -1;
+      background: var(--night);
+      color: #f5f1e8;
+    }
+
+    .closing-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 58px 22px 62px;
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 48px;
+    }
+
+    .closing h2 {
+      margin: 0;
+      color: #efbd62;
+      font-size: 34px;
+      line-height: 1.25;
+    }
+
+    .closing p {
+      margin: 0 0 22px;
+      color: rgba(245, 241, 232, 0.86);
+      font-size: 18px;
+      line-height: 1.86;
+    }
+
+    .source-note {
+      grid-column: 2;
+      padding: 42px 0 56px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 13px;
+      line-height: 1.72;
+    }
+
+    .source-note p {
+      margin: 0 0 10px;
+    }
+
+    @media (max-width: 940px) {
+      h1 {
+        font-size: 44px;
+      }
+
+      .dek {
+        font-size: 19px;
+      }
+
+      .opening-inner,
+      .feature,
+      .closing-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .rail {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .rail-section {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 88vh;
+        grid-template-columns: 18px minmax(0, 1fr) 18px;
+      }
+
+      .hero-copy {
+        padding: 78px 0 62px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .dek {
+        font-size: 17px;
+      }
+
+      .hero-caption {
+        position: static;
+        grid-column: 2;
+        width: auto;
+        padding-bottom: 18px;
+        text-align: left;
+      }
+
+      .lead {
+        font-size: 22px;
+      }
+
+      .thesis,
+      .rail,
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        padding-top: 52px;
+      }
+
+      .story h2 {
+        font-size: 26px;
+      }
+
+      .story p {
+        font-size: 17px;
+      }
+
+      .quote {
+        padding-left: 22px;
+        font-size: 23px;
+      }
+
+      .closing h2 {
+        font-size: 27px;
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .hero {
+        min-height: 118vh;
+      }
+
+      .hero-copy {
+        padding-top: 54px;
+        padding-bottom: 48px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .dek {
+        font-size: 16px;
+      }
+
+      .meta {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <img src="software_engineer_2026_hero.png" alt="軟體工程師在夜間工作台前審視程式、測試流程與抽象架構圖">
+      <section class="hero-copy" aria-label="文章標題">
+        <p class="kicker">Career Question, 2026</p>
+        <h1>2026，還該成為軟體工程師嗎？</h1>
+        <p class="dek">Scott Hanselman 的答案並不浪漫：AI 讓寫 code 更容易，也讓粗糙的工程更容易泛濫。真正值得投入的，不是「會不會被取代」，而是你是否願意學會負責、設計、溝通，並把軟體真的交到世界上。</p>
+        <div class="meta" aria-label="影片資訊">
+          <span>Jean Lee</span>
+          <span>2026-06-25</span>
+          <span>約 25 分鐘</span>
+          <a href="https://www.youtube.com/watch?v=W6aOdLlEz1w" target="_blank" rel="noopener">觀看原始影片</a>
+        </div>
+      </section>
+      <p class="caption hero-caption">AI-generated editorial image, not a video screenshot.</p>
+    </header>
+
+    <main>
+      <section class="opening">
+        <div class="opening-inner">
+          <p class="lead">這不是一支勸退影片。它更像一封寫給 SWE 的現場信：如果你只是想把 prompt 丟出去、把生成結果合併進主線，那 2026 會很危險；但如果你把 AI 當成 power tool，並把工程責任抓回自己手上，這反而可能是最值得入場的時刻之一。</p>
+          <div class="thesis" aria-label="專題主軸">
+            <div>
+              <b>What Changed</b>
+              <span>AI 可以更快產生程式，但不會替你產生 architecture、taste 與 product responsibility。</span>
+            </div>
+            <div>
+              <b>What Stayed</b>
+              <span>基本功、測試、清楚表達、code review、部署紀律，仍是工程職涯的底盤。</span>
+            </div>
+            <div>
+              <b>Who Matters</b>
+              <span>早期工程師不能被組織放棄，否則未來就沒有 senior engineer 的來源。</span>
+            </div>
+            <div>
+              <b>What To Build</b>
+              <span>不要只做 clone；做真實、可維護、你願意照顧的小產品。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article class="feature">
+        <div class="story">
+          <h2>每個年代都宣布過 coding 已死</h2>
+          <p class="drop">Hanselman 從 1984 年開始寫程式。他說自己已經看過幾十年的恐慌：高階語言會殺死程式設計，IntelliSense 會讓人變笨，Stack Overflow 讓大家只會複製貼上。現在輪到 AI。這不是第一次，也不會是最後一次。</p>
+          <p>他的姿態不是否認變化，而是把變化放回工具史。彩色螢幕、IDE、自動完成、雲端、行動裝置，每一次都改變工程師的工作面貌，但沒有讓 craft 消失。AI 也是 power tool。它能讓工程師更快抵達某些結果，也能更快製造一堆看似可用、實際上缺乏架構的 code。</p>
+          <p>所以問題不再是「AI 會不會寫 code」。它已經會。真正的問題是：當 code 變得便宜，誰來負責判斷它是否應該存在、如何演進、如何測試、如何交付、出了事誰承擔？</p>
+
+          <div class="quote">AI 不會自動生成 architecture。它會討好你、完成 feature，也可能把系統推向巨大的混亂物件。</div>
+
+          <h2>AI 時代，責任沒有外包</h2>
+          <p>Hanselman 用一個很直接的比喻說明責任：如果一個陌生人在網路上送來 PR，你沒有看就 merge，結果傷害使用者，那不是陌生人的錯，是你的錯。AI 也是一樣。它會犯錯，人也會犯錯，但產品責任仍在點下 merge 的人身上。</p>
+          <p>這也是他不把 AI workflow 當成即興 vibe 的原因。他談到 code signing、testing、Dependabot、agentic workflow、review pipeline。換句話說，AI 不是讓 SDLC 消失，而是讓好的 SDLC 更重要。當產出速度提高，沒有閘門的團隊只會更快把不可信的東西送到使用者面前。</p>
+          <p>對 SWE 來說，這是 2026 的第一個分水嶺：會使用 AI 工具不稀奇；能把 AI 產出放進工程紀律裡，才是職業能力。</p>
+
+          <h2>不要把 junior 斷掉</h2>
+          <p>訪談裡最有組織層級重量的一句話，是 Hanselman 對早期工程師的擔憂：如果不繼續雇用、培養 early-career developers，未來的 senior 從哪裡來？這不是情懷問題，而是供應鏈問題。軟體組織不能只採收成熟工程師，卻停止栽培新人。</p>
+          <p>他借用護理領域的 preceptor 概念：不要把新人放在「低一等」的位置，然後期待他自己從缺乏 context 的坑裡爬出來。更健康的設計，是把 senior 的工作明確定義為製造更多 senior。這也意味著 AI 教學工具應該因人而異：junior 和 senior 不該用同一種模型互動方式。</p>
+          <p>AI 可以成為學習加速器，但它也可能讓初學者跳過痛苦卻必要的理解過程。好的工具應該讓人停下來解釋、自己寫一部分、接受小測驗、補齊 mental model，而不是把所有過程都變成一鍵完成。</p>
+
+          <div class="photo-break">
+            <img src="software_engineer_apprenticeship.png" alt="資深工程師與早期工程師圍繞真實專案草圖進行討論">
+            <p class="caption">AI-generated editorial image, not a video screenshot.</p>
+          </div>
+
+          <h2>基本功不是懷舊，是壓力測試</h2>
+          <p>當被問到如果回到 20 歲、想成為真正的工程師該做什麼，Hanselman 的答案很樸素：基本功，以及溝通與清晰度。程式設計本來就是把意圖表達到足夠清楚，讓它能 compile、run、test。AI 只是把這件事推到另一個介面：你的 prompt、你的需求拆解、你的 review 意見，也是在寫程式。</p>
+          <p>因此，真正值得練的不是背更多工具名，而是把模糊想法變清楚的能力。你能不能看著另一個人解釋你的 trade-off？能不能在白板上邊想邊說？能不能承認不知道，然後把問題拆到可以求證？這些能力在 AI 時代沒有過時，反而變成辨識工程師深度的方式。</p>
+          <p>他的 rapid-fire 回答也很有意思：該讀 computer science 還是 AI？他說該讀 software engineering，因為那是把東西 ship 出去的部分。這句話對 SWE 尤其重要。演算法與模型當然重要，但職涯本身多半是在與需求、legacy、測試、部署、使用者、文件、團隊溝通一起工作。</p>
+          <p>另一個更尖銳的回答是「每個人都該學哪一種語言？」Hanselman 說的是 English，並立刻承認這很不理想。這不是把英文包裝成能力優越感，而是在描述眼前的工作現實：大量文件、issue、prompt、開源討論、跨國協作與 AI 工具介面仍高度依賴英文。對非英語母語的 SWE 來說，這是一個不公平但值得正視的槓桿。</p>
+
+          <h2>作品集要真，不要只像</h2>
+          <p>許多 junior 會拿 clone project 當作品集。Hanselman 不否定 tic-tac-toe 或 Minecraft clone 的練習價值，但他指出問題：如果你只是利用某個巨大名詞的既有語意，AI 能很快補出表面相似的東西；但當你不能說出那個產品名，必須自己描述規格時，需求的重量就浮現了。</p>
+          <p>他的建議是做「你真的在乎」的東西。Tiny Tool Town 那種小工具集合，看起來輕鬆甚至有點荒唐，但背後有 license、CI/CD、release、issue triage、維護規則。它不是履歷上的裝飾品，而是會被照顧的軟體。</p>
+          <p>對求職者來說，這比完美複製熱門產品更有信號。因為真實小產品會暴露你的品味：你怎麼處理 scope？怎麼維護？怎麼寫 README？怎麼讓它部署？怎麼判斷什麼可以 stale、什麼需要修？這些比「AI 幫我生成了一個 clone」更接近工程現場。</p>
+
+          <h2>簡單架構，仍然是高手的語言</h2>
+          <p>訪談後段，Hanselman 展示自己的工具與網站時，順手講了一段架構哲學：很多人太愛用資料庫，但有些東西根本不需要。GitHub issues 可以是資料庫；Astro 產生的 static site 可以放 CDN；部落格二十多年內容也可能只是幾百 MB 的 XML，整包進記憶體、只在新增文章時 invalidate cache。</p>
+          <p>這段不是反資料庫，而是反射性過度設計。SWE 的成熟度，在於知道什麼問題需要 real-time、Postgres、queue、distributed system；也知道什麼問題其實每小時更新一次就好，cache 就夠，static 就夠。</p>
+          <p>所以，2026 年還該成為 SWE 嗎？如果你期待這份工作只剩下輸入 prompt、收割程式，那答案可能是否定的。但如果你想學會把問題變成產品、把工具放進紀律、把新人帶成高手、把小作品維護成真正的系統，那答案反而更清楚：值得，而且門檻變得更真實。</p>
+        </div>
+
+        <aside class="rail" aria-label="工程師判斷框架">
+          <section class="rail-section">
+            <h3>2026 SWE Signals</h3>
+            <div class="signal-grid">
+              <span>Architecture over output</span>
+              <span>Responsibility over merge</span>
+              <span>Clarity over prompting noise</span>
+              <span>Shipping over demos</span>
+            </div>
+          </section>
+
+          <section class="rail-section">
+            <h3>Ask Before Merge</h3>
+            <ol>
+              <li>這段 code 的意圖是否能被下一個人看懂？</li>
+              <li>測試是否覆蓋 AI 最可能胡說的地方？</li>
+              <li>如果它壞了，誰會受影響，誰負責回復？</li>
+              <li>這是必要架構，還是被工具速度煽動出的複雜度？</li>
+            </ol>
+          </section>
+
+          <section class="rail-section">
+            <h3>Career Bet</h3>
+            <p>把 AI 當成放大器，而不是替身。它會放大你的基本功，也會放大你的混亂。職涯策略不是避開 AI，而是讓自己成為能指揮、驗證、約束它的人。</p>
+          </section>
+        </aside>
+      </article>
+
+      <section class="closing">
+        <div class="closing-inner">
+          <h2>工程師的未來，不是更少人寫 code，而是更少人能逃避判斷。</h2>
+          <div>
+            <p>這支訪談的價值，在於它沒有把 AI 包裝成末日或樂園。它提醒 SWE：工具變強以後，職業倫理、架構感、溝通力與維護責任反而更清楚地浮出水面。</p>
+            <p>如果你正在決定是否進入這一行，真正該問的不是「AI 會不會取代我」，而是「我是否願意成為那個對系統、使用者與下一代工程師負責的人」。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="source-note" aria-label="資料來源">
+        <p>資料來源：Jean Lee 影片 <a href="https://www.youtube.com/watch?v=W6aOdLlEz1w" target="_blank" rel="noopener">Should You Still Become a Software Engineer in 2026? GitHub VP</a>，使用 YouTube 英文自動字幕 <code>en-orig</code> 與影片公開 metadata 製作摘要。</p>
+        <p>圖片為配合文章脈絡生成的編輯視覺，非影片截圖；文中內容以完整字幕整理、改寫與脈絡化。</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
