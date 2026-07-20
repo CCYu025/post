@@ -1,0 +1,232 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-17 AI 新聞精選</title>
+  <style>
+    :root {
+      --ink: #07101a;
+      --navy: #101a2c;
+      --paper: #f4f2ea;
+      --emerald: #2ee6b8;
+      --green: #007a62;
+      --red: #df433f;
+      --muted: #5f6b72;
+      --white: #fbfaf4;
+      --shadow: 10px 10px 0 rgba(7,16,26,.14);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      letter-spacing: 0;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration-color: rgba(46,230,184,.75); text-underline-offset: 3px; }
+    .page { width: min(1200px, calc(100% - 32px)); margin: 0 auto; padding: 22px 0 48px; }
+    .cover { position: relative; min-height: 570px; border: 3px solid var(--ink); overflow: hidden; background: var(--navy); color: var(--white); box-shadow: var(--shadow); }
+    .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .88; }
+    .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,16,26,.95) 0%, rgba(7,16,26,.69) 43%, rgba(7,16,26,.12) 100%), linear-gradient(0deg, rgba(7,16,26,.72), rgba(7,16,26,0) 45%); }
+    .cover-copy { position: relative; z-index: 1; min-height: 570px; width: min(760px, 100%); padding: 34px; display: flex; flex-direction: column; justify-content: space-between; }
+    .date-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--emerald); font-size: .85rem; font-weight: 900; text-transform: uppercase; }
+    .date-line::before { content: ""; width: 64px; height: 3px; background: var(--red); display: inline-block; }
+    h1 { margin: 0; font-size: clamp(2.3rem, 5.8vw, 5.8rem); line-height: .95; font-weight: 950; max-width: 11ch; overflow-wrap: anywhere; }
+    .dek { margin: 22px 0 0; max-width: 700px; font-size: clamp(1rem, 2.1vw, 1.24rem); color: rgba(251,250,244,.88); overflow-wrap: anywhere; }
+    .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .stat { border: 1px solid rgba(251,250,244,.42); background: rgba(7,16,26,.48); color: var(--white); padding: 8px 12px; font-size: .84rem; font-weight: 900; }
+    .section-title { margin: 42px 0 18px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; font-size: .94rem; font-weight: 950; }
+    .section-title::before, .section-title::after { content: ""; height: 3px; background: var(--ink); }
+    .lead-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr); gap: 18px; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .stack { display: grid; gap: 18px; }
+    article { min-width: 0; border: 2px solid var(--ink); background: rgba(251,250,244,.84); padding: 18px; box-shadow: var(--shadow); }
+    article.major { background: #101a2c; color: var(--white); border-color: #101a2c; padding: 24px; }
+    .kicker { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .tag { display: inline-flex; max-width: 100%; padding: 4px 8px; border: 1px solid currentColor; color: var(--red); background: rgba(223,67,63,.08); font-size: .72rem; font-weight: 950; overflow-wrap: anywhere; }
+    .tag.angle { color: var(--green); background: rgba(46,230,184,.14); }
+    .tag.warn { color: #9a6500; background: rgba(226,152,25,.14); }
+    article.major .tag { color: var(--emerald); }
+    h2, h3 { margin: 0; line-height: 1.18; font-weight: 950; overflow-wrap: anywhere; }
+    h2 { font-size: clamp(1.78rem, 3.35vw, 3.15rem); max-width: 17ch; }
+    h3 { font-size: clamp(1.08rem, 1.9vw, 1.42rem); }
+    p { margin: 12px 0 0; overflow-wrap: anywhere; }
+    .meta { margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(7,16,26,.25); color: var(--muted); font-size: .84rem; overflow-wrap: anywhere; }
+    article.major .meta { border-top-color: rgba(251,250,244,.24); color: rgba(251,250,244,.72); }
+    .sources { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px 12px; }
+    .sources a { font-weight: 850; }
+    .empty-follow { border: 2px dashed rgba(7,16,26,.45); background: rgba(255,255,255,.36); color: var(--muted); padding: 16px; overflow-wrap: anywhere; }
+    footer { margin-top: 34px; padding-top: 16px; border-top: 3px solid var(--ink); color: var(--muted); font-size: .86rem; overflow-wrap: anywhere; }
+    @media (max-width: 820px) {
+      .page { width: min(100% - 22px, 760px); padding-top: 12px; }
+      .cover, .cover-copy { min-height: 500px; }
+      .cover-copy { padding: 24px; }
+      .lead-grid, .news-grid { grid-template-columns: 1fr; }
+      h1 { max-width: 10ch; }
+      h2 { max-width: 100%; }
+      article { box-shadow: 6px 6px 0 rgba(7,16,26,.13); }
+    }
+    @media (max-width: 560px) {
+      .page { width: calc(100% - 16px); padding-bottom: 30px; }
+      .cover, .cover-copy { min-height: 430px; }
+      .cover-copy { padding: 18px; }
+      .date-line::before { width: 36px; }
+      .stat { width: 100%; }
+      article, article.major { padding: 15px; }
+      .section-title { grid-template-columns: 1fr; text-align: left; gap: 8px; }
+      .section-title::before, .section-title::after { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover">
+      <img src="2026-07-17-hero.png" alt="International AI governance room with Shanghai skyline, policy dossiers and glowing model evaluation layers">
+      <div class="cover-copy">
+        <div class="date-line"><span>2026-07-17</span><span>AI NEWS DAILY</span></div>
+        <div>
+          <h1>AI 變成外交與審查問題</h1>
+          <p class="dek">今天的重點從算力財報轉向治理戰場：中國在 WAIC 推 AI 外交，模型政治偏差被放大檢視，DeepSeek 估值與 Gemini 延期則提醒市場還在重排模型權力。</p>
+          <div class="stats">
+            <span class="stat">8 則收錄</span>
+            <span class="stat">1 則接續報導</span>
+            <span class="stat">4 則獨特切角</span>
+            <span class="stat">2 則未交叉驗證</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="follow-title">
+      <div class="section-title" id="follow-title">持續追蹤</div>
+      <article>
+        <div class="kicker"><span class="tag">🔄 接續報導</span><span class="tag warn">⚠ 未交叉驗證</span></div>
+        <h3>Gemini 3.5 Pro 再傳延後，Google 模型發布節奏卡在內部 benchmark</h3>
+        <p>相較 7 月 13 日市場已傳 Google 將目標放在 7 月 17 日，新報導指 Gemini 3.5 Pro 仍未達內部性能門檻，延宕從排程問題變成模型品質壓力。</p>
+        <div class="meta">
+          <time datetime="2026-07-17T01:28:00Z">發布時間：2026-07-17 01:28 UTC</time>
+          <div class="sources">
+            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPc2dwb0RnTUtfTHYxQXBidGREb0dGX3BYcC1LSU12dzI0SWFCTXpralFOT2FIb0RucEVjaE9Gc1dCQzdxR1l5V0REN3FCbzB2dWFLdm80bG1JbUpfVEtSVmN1bk56SUw5cHdSVW90VXE4aW1RTnRucEFlV2tCNC13c3dXYkpvSmtnVC1ZMWotMUdiRVpBVTVPNFdWMkpHRDZ1X3VqQmFPaEZlNjAzNHVSLWNWRzV0TlQ3YmluM2tWaW93anJR?oc=5">Tech Times</a>
+            <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxPNGM3TV80WXNtRHczZ3NjUkM0S1JTLTNZRTZBTDkyMFBvbThweUdrZmNFVHV6YzdfUDFwQ09jc2FhRnozMWlkQU9BZ3daOWVvbTJFWUNMaUZkR3QxaTFveC1jNWU2NzVYMFFlSHFZZHV6SHkwMTR4M2hETjR6LTJ2WXhHWW5acVVOUGRqWUpxcEs?oc=5">Seeking Alpha</a>
+            <a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxPcVhyUmo5YXBkNXhSSm9EdEttOEc5NkRUUng3Z0xTNlBnaHIwOHVKWEQzM0ZNVzlXSUpzRF9wZEhUY3lIMUdmVXRmM3lENFZCU3hDQzJab2Q1TnB5TjZUcGI1dHd4LUVKQ3JVSWNLZnZWa2M4WGJ2OWZZZnRLZUhuR0FHVEVXcE03Rl9FRkZrVjhvV2g2Wm9IYWdBY0tUaGFmYVc3bmlmWDdVclc4QmVxaFJwTjc3NTUyemdXRWZNSnRidTRoa3dJNDdnNE0xUdIB0wFBVV95cUxQOGdHdTNiSEplWXJ5UTlIWndQMHZKcC1mUjNmbFNEekI0M0o1aC1SQ0Uxc2ZPZTlrUnhrbmdiNm5RaS1helVfczh4aDZIZWltZ1FKbmo1QkFJMUVqc1N1ZlRoWDBlSnhUMndFbzFTNjV4OHdUb1hxMnl0RXU5X1UyWVZCRVBjVEJVUUxJNVYwOUd6TEl3cTZZU1hWcE81WWpwSHFwNk5EQ0tHeWdsVDlESFlXdTc3RnJnejlTb2x2NEc1NzBxQmVjV0Rla1hkSVFLZml3?oc=5">Firstpost</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="governance-title">
+      <div class="section-title" id="governance-title">全球治理</div>
+      <div class="lead-grid">
+        <article class="major">
+          <div class="kicker"><span class="tag angle">獨特切角</span></div>
+          <h2>Xi 在 WAIC 推 AI 外交，中國把治理話語權搬上主舞台</h2>
+          <p>Reuters 報導 Xi Jinping 將在上海論壇闡述 AI diplomacy vision；這不是單純科技展，而是中國試圖把 open、inclusive governance 變成全球 AI 規則競爭的一部分。</p>
+          <div class="meta">
+            <time datetime="2026-07-16T11:42:00Z">發布時間：2026-07-16 11:42 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQU1VkX0Npc2Jpc0tjRFVLQ0FlWFhZMlRrYzBWWTl2bFlzc0d3VXV6ZEVmNDY2TWRMQ2ZmVlJEeFp2WXVkY0dVYUJlWXJ5RTJhb2FlUDBESUFhZmNZbnExclllMWZUSGJDNmNwTGY1NzNEZTZBbm9YemJzU3RCUzI3eXRtcFNPSW1yUWwzVC1mVmtVVk5JenlpeURPYk45R3VUR3dQV2dqOA?oc=5">Reuters</a>
+              <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNMmN1VU9jb1Z6VDRWMUdnb2xtY0NtbUN0UmpGZ1B4bGhOMzZzVFo0UEZyZWJJUGNrbHAtVWdnZk1UVkVkY0ZHbU9wTnpkSk5STHJNNHNLZmdfc1hibHk3TjlhcHlxdnRJbzNWUktZVjdFZFU3TGFKRGxCbVhCR3MxX0l2aHpUNTN4ZXdacU5rU1E4STBmNnFNY2xaRzhvM1BRWk0yVzg5TmJGTUtXX1Z5Qko4MkkwYldpQjRKdVpKSEtid2ZmWE5sQg?oc=5">CGTN</a>
+            </div>
+          </div>
+        </article>
+        <div class="stack">
+          <article>
+            <div class="kicker"><span class="tag angle">獨特切角</span></div>
+            <h3>WAIC 將有 300 多項 AI 產品首秀，上海把大模型競賽改成應用展</h3>
+            <p>Global Times 稱 WAIC 將有 300+ AI products 全球首發，36Kr 預告 108 顆晶片與 261 個 large models；中國 AI 競爭焦點正在從模型榜單轉向可展示的產業應用。</p>
+            <div class="meta">
+              <time datetime="2026-07-16T21:52:00Z">發布時間：2026-07-16 21:52 UTC</time>
+              <div class="sources">
+                <a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5kNXRjNnNSY3lEUW5DcFFBaTdpOTg5MkJZdjRyazk0UDRNdWRKdHg3NWhFbVp4cmRsdGZ1c3ZSV0hIb3d6dk9Dcy00cXpkTlhDaWhQZVIwV0g1aV85LTZPWjZ3?oc=5">Global Times</a>
+                <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5NMlhWTWppZEY0cHQ4blBOSVRtQzJ2d3E0ZHBGSmlwNDh4My1ub2ZLbFJEMnJSYWt6X0djM19tR1hxWFd4ZVRmdmFTVk9qWTIwbmNR?oc=5">36Kr</a>
+                <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE9wT3dqQmV5S0w3STBxd0x2RnFyTkxtMW9CN3R0SEd1cHcxSmR4bDhuWWtFTW1RVHFodGw1Njc4LXZpdk1CancyN21zTnBLbGtOY2N2QW9TaEdmRlhfS0xmdHhHNzNqY1Bvc1I4WTNtcDVaU0c2bFdNa053cnY?oc=5">State Council Information Office</a>
+              </div>
+            </div>
+          </article>
+          <article>
+            <div class="kicker"><span class="tag angle">獨特切角</span></div>
+            <h3>Meta Oversight Board 指模型較少批評威權政府，政治偏差成安全測試新題</h3>
+            <p>研究指出 OpenAI、Anthropic 等主流模型對限制言論政府的批評較少；模型 alignment 的討論從有害內容擴大到政治審查與地緣風險。</p>
+            <div class="meta">
+              <time datetime="2026-07-16T18:03:00Z">發布時間：2026-07-16 18:03 UTC</time>
+              <div class="sources">
+                <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxNS3JjU0pFR29uUnJyY09HcDVOMktVbzRDQlFXTmJBcWo0SThRVFBvMURqUkZtMmtFUFI2M3ZfSWVuaG12YTB0eE1Cc2JpajNQTjA4bV9nUW1iZzE5SjZ6Zng1Qzk4RjlOanVSLWItd0RDM0hwRng5WFZTdUdJcEZ4cXBjQ3NHOTBZdlRnUTVmVE5fXzljMkQ5UE52Z1FkTXVSWldZelRRcXZ4SktDU3VXaHJaeDFLR2NjbXc?oc=5">Reuters</a>
+                <a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxOLUhDX0ZjM1hDWFFZWXZFN3JSalVFaERtb1cyMVJtMXJteWd1Zi01UWh4b0tVRFFSR25fWXFEVXJnbE80aWVwQThHcUVid1ZpV1AwTkZwSWFrZWVxbXc5dm1kdHQ4bS1uUWJQZjU0Mi1PWm5QY0drRzZzekhDSEh5WHp4YUl3RTl6TzdlVnJubTY1SS1UbTlTNWVDRnp6SHNYWXpHMm5RNmNGMGVIV3NHd3d1X2syaVQ2TUhTMjdFUy1vOU5YcGJzNnNZZ0tkUndPV2fSAVpBVV95cUxOZlU2V1JNVzhva3ZkR2xDbEZaVm1USTFlbTFsSDdBR1JJM0dPUWNKbl9ESTQtR2EtVVlGUmktTXcwbUJfT2VQTXhqQldUdVNoeEREZ0JLcXJkLVE?oc=5">MLex</a>
+                <a href="https://news.google.com/rss/articles/CBMihwJBVV95cUxOODRlNEpFTWl1ZzFOMnN3V1E4MzJpb1ctNldTTHd5RmN3aVl0ZmZZZzBKTEJnYWJ5cF9vbEFVMGpSQ1FBcGhob1lBc21zdVlTTS1maVR4OF9OSlVDcXcwSTJjeGZ0b1d3ZWZkOWd1ZGl6eUJVV05FQllVMFJjSnFKWlZXZHhzZlc2UktGYVY0OVlQZ25ya1JEdll4LXFRQ1JBc3JXOXZZdVFNdVRhNjFBeER2WldPZTIyQkJab3hGOVJuUEo1OTFFYWx1XzdFRFB3dWt3RWUwU0U2QmF1T01TemM4RUp6OUYxTWUzRGJPTThDOEJIMTVQT3M3VEtjYk9DOFlBVWtIa9IBgAJBVV95cUxNMVpMSWV2WGdkc0M1NGxnc3hrSHZydlU4Mk5HdEFUNl9Pd2xDWjNlbVVDaERSSm1SaFlYTW5GeFNsUU1aTGJhUi1TQ3FBQzBqbEdaRFlJcFkzS0h2N0p4N240UHpzVkYzMkdvREp4Z2VtWEswS3JZSTlPaXlVR1JFMU1JblFpT3VNWDA5V1loaThweUh0S0JvR1FoTklKYkl1OXlseUJGY2h1X2g1blI0RW13UlhLS0E1bzlzTHhRRkNYRFMzTEUtWWZEWmt0bko1a3ZVem5qVEx0dzlhV1EwQmthNzJuMHIwMmE5aHl3LUFtWGxmQVZzX1lUMXltM0RJ?oc=5">The Economic Times</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="market-title">
+      <div class="section-title" id="market-title">模型與資本訊號</div>
+      <div class="news-grid">
+        <article>
+          <div class="kicker"><span class="tag angle">獨特切角</span></div>
+          <h3>DeepSeek 文件暗示估值約 520 億美元，中國模型資本線再被重估</h3>
+          <p>Reuters 稱中國文件推算 DeepSeek valuation 約 520 億美元；在 Zhipu、MiniMax 等資本題後，DeepSeek 的估值訊號把中國模型公司重新放回投資人視野。</p>
+          <div class="meta">
+            <time datetime="2026-07-17T01:43:00Z">發布時間：2026-07-17 01:43 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxOVjJMWnJMRUpGQUsyQmZJV2hITGlPYktxMDFGanhPeVJVUDdma0VoMGlLd0VDNEhxUmh2UG5MaEJ4Ty1JSGNzY2Fka3g0MFpOa3RVZXphamdjb0REbDZFckM4R01yWWhiUWR0X0VTdUJfNWI1WDI1dThCSkVuNE04MG9JSHU3dXNVQS1SODN5c1Z1T3hMMHJnNFB6R1dRVnhqUjlxQ05RWWctb2wzZkhhbjNINVA?oc=5">Reuters</a>
+              <a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE00c3MwZEVJME84WTJjQk4ydXFMdjFZQWRVVzYzRnJEb2JXZGV6OFdtRFNBUlNTV0pOSDB2cVpZQ3dxMV9ndG1YMk5CVDJWZzAzR2lOa1MyU0RSZ1ZFeGp5cDRrU2xTbWhQU2tFZkFTMlBSTTk0Vy1TNXRzd1M?oc=5">Crypto Briefing</a>
+              <a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQakM2ajVfQU1hSXBYamhtZkFwTGVoNFJtVzd2U0E1cXprVkhTZ1V3YjNIUUQwOXBzdG80V3I0emc0R3hERlViaExheXp2eTg0aHZnTVBoSFJ3Tmwya2NheDhjcEJGRmh4cWxRNnRMZE41a3c4c0NnWlNrTk9DUFZHY3RycFRVZnM2TEU2VG5uUWp5bkFfc2EySVRFZTlleWwwNV9LTkRjazRaUmVCUHlXOW5IZWNDcW14SUhkRlg3UzM5dDFvNlVRNUN5dm8?oc=5">TradingView</a>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="kicker"><span class="tag">新事件</span></div>
+          <h3>Apple Intelligence 在中國完成登記，iPhone AI 上線跨過監管門檻</h3>
+          <p>Apple Intelligence AI service 已在中國網信監管系統完成登記，這讓 Apple 在中國推出裝置端 AI 的路徑更清楚，但也意味著模型功能需嵌入本地審查框架。</p>
+          <div class="meta">
+            <time datetime="2026-07-15T19:15:00Z">發布時間：2026-07-15 19:15 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQdXhJVXVnNzlEYTBUN3BZOHg5cUlhVVVIcUZaMHVCc3Ixa3puV1AzVTExY3Z6V2NEXzdJOU9NNl9ZLWVLbGQ1b0xoZWI3RXFRNVltVEE2T29ONUhlSGcxMEJKRkFVUV95MkVXRUpMRUpyQU5JSlZ5cVZpWlh1MDJHckNpMDRMYnFtbktoYUpIdU9CaGRJRkdkeVVzdml6QnJoalQ0R3NrTV9SZXc4dndSaDBRRndzWjNKb24tSQ?oc=5">Reuters</a>
+              <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQOFhzaXhXeXNITldCeTJWclhGN3pkVWdDNHZmVk02NnhmRHRabHRXNERKZGxEazU4ZF9yd3NKWW54bXdrZEFHaVAtUjUxYl85UE1hb0xsdS15bmI2WFlwV2o1X2xBSEJ0aHNsQXd5V2NMTGEwajJfeVNVbXJvT0NXUFZPSVlONU5kd25GQXlyaFJ4al8wZUNRNGFxQjh6T1AyRG1PZEJR?oc=5">Yahoo Finance</a>
+              <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTFB0cmhUa1ZuUmY5ZHFoVUFZQk95SmhySzVfeEFoZ25NQnZDaTZvdHM3NkQ3Z3lLZWU0YUNMakNSUEVuY3c2dzBxMW9BX3hJYkFYT1F0YlRMY0o2dFNzWkpOQ0I2Sjg5UW5vcUw0TWJDTWwwNVN5TThtcEROTXpQZw?oc=5">AOL</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="enterprise-title">
+      <div class="section-title" id="enterprise-title">企業與監管落地</div>
+      <div class="news-grid">
+        <article>
+          <div class="kicker"><span class="tag">新事件</span></div>
+          <h3>Denodo Platform 9.5 為 agentic AI 加入 Active Context，資料層成代理控制點</h3>
+          <p>Denodo 發表 Platform 9.5，主打讓 agentic AI 取得 active context 並負責任地行動；企業 agent 的下一個競爭點正從對話介面移到資料語境與權限控制。</p>
+          <div class="meta">
+            <time datetime="2026-07-17T02:15:00Z">發布時間：2026-07-17 02:15 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOQ3VaWHFtTVZRbWtMSlgtMnhoSUs2djlzSU4zSG42d0JrQzdCMHBvQzRzODc0Y2duRzhZTTZycWVoRzdGaElTTkFaWWcyQ0gtNmthTmh0X3JCWGFoZGwzdjVnaXpsTmtzZ1NLYmlvczFPbi1sZm9nSzFrVHdUbEV0Q1R0dXI2emN6YXVUOXBUZ2xYMlpRZTdPUURuZk9YYnBwT2RQVHYyaEFyVERETXlGSy1SXzhabUtjZGZHUHk0MmdSV1E0c0FDMF9FUmY5WXlqSzhJek9Jd0hIeDVL?oc=5">HPCwire</a>
+              <a href="https://news.google.com/rss/articles/CBMijwJBVV95cUxPYTlzQkkwMUdmSEtVSTZKQTMwNTNXQkp5RllGblphMXNZZFRhS3RZSHp3VVRuNzdsWm13aFpDblI4VF9YbFFFX0wzRk52a3RfOUVnZHlLZFFsd0MtX1l2bjhyVTdNaHR2M3ZkQ2NrMTA2UlpVTURkTVFKeGZITmFueUlZZ1c5SklRX3BKcl9wblVqUmpLMy1iQ054NmVSVjZFVjlqazVXVlVISG5BdUdhTVM3NUdaOXRmLVhkS0hNN01ES0JaSnpoZnFWZFBycUVUdl9SZGk4dmk3SGM5Sy11YWIxbDJKRjVGSlJONHVvZUFQVmpIRUdUWXRUQzBUd1l3SkhVWUsyOHJMVXBzVi1z?oc=5">Toronto Star</a>
+            </div>
+          </div>
+        </article>
+        <article>
+          <div class="kicker"><span class="tag">新事件</span><span class="tag warn">⚠ 未交叉驗證</span></div>
+          <h3>Korea FSC 將建 AI 保險詐欺基建，金融監理把模型放進稽核管線</h3>
+          <p>Asia Insurance Review 報導韓國 FSC 將建立 AI-powered insurance fraud prevention infrastructure；雖然目前主要來源有限，但訊號顯示金融監理正把 AI 從分析工具推進執法基建。</p>
+          <div class="meta">
+            <time datetime="2026-07-17T08:01:00Z">發布時間：2026-07-17 08:01 UTC</time>
+            <div class="sources">
+              <a href="https://news.google.com/rss/articles/CBMi8AFBVV95cUxOYndnZEFLX2F0Q3ZOQTdVNDc1N3l1OVpxY1ZXRWdmaEtOSU1hRW01U1ZDTkIzU3lhQS1qblZHa2N2QmNwUUNYdzNJUUpwMFNLMkFTbjJvU0RDVXJKT0pDTHVSVUtoOFdJNzRUUVB1VTdxWVJQY3loc1BzRTNuSlFINGh1amppUDNULXBpazBsNTEwelFxeDBSYnZCNDhabzk2YTRpWlN4R1lIdC1YZUo0TW1WTDNEOWJXN3FjMkV3SXpzaVA5d3Q0aVU4WmZEOEZUS0pXeVRmVElWTHdUZE1CdHRsSWtPVXpWVmZpYjluV3U?oc=5">Asia Insurance Review</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      本頁依過去 24 小時全球 AI 新聞整理；標題與摘要以繁體中文呈現，產品名、公司名與人名保留英文。單一來源或來源不足題目已明確標示。
+    </footer>
+  </main>
+</body>
+</html>
